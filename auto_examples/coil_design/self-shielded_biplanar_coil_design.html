@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Analytical self-shielded biplanar coil design &#8212; bfieldtools  documentation</title>
@@ -157,6 +157,11 @@ and the geometry.</p>
 <span class="n">shieldcoil</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_self-shielded_biplanar_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_self-shielded_biplanar_coil_design_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.core.scene.Scene object at 0x7f969ed86ad0&gt;
+</pre></div>
+</div>
 <p>Compute inductances and coupling</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">M11</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">inductance</span>
 <span class="n">M22</span> <span class="o">=</span> <span class="n">shieldcoil</span><span class="o">.</span><span class="n">inductance</span>
@@ -168,6 +173,34 @@ and the geometry.</p>
 
 <span class="n">A1</span><span class="p">,</span> <span class="n">Beta1</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">sph_couplings</span>
 <span class="n">A2</span><span class="p">,</span> <span class="n">Beta2</span> <span class="o">=</span> <span class="n">shieldcoil</span><span class="o">.</span><span class="n">sph_couplings</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 60 chunks (11844 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 12.81 seconds.
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 60 chunks (11782 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 13.08 seconds.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 80 chunks (11635 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Computing coupling matrices
+l = 1 computed
+l = 2 computed
+l = 3 computed
+l = 4 computed
+Computing coupling matrices
+l = 1 computed
+l = 2 computed
+l = 3 computed
+l = 4 computed
 </pre></div>
 </div>
 <p>Precalculations for the solution</p>
@@ -205,6 +238,11 @@ and the geometry.</p>
 <span class="n">shieldcoil</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">contours</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_self-shielded_biplanar_coil_design_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_self-shielded_biplanar_coil_design_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7f969ee5a9b0&gt;
+</pre></div>
+</div>
 <p>Compute the field and scalar potential on an XY-plane</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
 <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
@@ -224,6 +262,13 @@ and the geometry.</p>
 
 <span class="n">U1</span> <span class="o">=</span> <span class="n">CU1</span> <span class="o">@</span> <span class="n">coil</span><span class="o">.</span><span class="n">s</span>
 <span class="n">U2</span> <span class="o">=</span> <span class="n">CU2</span> <span class="o">@</span> <span class="n">shieldcoil</span><span class="o">.</span><span class="n">s</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 15.21 seconds.
+Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 15.42 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 83.93 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 87.19 seconds.
 </pre></div>
 </div>
 <p>Now, plot the field streamlines and scalar potential</p>
@@ -281,7 +326,12 @@ and the geometry.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<img alt="../../_images/sphx_glr_self-shielded_biplanar_coil_design_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_self-shielded_biplanar_coil_design_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>([], &lt;a list of 0 Text major ticklabel objects&gt;)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 4 minutes  36.669 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-self-shielded-biplanar-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/f8b5daafc92a81c4ffa49bdf1485c481/self-shielded_biplanar_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">self-shielded_biplanar_coil_design.py</span></code></a></p>
@@ -309,7 +359,7 @@ and the geometry.</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

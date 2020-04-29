@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Head gradient coil &#8212; bfieldtools  documentation</title>
@@ -191,12 +191,89 @@ We want to produce the field corresponding to a specific beta_l,m-component.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_head_gradient_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_head_gradient_coil_design_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2044 vertices by 672 target points... took 0.44 seconds.
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 16313 MiB required for 2044 by 2044 vertices...
+Computing inductance matrix in 40 chunks (12139 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 7.08 seconds.
+Pre-existing problem not passed, creating...
+Passing parameters to problem...
+Passing problem to solver...
+/home/rzetter/miniconda3/lib/python3.7/site-packages/cvxpy-1.1.0a3-py3.7-linux-x86_64.egg/cvxpy/reductions/solvers/solving_chain.py:170: UserWarning: You are solving a parameterized problem that is not DPP. Because the problem is not DPP, subsequent solves will not be faster than the first one.
+  &quot;You are solving a parameterized problem that is not DPP. &quot;
+
+
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 5979
+  Cones                  : 1
+  Scalar variables       : 3893
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer started.
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 5979
+  Cones                  : 1
+  Scalar variables       : 3893
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer  - threads                : 8
+Optimizer  - solved problem         : the dual
+Optimizer  - Constraints            : 1946
+Optimizer  - Cones                  : 1
+Optimizer  - Scalar variables       : 5979              conic                  : 1947
+Optimizer  - Semi-definite variables: 0                 scalarized             : 0
+Factor     - setup time             : 0.51              dense det. time        : 0.00
+Factor     - ML order time          : 0.07              GP order time          : 0.00
+Factor     - nonzeros before factor : 1.89e+06          after factor           : 1.89e+06
+Factor     - dense dim.             : 0                 flops                  : 1.75e+10
+ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
+0   2.8e+02  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  52.99
+1   1.1e+02  4.1e-01  1.1e+00  -8.42e-01  4.198700673e+01   4.215172336e+01   4.1e-01  53.36
+2   3.5e+01  1.2e-01  4.4e-01  -6.13e-01  3.028389943e+02   3.048007753e+02   1.2e-01  53.66
+3   1.1e+01  4.0e-02  1.2e-01  -7.35e-02  6.948597884e+02   6.966119813e+02   4.0e-02  53.96
+4   1.6e+00  5.7e-03  8.6e-03  4.74e-01   8.525157582e+02   8.529631307e+02   5.7e-03  54.28
+5   1.2e+00  4.2e-03  5.4e-03  9.12e-01   8.450041845e+02   8.453335242e+02   4.2e-03  54.59
+6   2.1e-01  7.3e-04  3.9e-04  9.34e-01   8.395639384e+02   8.396204477e+02   7.3e-04  54.94
+7   6.0e-02  2.1e-04  6.3e-05  9.88e-01   8.412232285e+02   8.412401387e+02   2.1e-04  55.29
+8   6.9e-03  2.5e-05  2.4e-06  9.97e-01   8.415305268e+02   8.415324452e+02   2.5e-05  55.65
+9   1.0e-03  3.6e-06  1.4e-07  1.00e+00   8.416630573e+02   8.416633570e+02   3.6e-06  55.97
+10  4.2e-05  1.5e-07  1.1e-09  1.00e+00   8.417015677e+02   8.417015803e+02   1.5e-07  56.34
+11  4.7e-06  1.7e-08  3.2e-10  1.00e+00   8.417030311e+02   8.417030304e+02   1.7e-08  56.64
+12  4.1e-06  1.5e-08  2.3e-10  1.00e+00   8.417030559e+02   8.417030555e+02   1.5e-08  57.13
+13  1.1e-07  5.8e-10  1.5e-11  1.00e+00   8.417032298e+02   8.417032285e+02   1.4e-10  57.41
+Optimizer terminated. Time: 57.65
+
+
+Interior-point solution summary
+  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
+  Solution status : OPTIMAL
+  Primal.  obj: 8.4170322980e+02    nrm: 2e+03    Viol.  con: 2e-09    var: 0e+00    cones: 0e+00
+  Dual.    obj: 8.4170322853e+02    nrm: 5e+03    Viol.  con: 3e-07    var: 3e-09    cones: 0e+00
+</pre></div>
+</div>
 <p>Plot coil windings</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loops</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">discretize</span><span class="p">(</span><span class="n">N_contours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">loops</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<img alt="../../_images/sphx_glr_head_gradient_coil_design_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_head_gradient_coil_design_002.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.core.scene.Scene object at 0x7f969e0660b0&gt;
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  21.181 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-head-gradient-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/866cf6423fb36f941863ebf1bdaf4f53/head_gradient_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">head_gradient_coil_design.py</span></code></a></p>
@@ -224,7 +301,7 @@ We want to produce the field corresponding to a specific beta_l,m-component.</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

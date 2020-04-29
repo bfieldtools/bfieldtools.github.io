@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Coil with interior holes &#8212; bfieldtools  documentation</title>
@@ -198,6 +198,10 @@ region between the two coil planes. The coil planes have holes in them,</p>
 <span class="n">bfield_specification</span> <span class="o">=</span> <span class="p">[</span><span class="n">target_spec</span><span class="p">]</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2772 vertices by 160 target points... took 0.21 seconds.
+</pre></div>
+</div>
 <p>Run QP solver</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mosek</span>
 
@@ -210,11 +214,87 @@ region between the two coil planes. The coil planes have holes in them,</p>
 <span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 27549 MiB required for 2772 by 2772 vertices...
+Computing inductance matrix in 60 chunks (12026 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 9.81 seconds.
+Pre-existing problem not passed, creating...
+Passing parameters to problem...
+Passing problem to solver...
+/home/rzetter/miniconda3/lib/python3.7/site-packages/cvxpy-1.1.0a3-py3.7-linux-x86_64.egg/cvxpy/reductions/solvers/solving_chain.py:170: UserWarning: You are solving a parameterized problem that is not DPP. Because the problem is not DPP, subsequent solves will not be faster than the first one.
+  &quot;You are solving a parameterized problem that is not DPP. &quot;
+
+
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 3364
+  Cones                  : 1
+  Scalar variables       : 4807
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer started.
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 3364
+  Cones                  : 1
+  Scalar variables       : 4807
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer  - threads                : 8
+Optimizer  - solved problem         : the dual
+Optimizer  - Constraints            : 2403
+Optimizer  - Cones                  : 1
+Optimizer  - Scalar variables       : 3364              conic                  : 2404
+Optimizer  - Semi-definite variables: 0                 scalarized             : 0
+Factor     - setup time             : 0.44              dense det. time        : 0.00
+Factor     - ML order time          : 0.12              GP order time          : 0.00
+Factor     - nonzeros before factor : 2.89e+06          after factor           : 2.89e+06
+Factor     - dense dim.             : 0                 flops                  : 2.13e+10
+ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
+0   3.2e+01  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  63.16
+1   2.2e+01  6.8e-01  1.0e+00  -4.93e-02  4.394350998e+00   3.612244501e+00   6.8e-01  63.50
+2   1.4e+01  4.5e-01  1.2e-01  1.73e-01   1.742209642e+01   1.685672440e+01   4.5e-01  63.84
+3   4.1e+00  1.3e-01  5.6e-02  1.35e+00   2.924843157e+01   2.903652904e+01   1.3e-01  64.18
+4   1.5e+00  4.6e-02  1.6e-02  5.05e-01   5.617431064e+01   5.608964506e+01   4.6e-02  64.54
+5   2.3e-01  7.3e-03  1.2e-03  3.38e-01   9.172543086e+01   9.170633095e+01   7.3e-03  64.95
+6   8.0e-02  2.5e-03  3.4e-04  7.43e-01   1.029694889e+02   1.029645986e+02   2.5e-03  65.28
+7   2.6e-03  8.0e-05  2.1e-06  1.02e+00   1.085962470e+02   1.085961045e+02   8.0e-05  65.74
+8   1.4e-03  4.2e-05  8.3e-07  1.01e+00   1.086891419e+02   1.086890775e+02   4.2e-05  66.07
+9   2.0e-04  6.2e-06  5.4e-08  1.01e+00   1.087870964e+02   1.087870918e+02   6.2e-06  66.45
+10  2.7e-05  8.6e-07  2.9e-09  1.00e+00   1.088016474e+02   1.088016470e+02   8.6e-07  66.84
+11  3.9e-06  1.9e-07  1.6e-10  1.00e+00   1.088036432e+02   1.088036431e+02   1.2e-07  67.22
+12  9.0e-07  7.3e-08  1.6e-11  1.00e+00   1.088038961e+02   1.088038960e+02   2.8e-08  67.55
+13  2.3e-07  1.8e-08  2.0e-12  1.00e+00   1.088039536e+02   1.088039536e+02   7.1e-09  68.01
+14  6.3e-08  2.1e-09  2.1e-13  1.00e+00   1.088039708e+02   1.088039708e+02   7.8e-10  68.46
+Optimizer terminated. Time: 68.62
+
+
+Interior-point solution summary
+  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
+  Solution status : OPTIMAL
+  Primal.  obj: 1.0880397081e+02    nrm: 2e+02    Viol.  con: 1e-09    var: 0e+00    cones: 0e+00
+  Dual.    obj: 1.0880397082e+02    nrm: 3e+03    Viol.  con: 0e+00    var: 8e-10    cones: 0e+00
+</pre></div>
+</div>
 <p>Plot the computed streamfunction</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ncolors</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<img alt="../../_images/sphx_glr_coil_with_holes_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_coil_with_holes_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7f969cd803b0&gt;
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  31.411 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-coil-with-holes-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/27a0f3d37810cf070642553936fb1450/coil_with_holes.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">coil_with_holes.py</span></code></a></p>
@@ -242,7 +322,7 @@ region between the two coil planes. The coil planes have holes in them,</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.mesh_calculus.laplacian_matrix &#8212; bfieldtools  documentation</title>
@@ -106,9 +106,9 @@
       
   <div class="section" id="bfieldtools-mesh-calculus-laplacian-matrix">
 <h1>bfieldtools.mesh_calculus.laplacian_matrix<a class="headerlink" href="#bfieldtools-mesh-calculus-laplacian-matrix" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<dl class="function">
 <dt id="bfieldtools.mesh_calculus.laplacian_matrix">
-<code class="sig-prename descclassname">bfieldtools.mesh_calculus.</code><code class="sig-name descname">laplacian_matrix</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh</span></em>, <em class="sig-param"><span class="n">material_param</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_calculus.laplacian_matrix" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bfieldtools.mesh_calculus.</code><code class="sig-name descname">laplacian_matrix</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">material_param=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_calculus.laplacian_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sparse Laplace-Beltrami operator</p>
 <p>If inner vertices are not given Laplacian for all the mesh vertices is returned.
 This corresponds to zero-Neumann (natural) boundary condition on the possible
@@ -155,7 +155,7 @@ shape==(len(inner_vertices)+len(holes), len(inner_vertices)+len(holes))</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>
