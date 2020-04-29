@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Example of a cylindrical perfect mu-metal shield &#8212; bfieldtools  documentation</title>
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Example of designing biplanar" href="shielding_biplanar_example.html" />
+    <link rel="prev" title="Design a field of a closed enclosed in a volume" href="shielding_closed_surface_example_direct_invert.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html"><span><img src="../../_static/logo_simple.png"></span>
+          bfieldtools</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../overview.html">Overview</a></li>
+                <li><a href="../../installation.html">Install</a></li>
+                <li><a href="../../literature.html">Literature</a></li>
+                <li><a href="../index.html">Examples</a></li>
+                <li><a href="../../api_reference.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#coil-design">Coil design</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html#physics-publication-examples">Physics publication examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#software-publication-examples">Software publication examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#thermal-noise-computation">Thermal noise computation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html#validation">Validation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-mumetal-shield-example-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+</div>
+<div class="sphx-glr-example-title section" id="example-of-a-cylindrical-perfect-mu-metal-shield">
+<span id="sphx-glr-auto-examples-publication-physics-mumetal-shield-example-py"></span><h1>Example of a cylindrical perfect mu-metal shield<a class="headerlink" href="#example-of-a-cylindrical-perfect-mu-metal-shield" title="Permalink to this headline">¶</a></h1>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">trimesh</span>
+<span class="kn">from</span> <span class="nn">mayavi</span> <span class="kn">import</span> <span class="n">mlab</span>
+
+<span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <span class="n">MeshConductor</span><span class="p">,</span> <span class="n">StreamFunction</span>
+<span class="kn">from</span> <span class="nn">bfieldtools.mesh_calculus</span> <span class="kn">import</span> <span class="n">gradient</span>
+<span class="kn">from</span> <span class="nn">bfieldtools.utils</span> <span class="kn">import</span> <span class="n">load_example_mesh</span><span class="p">,</span> <span class="n">combine_meshes</span>
+
+<span class="c1"># This doesn&#39;t matter, the problem is scale-invariant</span>
+<span class="n">scaling_factor</span> <span class="o">=</span> <span class="mi">1</span>
+
+
+<span class="n">planemesh</span> <span class="o">=</span> <span class="n">load_example_mesh</span><span class="p">(</span><span class="s2">&quot;10x10_plane_hires&quot;</span><span class="p">)</span>
+<span class="n">planemesh</span><span class="o">.</span><span class="n">apply_scale</span><span class="p">(</span><span class="n">scaling_factor</span><span class="p">)</span>
+
+<span class="c1"># Specify coil plane geometry</span>
+<span class="n">center_offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">scaling_factor</span>
+<span class="n">standoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">scaling_factor</span>
+
+<span class="c1"># Create coil plane pairs</span>
+<span class="n">coil_plus</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span>
+    <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+</span> <span class="n">center_offset</span> <span class="o">+</span> <span class="n">standoff</span><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">coil_minus</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span>
+    <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+</span> <span class="n">center_offset</span> <span class="o">-</span> <span class="n">standoff</span><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">)</span>
+
+<span class="n">joined_planes</span> <span class="o">=</span> <span class="n">combine_meshes</span><span class="p">((</span><span class="n">coil_plus</span><span class="p">,</span> <span class="n">coil_minus</span><span class="p">))</span>
+<span class="n">planemesh</span> <span class="o">=</span> <span class="n">joined_planes</span>
+
+<span class="c1"># Create mesh class object</span>
+<span class="n">coil</span> <span class="o">=</span> <span class="n">MeshConductor</span><span class="p">(</span><span class="n">mesh_obj</span><span class="o">=</span><span class="n">joined_planes</span><span class="p">,</span> <span class="n">fix_normals</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Separate object for shield geometry</span>
+<span class="n">shieldmesh</span> <span class="o">=</span> <span class="n">load_example_mesh</span><span class="p">(</span><span class="s2">&quot;closed_cylinder_remeshed&quot;</span><span class="p">)</span>
+<span class="n">shieldmesh</span><span class="o">.</span><span class="n">apply_scale</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">shield</span> <span class="o">=</span> <span class="n">MeshConductor</span><span class="p">(</span><span class="n">mesh_obj</span><span class="o">=</span><span class="n">shieldmesh</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fix_normals</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">80</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">N</span> <span class="o">*</span> <span class="n">N</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">w</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">w</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">N</span><span class="p">),</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">+=</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">Y</span> <span class="o">+=</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">points</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">Y</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
+<span class="n">points</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+
+
+<span class="k">def</span> <span class="nf">plot_plane</span><span class="p">():</span>
+    <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">X</span><span class="o">.</span><span class="n">min</span><span class="p">()],</span>
+        <span class="p">[</span><span class="n">Y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Y</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">Y</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">Y</span><span class="o">.</span><span class="n">max</span><span class="p">()],</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]),</span>
+        <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span>
+        <span class="n">opacity</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="p">)</span>
+<span class="n">s0</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">backface_culling</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">s0</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">ambient</span> <span class="o">=</span> <span class="mf">0.5</span>
+
+<span class="n">I_prim</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;../publication_software/Shielded coil/biplanar_streamfunction.npy&quot;</span><span class="p">)</span>
+<span class="n">sprim</span> <span class="o">=</span> <span class="n">StreamFunction</span><span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">vert2inner</span> <span class="o">@</span> <span class="n">I_prim</span><span class="p">,</span> <span class="n">coil</span><span class="p">)</span>
+<span class="n">m</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">sprim</span><span class="p">))</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">sprim</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">m</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">m</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">sprim</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">scalar_visibility</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="mf">1.2</span>
+<span class="c1"># s2 = mlab.triangular_mesh(*planemesh.vertices.T, planemesh.faces, scalars=I_prim,</span>
+<span class="c1">#                          colormap=&#39;RdBu&#39;)</span>
+<span class="c1"># s2.enable_contours = True</span>
+<span class="c1"># s2.contour.filled_contours = True</span>
+<span class="c1"># s2.contour.number_of_contours = 20</span>
+<span class="n">s2</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">render_lines_as_tubes</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">plot_plane</span><span class="p">()</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">s0</span><span class="o">.</span><span class="n">module_manager</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">39.154871143623325</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">40.509425675368334</span><span class="p">,</span>
+    <span class="mf">26.56155776567048</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">focal_point</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">4.239945673839333</span><span class="p">,</span>
+    <span class="mf">1.041549923485209</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.0005302515738243585</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_angle</span> <span class="o">=</span> <span class="mf">30.0</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_up</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">-</span><span class="mf">0.28276020498745635</span><span class="p">,</span>
+    <span class="mf">0.33658483701858727</span><span class="p">,</span>
+    <span class="mf">0.898196701154387</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">clipping_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">16.139073445910277</span><span class="p">,</span> <span class="mf">116.31572537292347</span><span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">compute_view_plane_normal</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_001.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_002.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_003.png" />
+</li>
+</ul>
+<dl class="simple">
+<dt>%% Calculate primary potential matrix</dt><dd><p>Compute slightly inside</p>
+</dd>
+</dl>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mf">1e-3</span>
+<span class="n">P_prim</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">-</span> <span class="n">d</span> <span class="o">*</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertex_normals</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 10.23 seconds.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">s</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">P_prim</span> <span class="o">@</span> <span class="n">sprim</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span>
+<span class="p">)</span>
+<span class="n">s</span><span class="o">.</span><span class="n">enable_contours</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">s</span><span class="o">.</span><span class="n">contour</span><span class="o">.</span><span class="n">filled_contours</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">s</span><span class="o">.</span><span class="n">contour</span><span class="o">.</span><span class="n">number_of_contours</span> <span class="o">=</span> <span class="mi">30</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_mumetal_shield_example_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_mumetal_shield_example_004.png" />
+<p>%% Calculate linear collocation BEM matrix</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_shield</span> <span class="o">=</span> <span class="n">shield</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">-</span> <span class="n">d</span> <span class="o">*</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertex_normals</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 9.25 seconds.
+</pre></div>
+</div>
+<p>%% Solve equivalent stream function for the perfect linear mu-metal layer</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">I_shield</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="o">-</span><span class="n">P_shield</span><span class="p">,</span> <span class="n">P_prim</span> <span class="o">@</span> <span class="n">sprim</span><span class="p">)</span>
+<span class="c1"># I_shield = P_prim @ I_prim</span>
+<span class="n">s_shield</span> <span class="o">=</span> <span class="n">StreamFunction</span><span class="p">(</span><span class="n">I_shield</span><span class="p">,</span> <span class="n">shield</span><span class="p">)</span>
+<span class="n">g</span> <span class="o">=</span> <span class="n">gradient</span><span class="p">(</span><span class="n">s_shield</span><span class="p">,</span> <span class="n">shieldmesh</span><span class="p">,</span> <span class="n">rotated</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">s0</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.3</span>
+<span class="p">)</span>
+<span class="n">s0</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">backface_culling</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">s_shield</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+<span class="c1"># s1.actor.property.opacity=0.8</span>
+<span class="n">s1</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">backface_culling</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="c1"># s2 = s_shield.plot(True, 10)</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+    <span class="o">*</span><span class="n">g</span><span class="p">,</span>
+    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;arrow&quot;</span><span class="p">,</span>
+    <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.0000008</span><span class="p">,</span>
+    <span class="n">scale_mode</span><span class="o">=</span><span class="s2">&quot;vector&quot;</span>
+<span class="p">)</span>
+<span class="c1"># s1.contour.filled_contours = True</span>
+<span class="c1"># s1.contour.number_of_contours = 30</span>
+<span class="c1"># s2.actor.property.render_lines_as_tubes = True</span>
+<span class="c1"># s1.actor.property.ambient = 0.2</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">s1</span><span class="o">.</span><span class="n">module_manager</span>
+<span class="n">plot_plane</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">39.154871143623325</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">40.509425675368334</span><span class="p">,</span>
+    <span class="mf">26.56155776567048</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">focal_point</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">4.239945673839333</span><span class="p">,</span>
+    <span class="mf">1.041549923485209</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.0005302515738243585</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_angle</span> <span class="o">=</span> <span class="mf">30.0</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_up</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="o">-</span><span class="mf">0.28276020498745635</span><span class="p">,</span>
+    <span class="mf">0.33658483701858727</span><span class="p">,</span>
+    <span class="mf">0.898196701154387</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">clipping_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">16.139073445910277</span><span class="p">,</span> <span class="mf">116.31572537292347</span><span class="p">]</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">compute_view_plane_normal</span><span class="p">()</span>
+<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_005.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_005.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_006.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_006.png" />
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U2_shield</span> <span class="o">=</span> <span class="n">shield</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+<span class="n">U2_prim</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 6400 target points... took 21.77 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 6400 target points... took 23.76 seconds.
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.contour</span> <span class="kn">import</span> <span class="n">scalar_contour</span>
+
+<span class="n">cc1</span> <span class="o">=</span> <span class="n">scalar_contour</span><span class="p">(</span><span class="n">planemesh</span><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">contours</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">cc1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cc1</span><span class="p">)</span>
+<span class="n">cc1a</span> <span class="o">=</span> <span class="n">cc1</span><span class="p">[:</span> <span class="n">cc1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">cc1b</span> <span class="o">=</span> <span class="n">cc1</span><span class="p">[</span><span class="n">cc1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">:]</span>
+<span class="n">cc2</span> <span class="o">=</span> <span class="n">scalar_contour</span><span class="p">(</span><span class="n">shieldmesh</span><span class="p">,</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">contours</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mf">0.1</span><span class="p">])</span>
+<span class="n">cc2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cc2</span><span class="p">)</span>
+<span class="n">cc2a</span> <span class="o">=</span> <span class="n">cc1</span><span class="p">[:</span> <span class="n">cc2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">cc2b</span> <span class="o">=</span> <span class="n">cc1</span><span class="p">[</span><span class="n">cc2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span> <span class="p">:]</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib.colors</span> <span class="k">as</span> <span class="nn">colors</span>
+
+
+<span class="k">def</span> <span class="nf">truncate_colormap</span><span class="p">(</span><span class="n">cmap</span><span class="p">,</span> <span class="n">minval</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">maxval</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">256</span><span class="p">):</span>
+    <span class="n">new_cmap</span> <span class="o">=</span> <span class="n">colors</span><span class="o">.</span><span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span>
+        <span class="s2">&quot;trunc(</span><span class="si">{n}</span><span class="s2">,</span><span class="si">{a:.2f}</span><span class="s2">,</span><span class="si">{b:.2f}</span><span class="s2">)&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="n">cmap</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="n">minval</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">maxval</span><span class="p">),</span>
+        <span class="n">cmap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">minval</span><span class="p">,</span> <span class="n">maxval</span><span class="p">,</span> <span class="n">n</span><span class="p">)),</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_cmap</span>
+
+
+<span class="n">cmap</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_cmap</span><span class="p">(</span><span class="s2">&quot;RdBu&quot;</span><span class="p">)</span>
+<span class="c1"># cmap.set_over((0.95,0.95,0.95))</span>
+<span class="c1"># cmap.set_under((0.95,0.95,0.95))</span>
+
+<span class="n">u0</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">U2_shield</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="p">)</span>  <span class="c1"># Solid angle of the shield, zero outside</span>
+<span class="n">u0</span> <span class="o">/=</span> <span class="n">u0</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<span class="n">u0</span><span class="p">[</span><span class="n">u0</span> <span class="o">&lt;</span> <span class="mf">1e-6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">u1</span> <span class="o">=</span> <span class="p">(</span><span class="n">U2_prim</span> <span class="o">@</span> <span class="n">sprim</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="n">u2</span> <span class="o">=</span> <span class="p">(</span><span class="n">U2_shield</span> <span class="o">@</span> <span class="n">I_shield</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span> <span class="o">*</span> <span class="n">u0</span>
+<span class="n">u3</span> <span class="o">=</span> <span class="p">(</span><span class="n">u1</span> <span class="o">+</span> <span class="n">u2</span><span class="p">)</span> <span class="o">*</span> <span class="n">u0</span>
+
+<span class="n">vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">u3</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.99</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">vmax</span><span class="p">,</span> <span class="n">vmax</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">u3</span><span class="p">)),</span> <span class="n">levels</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">u3</span><span class="p">))))</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span>
+    <span class="n">Y</span><span class="p">,</span>
+    <span class="n">u1</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">SymLogNorm</span><span class="p">(</span><span class="n">linthresh</span><span class="o">=</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">linscale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc1a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc1a</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc1b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc1b</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">xlims</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">get_xlim</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span>
+    <span class="n">Y</span><span class="p">,</span>
+    <span class="n">u2</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">SymLogNorm</span><span class="p">(</span><span class="n">linthresh</span><span class="o">=</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">linscale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc1a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc1a</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc1b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc1b</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlims</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span>
+    <span class="n">Y</span><span class="p">,</span>
+    <span class="n">u3</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="n">cmap</span><span class="p">,</span>
+    <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">,</span>
+    <span class="n">norm</span><span class="o">=</span><span class="n">colors</span><span class="o">.</span><span class="n">SymLogNorm</span><span class="p">(</span><span class="n">linthresh</span><span class="o">=</span><span class="mf">0.2</span> <span class="o">*</span> <span class="n">vmax</span><span class="p">,</span> <span class="n">linscale</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=-</span><span class="n">vmax</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">vmax</span><span class="p">),</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc1a</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc1a</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc1b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc1b</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">cc2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">cc2</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;gray&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;image&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">&quot;off&quot;</span><span class="p">)</span>
+<span class="n">p</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlims</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_007.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_007.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_008.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_008.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_mumetal_shield_example_009.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_009.png" />
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/rzetter/Documents/bfieldtools/examples/publication_physics/mumetal_shield_example.py:239: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
+  norm=colors.SymLogNorm(linthresh=0.2 * vmax, linscale=0.8, vmin=-vmax, vmax=vmax),
+/home/rzetter/Documents/bfieldtools/examples/publication_physics/mumetal_shield_example.py:255: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
+  norm=colors.SymLogNorm(linthresh=0.2 * vmax, linscale=0.8, vmin=-vmax, vmax=vmax),
+/home/rzetter/Documents/bfieldtools/examples/publication_physics/mumetal_shield_example.py:272: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
+  norm=colors.SymLogNorm(linthresh=0.2 * vmax, linscale=0.8, vmin=-vmax, vmax=vmax),
+
+(-2.9992466721105764, 21.000753327889424)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.983 seconds)</p>
+<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-mumetal-shield-example-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/14e45c113e4577fbf96fee13de4f29ae/mumetal_shield_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mumetal_shield_example.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../../_downloads/f7e3b33f72b335b1ddc9a6c464dcf341/mumetal_shield_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">mumetal_shield_example.ipynb</span></code></a></p>
+</div>
+</div>
+<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

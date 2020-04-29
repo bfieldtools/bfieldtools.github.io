@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>bfieldtools.suhtools.SuhBasis &#8212; bfieldtools  documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bfieldtools.thermal_noise.compute_DC_current_modes" href="bfieldtools.thermal_noise.compute_DC_current_modes.html" />
+    <link rel="prev" title="bfieldtools.sphtools.plotBVlm_volume" href="bfieldtools.sphtools.plotBVlm_volume.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo_simple.png"></span>
+          bfieldtools</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../overview.html">Overview</a></li>
+                <li><a href="../installation.html">Install</a></li>
+                <li><a href="../literature.html">Literature</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+                <li><a href="../api_reference.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#coil-design">Coil design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#validation">Validation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="bfieldtools-suhtools-suhbasis">
+<h1>bfieldtools.suhtools.SuhBasis<a class="headerlink" href="#bfieldtools-suhtools-suhbasis" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="bfieldtools.suhtools.SuhBasis">
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.suhtools.</code><code class="sig-name descname">SuhBasis</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">Nc=None</em>, <em class="sig-param">boundary_condition='dirichlet'</em>, <em class="sig-param">magnetic=False</em>, <em class="sig-param">solver_sparse=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class for representing magnetic field using surface harmonics</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>obj</strong><span class="classifier">Trimesh-object or Conductor-object</span></dt><dd><p>Represents the boundary on which current density is specified
+or Conductor object that wraps the mesh</p>
+</dd>
+<dt><strong>Nc</strong><span class="classifier">Number of components</span></dt><dd><p>If None (default), compute all components.</p>
+</dd>
+<dt><strong>boundary_condition</strong><span class="classifier">str  “dirichlet” (default) or “neumann”</span></dt><dd><p>if zero-Dirichlet boundary conditions (“dirichlet”)
+are used the basis corresponds to inner_vertices
+else with zero-Neumann condition (“neumann”)
+the basis corresponds to all vertices</p>
+</dd>
+<dt><strong>magnetic: False or ‘DC’ or ‘AC’</strong></dt><dd><p>Determines eigenvalue equation. If False, use laplacian and mass matrices.
+If ‘DC’, use resistance and mass matrices. If ‘AC’, use resistance and inductance matrices.</p>
+</dd>
+<dt><strong>solver_sparse: Boolean (True)</strong></dt><dd><p>If True, use solver from scipy.sparse.linalg rather than scipy.linalg</p>
+</dd>
+<dt><strong>kwargs: dict</strong></dt><dd><p>Passed to Conductor creation if a Trimesh object is passed as ‘obj’</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="method">
+<dt id="bfieldtools.suhtools.SuhBasis.calculate_basis">
+<code class="sig-name descname">calculate_basis</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">shiftinvert=True</em>, <em class="sig-param">v0=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.calculate_basis" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate basis functions as eigenfunctions of matrices
+specified by the ‘magnetic’ parameter</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>shiftinvert: Boolean (True)</strong></dt><dd><p>use shiftinvert mode to calculate eigenstuff faster (experimental)</p>
+</dd>
+<dt><strong>v0: array (b, b)</strong></dt><dd><p>Intial value matrix for eigenvalue decomposition algorithm. Shape depends on BC: if neumann b=self.mesh_conductor.basis.shape[0],
+if dirichlet b=self.mesh_conductor.basis.shape[1]</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.suhtools.SuhBasis.field">
+<code class="sig-name descname">field</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coeffs</em>, <em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate field at points</p>
+<p>Parameters</p>
+<p>coeffs : (self.Nc,) array of basis function coefficients
+points : (N_points, 3) field evaluation points</p>
+<p>Returns:</p>
+<blockquote>
+<div><p>field : (N_points, 3) magnetic field</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.suhtools.SuhBasis.basis_fields">
+<code class="sig-name descname">basis_fields</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.basis_fields" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate basis fields at points</p>
+<p>Return:</p>
+<blockquote>
+<div><p>Fields (3, N_points, self.Nc)</p>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.suhtools.SuhBasis.fit_coeffs">
+<code class="sig-name descname">fit_coeffs</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.fit_coeffs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit basis function coefficients to the data</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.suhtools.SuhBasis.plot">
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Nfuncs</em>, <em class="sig-param">dist=0.5</em>, <em class="sig-param">Ncols=None</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">figsize=(800</em>, <em class="sig-param">800)</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.plot" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plot basis functions on the mesh</p>
+<dl class="simple">
+<dt>Nfuncs: int or array-like</dt><dd><p>if int, the number functions starting from the first
+if list/array: the indices of the functions</p>
+</dd>
+<dt>dist: float</dt><dd><p>distance between the plotted objects relative to their size</p>
+</dd>
+<dt>Ncols: int or None</dt><dd><p>the number of columns in the plot
+If none automatically determined</p>
+</dd>
+</dl>
+<p>fig: handle for mlab figure</p>
+<p>figsize: size of a new figure if ‘fig’ not given</p>
+<dl class="simple">
+<dt>ncolors:</dt><dd><p>number of colors in the colormap</p>
+</dd>
+</dl>
+<p>kwargs: keyword arguments passed to mayavi (colormap, etc.)</p>
+</dd></dl>
+
+</dd></dl>
+
+<div style='clear:both'></div></div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>bfieldtools.line_conductor.LineConductor &#8212; bfieldtools  documentation</title>
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bfieldtools.sphtools.SphBasis" href="bfieldtools.sphtools.SphBasis.html" />
+    <link rel="prev" title="bfieldtools.contour.simplify_contour" href="bfieldtools.contour.simplify_contour.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js "></script>
+<script type="text/javascript" src="../_static/js/jquery-fix.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
+<script type="text/javascript" src="../_static/bootstrap-sphinx.js "></script>
+
+  </head><body>
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html"><span><img src="../_static/logo_simple.png"></span>
+          bfieldtools</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../overview.html">Overview</a></li>
+                <li><a href="../installation.html">Install</a></li>
+                <li><a href="../literature.html">Literature</a></li>
+                <li><a href="../auto_examples/index.html">Examples</a></li>
+                <li><a href="../api_reference.html">API</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#coil-design">Coil design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#validation">Validation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="body col-md-12 content" role="main">
+      
+  <div class="section" id="bfieldtools-line-conductor-lineconductor">
+<h1>bfieldtools.line_conductor.LineConductor<a class="headerlink" href="#bfieldtools-line-conductor-lineconductor" title="Permalink to this headline">¶</a></h1>
+<dl class="class">
+<dt id="bfieldtools.line_conductor.LineConductor">
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.line_conductor.</code><code class="sig-name descname">LineConductor</code><span class="sig-paren">(</span><em class="sig-param">loops=None</em>, <em class="sig-param">mesh=None</em>, <em class="sig-param">scalars=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor" title="Permalink to this definition">¶</a></dt>
+<dd><p>Class that inherits Trimesh.path.Path3D for handling discretized current loops.
+Functions inside assume that vertices are unique for each entity.</p>
+<p>Init with inheritance. First priority is given to passed loops parameter,
+if not present will compute loops from mesh and scalars.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>loops: list of array-like (x, 3)</strong></dt><dd><p>Each list element corresponds to a Polyline (current loop), with the
+last element being connected to the first</p>
+</dd>
+<dt><strong>mesh: Trimesh mesh object</strong></dt><dd><p>mesh geometry</p>
+</dd>
+<dt><strong>scalars: array-like or StreamFunction</strong></dt><dd><p>scalar function defined in the vertices of the mesh</p>
+</dd>
+<dt><strong>kwargs: dict</strong></dt><dd><p>passed to scalar_contour if called. Relevant kw:s are N_contours
+and contours</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.simplify">
+<code class="sig-name descname">simplify</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">min_edge=0.001</em>, <em class="sig-param">angle_threshold=0.02</em>, <em class="sig-param">smooth=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.simplify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Simplifies contour paths
+c: array-like</p>
+<blockquote>
+<div><p>List of polygons describing closed loops.</p>
+</div></blockquote>
+<dl class="simple">
+<dt>min_edge: float</dt><dd><p>Minimum edge length. Edges shorter than this are merged.</p>
+</dd>
+<dt>angle_threshold: float</dt><dd><p>Minimum angle. Edges with smaller angle differences are merged.</p>
+</dd>
+<dt>smooth: bool</dt><dd><p>If True, apply smoothing to the polygon shapes.</p>
+</dd>
+</dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt>simplified_linepath: LineConductor</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.plot_loops">
+<code class="sig-name descname">plot_loops</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.plot_loops" title="Permalink to this definition">¶</a></dt>
+<dd><p>Plots loops in 3D using mayavi, see viz.plot_3d_current_loops for more details</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>colors: str</strong></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.magnetic_field">
+<code class="sig-name descname">magnetic_field</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.magnetic_field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute magnetic field in some point due to a unit current in the loops</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>points: array (N_p, 3)</strong></dt><dd></dd>
+<dt><strong>separate_loops: Boolean</strong></dt><dd><p>If True, don’t combine contributions of separate loops</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Bfield: array (N_p, 3) or array (N_loops, N_p, 3)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.vector_potential">
+<code class="sig-name descname">vector_potential</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.vector_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute magnetic vector potential in some point due to a unit current in the loops</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>points: array (N_p, 3)</strong></dt><dd></dd>
+<dt><strong>separate_loops: Boolean</strong></dt><dd><p>If True, don’t combine contributions of separate loops</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Aield: array (N_p, 3) or array (N_loops, N_p, 3)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.scalar_potential">
+<code class="sig-name descname">scalar_potential</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.scalar_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute magnetic scalar potential in some point due to a unit current in the loops</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>points: array (N_p, 3)</strong></dt><dd></dd>
+<dt><strong>separate_loops: Boolean</strong></dt><dd><p>If True, don’t combine contributions of separate loops</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Ufield: array (N_p,) or array (N_loops, N_p)</dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance">
+<code class="sig-name descname">mesh_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mesh</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Computes the mutual inductance between the polyline loops and a mesh_conductor
+mesh.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mesh</strong><span class="classifier">Trimesh mesh object</span></dt><dd><p>Mesh with N_verts vertices.</p>
+</dd>
+<dt><strong>separate_loops</strong><span class="classifier">Boolean, optional</span></dt><dd><p>If True, return the inductance separately for each loop. The default is False.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">dict</span></dt><dd><p>Passed to mesh_impedance.mesh2line_mutual_inductance</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>M: array</dt><dd><p>If separate loops, shape (N_loops, N_verts). Otherwise (N_verts,).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<div style='clear:both'></div></div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
