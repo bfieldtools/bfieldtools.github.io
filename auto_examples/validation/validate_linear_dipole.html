@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Linear dipole &#8212; bfieldtools  documentation</title>
@@ -175,7 +175,6 @@ p_tris = points[tris]</p>
         <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_validate_linear_dipole_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_linear_dipole_001.png" />
 <p>%% Test summation formula</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pot_sum</span> <span class="o">=</span> <span class="n">triangle_potential_dipole_linear</span><span class="p">(</span><span class="n">RR</span><span class="p">,</span> <span class="n">tn</span><span class="p">,</span> <span class="n">ta</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">solid_angle</span> <span class="o">=</span> <span class="n">omega</span><span class="p">(</span><span class="n">RR</span><span class="p">)</span>
@@ -203,7 +202,6 @@ p_tris = points[tris]</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_validate_linear_dipole_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_linear_dipole_002.png" />
 <p>%% Test asymptotic behavour</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">dip_potential</span><span class="p">(</span><span class="n">Reval</span><span class="p">,</span> <span class="n">Rdip</span><span class="p">,</span> <span class="n">moment</span><span class="p">):</span>
     <span class="n">R</span> <span class="o">=</span> <span class="n">Reval</span> <span class="o">-</span> <span class="n">Rdip</span>
@@ -233,12 +231,7 @@ p_tris = points[tris]</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">pot</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_validate_linear_dipole_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_linear_dipole_003.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f9696a272d0&gt;]
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.615 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-validate-linear-dipole-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/83cb8cd4be683e444a8b36f9368a52b1/validate_linear_dipole.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">validate_linear_dipole.py</span></code></a></p>
@@ -266,7 +259,7 @@ p_tris = points[tris]</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

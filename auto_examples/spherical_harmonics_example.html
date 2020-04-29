@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Example of spherical harmonics tools and visualization &#8212; bfieldtools  documentation</title>
@@ -129,12 +129,6 @@
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotYlm</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../_images/sphx_glr_spherical_harmonics_example_001.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_001.png" />
-</li>
-<li><img alt="../_images/sphx_glr_spherical_harmonics_example_002.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_002.png" />
-</li>
-</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Needs fixing: Plot sphere here</span>
 <span class="c1"># TODO: mesh info in sph (faces are missing!)</span>
 
@@ -146,12 +140,6 @@
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotBWlm_volume</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../_images/sphx_glr_spherical_harmonics_example_003.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_003.png" />
-</li>
-<li><img alt="../_images/sphx_glr_spherical_harmonics_example_004.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_004.png" />
-</li>
-</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Vlm1</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">Wlm</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">Vlm2</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">Wlm</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 
@@ -161,11 +149,6 @@
 <span class="n">Wlm2</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">Wlm</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">sph</span><span class="o">.</span><span class="n">innerproduct</span><span class="p">(</span><span class="n">Wlm2</span><span class="p">,</span> <span class="n">Wlm2</span><span class="p">))</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>7.084732886580034e-17
-0.9999999999999999
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
@@ -181,11 +164,6 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">coeffs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="c1"># obj = sphtools.plotYlm(sph, 5, 3)</span>
-</pre></div>
-</div>
-<img alt="../_images/sphx_glr_spherical_harmonics_example_005.png" class="sphx-glr-single-img" src="../_images/sphx_glr_spherical_harmonics_example_005.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f969e712a50&gt;]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Np</span> <span class="o">=</span> <span class="mi">10</span>
@@ -229,12 +207,7 @@
 <span class="c1"># plt.semilogy(coeffs ** 2, &quot;.&quot;)</span>
 </pre></div>
 </div>
-<img alt="../_images/sphx_glr_spherical_harmonics_example_006.png" class="sphx-glr-single-img" src="../_images/sphx_glr_spherical_harmonics_example_006.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7f969e07cd10&gt;
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.359 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-spherical-harmonics-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/0270f4c1357377196cc054fe2ee802f9/spherical_harmonics_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">spherical_harmonics_example.py</span></code></a></p>
@@ -262,7 +235,7 @@
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

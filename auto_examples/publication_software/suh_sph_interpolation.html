@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>SUH-SPH interpolation comparison &#8212; bfieldtools  documentation</title>
@@ -18,8 +18,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Biplanar coil design" href="pub_biplanar_coil_design.html" />
-    <link rel="prev" title="Figure 2: Surface harmonics modes" href="plot_suhmodes.html" />
+    <link rel="next" title="Magnetically shielded coil" href="pub_magnetically_shielded_biplanar_coil_design.html" />
+    <link rel="prev" title="Figure 1: Stream function example" href="streamfunction_gradient_example.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -124,35 +124,48 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SAVE_DIR</span> <span class="o">=</span> <span class="s2">&quot;./MNE interpolation/&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">SAVE_DIR</span> <span class="o">+</span> <span class="s2">&quot;mne_data.npz&quot;</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">EVOKED</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">SAVE_DIR</span> <span class="o">+</span> <span class="s2">&quot;mne_data.npz&quot;</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;mesh&quot;</span><span class="p">]</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span>
     <span class="n">n</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">]</span>
     <span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;vertices&quot;</span><span class="p">],</span> <span class="n">faces</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;faces&quot;</span><span class="p">])</span>
 
-<span class="n">evoked</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">Evoked</span><span class="p">(</span><span class="n">SAVE_DIR</span> <span class="o">+</span> <span class="s2">&quot;left_auditory-ave.fif&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">EVOKED</span><span class="p">:</span>
+    <span class="n">evoked</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">Evoked</span><span class="p">(</span><span class="n">SAVE_DIR</span> <span class="o">+</span> <span class="s2">&quot;left_auditory-ave.fif&quot;</span><span class="p">)</span>
 
-<span class="n">i0</span><span class="p">,</span> <span class="n">i1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">time_as_index</span><span class="p">(</span><span class="mf">0.08</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">evoked</span><span class="o">.</span><span class="n">time_as_index</span><span class="p">(</span><span class="mf">0.09</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">field</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>    Read a total of 4 projection items:
-        PCA-v1 (1 x 102) active
-        PCA-v2 (1 x 102) active
-        PCA-v3 (1 x 102) active
-        Average EEG reference (1 x 60) active
-    Found the data of interest:
-        t =    -199.80 ...     499.49 ms (Left Auditory)
-        0 CTF compensation matrices available
-        nave = 55 - aspect type = 100
-Projections have already been applied. Setting proj attribute to True.
+    <span class="n">i0</span><span class="p">,</span> <span class="n">i1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">time_as_index</span><span class="p">(</span><span class="mf">0.08</span><span class="p">)[</span><span class="mi">0</span><span class="p">],</span> <span class="n">evoked</span><span class="o">.</span><span class="n">time_as_index</span><span class="p">(</span><span class="mf">0.09</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># take &quot;data&quot; from lead field matrix, i.e, topography of a single dipole</span>
+    <span class="kn">from</span> <span class="nn">mne.datasets</span> <span class="kn">import</span> <span class="n">sample</span>
+    <span class="kn">import</span> <span class="nn">os</span>
+
+    <span class="n">data_path</span> <span class="o">=</span> <span class="n">sample</span><span class="o">.</span><span class="n">data_path</span><span class="p">()</span>
+
+    <span class="n">raw_fname</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;/MEG/sample/sample_audvis_raw.fif&quot;</span>
+    <span class="n">trans</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;/MEG/sample/sample_audvis_raw-trans.fif&quot;</span>
+    <span class="n">src</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;/subjects/sample/bem/sample-oct-6-src.fif&quot;</span>
+    <span class="n">bem</span> <span class="o">=</span> <span class="n">data_path</span> <span class="o">+</span> <span class="s2">&quot;/subjects/sample/bem/sample-5120-5120-5120-bem-sol.fif&quot;</span>
+    <span class="n">subjects_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span> <span class="s2">&quot;subjects&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Note that forward solutions can also be read with read_forward_solution</span>
+    <span class="n">fwd</span> <span class="o">=</span> <span class="n">mne</span><span class="o">.</span><span class="n">make_forward_solution</span><span class="p">(</span>
+        <span class="n">raw_fname</span><span class="p">,</span> <span class="n">trans</span><span class="p">,</span> <span class="n">src</span><span class="p">,</span> <span class="n">bem</span><span class="p">,</span> <span class="n">meg</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">eeg</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">mindist</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=</span><span class="mi">2</span>
+    <span class="p">)</span>
+    <span class="c1"># Take only magnetometers</span>
+    <span class="n">mags</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">n</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;1&quot;</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">fwd</span><span class="p">[</span><span class="s2">&quot;sol&quot;</span><span class="p">][</span><span class="s2">&quot;row_names&quot;</span><span class="p">]])</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">fwd</span><span class="p">[</span><span class="s2">&quot;sol&quot;</span><span class="p">][</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">mags</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="c1"># Take the first dipole</span>
+    <span class="n">field</span> <span class="o">=</span> <span class="n">L</span><span class="p">[:,</span> <span class="mi">56</span><span class="p">]</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.02</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lmax</span> <span class="o">=</span> <span class="mi">6</span>  <span class="c1"># maximum degree</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lmax</span> <span class="o">=</span> <span class="mi">9</span>  <span class="c1"># maximum degree</span>
 <span class="n">Bca</span><span class="p">,</span> <span class="n">Bcb</span> <span class="o">=</span> <span class="n">sphfield</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">lmax</span><span class="p">,</span> <span class="n">normalization</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span><span class="p">)</span>
 
 <span class="c1"># sph-components at sensors</span>
@@ -160,37 +173,45 @@ Projections have already been applied. Setting proj attribute to True.
 <span class="n">Bcb_sensors</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;ijk,ij-&gt;ik&quot;</span><span class="p">,</span> <span class="n">Bcb</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">idx</span> <span class="o">=</span> <span class="mi">20</span>
+<p>idx = 20</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># evoked1 = evoked.copy()</span>
+<span class="c1"># evoked1.data[:, :] = np.tile(Bca_sensors[:, idx].T, (evoked.times.shape[0], 1)).T</span>
+<span class="c1"># evoked1.plot_topomap(times=0.080, ch_type=&quot;mag&quot;, colorbar=False)</span>
 
-<span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">Bca_sensors</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">Bcb_sensors</span><span class="p">[:,</span> <span class="n">idx</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># evoked1 = evoked.copy()</span>
+<span class="c1"># evoked1.data[:, :] = np.tile(Bcb_sensors[:, idx].T, (evoked.times.shape[0], 1)).T</span>
+<span class="c1"># evoked1.plot_topomap(times=0.080, ch_type=&quot;mag&quot;, colorbar=False)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_002.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 150x195 with 1 Axes&gt;
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">Bca_sensors</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">)</span> <span class="o">@</span> <span class="n">field</span>
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">reco_sph</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PINV</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="k">if</span> <span class="n">PINV</span><span class="p">:</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">pinv</span><span class="p">(</span><span class="n">Bca_sensors</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="mf">1e-15</span><span class="p">)</span> <span class="o">@</span> <span class="n">field</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Calculate using regularization</span>
+    <span class="n">ssa</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">svd</span><span class="p">(</span><span class="n">Bca_sensors</span> <span class="o">@</span> <span class="n">Bca_sensors</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+    <span class="n">reg_exp</span> <span class="o">=</span> <span class="mi">6</span>
+    <span class="n">_lambda</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">ssa</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="p">(</span><span class="o">-</span><span class="n">reg_exp</span><span class="p">))</span>
+    <span class="c1"># angular-Laplacian in the sph basis is diagonal</span>
+    <span class="n">La</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">diag</span><span class="p">([</span><span class="n">l</span> <span class="o">*</span> <span class="p">(</span><span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lmax</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)])</span>
+    <span class="n">BB</span> <span class="o">=</span> <span class="n">Bca_sensors</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">Bca_sensors</span> <span class="o">+</span> <span class="n">_lambda</span> <span class="o">*</span> <span class="n">La</span>
+    <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">BB</span><span class="p">,</span> <span class="n">Bca_sensors</span><span class="o">.</span><span class="n">T</span> <span class="o">@</span> <span class="n">field</span><span class="p">)</span>
 
-<span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lmax</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-    <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">l</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-        <span class="n">reco_sph</span> <span class="o">+=</span> <span class="n">alpha</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">Bca_sensors</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
-        <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="c1"># Reconstruct field in helmet</span>
+
+<span class="c1"># reco_sph = np.zeros(field.shape)</span>
+<span class="c1"># i = 0</span>
+<span class="c1"># for l in range(1, lmax + 1):</span>
+<span class="c1">#     for m in range(-1 * l, l + 1):</span>
+<span class="c1">#         reco_sph += alpha[i] * Bca_sensors[:, i]</span>
+<span class="c1">#         i += 1</span>
+
+<span class="c1"># Produces the same result as the loop</span>
+<span class="n">reco_sph</span> <span class="o">=</span> <span class="n">Bca_sensors</span> <span class="o">@</span> <span class="n">alpha</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;SPH-reconstruction relative error:&quot;</span><span class="p">,</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">reco_sph</span> <span class="o">-</span> <span class="n">field</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 <dl>
@@ -220,46 +241,28 @@ b_filt = B_sensors &#64; s</p>
 
 <span class="n">reco_suh</span> <span class="o">=</span> <span class="n">B_sensors</span> <span class="o">@</span> <span class="n">s</span>
 
-<span class="n">surf</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="s2">&quot;SUH-reconstruction relative error:&quot;</span><span class="p">,</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">reco_suh</span> <span class="o">-</span> <span class="n">field</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">field</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">f</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">surf</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 <span class="n">surf</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">interpolate_scalars_before_mapping</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">surf</span><span class="o">.</span><span class="n">module_manager</span><span class="o">.</span><span class="n">scalar_lut_manager</span><span class="o">.</span><span class="n">number_of_colors</span> <span class="o">=</span> <span class="mi">16</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_suh_sph_interpolation_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_suh_sph_interpolation_003.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-Closed mesh or Neumann BC, leaving out the constant component
-Computing the mass matrix...
-Computing magnetic field coupling matrix, 2562 vertices by 102 target points... took 0.20 seconds.
-Computing the laplacian matrix...
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">field</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">)</span>
-
-<span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">reco_sph</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">)</span>
+<p>evoked1 = evoked.copy()
+evoked1.data[:, :] = np.tile(field.T, (evoked.times.shape[0], 1)).T
+evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># evoked1 = evoked.copy()</span>
+<span class="c1"># evoked1.data[:, :] = np.tile(reco_sph.T, (evoked.times.shape[0], 1)).T</span>
+<span class="c1"># evoked1.plot_topomap(times=0.080, ch_type=&quot;mag&quot;)</span>
 
 
-<span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">reco_suh</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_004.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_004.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_005.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_005.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_006.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_006.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 300x195 with 2 Axes&gt;
+<span class="c1"># evoked1 = evoked.copy()</span>
+<span class="c1"># evoked1.data[:, :] = np.tile(reco_suh.T, (evoked.times.shape[0], 1)).T</span>
+<span class="c1"># evoked1.plot_topomap(times=0.080, ch_type=&quot;mag&quot;)</span>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -269,16 +272,6 @@ Computing the laplacian matrix...
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_007.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_007.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_008.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_008.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f9696c7d310&gt;]
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U_sph</span> <span class="o">=</span> <span class="n">potential</span><span class="p">(</span>
     <span class="n">p</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">lmax</span><span class="o">=</span><span class="n">lmax</span><span class="p">,</span> <span class="n">normalization</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span>
 <span class="p">)</span>
@@ -286,30 +279,56 @@ Computing the laplacian matrix...
 <span class="n">U_suh</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">@</span> <span class="n">a</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2562 vertices by 102 target points... took 0.32 seconds.
+<p>evoked1 = evoked.copy()
+evoked1.data[:, :] = np.tile(U_sph.T, (evoked.times.shape[0], 1)).T
+evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># evoked1 = evoked.copy()</span>
+<span class="c1"># evoked1.data[:, :] = np.tile(U_suh.T, (evoked.times.shape[0], 1)).T</span>
+<span class="c1"># evoked1.plot_topomap(times=0.080, ch_type=&quot;mag&quot;)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">U_sph</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.utils</span> <span class="kn">import</span> <span class="n">load_example_mesh</span>
+<span class="kn">from</span> <span class="nn">bfieldtools.mesh_calculus</span> <span class="kn">import</span> <span class="n">gradient</span>
 
-<span class="n">evoked1</span> <span class="o">=</span> <span class="n">evoked</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">data</span><span class="p">[:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span><span class="n">U_suh</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="p">(</span><span class="n">evoked</span><span class="o">.</span><span class="n">times</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-<span class="n">evoked1</span><span class="o">.</span><span class="n">plot_topomap</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mf">0.080</span><span class="p">,</span> <span class="n">ch_type</span><span class="o">=</span><span class="s2">&quot;mag&quot;</span><span class="p">)</span>
+<span class="n">plane</span> <span class="o">=</span> <span class="n">load_example_mesh</span><span class="p">(</span><span class="s2">&quot;10x10_plane_hires&quot;</span><span class="p">)</span>
+<span class="n">scaling_factor</span> <span class="o">=</span> <span class="mf">0.03</span>
+<span class="n">plane</span><span class="o">.</span><span class="n">apply_scale</span><span class="p">(</span><span class="n">scaling_factor</span><span class="p">)</span>
+<span class="c1"># Rotate to x-plane</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">*</span> <span class="mf">1.2</span>
+<span class="n">t</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)],</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)]]</span>
+<span class="p">)</span>
+<span class="n">plane</span><span class="o">.</span><span class="n">apply_transform</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+
+<span class="n">c</span><span class="o">.</span><span class="n">U_coupling</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<span class="n">U_suh</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">plane</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <span class="n">a</span>
+<span class="c1"># Adapt mesh to the function and calculate new points</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">):</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">gradient</span><span class="p">(</span><span class="n">U_suh</span><span class="p">,</span> <span class="n">plane</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">face_ind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">g</span> <span class="o">&gt;</span> <span class="n">g</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">*</span> <span class="mf">0.05</span><span class="p">)</span>
+    <span class="n">plane</span> <span class="o">=</span> <span class="n">plane</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">face_ind</span><span class="p">)</span>
+    <span class="n">U_suh</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">plane</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <span class="n">a</span>
+
+<span class="n">U_sph</span> <span class="o">=</span> <span class="n">potential</span><span class="p">(</span>
+    <span class="n">plane</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">alpha</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">lmax</span><span class="o">=</span><span class="n">lmax</span><span class="p">,</span> <span class="n">normalization</span><span class="o">=</span><span class="s2">&quot;energy&quot;</span><span class="p">,</span> <span class="n">R</span><span class="o">=</span><span class="n">R</span>
+<span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_009.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_009.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_010.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_010.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 300x195 with 2 Axes&gt;
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.viz</span> <span class="kn">import</span> <span class="n">plot_data_on_vertices</span>
+<span class="kn">from</span> <span class="nn">bfieldtools.viz</span> <span class="kn">import</span> <span class="n">plot_mesh</span>
+
+<span class="c1"># Mask inside/outside using solid angle</span>
+<span class="n">mask</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">U_coupling</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mf">1e-6</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">plot_data_on_vertices</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span> <span class="n">U_suh</span> <span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="c1"># plot_mesh(mesh, figure=f)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">plot_data_on_vertices</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span> <span class="n">U_sph</span> <span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="c1"># plot_mesh(mesh, figure=f)</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">plot_data_on_vertices</span><span class="p">(</span><span class="n">plane</span><span class="p">,</span> <span class="p">(</span><span class="n">U_suh</span> <span class="o">-</span> <span class="n">U_sph</span><span class="p">)</span> <span class="o">*</span> <span class="n">mask</span><span class="p">,</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
+<span class="n">plot_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.601 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-software-suh-sph-interpolation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3278e3aee7e5af974ebcfe21db4f8418/suh_sph_interpolation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">suh_sph_interpolation.py</span></code></a></p>
@@ -337,7 +356,7 @@ Computing the laplacian matrix...
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

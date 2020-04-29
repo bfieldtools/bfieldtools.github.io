@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Design a field of a closed enclosed in a volume &#8212; bfieldtools  documentation</title>
@@ -201,24 +201,6 @@
 <span class="n">CU2</span> <span class="o">=</span> <span class="n">compute_U</span><span class="p">(</span><span class="n">mesh2</span><span class="p">,</span> <span class="n">points</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
-Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
-Computing triangle-coupling matrix
-Inductance matrix computation took 11.40 seconds.
-Computing the inductance matrix...
-Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
-Computing triangle-coupling matrix
-Inductance matrix computation took 11.39 seconds.
-Estimating 24888 MiB required for 2665 by 2562 vertices...
-Computing inductance matrix in 60 chunks (10661 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Computing magnetic field coupling matrix analytically, 2562 vertices by 10000 target points... took 35.74 seconds.
-Computing magnetic field coupling matrix analytically, 2665 vertices by 10000 target points... took 36.15 seconds.
-Computing scalar potential coupling matrix, 2562 vertices by 10000 target points... took 31.22 seconds.
-Computing scalar potential coupling matrix, 2665 vertices by 10000 target points... took 32.54 seconds.
-</pre></div>
-</div>
 <p>suh = SuhBasis(mesh1, 100)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b1</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">vertex_normals</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">b2</span> <span class="o">=</span> <span class="p">(</span>
@@ -321,18 +303,6 @@ Computing scalar potential coupling matrix, 2665 vertices by 10000 target points
     <span class="n">plot_plane</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_002.png" />
-</li>
-</ul>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_003.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_004.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_004.png" />
-</li>
-</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">s1</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
     <span class="o">*</span><span class="n">mesh1</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">faces</span><span class="p">[:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">1.0</span>
@@ -361,8 +331,7 @@ Computing scalar potential coupling matrix, 2665 vertices by 10000 target points
 <span class="n">plot_plane</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_005.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  48.179 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-shielding-closed-surface-example-direct-invert-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2f857a6a30686210059347c54325cfcd/shielding_closed_surface_example_direct_invert.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">shielding_closed_surface_example_direct_invert.py</span></code></a></p>
@@ -390,7 +359,7 @@ Computing scalar potential coupling matrix, 2665 vertices by 10000 target points
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

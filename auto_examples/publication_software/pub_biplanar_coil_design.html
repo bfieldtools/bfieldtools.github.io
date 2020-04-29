@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Biplanar coil design &#8212; bfieldtools  documentation</title>
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Figure 1: Stream function example" href="streamfunction_gradient_example.html" />
-    <link rel="prev" title="SUH-SPH interpolation comparison" href="suh_sph_interpolation.html" />
+    <link rel="prev" title="Figure 2: Surface harmonics modes" href="plot_suhmodes.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -166,12 +166,6 @@ region between the two coil planes.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-</pre></div>
-</div>
 <p>Set up target and stray field points</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here, the target points are on a volumetric grid within a sphere</span>
 
@@ -224,7 +218,6 @@ Computing the mass matrix...
         <span class="n">mlab</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_pub_biplanar_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_pub_biplanar_coil_design_001.png" />
 <p>Create bfield specifications used when optimizing the coil geometry</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The absolute target field amplitude is not of importance,</span>
 <span class="c1"># and it is scaled to match the C matrix in the optimization function</span>
@@ -247,11 +240,6 @@ Computing the mass matrix...
 <span class="n">bfield_specification</span> <span class="o">=</span> <span class="p">[</span><span class="n">target_spec</span><span class="p">,</span> <span class="n">stray_spec</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 12442 vertices by 160 target points... took 1.08 seconds.
-Computing magnetic field coupling matrix, 12442 vertices by 642 target points... took 2.52 seconds.
-</pre></div>
-</div>
 <p>Run QP solver</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mosek</span>
 
@@ -262,77 +250,6 @@ Computing magnetic field coupling matrix, 12442 vertices by 642 target points...
     <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;MOSEK&quot;</span><span class="p">,</span>
     <span class="n">solver_opts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mosek_params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">mosek</span><span class="o">.</span><span class="n">iparam</span><span class="o">.</span><span class="n">num_threads</span><span class="p">:</span> <span class="mi">8</span><span class="p">}},</span>
 <span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the resistance matrix...
-Pre-existing problem not passed, creating...
-Passing parameters to problem...
-Passing problem to solver...
-/home/rzetter/miniconda3/lib/python3.7/site-packages/cvxpy-1.1.0a3-py3.7-linux-x86_64.egg/cvxpy/reductions/solvers/solving_chain.py:170: UserWarning: You are solving a parameterized problem that is not DPP. Because the problem is not DPP, subsequent solves will not be faster than the first one.
-  &quot;You are solving a parameterized problem that is not DPP. &quot;
-
-
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 4914
-  Cones                  : 1
-  Scalar variables       : 203
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer started.
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 4914
-  Cones                  : 1
-  Scalar variables       : 203
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer  - threads                : 8
-Optimizer  - solved problem         : the dual
-Optimizer  - Constraints            : 101
-Optimizer  - Cones                  : 1
-Optimizer  - Scalar variables       : 4914              conic                  : 102
-Optimizer  - Semi-definite variables: 0                 scalarized             : 0
-Factor     - setup time             : 0.05              dense det. time        : 0.00
-Factor     - ML order time          : 0.00              GP order time          : 0.00
-Factor     - nonzeros before factor : 5151              after factor           : 5151
-Factor     - dense dim.             : 0                 flops                  : 2.47e+07
-ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
-0   1.0e+01  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  0.56
-1   5.1e+00  5.0e-01  8.0e-01  -2.34e-01  2.497994602e+00   1.933623472e+00   5.0e-01  0.71
-2   2.6e+00  2.5e-01  3.0e-01  4.25e-01   2.191892141e+01   2.159001252e+01   2.5e-01  0.72
-3   1.3e+00  1.3e-01  1.1e-01  8.11e-01   3.579359296e+01   3.561938993e+01   1.3e-01  0.73
-4   6.9e-01  6.8e-02  4.3e-02  9.62e-01   5.455194307e+01   5.446788094e+01   6.8e-02  0.74
-5   2.4e-01  2.4e-02  1.2e-02  9.72e-01   7.409541473e+01   7.407281308e+01   2.4e-02  0.75
-6   1.4e-01  1.3e-02  6.9e-03  -1.24e-01  1.121043462e+02   1.121026249e+02   1.3e-02  0.76
-7   3.9e-02  3.8e-03  2.1e-03  -2.23e-01  2.554515935e+02   2.554886317e+02   3.8e-03  0.77
-8   2.8e-02  2.8e-03  1.6e-03  1.74e-01   3.017059230e+02   3.017502652e+02   2.8e-03  0.77
-9   2.4e-02  2.3e-03  1.3e-03  9.52e-02   3.334017556e+02   3.334495649e+02   2.3e-03  0.78
-10  8.9e-03  8.7e-04  4.4e-04  1.51e-01   5.381771635e+02   5.382236338e+02   8.7e-04  0.79
-11  2.8e-03  2.7e-04  1.3e-04  2.56e-02   7.922159023e+02   7.922591402e+02   2.7e-04  0.80
-12  5.5e-04  5.4e-05  1.6e-05  4.15e-01   1.057080129e+03   1.057100774e+03   5.4e-05  0.81
-13  3.5e-04  3.4e-05  8.6e-06  8.56e-01   1.098547860e+03   1.098561812e+03   3.4e-05  0.82
-14  2.8e-04  2.7e-05  6.7e-06  8.46e-01   1.108211450e+03   1.108225099e+03   2.7e-05  0.82
-15  1.3e-04  1.3e-05  2.2e-06  5.65e-01   1.150499370e+03   1.150506178e+03   1.3e-05  0.83
-16  1.1e-05  1.0e-06  5.5e-08  7.96e-01   1.188783129e+03   1.188783764e+03   1.0e-06  0.84
-17  6.5e-09  3.9e-09  7.7e-13  9.82e-01   1.192709273e+03   1.192709273e+03   6.4e-10  0.85
-18  3.3e-09  1.9e-09  1.9e-13  1.00e+00   1.192710493e+03   1.192710494e+03   3.2e-10  0.87
-19  8.6e-09  1.2e-11  1.3e-14  1.00e+00   1.192711718e+03   1.192711718e+03   1.4e-13  0.89
-Optimizer terminated. Time: 0.90
-
-
-Interior-point solution summary
-  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
-  Solution status : OPTIMAL
-  Primal.  obj: 1.1927117176e+03    nrm: 2e+03    Viol.  con: 4e-12    var: 0e+00    cones: 0e+00
-  Dual.    obj: 1.1927117176e+03    nrm: 7e+04    Viol.  con: 0e+00    var: 4e-10    cones: 0e+00
 </pre></div>
 </div>
 <p>Plot coil windings and target points</p>
@@ -360,7 +277,6 @@ Interior-point solution summary
         <span class="n">mlab</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_pub_biplanar_coil_design_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_pub_biplanar_coil_design_002.png" />
 <p>Plot continuous stream function</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">PLOT</span><span class="p">:</span>
     <span class="kn">from</span> <span class="nn">bfieldtools.viz</span> <span class="kn">import</span> <span class="n">plot_data_on_vertices</span>
@@ -382,8 +298,7 @@ Interior-point solution summary
         <span class="n">mlab</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_pub_biplanar_coil_design_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_pub_biplanar_coil_design_003.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  19.026 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-software-pub-biplanar-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2f1e330b72a4a7a524b3b8e774a2af7d/pub_biplanar_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">pub_biplanar_coil_design.py</span></code></a></p>
@@ -411,7 +326,7 @@ Interior-point solution summary
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

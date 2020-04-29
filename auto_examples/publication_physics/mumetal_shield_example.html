@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Example of a cylindrical perfect mu-metal shield &#8212; bfieldtools  documentation</title>
@@ -216,24 +216,12 @@
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_002.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_003.png" />
-</li>
-</ul>
 <dl class="simple">
 <dt>%% Calculate primary potential matrix</dt><dd><p>Compute slightly inside</p>
 </dd>
 </dl>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="mf">1e-3</span>
 <span class="n">P_prim</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">-</span> <span class="n">d</span> <span class="o">*</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertex_normals</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 10.23 seconds.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -245,13 +233,8 @@
 <span class="n">s</span><span class="o">.</span><span class="n">contour</span><span class="o">.</span><span class="n">number_of_contours</span> <span class="o">=</span> <span class="mi">30</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_mumetal_shield_example_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_mumetal_shield_example_004.png" />
 <p>%% Calculate linear collocation BEM matrix</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">P_shield</span> <span class="o">=</span> <span class="n">shield</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">-</span> <span class="n">d</span> <span class="o">*</span> <span class="n">shieldmesh</span><span class="o">.</span><span class="n">vertex_normals</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 9.25 seconds.
 </pre></div>
 </div>
 <p>%% Solve equivalent stream function for the perfect linear mu-metal layer</p>
@@ -306,19 +289,8 @@
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_005.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_005.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_006.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_006.png" />
-</li>
-</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U2_shield</span> <span class="o">=</span> <span class="n">shield</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 <span class="n">U2_prim</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 6400 target points... took 21.77 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 6400 target points... took 23.76 seconds.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.contour</span> <span class="kn">import</span> <span class="n">scalar_contour</span>
@@ -411,26 +383,7 @@ Computing scalar potential coupling matrix, 3184 vertices by 6400 target points.
 <span class="n">p</span><span class="o">.</span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">xlims</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_007.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_007.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_008.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_008.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_mumetal_shield_example_009.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mumetal_shield_example_009.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/home/rzetter/Documents/bfieldtools/examples/publication_physics/mumetal_shield_example.py:239: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
-  norm=colors.SymLogNorm(linthresh=0.2 * vmax, linscale=0.8, vmin=-vmax, vmax=vmax),
-/home/rzetter/Documents/bfieldtools/examples/publication_physics/mumetal_shield_example.py:255: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
-  norm=colors.SymLogNorm(linthresh=0.2 * vmax, linscale=0.8, vmin=-vmax, vmax=vmax),
-/home/rzetter/Documents/bfieldtools/examples/publication_physics/mumetal_shield_example.py:272: MatplotlibDeprecationWarning: default base may change from np.e to 10.  To suppress this warning specify the base keyword argument.
-  norm=colors.SymLogNorm(linthresh=0.2 * vmax, linscale=0.8, vmin=-vmax, vmax=vmax),
-
-(-2.9992466721105764, 21.000753327889424)
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.983 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-mumetal-shield-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/14e45c113e4577fbf96fee13de4f29ae/mumetal_shield_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mumetal_shield_example.py</span></code></a></p>
@@ -458,7 +411,7 @@ Computing scalar potential coupling matrix, 3184 vertices by 6400 target points.
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>

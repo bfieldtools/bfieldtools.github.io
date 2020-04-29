@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Compare SUH and SPH basis functions for the magnetic field &#8212; bfieldtools  documentation</title>
@@ -142,14 +142,6 @@
 <span class="n">Csuh</span> <span class="o">=</span> <span class="n">magnetic_field_coupling_analytic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <span class="n">bsuh</span><span class="o">.</span><span class="n">basis</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-Closed mesh or Neumann BC, leaving out the constant component
-Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 target points... took 7.81 seconds.
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_basis_fields</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">comps</span><span class="p">):</span>
     <span class="n">d</span> <span class="o">=</span> <span class="mf">0.2</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -212,12 +204,6 @@ Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 tar
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">light_manager</span><span class="o">.</span><span class="n">lights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">intensity</span> <span class="o">=</span> <span class="mf">0.2</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_representation_comparison_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_representation_comparison_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_representation_comparison_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_representation_comparison_002.png" />
-</li>
-</ul>
 <dl>
 <dt>from bfieldtools.mesh_magnetics import scalar_potential_coupling</dt><dd><p>scaling_factor = 0.02</p>
 </dd>
@@ -267,7 +253,7 @@ surf = mlab.triangular_mesh(<a href="#id11"><span class="problematic" id="id12">
 surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
 </dd>
 </dl>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  26.732 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-representation-comparison-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fcfc4a1593a133dc6921af0960e87f1e/representation_comparison.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">representation_comparison.py</span></code></a></p>
@@ -295,7 +281,7 @@ surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.3.<br/>
     </p>
   </div>
 </footer>
