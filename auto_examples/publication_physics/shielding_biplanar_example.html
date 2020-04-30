@@ -177,17 +177,17 @@
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (10526 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 80 chunks (10844 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 13.46 seconds.
+Inductance matrix computation took 13.17 seconds.
 Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (10372 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 80 chunks (10690 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 13.93 seconds.
+Inductance matrix computation took 13.06 seconds.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (10327 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 80 chunks (10531 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
 Computing coupling matrices
 l = 1 computed
@@ -199,10 +199,10 @@ l = 1 computed
 l = 2 computed
 l = 3 computed
 l = 4 computed
-Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 16.31 seconds.
-Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 16.14 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 92.64 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 95.79 seconds.
+Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 15.39 seconds.
+Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 15.04 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 90.46 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 87.36 seconds.
 </pre></div>
 </div>
 <p>alpha[15] = 1
@@ -249,10 +249,10 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 <span class="n">cx20</span> <span class="o">=</span> <span class="n">cc2</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
 <span class="n">cy20</span> <span class="o">=</span> <span class="n">cc2</span><span class="p">[</span><span class="mi">0</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span>
 
-<span class="n">cx11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cc1</span><span class="p">[</span><span class="mi">1</span><span class="p">:])[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">cy11</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cc1</span><span class="p">[</span><span class="mi">1</span><span class="p">:])[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">cx21</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cc2</span><span class="p">[</span><span class="mi">1</span><span class="p">:])[:,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="n">cy21</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">(</span><span class="n">cc2</span><span class="p">[</span><span class="mi">1</span><span class="p">:])[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">cx11</span> <span class="o">=</span> <span class="n">cc1</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">cy11</span> <span class="o">=</span> <span class="n">cc1</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">cx21</span> <span class="o">=</span> <span class="n">cc2</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
+<span class="n">cy21</span> <span class="o">=</span> <span class="n">cc2</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="n">B</span> <span class="o">=</span> <span class="p">(</span><span class="n">B1</span><span class="o">.</span><span class="n">T</span> <span class="o">+</span> <span class="n">B2</span><span class="o">.</span><span class="n">T</span><span class="p">)[:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">lw</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">B</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
@@ -412,7 +412,7 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_shielding_biplanar_example_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_shielding_biplanar_example_004.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 5 minutes  6.543 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 4 minutes  46.016 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-shielding-biplanar-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/324eb273fbafe3175f437c8470d57973/shielding_biplanar_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">shielding_biplanar_example.py</span></code></a></p>
@@ -439,7 +439,7 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-29.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-30.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
