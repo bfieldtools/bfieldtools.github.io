@@ -20,6 +20,13 @@
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Computation time for shiftinvert eigenvalue decomp" href="../validation/validate_suh_shift_invert.html" />
     <link rel="prev" title="Thin-film heater noise" href="thermal_noise_platinum_heater.html" />
+    <link rel="stylesheet" href="../../_static/style.css " type="text/css" />
+    <link rel="stylesheet" href="../../_static/font-awesome.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/font-source-code-pro.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/font-source-sans-pro.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/flag-icon.css" type="text/css" />
+    
+
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -29,9 +36,10 @@
 <script type="text/javascript" src="../../_static/bootstrap-3.3.7/js/bootstrap.min.js "></script>
 <script type="text/javascript" src="../../_static/bootstrap-sphinx.js "></script>
 
+
   </head><body>
 
-  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
     <div class="container">
       <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
@@ -102,6 +110,37 @@
 
 <div class="container">
   <div class="row">
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../index.html">
+              <img class="logo" src="../../_static/logo_simple.png" alt="Logo"/>
+            </a></p><ul>
+<li><a class="reference internal" href="#">Thermal noise computation</a><ul>
+<li><a class="reference internal" href="#unit-sphere">Unit sphere</a></li>
+<li><a class="reference internal" href="#unit-disc-dc-noise">Unit disc, DC noise</a></li>
+<li><a class="reference internal" href="#closed-cylinder-dc-noise">Closed cylinder, DC noise</a></li>
+<li><a class="reference internal" href="#unit-disc-ac-mode">Unit disc, AC mode</a></li>
+</ul>
+</li>
+</ul>
+
+  <li>
+    <a href="thermal_noise_platinum_heater.html" title="Previous Chapter: Thin-film heater noise"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Thin-film hea...</span>
+    </a>
+  </li>
+  <li>
+    <a href="../validation/validate_suh_shift_invert.html" title="Next Chapter: Computation time for shiftinvert eigenvalue decomp"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Computation t... &raquo;</span>
+    </a>
+  </li>
+<form action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        </div>
+      </div>
     <div class="body col-md-12 content" role="main">
       
   <div class="sphx-glr-download-link-note admonition note">
@@ -173,7 +212,7 @@ AC: AC Bnoise of a unit disc at one position</p>
     <span class="c1"># M = self_inductance_matrix(mesh, Nchunks=Nchunks, quad_degree=quad_degree)</span>
 
     <span class="c1"># vl = compute_current_modes_ind_res(mesh, M, R, freqs, T, closed=True)</span>
-    <span class="n">vl</span> <span class="o">=</span> <span class="n">compute_DC_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">vl</span> <span class="o">=</span> <span class="n">compute_DC_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
 
     <span class="c1">#    scene = mlab.figure(None, bgcolor=(1, 1, 1), fgcolor=(0.5, 0.5, 0.5),</span>
     <span class="c1">#               size=(800, 800))</span>
@@ -253,12 +292,11 @@ AC: AC Bnoise of a unit disc at one position</p>
 <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">sigma</span>
 <span class="n">sheet_resistance</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>
 
-<span class="c1"># Compute the resistance and inductance matrices</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">resistance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">sheet_resistance</span><span class="o">=</span><span class="n">sheet_resistance</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">self_inductance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">Nchunks</span><span class="o">=</span><span class="n">Nchunks</span><span class="p">,</span> <span class="n">quad_degree</span><span class="o">=</span><span class="n">quad_degree</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <span class="n">MeshConductor</span>
+<span class="n">obj</span> <span class="o">=</span> <span class="n">MeshConductor</span><span class="p">(</span><span class="n">mesh_obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">resistance_full_rank</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="c1"># vl = compute_AC_current_modes(mesh, M, R, freqs, T, closed=False)</span>
-<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_DC_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_DC_current_modes</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">Nmodes</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 
 
 <span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
@@ -477,7 +515,7 @@ AC: AC Bnoise of a unit disc at one position</p>
 
 
     </div>
-      
+    
   </div>
 </div>
 <footer class="footer">
@@ -490,7 +528,7 @@ AC: AC Bnoise of a unit disc at one position</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-04-30.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

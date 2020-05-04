@@ -69,7 +69,7 @@ for i in range(Np):
     # M = self_inductance_matrix(mesh, Nchunks=Nchunks, quad_degree=quad_degree)
 
     # vl = compute_current_modes_ind_res(mesh, M, R, freqs, T, closed=True)
-    vl = compute_DC_current_modes(mesh, T, closed=True)
+    vl = compute_DC_current_modes(mesh, 1/sigma, thickness=d, T=T)
 
     #    scene = mlab.figure(None, bgcolor=(1, 1, 1), fgcolor=(0.5, 0.5, 0.5),
     #               size=(800, 800))
@@ -149,12 +149,11 @@ freqs = np.array((0,))
 S = np.ones(mesh.triangles_center.shape[0]) * sigma
 sheet_resistance = 1 / (d * S)
 
-# Compute the resistance and inductance matrices
-R = resistance_matrix(mesh, sheet_resistance=sheet_resistance)
-M = self_inductance_matrix(mesh, Nchunks=Nchunks, quad_degree=quad_degree)
+from bfieldtools.mesh_conductor import MeshConductor
+obj = MeshConductor(mesh_obj=mesh, resistance_full_rank=False)
 
 # vl = compute_AC_current_modes(mesh, M, R, freqs, T, closed=False)
-vl = compute_DC_current_modes(mesh, R, T, closed=False)
+vl = compute_DC_current_modes(obj, resistivity=1/sigma, T=T, thickness=d, Nmodes=100)
 
 
 scene = mlab.figure(None, bgcolor=(1, 1, 1), fgcolor=(0.5, 0.5, 0.5), size=(800, 800))
