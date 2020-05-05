@@ -73,7 +73,12 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#installing-bfieldtools">Installing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#citing-bfieldtools">Citing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
@@ -144,9 +149,9 @@
 <code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">potential</code><span class="sig-paren">(</span><em class="sig-param">p</em>, <em class="sig-param">acoeffs</em>, <em class="sig-param">bcoeffs</em>, <em class="sig-param">lmax</em>, <em class="sig-param">normalization='default'</em>, <em class="sig-param">R=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.potential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes magnetic scalar potential from the sph coefficients.
 Ignores the ‘DC’ component l=0.</p>
-<dl class="field-list">
+<dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl>
+<dd class="field-odd"><dl class="simple">
 <dt><strong>p: Nx3 array</strong></dt><dd><p>coordinates in which the potential is computed</p>
 </dd>
 <dt><strong>acoeffs: lmax*(lmax+2)x1 array</strong></dt><dd><p>spectral coefficients of r**l terms</p>
@@ -157,10 +162,8 @@ Ignores the ‘DC’ component l=0.</p>
 </dd>
 <dt><strong>normalization: string</strong></dt><dd><p>which normalization scheme to use
 “default”: No normalization, just &lt;Y_lm,Y_l’m’&gt; = delta_ll’mm’ (default)
-“energy”: each term in inner/outer basis function with respect to</p>
-<blockquote>
-<div><p>sphere with radius R is normalized to unit energy</p>
-</div></blockquote>
+“energy”: each term in inner/outer basis function with respect to 
+sphere with radius R is normalized to unit energy</p>
 </dd>
 <dt><strong>R: float</strong></dt><dd><p>Sphere radius that separates inner/outer components</p>
 </dd>

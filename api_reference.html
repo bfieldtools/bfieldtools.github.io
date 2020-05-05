@@ -73,7 +73,12 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#installing-bfieldtools">Installing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#citing-bfieldtools">Citing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
@@ -466,31 +471,28 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.compute_sphcoeffs_mesh.html#bfieldtools.sphtools.compute_sphcoeffs_mesh" title="bfieldtools.sphtools.compute_sphcoeffs_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_sphcoeffs_mesh</span></code></a>(mesh, lmax)</p></td>
 <td><p>Computes multipole moment (spherical harmonics coefficient) transformation from the mesh.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_fields.html#bfieldtools.sphtools.basis_fields" title="bfieldtools.sphtools.basis_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_fields</span></code></a>(p, lmax[, normalization, R])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_potentials.html#bfieldtools.sphtools.basis_potentials" title="bfieldtools.sphtools.basis_potentials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_potentials</span></code></a>(p, lmax[, normalization, R])</p></td>
+<td><p>Computes inner/outer basis functions for magnetic scalar potential.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_fields.html#bfieldtools.sphtools.basis_fields" title="bfieldtools.sphtools.basis_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_fields</span></code></a>(p, lmax[, normalization, R])</p></td>
 <td><p>Computes magnetic field of each sph coefficient.</p></td>
 </tr>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">fit_spectra</span></code></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">reconstruct_B</span></code></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotYlms.html#bfieldtools.sphtools.plotYlms" title="bfieldtools.sphtools.plotYlms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotYlms</span></code></a>(sph, lmax[, polar])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotYlms.html#bfieldtools.sphtools.plotYlms" title="bfieldtools.sphtools.plotYlms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotYlms</span></code></a>(sph, lmax[, polar])</p></td>
 <td><p>Plots real spherical harmonics up to lmax.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotYlm.html#bfieldtools.sphtools.plotYlm" title="bfieldtools.sphtools.plotYlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotYlm</span></code></a>(sph, l, m)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotYlm.html#bfieldtools.sphtools.plotYlm" title="bfieldtools.sphtools.plotYlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotYlm</span></code></a>(sph, l, m)</p></td>
 <td><p>Plots real spherical harmonics of order m and degree l.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotWlm.html#bfieldtools.sphtools.plotWlm" title="bfieldtools.sphtools.plotWlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotWlm</span></code></a>(sph, l, m)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotWlm.html#bfieldtools.sphtools.plotWlm" title="bfieldtools.sphtools.plotWlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotWlm</span></code></a>(sph, l, m)</p></td>
 <td><p>Plots magnetic field basis function ‘Wlm’ (r**l) over a sphere.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotBWlm_volume.html#bfieldtools.sphtools.plotBWlm_volume" title="bfieldtools.sphtools.plotBWlm_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotBWlm_volume</span></code></a>(sph, l, m, lim, Np, offset)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotBWlm_volume.html#bfieldtools.sphtools.plotBWlm_volume" title="bfieldtools.sphtools.plotBWlm_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotBWlm_volume</span></code></a>(sph, l, m, lim, Np, offset)</p></td>
 <td><p>Plots magnetic field basis function ‘Wlm’ (r**l) over a 3D volume.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotVlm.html#bfieldtools.sphtools.plotVlm" title="bfieldtools.sphtools.plotVlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotVlm</span></code></a>(sph, l, m)</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotVlm.html#bfieldtools.sphtools.plotVlm" title="bfieldtools.sphtools.plotVlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotVlm</span></code></a>(sph, l, m)</p></td>
 <td><p>Plots magnetic field basis function ‘Vlm’ (r**(-l)) over a sphere.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotBVlm_volume.html#bfieldtools.sphtools.plotBVlm_volume" title="bfieldtools.sphtools.plotBVlm_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotBVlm_volume</span></code></a>(sph, l, m, lim, Np, offset)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotBVlm_volume.html#bfieldtools.sphtools.plotBVlm_volume" title="bfieldtools.sphtools.plotBVlm_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotBVlm_volume</span></code></a>(sph, l, m, lim, Np, offset)</p></td>
 <td><p>Plots magnetic field basis function ‘Vlm’ (r**(-l)) over a 3D volume.</p></td>
 </tr>
 </tbody>
@@ -525,22 +527,19 @@ of any stream function as a series.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_DC_current_modes</span></code></p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.compute_current_modes.html#bfieldtools.thermal_noise.compute_current_modes" title="bfieldtools.thermal_noise.compute_current_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_current_modes</span></code></a>(obj, T, resistivity, …)</p></td>
+<td><p>Calculates the (AC or DC) Johnson noise current modes on the conducting surface.</p></td>
 </tr>
-<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_AC_current_modes</span></code></p></td>
-<td><p></p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar.html#bfieldtools.thermal_noise.noise_covar" title="bfieldtools.thermal_noise.noise_covar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar.html#bfieldtools.thermal_noise.noise_covar" title="bfieldtools.thermal_noise.noise_covar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
 <td><p>Calculates (AC or DC) magnetic noise covariance along x, y and z from the  modes vl.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_var.html#bfieldtools.thermal_noise.noise_var" title="bfieldtools.thermal_noise.noise_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_var</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_var.html#bfieldtools.thermal_noise.noise_var" title="bfieldtools.thermal_noise.noise_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_var</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
 <td><p>Calculates (AC or DC) magnetic noise variance along x, y and z from the  modes vl.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar_dir.html#bfieldtools.thermal_noise.noise_covar_dir" title="bfieldtools.thermal_noise.noise_covar_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar_dir</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar_dir.html#bfieldtools.thermal_noise.noise_covar_dir" title="bfieldtools.thermal_noise.noise_covar_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar_dir</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
 <td><p>Calculates (AC or DC) magnetic noise covariance between x, y and z directions from the modes vl.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.visualize_current_modes.html#bfieldtools.thermal_noise.visualize_current_modes" title="bfieldtools.thermal_noise.visualize_current_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_current_modes</span></code></a>(mesh, vl, Nmodes, scale)</p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.visualize_current_modes.html#bfieldtools.thermal_noise.visualize_current_modes" title="bfieldtools.thermal_noise.visualize_current_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_current_modes</span></code></a>(mesh, vl, Nmodes, scale)</p></td>
 <td><p>Visualizes current modes up to Nmodes.</p></td>
 </tr>
 </tbody>
@@ -611,6 +610,9 @@ Mainly wrappers and convenience helpers around mayavi and matplotlib functions</
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.utils.vert2inner.html#bfieldtools.utils.vert2inner" title="bfieldtools.utils.vert2inner"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vert2inner</span></code></a>(mesh, inner_vertices, holes)</p></td>
 <td><p>Linear mapping of the all weights in the stream function discretization to inner (free) weights</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.utils.MeshProjection.html#bfieldtools.utils.MeshProjection" title="bfieldtools.utils.MeshProjection"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshProjection</span></code></a>(mesh, quad_degree)</p></td>
+<td><p>Class for constructing projection of an arbitrary function to the hat functions of the given mesh</p></td>
 </tr>
 </tbody>
 </table>

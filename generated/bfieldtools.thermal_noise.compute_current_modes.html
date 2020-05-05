@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>bfieldtools.viz.plot_data_on_vertices &#8212; bfieldtools  documentation</title>
+    <title>bfieldtools.thermal_noise.compute_current_modes &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
@@ -18,8 +18,8 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bfieldtools.viz.plot_data_on_faces" href="bfieldtools.viz.plot_data_on_faces.html" />
-    <link rel="prev" title="bfieldtools.viz.plot_cross_section" href="bfieldtools.viz.plot_cross_section.html" />
+    <link rel="next" title="bfieldtools.thermal_noise.noise_covar" href="bfieldtools.thermal_noise.noise_covar.html" />
+    <link rel="prev" title="bfieldtools.suhtools.SuhBasis" href="bfieldtools.suhtools.SuhBasis.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -120,15 +120,15 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
-<li><a class="reference internal" href="#">bfieldtools.viz.plot_data_on_vertices</a></li>
+<li><a class="reference internal" href="#">bfieldtools.thermal_noise.compute_current_modes</a></li>
 </ul>
 
   <li>
-    <a href="bfieldtools.viz.plot_cross_section.html" title="Previous Chapter: bfieldtools.viz.plot_cross_section"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; bfieldtools.v...</span>
+    <a href="bfieldtools.suhtools.SuhBasis.html" title="Previous Chapter: bfieldtools.suhtools.SuhBasis"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; bfieldtools.s...</span>
     </a>
   </li>
   <li>
-    <a href="bfieldtools.viz.plot_data_on_faces.html" title="Next Chapter: bfieldtools.viz.plot_data_on_faces"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.v... &raquo;</span>
+    <a href="bfieldtools.thermal_noise.noise_covar.html" title="Next Chapter: bfieldtools.thermal_noise.noise_covar"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.t... &raquo;</span>
     </a>
   </li>
 <form action="../search.html" method="get">
@@ -142,38 +142,43 @@
       </div>
     <div class="body col-md-12 content" role="main">
       
-  <div class="section" id="bfieldtools-viz-plot-data-on-vertices">
-<h1>bfieldtools.viz.plot_data_on_vertices<a class="headerlink" href="#bfieldtools-viz-plot-data-on-vertices" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="bfieldtools-thermal-noise-compute-current-modes">
+<h1>bfieldtools.thermal_noise.compute_current_modes<a class="headerlink" href="#bfieldtools-thermal-noise-compute-current-modes" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
-<dt id="bfieldtools.viz.plot_data_on_vertices">
-<code class="sig-prename descclassname">bfieldtools.viz.</code><code class="sig-name descname">plot_data_on_vertices</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">data</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">figsize=(800</em>, <em class="sig-param">800)</em>, <em class="sig-param">colorbar=False</em>, <em class="sig-param">ncolors=256</em>, <em class="sig-param">interpolate=True</em>, <em class="sig-param">cull_front=False</em>, <em class="sig-param">cull_back=False</em>, <em class="sig-param">autoscale=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.viz.plot_data_on_vertices" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot scalar data defined on the vertices of a mesh.</p>
+<dt id="bfieldtools.thermal_noise.compute_current_modes">
+<code class="sig-prename descclassname">bfieldtools.thermal_noise.</code><code class="sig-name descname">compute_current_modes</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">T</em>, <em class="sig-param">resistivity</em>, <em class="sig-param">thickness</em>, <em class="sig-param">mode='AC'</em>, <em class="sig-param">freqs=array([0])</em>, <em class="sig-param">Nmodes=None</em>, <em class="sig-param">return_eigenvals=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.thermal_noise.compute_current_modes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates the (AC or DC) Johnson noise current modes on the conducting surface.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mesh: Trimesh mesh object</strong></dt><dd></dd>
-<dt><strong>data: (N_verts, ) array</strong></dt><dd><p>Scalar data to plot on mesh vertices</p>
+<dt><strong>obj: Trimesh-object or MeshConductor-object</strong></dt><dd><p>Represents the boundary on which current density is specified
+or MeshConductor object that wraps the mesh</p>
 </dd>
-<dt><strong>figure: existing mlab figure</strong></dt><dd><p>Optional, if passed will plot to existing figure</p>
+<dt><strong>T: float</strong></dt><dd><p>Temperature in Kelvins</p>
 </dd>
-<dt><strong>figsize: (x, y) tuple</strong></dt><dd><p>Optional, if plotting to new figure specifies the size (in pixels)</p>
+<dt><strong>resistivity: float or array (Nfaces)</strong></dt><dd><p>Resistivity value in Ohm/meter</p>
 </dd>
-<dt><strong>cmap: str</strong></dt><dd><p>name of colormap to use for scalar data. If None (default), use viridis for
-all-positive/-negative data and RdBu otherwise</p>
+<dt><strong>thickness: float or array (Nfaces)</strong></dt><dd><p>Thickness of the surface. NB! Must be small in comparison to observation distance</p>
 </dd>
-<dt><strong>colorbar: Boolean</strong></dt><dd><p>If True, plot colorbar for scalar data</p>
+<dt><strong>mode: ‘AC’ or ‘DC’</strong></dt><dd><p>Calculate modes as a function of frequency or just at DC?</p>
 </dd>
-<dt><strong>ncolors: int</strong></dt><dd><p>Number of colors to use</p>
+<dt><strong>freqs: Nfreqs array</strong></dt><dd><p>The frequencies at which the eddy-current modes are computed. Obsolete for 
+‘DC’ mode. In ‘AC’, calculate at DC in default.</p>
 </dd>
-<dt><strong>interpolate: Boolean</strong></dt><dd><p>If True, interpolate scalar data for smoother look</p>
+<dt><strong>Nmodes: int</strong></dt><dd><p>How many modes are computed? If None, all Nvertices modes are computed</p>
 </dd>
-<dt><strong>opacity: float</strong></dt><dd><p>Opacity of rendered mesh</p>
+<dt><strong>return_eigenvals: boolean</strong></dt><dd><p>Return also the eigenvalues (the inverse circuit time constants)?</p>
+</dd>
+<dt><strong>kwargs: dict</strong></dt><dd><p>Passed to Conductor creation if a Trimesh object is passed as ‘obj’</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>fig: mlab figure</dt><dd></dd>
+<dt>vl: (Nvertices x Nmodes x Nfreqs) (AC) or (Nvertices x Nmodes) (DC) array</dt><dd><p>The spectral eddy-current modes</p>
+</dd>
+<dt>u: Nmodes array</dt><dd><p>The eigenvalues</p>
+</dd>
 </dl>
 </dd>
 </dl>

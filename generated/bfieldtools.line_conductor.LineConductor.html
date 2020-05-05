@@ -73,7 +73,12 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#installing-bfieldtools">Installing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#citing-bfieldtools">Citing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
@@ -165,22 +170,22 @@ and contours</p>
 <dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.simplify">
 <code class="sig-name descname">simplify</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">min_edge=0.001</em>, <em class="sig-param">angle_threshold=0.02</em>, <em class="sig-param">smooth=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.simplify" title="Permalink to this definition">¶</a></dt>
-<dd><p>Simplifies contour paths
-c: array-like</p>
-<blockquote>
-<div><p>List of polygons describing closed loops.</p>
-</div></blockquote>
-<dl class="simple">
-<dt>min_edge: float</dt><dd><p>Minimum edge length. Edges shorter than this are merged.</p>
+<dd><p>Simplifies contour paths.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>c: array-like</strong></dt><dd><p>List of polygons describing closed loops.</p>
 </dd>
-<dt>angle_threshold: float</dt><dd><p>Minimum angle. Edges with smaller angle differences are merged.</p>
+<dt><strong>min_edge: float</strong></dt><dd><p>Minimum edge length. Edges shorter than this are merged.</p>
 </dd>
-<dt>smooth: bool</dt><dd><p>If True, apply smoothing to the polygon shapes.</p>
+<dt><strong>angle_threshold: float</strong></dt><dd><p>Minimum angle. Edges with smaller angle differences are merged.</p>
+</dd>
+<dt><strong>smooth: bool</strong></dt><dd><p>If True, apply smoothing to the polygon shapes.</p>
 </dd>
 </dl>
-<dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl class="simple">
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
 <dt>simplified_linepath: LineConductor</dt><dd></dd>
 </dl>
 </dd>

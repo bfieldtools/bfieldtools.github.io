@@ -73,7 +73,12 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#documentation">Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#installing-bfieldtools">Installing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#citing-bfieldtools">Citing bfieldtools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#contributing">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Example gallery</a></li>
@@ -148,13 +153,11 @@
 </div>
 <div class="sphx-glr-example-title section" id="examples-of-thermal-noise-computation">
 <span id="sphx-glr-auto-examples-thermal-noise-thermal-noise-simulation-py"></span><h1>Examples of thermal noise computation<a class="headerlink" href="#examples-of-thermal-noise-computation" title="Permalink to this headline">¶</a></h1>
-<dl class="simple">
-<dt>Different examples:</dt><dd><p>unit_disc: DC Bnoise of a unit disc at z-axis and comparison to analytical formula
-unit_sphere: DC Bnoise of a spherical shell at origin and comparison to analytical formula
-cylinder: DC Bnoise inside a cylindrical conductor
-AC: AC Bnoise of a unit disc at one position</p>
-</dd>
-</dl>
+<p>Different examples:
+- unit_disc: DC Bnoise of a unit disc at z-axis and comparison to analytical formula
+- unit_sphere: DC Bnoise of a spherical shell at origin and comparison to analytical formula
+- cylinder: DC Bnoise inside a cylindrical conductor
+- AC: AC Bnoise of a unit disc at one position</p>
 <p>Analytic formulas are from Lee and Romalis (2008)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -269,9 +272,9 @@ Computing the resistance matrix...
 Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 6592 MiB required for 1207 by 1207 vertices...
-Computing inductance matrix in 20 chunks (11748 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 20 chunks (8060 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 2.21 seconds.
+Inductance matrix computation took 2.15 seconds.
 0 0
 1 0
 2 0
@@ -314,7 +317,7 @@ Inductance matrix computation took 2.21 seconds.
 4 5
 5 5
 6 5
-Computing magnetic field coupling matrix analytically, 1207 vertices by 30 target points... took 0.04 seconds.
+Computing magnetic field coupling matrix analytically, 1207 vertices by 30 target points... took 0.03 seconds.
 findfont: Font family [&#39;normal&#39;] not found. Falling back to DejaVu Sans.
 No component count given, computing all components.
 Calculating surface harmonics expansion...
@@ -414,7 +417,7 @@ Computing the resistance matrix...
 Computing the mass matrix...
 /home/rzetter/Documents/bfieldtools/bfieldtools/thermal_noise.py:112: RuntimeWarning: invalid value encountered in sqrt
   amp = 2 * np.sqrt(kB * T / u[i])
-Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.01 seconds.
 No component count given, computing all components.
 Calculating surface harmonics expansion...
 Computing the resistance matrix...
@@ -493,7 +496,7 @@ Computing the mass matrix...
 2 1
 0 2
 1 2
-Computing magnetic field coupling matrix analytically, 3842 vertices by 30 target points... took 0.14 seconds.
+Computing magnetic field coupling matrix analytically, 3842 vertices by 30 target points... took 0.12 seconds.
 </pre></div>
 </div>
 </div>
@@ -548,14 +551,14 @@ Computing the resistance matrix...
 Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 27858 MiB required for 2790 by 2790 vertices...
-Computing inductance matrix in 60 chunks (11548 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 80 chunks (7702 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 10.67 seconds.
+Inductance matrix computation took 10.88 seconds.
 Computing magnetic field coupling matrix analytically, 2790 vertices by 10 target points... took 0.04 seconds.
 No handles with labels found to put in legend.
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  10.562 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  3.255 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-thermal-noise-thermal-noise-simulation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5decad35d6e04fb461e492e19f04cf11/thermal_noise_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">thermal_noise_simulation.py</span></code></a></p>
