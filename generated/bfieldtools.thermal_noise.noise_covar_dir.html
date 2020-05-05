@@ -141,8 +141,28 @@
 <h1>bfieldtools.thermal_noise.noise_covar_dir<a class="headerlink" href="#bfieldtools-thermal-noise-noise-covar-dir" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bfieldtools.thermal_noise.noise_covar_dir">
-<code class="sig-prename descclassname">bfieldtools.thermal_noise.</code><code class="sig-name descname">noise_covar_dir</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">B_coupling</em>, <em class="sig-param">vl</em>, <em class="sig-param">Nmodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.thermal_noise.noise_covar_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<code class="sig-prename descclassname">bfieldtools.thermal_noise.</code><code class="sig-name descname">noise_covar_dir</code><span class="sig-paren">(</span><em class="sig-param">B_coupling</em>, <em class="sig-param">vl</em>, <em class="sig-param">Nmodes=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.thermal_noise.noise_covar_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculates (AC or DC) magnetic noise covariance between x, y and z directions
+from the modes vl.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>B_coupling: ndarray (Np, 3, Nvertices)</strong></dt><dd><p>Magnetic field coupling matrix from the mesh</p>
+</dd>
+<dt><strong>vl: ndarray (Nvertices, Nmodes, x Nfreqs) or (Nvertices, Nmodes)</strong></dt><dd><p>The Johnson noise current modes on the mesh</p>
+</dd>
+<dt><strong>Nmodes: int</strong></dt><dd><p>How many modes are included? If None, all modes in vl are included</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>Bcov: ndarray (Np, 3, 3, Nfreqs) or (Np, 3, 3)</dt><dd><p>Magnetic noise covariance x, y and z field components</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
 
 <div style='clear:both'></div></div>
 
@@ -161,7 +181,7 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

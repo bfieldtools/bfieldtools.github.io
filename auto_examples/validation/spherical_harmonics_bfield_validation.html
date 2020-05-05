@@ -204,6 +204,8 @@ Relative RMS error 2.396064326392903
 <span class="n">B0</span> <span class="o">=</span> <span class="p">(</span><span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">coilmesh</span><span class="p">,</span> <span class="n">test_points</span><span class="p">)</span> <span class="o">@</span> <span class="n">weights</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 <span class="n">B1</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="n">test_points</span><span class="p">,</span> <span class="n">alms</span><span class="p">,</span> <span class="n">blms</span><span class="p">,</span> <span class="n">lmax</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
 <span class="n">s</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
     <span class="o">*</span><span class="n">coilmesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">coilmesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">weights</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;viridis&quot;</span>
 <span class="p">)</span>
@@ -225,7 +227,7 @@ Relative RMS error 2.396064326392903
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  55.318 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  55.504 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-spherical-harmonics-bfield-validation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/c71488814f936ce6494c9e2193df6348/spherical_harmonics_bfield_validation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">spherical_harmonics_bfield_validation.py</span></code></a></p>
@@ -252,7 +254,7 @@ Relative RMS error 2.396064326392903
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

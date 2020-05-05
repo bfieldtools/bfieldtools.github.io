@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Thermal noise computation &#8212; bfieldtools  documentation</title>
+    <title>Examples of thermal noise computation &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Computation time for shiftinvert eigenvalue decomp" href="../validation/validate_suh_shift_invert.html" />
-    <link rel="prev" title="Thin-film heater noise" href="thermal_noise_platinum_heater.html" />
+    <link rel="prev" title="Coil with minimal eddy currents" href="../publication_software/pub_minimal_eddy_current_cylindrical_coil_design.html" />
     <link rel="stylesheet" href="../../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/font-source-code-pro.css" type="text/css" />
@@ -115,17 +115,16 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
-<li><a class="reference internal" href="#">Thermal noise computation</a><ul>
-<li><a class="reference internal" href="#unit-sphere">Unit sphere</a></li>
-<li><a class="reference internal" href="#unit-disc-dc-noise">Unit disc, DC noise</a></li>
+<li><a class="reference internal" href="#">Examples of thermal noise computation</a><ul>
+<li><a class="reference internal" href="#dc-magnetic-noise-in-the-center-of-sphere-with-different-radii">DC magnetic noise in the center of sphere with different radii</a></li>
 <li><a class="reference internal" href="#closed-cylinder-dc-noise">Closed cylinder, DC noise</a></li>
-<li><a class="reference internal" href="#unit-disc-ac-mode">Unit disc, AC mode</a></li>
+<li><a class="reference internal" href="#unit-disc-ac-noise">Unit disc, AC noise</a></li>
 </ul>
 </li>
 </ul>
 
   <li>
-    <a href="thermal_noise_platinum_heater.html" title="Previous Chapter: Thin-film heater noise"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Thin-film hea...</span>
+    <a href="../publication_software/pub_minimal_eddy_current_cylindrical_coil_design.html" title="Previous Chapter: Coil with minimal eddy currents"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Coil with min...</span>
     </a>
   </li>
   <li>
@@ -147,14 +146,16 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-thermal-noise-thermal-noise-simulation-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="thermal-noise-computation">
-<span id="sphx-glr-auto-examples-thermal-noise-thermal-noise-simulation-py"></span><h1>Thermal noise computation<a class="headerlink" href="#thermal-noise-computation" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="examples-of-thermal-noise-computation">
+<span id="sphx-glr-auto-examples-thermal-noise-thermal-noise-simulation-py"></span><h1>Examples of thermal noise computation<a class="headerlink" href="#examples-of-thermal-noise-computation" title="Permalink to this headline">¶</a></h1>
 <dl class="simple">
-<dt>Three different examples:</dt><dd><p>unit_sphere: DC Bnoise of a spherical shell at origin and comparison to analytical formula
-unit_disc: DC Bnoise of a unit disc at z-axis and comparison to analytical formula
+<dt>Different examples:</dt><dd><p>unit_disc: DC Bnoise of a unit disc at z-axis and comparison to analytical formula
+unit_sphere: DC Bnoise of a spherical shell at origin and comparison to analytical formula
+cylinder: DC Bnoise inside a cylindrical conductor
 AC: AC Bnoise of a unit disc at one position</p>
 </dd>
 </dl>
+<p>Analytic formulas are from Lee and Romalis (2008)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">trimesh</span>
@@ -162,8 +163,7 @@ AC: AC Bnoise of a unit disc at one position</p>
 
 <span class="kn">from</span> <span class="nn">bfieldtools.mesh_impedance</span> <span class="kn">import</span> <span class="n">self_inductance_matrix</span><span class="p">,</span> <span class="n">resistance_matrix</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.thermal_noise</span> <span class="kn">import</span> <span class="p">(</span>
-    <span class="n">compute_AC_current_modes</span><span class="p">,</span>
-    <span class="n">compute_DC_current_modes</span><span class="p">,</span>
+    <span class="n">compute_current_modes</span><span class="p">,</span>
     <span class="n">noise_covar</span><span class="p">,</span>
     <span class="n">noise_var</span><span class="p">,</span>
     <span class="n">visualize_current_modes</span><span class="p">,</span>
@@ -177,23 +177,156 @@ AC: AC Bnoise of a unit disc at one position</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">rc</span><span class="p">(</span><span class="s2">&quot;font&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">font</span><span class="p">)</span>
 
 <span class="c1"># Fix the simulation parameters</span>
-<span class="n">d</span> <span class="o">=</span> <span class="mf">100e-6</span>
-<span class="n">sigma</span> <span class="o">=</span> <span class="mf">3.7e7</span>
-<span class="n">T</span> <span class="o">=</span> <span class="mi">300</span>
-<span class="n">kB</span> <span class="o">=</span> <span class="mf">1.38064852e-23</span>
-<span class="n">mu0</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">1e-7</span>
-<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,))</span>
+<span class="n">d</span> <span class="o">=</span> <span class="mf">100e-6</span>  <span class="c1"># thickness</span>
+<span class="n">sigma</span> <span class="o">=</span> <span class="mf">3.7e7</span>  <span class="c1"># conductivity</span>
+<span class="n">res</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">sigma</span>  <span class="c1"># resistivity</span>
+<span class="n">T</span> <span class="o">=</span> <span class="mi">300</span>  <span class="c1"># temperature</span>
+<span class="n">kB</span> <span class="o">=</span> <span class="mf">1.38064852e-23</span>  <span class="c1"># Boltz</span>
+<span class="n">mu0</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="mf">1e-7</span>  <span class="c1"># permeability of freespace</span>
+<span class="c1"># freqs = np.array((0,))</span>
 
 
-<span class="n">Nchunks</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">quad_degree</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># Nchunks = 8</span>
+<span class="c1"># quad_degree = 2</span>
 </pre></div>
 </div>
-<div class="section" id="unit-sphere">
-<h2>Unit sphere<a class="headerlink" href="#unit-sphere" title="Permalink to this headline">¶</a></h2>
+<p>DC magnetic noise from unit disc</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;bfieldtools&quot;</span><span class="p">,</span> <span class="s2">&quot;example_meshes/unit_disc.stl&quot;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">remesh</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+<span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">remesh</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
+
+<span class="c1"># Compute the AC-current modes and visualize them</span>
+<span class="n">vl</span><span class="p">,</span> <span class="n">u</span> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span>
+    <span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span> <span class="n">return_eigenvals</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+<span class="n">visualize_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">vl</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">contours</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Define field points on z axis</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">z</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
+
+<span class="n">B_coupling</span> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># field coupling matrix</span>
+
+<span class="c1"># Compute noise variance</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">))</span>
+
+<span class="c1"># Calculate Bz noise using analytical formula and plot the results</span>
+<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ban</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">mu0</span>
+    <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">d</span> <span class="o">*</span> <span class="n">kB</span> <span class="o">*</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">Ban</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Analytic&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numerical&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance d/R&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;DC noise Bz (T/rHz)&quot;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">Ban</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Ban</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance d/R&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative error (%)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="c1"># Next, we compute the DC noise without reference to the inductance</span>
+<span class="n">vl_dc</span><span class="p">,</span> <span class="n">u_dc</span> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span>
+    <span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;DC&quot;</span><span class="p">,</span> <span class="n">return_eigenvals</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Compute noise variance</span>
+<span class="n">B_dc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl_dc</span><span class="p">))</span>
+
+<span class="c1"># Compare results computed using AC and DC formulation</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">B_dc</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;o&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;DC mode&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;AC mode&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance d/R&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;DC noise Bz (T/rHz)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_thermal_noise_simulation_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_thermal_noise_simulation_001.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_thermal_noise_simulation_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_thermal_noise_simulation_002.png" />
+</li>
+</ul>
+<img alt="../../_images/sphx_glr_thermal_noise_simulation_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 6592 MiB required for 1207 by 1207 vertices...
+Computing inductance matrix in 20 chunks (11748 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 2.21 seconds.
+0 0
+1 0
+2 0
+3 0
+4 0
+5 0
+6 0
+0 1
+1 1
+2 1
+3 1
+4 1
+5 1
+6 1
+0 2
+1 2
+2 2
+3 2
+4 2
+5 2
+6 2
+0 3
+1 3
+2 3
+3 3
+4 3
+5 3
+6 3
+0 4
+1 4
+2 4
+3 4
+4 4
+5 4
+6 4
+0 5
+1 5
+2 5
+3 5
+4 5
+5 5
+6 5
+Computing magnetic field coupling matrix analytically, 1207 vertices by 30 target points... took 0.04 seconds.
+findfont: Font family [&#39;normal&#39;] not found. Falling back to DejaVu Sans.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+</pre></div>
+</div>
+<div class="section" id="dc-magnetic-noise-in-the-center-of-sphere-with-different-radii">
+<h2>DC magnetic noise in the center of sphere with different radii<a class="headerlink" href="#dc-magnetic-noise-in-the-center-of-sphere-with-different-radii" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Np</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">radius</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># calculate are at origin</span>
 
 <span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">Np</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Np</span><span class="p">):</span>
@@ -204,52 +337,11 @@ AC: AC Bnoise of a unit disc at one position</p>
 
     <span class="n">B_coupling</span> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">sigma</span>
-    <span class="n">sheet_resistance</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>
-
-    <span class="c1"># Compute the resistance and inductance matrices</span>
-    <span class="n">R</span> <span class="o">=</span> <span class="n">resistance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">sheet_resistance</span><span class="o">=</span><span class="n">sheet_resistance</span><span class="p">)</span>
-    <span class="c1"># M = self_inductance_matrix(mesh, Nchunks=Nchunks, quad_degree=quad_degree)</span>
-
-    <span class="c1"># vl = compute_current_modes_ind_res(mesh, M, R, freqs, T, closed=True)</span>
-    <span class="n">vl</span> <span class="o">=</span> <span class="n">compute_DC_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="mi">1</span><span class="o">/</span><span class="n">sigma</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">)</span>
-
-    <span class="c1">#    scene = mlab.figure(None, bgcolor=(1, 1, 1), fgcolor=(0.5, 0.5, 0.5),</span>
-    <span class="c1">#               size=(800, 800))</span>
-    <span class="c1">#    visualize_current_modes(mesh,vl[:,:,0], 8, 1)</span>
-
-    <span class="c1">#    vl[:,0] = np.zeros(vl[:,0].shape) # fix DC-component</span>
-
-    <span class="n">Btemp</span> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">)</span>
-    <span class="c1">#    Btemp = compute_dc_Bnoise(mesh,vl,fp,sigma,d,T)</span>
-    <span class="c1"># B[i] = Btemp[:, :, 0]</span>
+    <span class="n">vl</span> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;DC&quot;</span><span class="p">)</span>
+    <span class="n">Btemp</span> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>  <span class="c1"># avoid spatial &quot;DC&quot; mode</span>
     <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Btemp</span>
 
-<span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_minus_view</span><span class="p">()</span>
-<span class="n">surface</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">surface</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">representation</span> <span class="o">=</span> <span class="s2">&quot;wireframe&quot;</span>
-<span class="n">surface</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">scalar_visibility</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.530686305704514</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">focal_point</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_angle</span> <span class="o">=</span> <span class="mf">30.0</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_up</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">clipping_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">3.485379442647469</span><span class="p">,</span> <span class="mf">8.118646600290083</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">compute_view_plane_normal</span><span class="p">()</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">position</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.570815128681416</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">focal_point</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_angle</span> <span class="o">=</span> <span class="mf">30.0</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">view_up</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">clipping_range</span> <span class="o">=</span> <span class="p">[</span><span class="mf">2.535106977394602</span><span class="p">,</span> <span class="mf">7.1443773556116374</span><span class="p">]</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">compute_view_plane_normal</span><span class="p">()</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
-    <span class="s2">&quot;/Users/joonas/Documents/Manuscripts/ThermalNoise/figures/validation/sphere.png&quot;</span><span class="p">,</span>
-    <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">),</span>
-<span class="p">)</span>
-
+<span class="c1"># Analytic formula</span>
 <span class="n">Ban</span> <span class="o">=</span> <span class="n">mu0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">d</span> <span class="o">*</span> <span class="n">kB</span> <span class="o">*</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
@@ -269,67 +361,64 @@ AC: AC Bnoise of a unit disc at one position</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sphere radius&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$B_z$ noise at DC (fT/rHz)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-
-<span class="n">RE</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">-</span> <span class="n">Ban</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Ban</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">radius</span><span class="p">,</span> <span class="n">RE</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Sphere radius&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative error (%)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="unit-disc-dc-noise">
-<h2>Unit disc, DC noise<a class="headerlink" href="#unit-disc-dc-noise" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span><span class="s2">&quot;bfieldtools&quot;</span><span class="p">,</span> <span class="s2">&quot;example_meshes/unit_disc.stl&quot;</span><span class="p">)</span>
-<span class="p">)</span>
-<span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">remesh</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
-<span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">remesh</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
-
-<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,))</span>
-
-<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">sigma</span>
-<span class="n">sheet_resistance</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <span class="n">MeshConductor</span>
-<span class="n">obj</span> <span class="o">=</span> <span class="n">MeshConductor</span><span class="p">(</span><span class="n">mesh_obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">resistance_full_rank</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># vl = compute_AC_current_modes(mesh, M, R, freqs, T, closed=False)</span>
-<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_DC_current_modes</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="mi">1</span><span class="o">/</span><span class="n">sigma</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">Nmodes</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
-
-
-<span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
-
-<span class="c1"># visualize_current_modes(mesh, vl[:,:,0], 42, 5, contours=False)</span>
-
-<span class="n">Np</span> <span class="o">=</span> <span class="mi">30</span>
-
-<span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
-<span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">z</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
-
-<span class="n">B_coupling</span> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise_var</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">))</span>
-
-<span class="n">r</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">Ban</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="n">mu0</span>
-    <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">sigma</span> <span class="o">*</span> <span class="n">d</span> <span class="o">*</span> <span class="n">kB</span> <span class="o">*</span> <span class="n">T</span> <span class="o">/</span> <span class="p">(</span><span class="mi">8</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
-    <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">z</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">/</span> <span class="n">r</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
-<span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">Ban</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Analytic&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Numerical&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance d/R&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;DC noise Bz (T/rHz)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">Ban</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Ban</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance d/R&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative error (%)&quot;</span><span class="p">)</span>
+<img alt="../../_images/sphx_glr_thermal_noise_simulation_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_004.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+/home/rzetter/Documents/bfieldtools/bfieldtools/thermal_noise.py:112: RuntimeWarning: invalid value encountered in sqrt
+  amp = 2 * np.sqrt(kB * T / u[i])
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+/home/rzetter/Documents/bfieldtools/bfieldtools/thermal_noise.py:112: RuntimeWarning: invalid value encountered in sqrt
+  amp = 2 * np.sqrt(kB * T / u[i])
+Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
+No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
 </pre></div>
 </div>
 </div>
@@ -340,50 +429,22 @@ AC: AC Bnoise of a unit disc at one position</p>
 <span class="p">)</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">remesh</span><span class="o">.</span><span class="n">subdivide</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
 
+<span class="c1"># Compute noise current modes at DC</span>
+<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;DC&quot;</span><span class="p">)</span>
 
-<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">sigma</span>
-<span class="n">sheet_resistance</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>
-
-<span class="c1"># Compute the resistance and inductance matrices</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">resistance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">sheet_resistance</span><span class="o">=</span><span class="n">sheet_resistance</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">self_inductance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">Nchunks</span><span class="o">=</span><span class="n">Nchunks</span><span class="p">,</span> <span class="n">quad_degree</span><span class="o">=</span><span class="n">quad_degree</span><span class="p">)</span>
-
-<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_current_modes_ind_res</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
+<span class="c1"># Visualize the current modes</span>
 <span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+<span class="n">visualize_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">vl</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="n">visualize_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">vl</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-
-
-<span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
-<span class="n">s</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">)</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_minus_view</span><span class="p">()</span>
-<span class="n">surface</span> <span class="o">=</span> <span class="n">scene</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">children</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span class="n">surface</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">representation</span> <span class="o">=</span> <span class="s2">&quot;wireframe&quot;</span>
-<span class="n">surface</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">scalar_visibility</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">isometric_view</span><span class="p">()</span>
-<span class="c1"># scene.scene.camera.position = [2.2578932293957665, 2.2578932293957665, 2.2578932293957665]</span>
-<span class="c1"># scene.scene.camera.focal_point = [0.0, 0.0, 0.0]</span>
-<span class="c1"># scene.scene.camera.view_angle = 30.0</span>
-<span class="c1"># scene.scene.camera.view_up = [0.0, 0.0, 1.0]</span>
-<span class="c1"># scene.scene.camera.clipping_range = [1.5738238620907348, 6.861972426889951]</span>
-<span class="c1"># scene.scene.camera.compute_view_plane_normal()</span>
-<span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">render</span><span class="p">()</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span>
-    <span class="s2">&quot;/Users/joonas/Documents/Manuscripts/ThermalNoise/figures/validation/cylinder.png&quot;</span><span class="p">,</span>
-    <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">),</span>
-<span class="p">)</span>
-
+<span class="c1"># Calculate field noise along long axis of the cylinder</span>
 <span class="n">Np</span> <span class="o">=</span> <span class="mi">30</span>
-
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)))</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">B_coupling</span> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">)</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:])</span>  <span class="c1"># avoid spatial &quot;DC&quot; mode</span>
 
-<span class="c1"># B = compute_dc_Bnoise(mesh,vl,fp,sigma,d,T)</span>
-
+<span class="c1"># Analytic formula valid only at the center of cylinder</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mf">0.5</span>
 <span class="n">L</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">rat</span> <span class="o">=</span> <span class="n">L</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span>
@@ -396,6 +457,7 @@ AC: AC Bnoise of a unit disc at one position</p>
     <span class="p">)</span>
 <span class="p">)</span>
 <span class="n">Ban</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">Gfact</span><span class="p">)</span> <span class="o">*</span> <span class="n">mu0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">kB</span> <span class="o">*</span> <span class="n">T</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span> <span class="o">/</span> <span class="n">a</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">Ban</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">*</span> <span class="mf">1e15</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Analytic&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -414,93 +476,86 @@ AC: AC Bnoise of a unit disc at one position</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance along long axis&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;DC noise along axis (fT/rHz)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">B</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]),</span> <span class="s2">&quot;--&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance along long axis x&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;DC noise (T/rHz)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_thermal_noise_simulation_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_005.png" />
+<img alt="../../_images/sphx_glr_thermal_noise_simulation_006.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_006.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the mass matrix...
+0 0
+1 0
+2 0
+0 1
+1 1
+2 1
+0 2
+1 2
+Computing magnetic field coupling matrix analytically, 3842 vertices by 30 target points... took 0.14 seconds.
 </pre></div>
 </div>
 </div>
-<div class="section" id="unit-disc-ac-mode">
-<h2>Unit disc, AC mode<a class="headerlink" href="#unit-disc-ac-mode" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unit-disc-ac-noise">
+<h2>Unit disc, AC noise<a class="headerlink" href="#unit-disc-ac-noise" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span>
         <span class="s2">&quot;bfieldtools&quot;</span><span class="p">,</span> <span class="s2">&quot;example_meshes/unitdisc_extremelyfine.stl&quot;</span>
     <span class="p">)</span>
 <span class="p">)</span>
 
+<span class="n">Nfreqs</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">15</span><span class="p">)</span>  <span class="c1"># freqs from 1 to 10 kHz</span>
 
-<span class="c1"># Nfreqs = 100</span>
-<span class="c1"># freqs = np.logspace(0, 3, Nfreqs) #30 frequencies from 1 to 1000 Hz</span>
-<span class="c1"># inds = np.where(freqs &lt; 600)</span>
-<span class="c1"># freqs = freqs[inds]</span>
-<span class="c1"># Nfreqs = freqs.shape[0]</span>
+<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span>
+    <span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span>
+    <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span>
+    <span class="n">resistivity</span><span class="o">=</span><span class="n">res</span><span class="p">,</span>
+    <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span>
+    <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;AC&quot;</span><span class="p">,</span>
+    <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span>
+    <span class="n">return_eigenvals</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span>
 
-<span class="n">Nfreqs</span> <span class="o">=</span> <span class="mi">70</span>
-<span class="n">freqs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="n">Nfreqs</span><span class="p">)</span>
 
-<span class="n">S</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="n">sigma</span>
-<span class="n">sheet_resistance</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">d</span> <span class="o">*</span> <span class="n">S</span><span class="p">)</span>
-
-<span class="c1"># Compute the resistance and inductance matrices</span>
-<span class="n">R</span> <span class="o">=</span> <span class="n">resistance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">sheet_resistance</span><span class="o">=</span><span class="n">sheet_resistance</span><span class="p">)</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">self_inductance_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">Nchunks</span><span class="o">=</span><span class="n">Nchunks</span><span class="p">,</span> <span class="n">quad_degree</span><span class="o">=</span><span class="n">quad_degree</span><span class="p">)</span>
-
-<span class="n">vl</span> <span class="o">=</span> <span class="n">compute_AC_current_modes</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">R</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">closed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1">#</span>
-<span class="c1"># fp = np.zeros((1,3))</span>
-<span class="c1"># fp[0,2] = 0.1</span>
-
-<span class="n">Np</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">Np</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="p">)</span>
 <span class="n">fp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span> <span class="n">z</span><span class="p">))</span><span class="o">.</span><span class="n">T</span>
 
 <span class="n">B_coupling</span> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">Bf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise_var</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">))</span>
+<span class="n">Bf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">))</span>  <span class="c1"># noise variance</span>
 
-<span class="c1"># r = 1</span>
-<span class="c1"># Ban = mu0*np.sqrt(sigma*d*kB*T/(8*np.pi*fp[0,2]**2))*(1/(1+fp[0,2]**2/r**2))</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="c1"># Plot Bz noise as a function of frequency</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">freqs</span><span class="p">,</span> <span class="n">Bf</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="mf">1e15</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="c1"># plt.ylim(1, 20)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Frequency (Hz)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;$B_z$ noise (fT/rHz)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="n">f_interp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1200</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span>
-
-<span class="n">cutf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">Np</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">Np</span><span class="p">):</span>
-    <span class="n">Btemp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="n">f_interp</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">Bf</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="p">:])</span>
-    <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">Btemp</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">Btemp</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-    <span class="n">cutf</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">f_interp</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
-
-<span class="n">cutf_an</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="n">mu0</span> <span class="o">*</span> <span class="n">sigma</span> <span class="o">*</span> <span class="n">d</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cutf_an</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Infinite plane&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">loglog</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">cutf</span><span class="p">,</span> <span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">markeredgewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Disc&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;right&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s2">&quot;top&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Distance (z/R)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;3-dB cutoff frequency (Hz)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<img alt="../../_images/sphx_glr_thermal_noise_simulation_007.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_007.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>No component count given, computing all components.
+Calculating surface harmonics expansion...
+Computing the resistance matrix...
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 27858 MiB required for 2790 by 2790 vertices...
+Computing inductance matrix in 60 chunks (11548 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 10.67 seconds.
+Computing magnetic field coupling matrix analytically, 2790 vertices by 10 target points... took 0.04 seconds.
+No handles with labels found to put in legend.
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  10.562 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-thermal-noise-thermal-noise-simulation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5decad35d6e04fb461e492e19f04cf11/thermal_noise_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">thermal_noise_simulation.py</span></code></a></p>
@@ -528,7 +583,7 @@ AC: AC Bnoise of a unit disc at one position</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

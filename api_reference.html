@@ -525,28 +525,20 @@ of any stream function as a series.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.compute_DC_current_modes.html#bfieldtools.thermal_noise.compute_DC_current_modes" title="bfieldtools.thermal_noise.compute_DC_current_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_DC_current_modes</span></code></a>(obj, resistivity, …)</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.compute_AC_current_modes.html#bfieldtools.thermal_noise.compute_AC_current_modes" title="bfieldtools.thermal_noise.compute_AC_current_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_AC_current_modes</span></code></a>(obj, freqs, …[, …])</p></td>
-<td><p><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar.html#bfieldtools.thermal_noise.noise_covar" title="bfieldtools.thermal_noise.noise_covar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar</span></code></a>(mesh, B_coupling, vl[, Nmodes])</p></td>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_DC_current_modes</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_var.html#bfieldtools.thermal_noise.noise_var" title="bfieldtools.thermal_noise.noise_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_var</span></code></a>(mesh, B_coupling, vl[, Nmodes])</p></td>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_AC_current_modes</span></code></p></td>
 <td><p></p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar_dir.html#bfieldtools.thermal_noise.noise_covar_dir" title="bfieldtools.thermal_noise.noise_covar_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar_dir</span></code></a>(mesh, B_coupling, vl[, Nmodes])</p></td>
-<td><p></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar.html#bfieldtools.thermal_noise.noise_covar" title="bfieldtools.thermal_noise.noise_covar"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
+<td><p>Calculates (AC or DC) magnetic noise covariance along x, y and z from the  modes vl.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_var.html#bfieldtools.thermal_noise.noise_var" title="bfieldtools.thermal_noise.noise_var"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_var</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
+<td><p>Calculates (AC or DC) magnetic noise variance along x, y and z from the  modes vl.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.noise_covar_dir.html#bfieldtools.thermal_noise.noise_covar_dir" title="bfieldtools.thermal_noise.noise_covar_dir"><code class="xref py py-obj docutils literal notranslate"><span class="pre">noise_covar_dir</span></code></a>(B_coupling, vl[, Nmodes])</p></td>
+<td><p>Calculates (AC or DC) magnetic noise covariance between x, y and z directions from the modes vl.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.thermal_noise.visualize_current_modes.html#bfieldtools.thermal_noise.visualize_current_modes" title="bfieldtools.thermal_noise.visualize_current_modes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">visualize_current_modes</span></code></a>(mesh, vl, Nmodes, scale)</p></td>
 <td><p>Visualizes current modes up to Nmodes.</p></td>
@@ -641,7 +633,7 @@ Mainly wrappers and convenience helpers around mayavi and matplotlib functions</
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

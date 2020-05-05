@@ -404,7 +404,7 @@ Loaded linear_collocation BEM solution from /home/rzetter/mne_data/MNE-sample-da
     <span class="n">rel_errors</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">rel_error</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">plot_this</span><span class="p">:</span>
-        <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
         <span class="n">surf</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
         <span class="n">surf</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">mapper</span><span class="o">.</span><span class="n">interpolate_scalars_before_mapping</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="n">surf</span><span class="o">.</span><span class="n">module_manager</span><span class="o">.</span><span class="n">scalar_lut_manager</span><span class="o">.</span><span class="n">number_of_colors</span> <span class="o">=</span> <span class="mi">16</span>
@@ -440,7 +440,7 @@ Relative error: 2.0549237013162216 %
 
 <span class="c1"># Reset coupling by hand</span>
 <span class="n">c</span><span class="o">.</span><span class="n">B_coupling</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">B_surf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
     <span class="n">c</span><span class="o">.</span><span class="n">B_coupling</span><span class="p">(</span><span class="n">helmet</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">*</span> <span class="n">helmet</span><span class="o">.</span><span class="n">vertex_normals</span><span class="p">[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span>
 <span class="p">)</span>
@@ -475,7 +475,7 @@ Relative error: 2.0549237013162216 %
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2562 vertices by 2044 target points... took 1.43 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2562 vertices by 2044 target points... took 1.42 seconds.
 </pre></div>
 </div>
 <dl>
@@ -532,7 +532,7 @@ surf2.module_manager.scalar_lut_manager.number_of_colors = 15</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix analytically, 2562 vertices by 27000 target points... took 83.16 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix analytically, 2562 vertices by 27000 target points... took 84.20 seconds.
 </pre></div>
 </div>
 <p>Plot the computed magnetic field with streamlines</p>
@@ -638,14 +638,14 @@ surf2.module_manager.scalar_lut_manager.number_of_colors = 15</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 24058 MiB required for 2562 by 2562 vertices...
-Computing inductance matrix in 80 chunks (7203 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 60 chunks (8557 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 11.24 seconds.
+Inductance matrix computation took 10.25 seconds.
 
-&lt;mayavi.modules.surface.Surface object at 0x7f753d876b90&gt;
+&lt;mayavi.modules.surface.Surface object at 0x7f41d9a3dd70&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 5 minutes  58.931 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 6 minutes  2.908 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-software-mne-interpolation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1622b98b3616cf59855736b2ed971178/mne_interpolation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mne_interpolation.py</span></code></a></p>
@@ -672,7 +672,7 @@ Inductance matrix computation took 11.24 seconds.
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

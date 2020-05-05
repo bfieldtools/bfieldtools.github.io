@@ -18,8 +18,6 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bfieldtools.thermal_noise.noise_covar" href="bfieldtools.thermal_noise.noise_covar.html" />
-    <link rel="prev" title="bfieldtools.thermal_noise.compute_DC_current_modes" href="bfieldtools.thermal_noise.compute_DC_current_modes.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -72,7 +70,7 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
@@ -82,7 +80,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#validation">Validation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
 </ul>
 </ul>
 </li>
@@ -118,14 +116,6 @@
 <li><a class="reference internal" href="#">bfieldtools.thermal_noise.compute_AC_current_modes</a></li>
 </ul>
 
-  <li>
-    <a href="bfieldtools.thermal_noise.compute_DC_current_modes.html" title="Previous Chapter: bfieldtools.thermal_noise.compute_DC_current_modes"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; bfieldtools.t...</span>
-    </a>
-  </li>
-  <li>
-    <a href="bfieldtools.thermal_noise.noise_covar.html" title="Next Chapter: bfieldtools.thermal_noise.noise_covar"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.t... &raquo;</span>
-    </a>
-  </li>
 <form action="../search.html" method="get">
  <div class="form-group">
   <input type="text" name="q" class="form-control" placeholder="Search" />
@@ -139,38 +129,6 @@
       
   <div class="section" id="bfieldtools-thermal-noise-compute-ac-current-modes">
 <h1>bfieldtools.thermal_noise.compute_AC_current_modes<a class="headerlink" href="#bfieldtools-thermal-noise-compute-ac-current-modes" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
-<dt id="bfieldtools.thermal_noise.compute_AC_current_modes">
-<code class="sig-prename descclassname">bfieldtools.thermal_noise.</code><code class="sig-name descname">compute_AC_current_modes</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">freqs</em>, <em class="sig-param">resistivity</em>, <em class="sig-param">thickness</em>, <em class="sig-param">T</em>, <em class="sig-param">closed=True</em>, <em class="sig-param">Nmodes=None</em>, <em class="sig-param">return_eigenvals=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.thermal_noise.compute_AC_current_modes" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>obj</strong><span class="classifier">Trimesh-object or MeshConductor-object</span></dt><dd><p>Represents the boundary on which current density is specified
-or MeshConductor object that wraps the mesh</p>
-</dd>
-<dt><strong>freqs: Nfreqs array</strong></dt><dd><p>The frequencies at which the eddy-current modes are computed</p>
-</dd>
-<dt><strong>T: float</strong></dt><dd><p>Temperature in Kelvins</p>
-</dd>
-<dt><strong>closed: boolean</strong></dt><dd><p>Is the mesh closed (True) or not (False)</p>
-</dd>
-<dt><strong>Nmodes: int</strong></dt><dd><p>How many modes are computed? If None, all Nvertices modes are computed</p>
-</dd>
-<dt><strong>return_eigenvals: boolean</strong></dt><dd><p>Return also the eigenvalues (the inverse circuit time constants)?</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>vl: (Nvertices x Nmodes x Nfreqs) array</dt><dd><p>The spectral eddy-current modes</p>
-</dd>
-<dt>u: Nmodes array</dt><dd><p>The eigenvalues (the inverse circuit time constants)</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
 <div style='clear:both'></div></div>
 
 
@@ -188,7 +146,7 @@ or MeshConductor object that wraps the mesh</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

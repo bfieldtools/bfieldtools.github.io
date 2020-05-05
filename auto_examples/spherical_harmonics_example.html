@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Field of a Helmholtz coils pair" href="helmholtz_coil.html" />
-    <link rel="prev" title="Interpolate stream function" href="interpolate_example.html" />
+    <link rel="prev" title="Flatten mesh using conformal mapping" href="flatten_mesh.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -119,7 +119,7 @@
 </ul>
 
   <li>
-    <a href="interpolate_example.html" title="Previous Chapter: Interpolate stream function"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Interpolate s...</span>
+    <a href="flatten_mesh.html" title="Previous Chapter: Flatten mesh using conformal mapping"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Flatten mesh ...</span>
     </a>
   </li>
   <li>
@@ -156,38 +156,56 @@
 </div>
 <p>Plot Spherical harmonics Ylms on the sphere
 Plot Ylms up to l = 4</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotYlms</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">lmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 
 <span class="c1"># Plot Ylm with l=3, m=3</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotYlm</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../_images/sphx_glr_spherical_harmonics_example_001.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_001.png" />
+</li>
+<li><img alt="../_images/sphx_glr_spherical_harmonics_example_002.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_002.png" />
+</li>
+</ul>
 <p>Plot vector spherical harmonics Vlms / Wlms on the sphere</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot Vlm with l=2, m=2</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotVlm</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_plus_view</span><span class="p">()</span>
 
 <span class="c1"># Plot Wlm with the same order and degree, l=2, m=2</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotWlm</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="n">obj</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_plus_view</span><span class="p">()</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../_images/sphx_glr_spherical_harmonics_example_003.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_003.png" />
+</li>
+<li><img alt="../_images/sphx_glr_spherical_harmonics_example_004.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_004.png" />
+</li>
+</ul>
 <p>Plot fields of vector spherical harmonics Vlms / Wlms on a volume</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot BVlm with l=2, m=2</span>
 <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># add offset due to divergence in origin</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotBVlm_volume</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span>
 
 <span class="c1"># Plot BWlm with l=2, m=2</span>
 <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># include origin</span>
-<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotBWlm_volume</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../_images/sphx_glr_spherical_harmonics_example_005.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_005.png" />
+</li>
+<li><img alt="../_images/sphx_glr_spherical_harmonics_example_006.png" class="sphx-glr-multi-img" src="../_images/sphx_glr_spherical_harmonics_example_006.png" />
+</li>
+</ul>
 <p>Test inner products in quadrature points defined in sph-object</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ylm1</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">ylm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">Ylm2</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">ylm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
@@ -213,6 +231,16 @@ Plot Ylms up to l = 4</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner product between W_10 and V_10 is </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">sph</span><span class="o">.</span><span class="n">innerproduct</span><span class="p">(</span><span class="n">Wlm1</span><span class="p">,</span> <span class="n">Vlm1</span><span class="p">))</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Inner product between Ylm_20 and Ylm_21 is 0.000000
+Inner product between Ylm_20 and Ylm_20 is 1.000000
+Inner product between V_10 and V_70 is 0.000000
+Inner product between V_10 and V_10 is 1.000000
+Inner product between W_10 and W_70 is 0.000000
+Inner product between W_10 and W_10 is 1.000000
+Inner product between W_10 and V_10 is 0.000000
+</pre></div>
+</div>
 <p>Simple example of the calculation of sph spectrum of magnetic field
 defined on the sphere using the inner product.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># define homogeneous magnetic field along z-axis</span>
@@ -231,7 +259,12 @@ defined on the sphere using the inner product.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">coeffs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<img alt="../_images/sphx_glr_spherical_harmonics_example_007.png" class="sphx-glr-single-img" src="../_images/sphx_glr_spherical_harmonics_example_007.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f41be750410&gt;]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  5.531 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-spherical-harmonics-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/0270f4c1357377196cc054fe2ee802f9/spherical_harmonics_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">spherical_harmonics_example.py</span></code></a></p>
@@ -258,7 +291,7 @@ defined on the sphere using the inner product.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-04.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

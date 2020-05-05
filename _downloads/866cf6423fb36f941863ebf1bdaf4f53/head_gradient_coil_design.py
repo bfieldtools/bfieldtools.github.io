@@ -40,8 +40,13 @@ z = Z.ravel()
 target_points = np.array([x, y, z]).T
 
 # Turn cube into sphere by rejecting points "in the corners"
+# and inner points
 target_points = (
-    target_points[np.linalg.norm(target_points, axis=1) < sidelength / 2] + center
+    target_points[
+        (np.linalg.norm(target_points, axis=1) < sidelength / 2)
+        * (np.linalg.norm(target_points, axis=1) > sidelength / 2 * 0.8)
+    ]
+    + center
 )
 
 
@@ -78,6 +83,7 @@ target_spec = {
     "target": target_field,
 }
 
+#%%
 import mosek
 
 coil.s, prob = optimize_streamfunctions(
