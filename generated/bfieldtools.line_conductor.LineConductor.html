@@ -266,6 +266,29 @@ and contours</p>
 </dd></dl>
 
 <dl class="method">
+<dt id="bfieldtools.line_conductor.LineConductor.line_mutual_inductance">
+<code class="sig-name descname">line_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">path</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.line_mutual_inductance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate mutual inductance between self and another line current (path)</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>path</strong><span class="classifier">Path3d or LineConductor object</span></dt><dd><p>The other line conductor</p>
+</dd>
+<dt><strong>separate_loops</strong><span class="classifier">TYPE, optional</span></dt><dd><p>If True, return the inductance separately for each loop. The default is False.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt>M: array</dt><dd><p>If separate loops, shape (N_loops, N_loops_path). Otherwise (N_loops_path,).
+where N_loops_path = len(path.entities)</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance">
 <code class="sig-name descname">mesh_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mesh</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the mutual inductance between the polyline loops and a mesh_conductor
@@ -309,7 +332,7 @@ mesh.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-05.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-06.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
