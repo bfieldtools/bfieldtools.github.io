@@ -81,6 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
@@ -124,14 +125,7 @@
 <li><a class="reference internal" href="#using-conda">Using conda</a></li>
 <li><a class="reference internal" href="#using-pip">Using pip</a></li>
 <li><a class="reference internal" href="#from-source">From source</a></li>
-<li><a class="reference internal" href="#additional-solvers">Additional solvers</a><ul>
-<li><a class="reference internal" href="#mosek">MOSEK</a></li>
-<li><a class="reference internal" href="#osqp">OSQP</a></li>
-<li><a class="reference internal" href="#cvxopt">CVXOPT</a></li>
-<li><a class="reference internal" href="#scs">SCS</a></li>
-<li><a class="reference internal" href="#ecos">ECOS</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#additional-solvers">Additional solvers</a></li>
 </ul>
 </li>
 </ul>
@@ -160,7 +154,7 @@
 <p>bfieldtools is a pure Python package, and depends on several other Python packages. bfieldtools requires Python version 3.7 or higher.</p>
 <div class="section" id="using-conda">
 <h2>Using conda<a class="headerlink" href="#using-conda" title="Permalink to this headline">¶</a></h2>
-<p>We strongly recommend the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> distribution of Python, which comes with more than 250 scientific packages pre-bundled, and includes the conda command line tool for installing new packages and managing different package sets (“environments”) for different projects. Alternatively, the more bare-bones <a class="reference external" href=":https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> distribution should also work.</p>
+<p>We strongly recommend the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> distribution of Python, which comes with a variety of scientific packages pre-bundled, and includes the conda command line tool for installing new packages and managing different package sets (“environments”) for different projects. Alternatively, the more bare-bones <a class="reference external" href=":https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> distribution also works.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge bfieldtools
 </pre></div>
 </div>
@@ -174,34 +168,19 @@
 </div>
 <div class="section" id="from-source">
 <h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
-<p>Basic setuptools workflow applies.</p>
+<p>To download the most-recent release of bfieldtools, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -s https://api.github.com/repos/bfieldtools/bfieldtools/releases/latest
+</pre></div>
+</div>
+<p>Alternatively, to download the <em>development</em> version of bfieldtools, run</p>
+<p>After downloading, basic setuptools workflow applies.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py install
 </pre></div>
 </div>
 </div>
 <div class="section" id="additional-solvers">
 <h2>Additional solvers<a class="headerlink" href="#additional-solvers" title="Permalink to this headline">¶</a></h2>
-<p>The stream function optimization functionality of bfieldtools relies on external numerical solvers, for which the installation procedures may vary. Here, we link to the installation procedures of these solvers.</p>
-<div class="section" id="mosek">
-<h3><a class="reference external" href="https://docs.mosek.com/9.0/pythonapi/install-interface.html">MOSEK</a><a class="headerlink" href="#mosek" title="Permalink to this headline">¶</a></h3>
-<p>Optional solver dependecy. Robust and fast, but commercial (requires license). Installable via pip or conda.</p>
-</div>
-<div class="section" id="osqp">
-<h3>OSQP<a class="headerlink" href="#osqp" title="Permalink to this headline">¶</a></h3>
-<p>Installed with bfieldtools, available through conda and pip</p>
-</div>
-<div class="section" id="cvxopt">
-<h3>CVXOPT<a class="headerlink" href="#cvxopt" title="Permalink to this headline">¶</a></h3>
-<p>Installed with bfieldtools, available through conda and pip</p>
-</div>
-<div class="section" id="scs">
-<h3>SCS<a class="headerlink" href="#scs" title="Permalink to this headline">¶</a></h3>
-<p>Installed with bfieldtools, available through conda and pip</p>
-</div>
-<div class="section" id="ecos">
-<h3>ECOS<a class="headerlink" href="#ecos" title="Permalink to this headline">¶</a></h3>
-<p>Installed with bfieldtools, available through conda and pip</p>
-</div>
+<p>The stream function optimization functionality of bfieldtools relies on external numerical solvers, for which the installation procedures may vary.  For more details, see the <a class="reference external" href="https://www.cvxpy.org/install/index.html#install-from-source">documentation of CVXPY</a>. OSQP, CVXOPT, SCS and ECOS are installed with bfieldtools and are also available through conda and pip. <a class="reference external" href="https://docs.mosek.com/9.0/pythonapi/install-interface.html">MOSEK</a> is (optional solver dependency, recommended) robust and fast, but commercial (requires license). Installable via pip or conda.</p>
 </div>
 </div>
 
@@ -220,7 +199,7 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-08.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

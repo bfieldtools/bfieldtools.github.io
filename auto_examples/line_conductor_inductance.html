@@ -81,6 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="index.html#physics-publication-examples">Physics publication examples</a></li>
@@ -120,7 +121,10 @@
             <p class="logo"><a href="../index.html">
               <img class="logo" src="../_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
-<li><a class="reference internal" href="#">Mutual inductance of wire loops</a></li>
+<li><a class="reference internal" href="#">Mutual inductance of wire loops</a><ul>
+<li><a class="reference internal" href="#the-inductance-derived-from-the-continous-current-density">The inductance derived from the continous current density</a></li>
+</ul>
+</li>
 </ul>
 
   <li>
@@ -150,7 +154,7 @@
 <span id="sphx-glr-auto-examples-line-conductor-inductance-py"></span><h1>Mutual inductance of wire loops<a class="headerlink" href="#mutual-inductance-of-wire-loops" title="Permalink to this headline">¶</a></h1>
 <p>In this example, we demonstrate how to compute the mutual inductance between two sets of polyline wire loops.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.line_conductor</span> <span class="kn">import</span> <span class="n">LineConductor</span>
-<span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">StreamFunction</span></a>
+<span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <span class="n">StreamFunction</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.suhtools</span> <span class="kn">import</span> <span class="n">SuhBasis</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.utils</span> <span class="kn">import</span> <span class="n">load_example_mesh</span>
 
@@ -162,60 +166,50 @@
 from a plane mesh.  Finally, we discretize the  mode into a set of wire loops, which we plot.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">load_example_mesh</span><span class="p">(</span><span class="s2">&quot;10x10_plane&quot;</span><span class="p">)</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">apply_scale</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># Downsize from 10 meters to 1 meter</span>
-<a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N_contours</span></a> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">N_contours</span> <span class="o">=</span> <span class="mi">20</span>
 
 <span class="n">sb</span> <span class="o">=</span> <span class="n">SuhBasis</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># Construct surface-harmonics basis</span>
-<span class="n">sf</span> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class"><span class="n">StreamFunction</span></a><span class="p">(</span>
-    <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sb</span><span class="o">.</span><span class="n">basis</span></a><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sb</span><span class="o">.</span><span class="n">mesh_conductor</span>
+<span class="n">sf</span> <span class="o">=</span> <span class="n">StreamFunction</span><span class="p">(</span>
+    <span class="n">sb</span><span class="o">.</span><span class="n">basis</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sb</span><span class="o">.</span><span class="n">mesh_conductor</span>
 <span class="p">)</span>  <span class="c1"># Turn single mode into a stream function</span>
 <span class="n">c</span> <span class="o">=</span> <span class="n">LineConductor</span><span class="p">(</span>
-    <span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">sf</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N_contours</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N_contours</span></a>
+    <span class="n">mesh</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">sf</span><span class="p">,</span> <span class="n">N_contours</span><span class="o">=</span><span class="n">N_contours</span>
 <span class="p">)</span>  <span class="c1"># Discretize the stream function into wire loops</span>
 
 
 <span class="c1"># Plot loops for testing</span>
-<span class="n">c</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><a href="https://numpy.org/devdocs/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-</pre></div>
-</div>
-<img alt="../_images/sphx_glr_line_conductor_inductance_001.png" class="sphx-glr-single-img" src="../_images/sphx_glr_line_conductor_inductance_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-
-&lt;mayavi.core.scene.Scene object at 0x7f6380225470&gt;
+<span class="n">c</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
 </pre></div>
 </div>
 <p>Now, we create a shifted copy of the wire loops, and the calculate the
 mutual_inductance between two sets of line conductors</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mesh2</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">mesh2</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="n">c2</span> <span class="o">=</span> <span class="n">LineConductor</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="n">mesh2</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">sf</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N_contours</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N_contours</span></a><span class="p">)</span>
-<span class="n">fig</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><a href="https://numpy.org/devdocs/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-<span class="n">c2</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><a href="https://numpy.org/devdocs/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="n">c2</span> <span class="o">=</span> <span class="n">LineConductor</span><span class="p">(</span><span class="n">mesh</span><span class="o">=</span><span class="n">mesh2</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">sf</span><span class="p">,</span> <span class="n">N_contours</span><span class="o">=</span><span class="n">N_contours</span><span class="p">)</span>
+<span class="n">fig</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="n">c2</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">origin</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
 
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Mself</span></a> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">line_mutual_inductance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">separate_loops</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">M2</span></a> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">line_mutual_inductance</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">separate_loops</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">Mself</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">line_mutual_inductance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">separate_loops</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">)</span>
+<span class="n">M2</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">line_mutual_inductance</span><span class="p">(</span><span class="n">c2</span><span class="p">,</span> <span class="n">separate_loops</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../_images/sphx_glr_line_conductor_inductance_002.png" class="sphx-glr-single-img" src="../_images/sphx_glr_line_conductor_inductance_002.png" />
 <p>Now, we plot the inductance matrices</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure" title="matplotlib.figure.Figure" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ff</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a> <span class="o">=</span> <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.subplots.html#matplotlib.pyplot.subplots" title="matplotlib.pyplot.subplots" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">subplots</span></a><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.sca.html#matplotlib.pyplot.sca" title="matplotlib.pyplot.sca" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">sca</span></a><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.matshow.html#matplotlib.pyplot.matshow" title="matplotlib.pyplot.matshow" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span></a><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Mself</span></a><span class="p">,</span> <span class="n">fignum</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s2">&quot;Inductance matrix of the first set of wire loops&quot;</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.sca.html#matplotlib.pyplot.sca" title="matplotlib.pyplot.sca" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">sca</span></a><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ax</span></a><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.matshow.html#matplotlib.pyplot.matshow" title="matplotlib.pyplot.matshow" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">matshow</span></a><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">M2</span></a><span class="p">,</span> <span class="n">fignum</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.title.html#matplotlib.pyplot.title" title="matplotlib.pyplot.title" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">title</span></a><span class="p">(</span><span class="s2">&quot;Mutual inductance matrix between the sets of wire loops&quot;</span><span class="p">)</span>
+<span class="n">ff</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">Mself</span><span class="p">,</span> <span class="n">fignum</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Inductance matrix of the first set of wire loops&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">sca</span><span class="p">(</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">matshow</span><span class="p">(</span><span class="n">M2</span><span class="p">,</span> <span class="n">fignum</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Mutual inductance matrix between the sets of wire loops&quot;</span><span class="p">)</span>
 
-<a href="https://matplotlib.org/api/_as_gen/matplotlib.figure.Figure.html#matplotlib.figure.Figure.tight_layout" title="matplotlib.figure.Figure.tight_layout" class="sphx-glr-backref-module-matplotlib-figure sphx-glr-backref-type-py-method"><span class="n">ff</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
+<span class="n">ff</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
-<img alt="../_images/sphx_glr_line_conductor_inductance_003.png" class="sphx-glr-single-img" src="../_images/sphx_glr_line_conductor_inductance_003.png" />
-<dl class="simple">
-<dt>%% The inductance derived from the continous current density</dt><dd><ol class="arabic simple">
+<div class="section" id="the-inductance-derived-from-the-continous-current-density">
+<h2>The inductance derived from the continous current density<a class="headerlink" href="#the-inductance-derived-from-the-continous-current-density" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
 <li><p>Magnetic energy of a inductor is E = 0.5*L*I^2</p></li>
 <li><p>For unit current I=1 the inductance is L=2*E</p></li>
 <li><p>The total current of a stream function (sf) integrated over
@@ -226,27 +220,15 @@ I =  dsf / N</p></li>
 the inductance approximated by the continous stream function is
 L = 2*sf.magnetic_energy</p></li>
 </ol>
-</dd>
-</dl>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scaling</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">N_contours</span></a> <span class="o">/</span> <span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">sf</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scaling</span> <span class="o">=</span> <span class="n">N_contours</span> <span class="o">/</span> <span class="p">(</span><span class="n">sf</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">sf</span><span class="o">.</span><span class="n">min</span><span class="p">())</span>
 <span class="n">L_approx</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">sf</span><span class="o">.</span><span class="n">magnetic_energy</span> <span class="o">*</span> <span class="p">(</span><span class="n">scaling</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inductance based on the continuous current density&quot;</span><span class="p">,</span> <span class="n">L_approx</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inductance based on r=1mm wire&quot;</span><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.sum.html#numpy.sum" title="numpy.sum" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">sum</span></a><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Mself</span></a><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inductance based on r=1mm wire&quot;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">Mself</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
-Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
-Estimating 2432 MiB required for 676 by 676 vertices...
-Computing inductance matrix in 20 chunks (10328 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Inductance matrix computation took 0.86 seconds.
-Inductance based on the continuous current density 8.689344781849715e-05
-Inductance based on r=1mm wire 9.793656583088348e-05
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.112 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-line-conductor-inductance-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/43472c67e23be9658eb0b5efcc9975dd/line_conductor_inductance.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">line_conductor_inductance.py</span></code></a></p>
@@ -256,6 +238,7 @@ Inductance based on r=1mm wire 9.793656583088348e-05
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
+</div>
 </div>
 
 
@@ -273,7 +256,7 @@ Inductance based on r=1mm wire 9.793656583088348e-05
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-08.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

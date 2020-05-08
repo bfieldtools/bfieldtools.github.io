@@ -81,6 +81,7 @@
 <li class="toctree-l1"><a class="reference internal" href="overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
@@ -123,13 +124,13 @@
 <li><a class="reference internal" href="#">API Reference</a><ul>
 <li><a class="reference internal" href="#bfieldtools-main-package"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools</span></code> – Main package</a><ul>
 <li><a class="reference internal" href="#surface-mesh-field-calculations">Surface mesh field calculations</a></li>
-<li><a class="reference internal" href="#convex-optimization-of-stream-functions">Convex optimization of stream functions</a></li>
-<li><a class="reference internal" href="#mesh-impedance">Mesh impedance</a></li>
 <li><a class="reference internal" href="#surface-mesh-calculus">Surface mesh calculus</a></li>
+<li><a class="reference internal" href="#mesh-impedance">Mesh impedance</a></li>
 <li><a class="reference internal" href="#stream-function-magnetic-couplings">Stream function magnetic couplings</a></li>
+<li><a class="reference internal" href="#line-currents">Line currents</a></li>
+<li><a class="reference internal" href="#convex-optimization-of-stream-functions">Convex optimization of stream functions</a></li>
 <li><a class="reference internal" href="#analytical-integrals-for-fields-and-potentials">Analytical integrals for fields and potentials</a></li>
 <li><a class="reference internal" href="#scalar-function-contouring">Scalar function contouring</a></li>
-<li><a class="reference internal" href="#line-currents">Line currents</a></li>
 <li><a class="reference internal" href="#spherical-harmonics">Spherical harmonics</a></li>
 <li><a class="reference internal" href="#surface-harmonics">Surface harmonics</a></li>
 <li><a class="reference internal" href="#thermal-noise">Thermal noise</a></li>
@@ -167,13 +168,13 @@
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#surface-mesh-field-calculations" id="id1">Surface mesh field calculations</a></p></li>
-<li><p><a class="reference internal" href="#convex-optimization-of-stream-functions" id="id2">Convex optimization of stream functions</a></p></li>
+<li><p><a class="reference internal" href="#surface-mesh-calculus" id="id2">Surface mesh calculus</a></p></li>
 <li><p><a class="reference internal" href="#mesh-impedance" id="id3">Mesh impedance</a></p></li>
-<li><p><a class="reference internal" href="#surface-mesh-calculus" id="id4">Surface mesh calculus</a></p></li>
-<li><p><a class="reference internal" href="#stream-function-magnetic-couplings" id="id5">Stream function magnetic couplings</a></p></li>
-<li><p><a class="reference internal" href="#analytical-integrals-for-fields-and-potentials" id="id6">Analytical integrals for fields and potentials</a></p></li>
-<li><p><a class="reference internal" href="#scalar-function-contouring" id="id7">Scalar function contouring</a></p></li>
-<li><p><a class="reference internal" href="#line-currents" id="id8">Line currents</a></p></li>
+<li><p><a class="reference internal" href="#stream-function-magnetic-couplings" id="id4">Stream function magnetic couplings</a></p></li>
+<li><p><a class="reference internal" href="#line-currents" id="id5">Line currents</a></p></li>
+<li><p><a class="reference internal" href="#convex-optimization-of-stream-functions" id="id6">Convex optimization of stream functions</a></p></li>
+<li><p><a class="reference internal" href="#analytical-integrals-for-fields-and-potentials" id="id7">Analytical integrals for fields and potentials</a></p></li>
+<li><p><a class="reference internal" href="#scalar-function-contouring" id="id8">Scalar function contouring</a></p></li>
 <li><p><a class="reference internal" href="#spherical-harmonics" id="id9">Spherical harmonics</a></p></li>
 <li><p><a class="reference internal" href="#surface-harmonics" id="id10">Surface harmonics</a></p></li>
 <li><p><a class="reference internal" href="#thermal-noise" id="id11">Thermal noise</a></p></li>
@@ -205,60 +206,8 @@ some convenient functions and properties.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="convex-optimization-of-stream-functions">
-<h3><a class="toc-backref" href="#id2">Convex optimization of stream functions</a><a class="headerlink" href="#convex-optimization-of-stream-functions" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="#module-bfieldtools.coil_optimize" title="bfieldtools.coil_optimize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.coil_optimize</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.coil_optimize"></span><p>Includes files for coil optimization (stream function optimization)
-using either a numerical solver or regularized least squares</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.optimize_streamfunctions.html#bfieldtools.coil_optimize.optimize_streamfunctions" title="bfieldtools.coil_optimize.optimize_streamfunctions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize_streamfunctions</span></code></a>(mesh_conductor, …)</p></td>
-<td><p>Quadratic optimization of coil stream function according to a specified objective.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.optimize_lsq.html#bfieldtools.coil_optimize.optimize_lsq" title="bfieldtools.coil_optimize.optimize_lsq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize_lsq</span></code></a>(mesh_conductor, …[, reg, …])</p></td>
-<td><p>Optimization of coil stream function according to a specified objective using least-squares.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.cvxpy_solve_qp.html#bfieldtools.coil_optimize.cvxpy_solve_qp" title="bfieldtools.coil_optimize.cvxpy_solve_qp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cvxpy_solve_qp</span></code></a>(P, G, h[, solver, tolerance])</p></td>
-<td><p>Bare-bones quadratic programming solver function for CVXPY, minimizes</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.cvxopt_solve_qp.html#bfieldtools.coil_optimize.cvxopt_solve_qp" title="bfieldtools.coil_optimize.cvxopt_solve_qp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cvxopt_solve_qp</span></code></a>(P, q[, G, h, A, b, tolerance])</p></td>
-<td><p>Use cvxopt (without CVXPY wrapper) to minimize</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-<div class="section" id="mesh-impedance">
-<h3><a class="toc-backref" href="#id3">Mesh impedance</a><a class="headerlink" href="#mesh-impedance" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="#module-bfieldtools.mesh_impedance" title="bfieldtools.mesh_impedance"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.mesh_impedance</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.mesh_impedance"></span><p>Contains functions for computing the inductance matrices of triangle surface meshes,
-including both self- and mutual-inductance.</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.resistance_matrix.html#bfieldtools.mesh_impedance.resistance_matrix" title="bfieldtools.mesh_impedance.resistance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resistance_matrix</span></code></a>(mesh, sheet_resistance)</p></td>
-<td><p>Resistance matrix</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.self_inductance_matrix.html#bfieldtools.mesh_impedance.self_inductance_matrix" title="bfieldtools.mesh_impedance.self_inductance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">self_inductance_matrix</span></code></a>(mesh[, Nchunks, …])</p></td>
-<td><p>Calculate a self inductance matrix for hat basis functions (stream functions) in the triangular mesh described by</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.mutual_inductance_matrix.html#bfieldtools.mesh_impedance.mutual_inductance_matrix" title="bfieldtools.mesh_impedance.mutual_inductance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutual_inductance_matrix</span></code></a>(mesh1, mesh2[, …])</p></td>
-<td><p>Calculate a mutual inductance matrix for hat basis functions (stream functions) between two surface meshes</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.mesh2line_mutual_inductance.html#bfieldtools.mesh_impedance.mesh2line_mutual_inductance" title="bfieldtools.mesh_impedance.mesh2line_mutual_inductance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mesh2line_mutual_inductance</span></code></a>(mesh, line_vertices)</p></td>
-<td><p>Mutual inductance of a closed line segment loop (last segment connecting to first) and a triangle mesh</p></td>
-</tr>
-</tbody>
-</table>
-</div>
 <div class="section" id="surface-mesh-calculus">
-<h3><a class="toc-backref" href="#id4">Surface mesh calculus</a><a class="headerlink" href="#surface-mesh-calculus" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id2">Surface mesh calculus</a><a class="headerlink" href="#surface-mesh-calculus" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.mesh_calculus" title="bfieldtools.mesh_calculus"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.mesh_calculus</span></code></a>:</p>
 <span class="target" id="module-bfieldtools.mesh_calculus"></span><p>Contains functions for computing vector calculus quantities on triangle surface meshes.
 These include the gradient, rotated gradient, divergence, curl, Laplacian and mass matrices.</p>
@@ -295,8 +244,34 @@ These include the gradient, rotated gradient, divergence, curl, Laplacian and ma
 </tbody>
 </table>
 </div>
+<div class="section" id="mesh-impedance">
+<h3><a class="toc-backref" href="#id3">Mesh impedance</a><a class="headerlink" href="#mesh-impedance" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#module-bfieldtools.mesh_impedance" title="bfieldtools.mesh_impedance"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.mesh_impedance</span></code></a>:</p>
+<span class="target" id="module-bfieldtools.mesh_impedance"></span><p>Contains functions for computing the inductance matrices of triangle surface meshes,
+including both self- and mutual-inductance.</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.resistance_matrix.html#bfieldtools.mesh_impedance.resistance_matrix" title="bfieldtools.mesh_impedance.resistance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resistance_matrix</span></code></a>(mesh, sheet_resistance)</p></td>
+<td><p>Resistance matrix</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.self_inductance_matrix.html#bfieldtools.mesh_impedance.self_inductance_matrix" title="bfieldtools.mesh_impedance.self_inductance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">self_inductance_matrix</span></code></a>(mesh[, Nchunks, …])</p></td>
+<td><p>Calculate a self inductance matrix for hat basis functions (stream functions) in the triangular mesh described by</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.mutual_inductance_matrix.html#bfieldtools.mesh_impedance.mutual_inductance_matrix" title="bfieldtools.mesh_impedance.mutual_inductance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutual_inductance_matrix</span></code></a>(mesh1, mesh2[, …])</p></td>
+<td><p>Calculate a mutual inductance matrix for hat basis functions (stream functions) between two surface meshes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.mesh2line_mutual_inductance.html#bfieldtools.mesh_impedance.mesh2line_mutual_inductance" title="bfieldtools.mesh_impedance.mesh2line_mutual_inductance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mesh2line_mutual_inductance</span></code></a>(mesh, line_vertices)</p></td>
+<td><p>Mutual inductance of a closed line segment loop (last segment connecting to first) and a triangle mesh</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="stream-function-magnetic-couplings">
-<h3><a class="toc-backref" href="#id5">Stream function magnetic couplings</a><a class="headerlink" href="#stream-function-magnetic-couplings" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id4">Stream function magnetic couplings</a><a class="headerlink" href="#stream-function-magnetic-couplings" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.mesh_magnetics" title="bfieldtools.mesh_magnetics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.mesh_magnetics</span></code></a>:</p>
 <span class="target" id="module-bfieldtools.mesh_magnetics"></span><p>Contains functions for calculating the coupling of surface current density in a
 triangle mesh to magnetic field as well as scalar and vector potentials.</p>
@@ -321,8 +296,59 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 </tbody>
 </table>
 </div>
+<div class="section" id="line-currents">
+<h3><a class="toc-backref" href="#id5">Line currents</a><a class="headerlink" href="#line-currents" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#module-bfieldtools.line_conductor" title="bfieldtools.line_conductor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.line_conductor</span></code></a>:</p>
+<span class="target" id="module-bfieldtools.line_conductor"></span><table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.line_conductor.LineConductor.html#bfieldtools.line_conductor.LineConductor" title="bfieldtools.line_conductor.LineConductor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineConductor</span></code></a>([loops, mesh, scalars])</p></td>
+<td><p>Class that inherits Trimesh.path.Path3D for handling discretized current loops.</p></td>
+</tr>
+</tbody>
+</table>
+<p><a class="reference internal" href="#module-bfieldtools.line_magnetics" title="bfieldtools.line_magnetics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.line_magnetics</span></code></a>:</p>
+<span class="target" id="module-bfieldtools.line_magnetics"></span><p>Functions for working with current polylines, e.g. for calculating the magnetic field and potentials as well as the inductance</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+</div>
+<div class="section" id="convex-optimization-of-stream-functions">
+<h3><a class="toc-backref" href="#id6">Convex optimization of stream functions</a><a class="headerlink" href="#convex-optimization-of-stream-functions" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference internal" href="#module-bfieldtools.coil_optimize" title="bfieldtools.coil_optimize"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.coil_optimize</span></code></a>:</p>
+<span class="target" id="module-bfieldtools.coil_optimize"></span><p>Includes files for coil optimization (stream function optimization)
+using either a numerical solver or regularized least squares</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.optimize_streamfunctions.html#bfieldtools.coil_optimize.optimize_streamfunctions" title="bfieldtools.coil_optimize.optimize_streamfunctions"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize_streamfunctions</span></code></a>(mesh_conductor, …)</p></td>
+<td><p>Quadratic optimization of coil stream function according to a specified objective.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.optimize_lsq.html#bfieldtools.coil_optimize.optimize_lsq" title="bfieldtools.coil_optimize.optimize_lsq"><code class="xref py py-obj docutils literal notranslate"><span class="pre">optimize_lsq</span></code></a>(mesh_conductor, …[, reg, …])</p></td>
+<td><p>Optimization of coil stream function according to a specified objective using least-squares.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.cvxpy_solve_qp.html#bfieldtools.coil_optimize.cvxpy_solve_qp" title="bfieldtools.coil_optimize.cvxpy_solve_qp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cvxpy_solve_qp</span></code></a>(P, G, h[, solver, tolerance])</p></td>
+<td><p>Bare-bones quadratic programming solver function for CVXPY, minimizes</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.cvxopt_solve_qp.html#bfieldtools.coil_optimize.cvxopt_solve_qp" title="bfieldtools.coil_optimize.cvxopt_solve_qp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cvxopt_solve_qp</span></code></a>(P, q[, G, h, A, b, tolerance])</p></td>
+<td><p>Use cvxopt (without CVXPY wrapper) to minimize</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="analytical-integrals-for-fields-and-potentials">
-<h3><a class="toc-backref" href="#id6">Analytical integrals for fields and potentials</a><a class="headerlink" href="#analytical-integrals-for-fields-and-potentials" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Analytical integrals for fields and potentials</a><a class="headerlink" href="#analytical-integrals-for-fields-and-potentials" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.integrals" title="bfieldtools.integrals"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.integrals</span></code></a>:</p>
 <span class="target" id="module-bfieldtools.integrals"></span><p>Analytic integral for vectorized field / potential computation</p>
 <table class="longtable docutils align-default">
@@ -356,7 +382,7 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 </table>
 </div>
 <div class="section" id="scalar-function-contouring">
-<h3><a class="toc-backref" href="#id7">Scalar function contouring</a><a class="headerlink" href="#scalar-function-contouring" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Scalar function contouring</a><a class="headerlink" href="#scalar-function-contouring" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.contour" title="bfieldtools.contour"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.contour</span></code></a>:</p>
 <span class="target" id="module-bfieldtools.contour"></span><p>Functions for creating contours (isolines) of a scalar function defined on a triangle mesh surface. Also contains functions for modifying the generated contours.</p>
 <table class="longtable docutils align-default">
@@ -374,31 +400,6 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="line-currents">
-<h3><a class="toc-backref" href="#id8">Line currents</a><a class="headerlink" href="#line-currents" title="Permalink to this headline">¶</a></h3>
-<p><a class="reference internal" href="#module-bfieldtools.line_conductor" title="bfieldtools.line_conductor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.line_conductor</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.line_conductor"></span><table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.line_conductor.LineConductor.html#bfieldtools.line_conductor.LineConductor" title="bfieldtools.line_conductor.LineConductor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">LineConductor</span></code></a>([loops, mesh, scalars])</p></td>
-<td><p>Class that inherits Trimesh.path.Path3D for handling discretized current loops.</p></td>
-</tr>
-</tbody>
-</table>
-<p><a class="reference internal" href="#module-bfieldtools.line_magnetics" title="bfieldtools.line_magnetics"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.line_magnetics</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.line_magnetics"></span><p>Functions for working with current polylines, e.g. for calculating the magnetic field and potentials as well as the inductance</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-</tbody>
-</table>
-</div>
 <div class="section" id="spherical-harmonics">
 <h3><a class="toc-backref" href="#id9">Spherical harmonics</a><a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.sphtools" title="bfieldtools.sphtools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.sphtools</span></code></a>:</p>
@@ -408,59 +409,23 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.SphBasis.html#bfieldtools.sphtools.SphBasis" title="bfieldtools.sphtools.SphBasis"><code class="xref py py-obj docutils literal notranslate"><span class="pre">SphBasis</span></code></a>(Np)</p></td>
-<td><p>Constructs an object that describes unit sphere.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.cartesian2spherical.html#bfieldtools.sphtools.cartesian2spherical" title="bfieldtools.sphtools.cartesian2spherical"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartesian2spherical</span></code></a>(p[, zaxis_approx])</p></td>
-<td><p>Maps cartesian coordinates to spherical.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.spherical2cartesian.html#bfieldtools.sphtools.spherical2cartesian" title="bfieldtools.sphtools.spherical2cartesian"><code class="xref py py-obj docutils literal notranslate"><span class="pre">spherical2cartesian</span></code></a>(sp)</p></td>
-<td><p>Maps spherical coordinates to cartesian.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.Rotmatrix.html#bfieldtools.sphtools.Rotmatrix" title="bfieldtools.sphtools.Rotmatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Rotmatrix</span></code></a>(sp)</p></td>
-<td><p>Constructs rotation matrix from cartesian coordinates to spherical.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.cartvec2sph.html#bfieldtools.sphtools.cartvec2sph" title="bfieldtools.sphtools.cartvec2sph"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cartvec2sph</span></code></a>(sp, vec)</p></td>
-<td><p>Transforms cartesian vector to spherical coordinates.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.sphvec2cart.html#bfieldtools.sphtools.sphvec2cart" title="bfieldtools.sphtools.sphvec2cart"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sphvec2cart</span></code></a>(sp, vec)</p></td>
-<td><p>Transforms cartesian vector to spherical coordinates.</p></td>
-</tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.lpmn_em.html#bfieldtools.sphtools.lpmn_em" title="bfieldtools.sphtools.lpmn_em"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lpmn_em</span></code></a>(l, m, x)</p></td>
 <td><p>Computes associated Legendre function (Plm) of the first kind of order m and degree l.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.derlpmn_em.html#bfieldtools.sphtools.derlpmn_em" title="bfieldtools.sphtools.derlpmn_em"><code class="xref py py-obj docutils literal notranslate"><span class="pre">derlpmn_em</span></code></a>(l, m, x)</p></td>
-<td><p>Computes derivative of associated Legendre function (Plm) of the first kind of order m and degree l with respect to the argument x.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.xlm.html#bfieldtools.sphtools.xlm" title="bfieldtools.sphtools.xlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">xlm</span></code></a>(l, m, theta)</p></td>
-<td><p>Xlm-function used in the definition of spherical harmonics (Ylm).</p></td>
-</tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.ylm.html#bfieldtools.sphtools.ylm" title="bfieldtools.sphtools.ylm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ylm</span></code></a>(l, m, theta, phi)</p></td>
 <td><p>Real spherical harmonics as defined by Plattner and Simons (2014); see Eqs.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.derxlm.html#bfieldtools.sphtools.derxlm" title="bfieldtools.sphtools.derxlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">derxlm</span></code></a>(l, m, theta)</p></td>
-<td><p>Derivative of Xlm with respect to theta.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.sinxlm.html#bfieldtools.sphtools.sinxlm" title="bfieldtools.sphtools.sinxlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sinxlm</span></code></a>(l, m, theta)</p></td>
-<td><p>Computes m/(sin(theta))*Xlm.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.dthylm.html#bfieldtools.sphtools.dthylm" title="bfieldtools.sphtools.dthylm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dthylm</span></code></a>(l, m, theta, phi)</p></td>
-<td><p>Derivative of Ylm with respect to theta dYlm/dtheta.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.dphiylm.html#bfieldtools.sphtools.dphiylm" title="bfieldtools.sphtools.dphiylm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">dphiylm</span></code></a>(l, m, theta, phi)</p></td>
-<td><p>Derivative of Ylm with respect to phi dYlm/dphi.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.Plm.html#bfieldtools.sphtools.Plm" title="bfieldtools.sphtools.Plm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Plm</span></code></a>(l, m, theta, phi)</p></td>
-<td><p>Plm vector function (see Eq.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.Blm.html#bfieldtools.sphtools.Blm" title="bfieldtools.sphtools.Blm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Blm</span></code></a>(l, m, theta, phi)</p></td>
-<td><p>Blm vector function (see Eq.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.Wlm.html#bfieldtools.sphtools.Wlm" title="bfieldtools.sphtools.Wlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Wlm</span></code></a>(l, m, theta, phi)</p></td>
 <td><p>Vector basis function (Wlm) for r**l component of the magnetic field.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.Vlm.html#bfieldtools.sphtools.Vlm" title="bfieldtools.sphtools.Vlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Vlm</span></code></a>(l, m, theta, phi)</p></td>
 <td><p>Vector basis function (Vlm) for r**(-l) component of the magnetic field.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_potentials.html#bfieldtools.sphtools.basis_potentials" title="bfieldtools.sphtools.basis_potentials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_potentials</span></code></a>(p, lmax[, normalization, R])</p></td>
+<td><p>Computes inner/outer basis functions for magnetic scalar potential.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_fields.html#bfieldtools.sphtools.basis_fields" title="bfieldtools.sphtools.basis_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_fields</span></code></a>(p, lmax[, normalization, R])</p></td>
+<td><p>Computes magnetic field of each sph coefficient.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.potential.html#bfieldtools.sphtools.potential" title="bfieldtools.sphtools.potential"><code class="xref py py-obj docutils literal notranslate"><span class="pre">potential</span></code></a>(p, acoeffs, bcoeffs, lmax[, …])</p></td>
 <td><p>Computes magnetic scalar potential from the sph coefficients.</p></td>
@@ -470,30 +435,6 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.compute_sphcoeffs_mesh.html#bfieldtools.sphtools.compute_sphcoeffs_mesh" title="bfieldtools.sphtools.compute_sphcoeffs_mesh"><code class="xref py py-obj docutils literal notranslate"><span class="pre">compute_sphcoeffs_mesh</span></code></a>(mesh, lmax)</p></td>
 <td><p>Computes multipole moment (spherical harmonics coefficient) transformation from the mesh.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_potentials.html#bfieldtools.sphtools.basis_potentials" title="bfieldtools.sphtools.basis_potentials"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_potentials</span></code></a>(p, lmax[, normalization, R])</p></td>
-<td><p>Computes inner/outer basis functions for magnetic scalar potential.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.basis_fields.html#bfieldtools.sphtools.basis_fields" title="bfieldtools.sphtools.basis_fields"><code class="xref py py-obj docutils literal notranslate"><span class="pre">basis_fields</span></code></a>(p, lmax[, normalization, R])</p></td>
-<td><p>Computes magnetic field of each sph coefficient.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotYlms.html#bfieldtools.sphtools.plotYlms" title="bfieldtools.sphtools.plotYlms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotYlms</span></code></a>(sph, lmax[, polar])</p></td>
-<td><p>Plots real spherical harmonics up to lmax.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotYlm.html#bfieldtools.sphtools.plotYlm" title="bfieldtools.sphtools.plotYlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotYlm</span></code></a>(sph, l, m)</p></td>
-<td><p>Plots real spherical harmonics of order m and degree l.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotWlm.html#bfieldtools.sphtools.plotWlm" title="bfieldtools.sphtools.plotWlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotWlm</span></code></a>(sph, l, m)</p></td>
-<td><p>Plots magnetic field basis function ‘Wlm’ (r**l) over a sphere.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotBWlm_volume.html#bfieldtools.sphtools.plotBWlm_volume" title="bfieldtools.sphtools.plotBWlm_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotBWlm_volume</span></code></a>(sph, l, m, lim, Np, offset)</p></td>
-<td><p>Plots magnetic field basis function ‘Wlm’ (r**l) over a 3D volume.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotVlm.html#bfieldtools.sphtools.plotVlm" title="bfieldtools.sphtools.plotVlm"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotVlm</span></code></a>(sph, l, m)</p></td>
-<td><p>Plots magnetic field basis function ‘Vlm’ (r**(-l)) over a sphere.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.sphtools.plotBVlm_volume.html#bfieldtools.sphtools.plotBVlm_volume" title="bfieldtools.sphtools.plotBVlm_volume"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plotBVlm_volume</span></code></a>(sph, l, m, lim, Np, offset)</p></td>
-<td><p>Plots magnetic field basis function ‘Vlm’ (r**(-l)) over a 3D volume.</p></td>
 </tr>
 </tbody>
 </table>
@@ -635,7 +576,7 @@ Mainly wrappers and convenience helpers around mayavi and matplotlib functions</
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-08.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
