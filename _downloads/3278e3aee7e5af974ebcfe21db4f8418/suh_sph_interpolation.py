@@ -171,8 +171,40 @@ surf.module_manager.scalar_lut_manager.number_of_colors = 16
 
 
 #%% Plot spectra
-plt.figure()
-plt.plot(alpha ** 2)
+fig, ax = plt.subplots(1, 1)
+ax.plot(alpha ** 2)
+
+
+L = np.zeros((0,))
+M = np.zeros((0,))
+
+
+for l in range(1, lmax + 1):
+    m_l = np.arange(-l, l + 1, step=1, dtype=np.int_)
+    M = np.append(M, m_l)
+    L = np.append(L, np.repeat(l, len(m_l)))
+
+xticknames = [None] * len(alpha)
+for i in range(len(alpha)):
+    xticknames[i] = str(M[i])
+
+    m_l = np.arange(-L[i], L[i] + 1, step=1)
+
+    if i == int(np.floor(len(m_l))):
+        xticknames[i] += "\n" + str(L[i])
+
+
+randomDists = [
+    "Normal(1,1)",
+    " Lognormal(1,1)",
+    "Exp(1)",
+    "Gumbel(6,4)",
+    "Triangular(2,9,11)",
+]
+xtickNames = plt.setp(ax, xticklabels=xticknames)
+
+plt.setp(xtickNames, rotation=45, fontsize=8)
+
 
 plt.figure()
 plt.plot(a ** 2)

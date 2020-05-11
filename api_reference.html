@@ -195,13 +195,13 @@ some convenient functions and properties.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_conductor.MeshConductor.html#bfieldtools.mesh_conductor.MeshConductor" title="bfieldtools.mesh_conductor.MeshConductor"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MeshConductor</span></code></a>([verts, tris, mesh_file, …])</p></td>
-<td><p>Class that is used for surface mesh field calculations, e.g.</p></td>
+<td><p>Class that is used for surface mesh field calculations.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_conductor.CouplingMatrix.html#bfieldtools.mesh_conductor.CouplingMatrix" title="bfieldtools.mesh_conductor.CouplingMatrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">CouplingMatrix</span></code></a>(parent, function)</p></td>
 <td><p>General-use class that contains a data array (a coupling matrix) and a bookkeeping list of computed points.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_conductor.StreamFunction.html#bfieldtools.mesh_conductor.StreamFunction" title="bfieldtools.mesh_conductor.StreamFunction"><code class="xref py py-obj docutils literal notranslate"><span class="pre">StreamFunction</span></code></a>(input_array[, mesh_conductor])</p></td>
-<td><p>Class for representing stream function(s) on a mesh_conductor</p></td>
+<td><p>Class for representing stream function(s) on a MeshConductor</p></td>
 </tr>
 </tbody>
 </table>
@@ -218,25 +218,25 @@ These include the gradient, rotated gradient, divergence, curl, Laplacian and ma
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.laplacian_matrix.html#bfieldtools.mesh_calculus.laplacian_matrix" title="bfieldtools.mesh_calculus.laplacian_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">laplacian_matrix</span></code></a>(mesh[, material_param])</p></td>
-<td><p>Sparse Laplace-Beltrami operator</p></td>
+<td><p>Sparse Laplace-Beltrami operator.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.mass_matrix.html#bfieldtools.mesh_calculus.mass_matrix" title="bfieldtools.mesh_calculus.mass_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mass_matrix</span></code></a>(mesh[, lumped])</p></td>
-<td><p>Computes mass matrix of mesh.</p></td>
+<td><p>Computes mass matrix of a mesh.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.gradient_matrix.html#bfieldtools.mesh_calculus.gradient_matrix" title="bfieldtools.mesh_calculus.gradient_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gradient_matrix</span></code></a>(mesh[, rotated])</p></td>
-<td><p>Calculate a (rotated) gradient matrix for hat basis functions (stream functions) in the triangular mesh described by</p></td>
+<td><p>Calculate a (rotated) gradient matrix for hat basis functions (stream functions) in a mesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.gradient.html#bfieldtools.mesh_calculus.gradient" title="bfieldtools.mesh_calculus.gradient"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gradient</span></code></a>(vals, mesh[, rotated])</p></td>
-<td><p>Applies mesh (rotated) gradient matrix operator on vector that is defined in the vertex locations of the mesh</p></td>
+<td><p>Applies mesh (rotated) gradient matrix operator on vector that is defined in the vertex locations of the mesh.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.divergence_matrix.html#bfieldtools.mesh_calculus.divergence_matrix" title="bfieldtools.mesh_calculus.divergence_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divergence_matrix</span></code></a>(mesh)</p></td>
-<td><p>Divergence of tangential vector field on mesh faces as a linear mapping</p></td>
+<td><p>Divergence of tangential vector field on mesh faces as a linear mapping.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.divergence.html#bfieldtools.mesh_calculus.divergence" title="bfieldtools.mesh_calculus.divergence"><code class="xref py py-obj docutils literal notranslate"><span class="pre">divergence</span></code></a>(vecs, mesh)</p></td>
 <td><p>Divergence mapping applied to tangential vector field ‘vecs’</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.curl_matrix.html#bfieldtools.mesh_calculus.curl_matrix" title="bfieldtools.mesh_calculus.curl_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">curl_matrix</span></code></a>(mesh)</p></td>
-<td><p>Adjoint curl of tangential vector field</p></td>
+<td><p>Adjoint curl of tangential vector field.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_calculus.curl.html#bfieldtools.mesh_calculus.curl" title="bfieldtools.mesh_calculus.curl"><code class="xref py py-obj docutils literal notranslate"><span class="pre">curl</span></code></a>(vecs, mesh)</p></td>
 <td><p>Curl applied to tangential vector field</p></td>
@@ -247,8 +247,8 @@ These include the gradient, rotated gradient, divergence, curl, Laplacian and ma
 <div class="section" id="mesh-impedance">
 <h3><a class="toc-backref" href="#id3">Mesh impedance</a><a class="headerlink" href="#mesh-impedance" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.mesh_impedance" title="bfieldtools.mesh_impedance"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.mesh_impedance</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.mesh_impedance"></span><p>Contains functions for computing the inductance matrices of triangle surface meshes,
-including both self- and mutual-inductance.</p>
+<span class="target" id="module-bfieldtools.mesh_impedance"></span><p>Contains functions for computing the resistance and inductance matrices of triangle surface meshes.
+Includes both self- and mutual-inductance.</p>
 <table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
@@ -256,16 +256,16 @@ including both self- and mutual-inductance.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.resistance_matrix.html#bfieldtools.mesh_impedance.resistance_matrix" title="bfieldtools.mesh_impedance.resistance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resistance_matrix</span></code></a>(mesh, sheet_resistance)</p></td>
-<td><p>Resistance matrix</p></td>
+<td><p>Resistance matrix of a mesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.self_inductance_matrix.html#bfieldtools.mesh_impedance.self_inductance_matrix" title="bfieldtools.mesh_impedance.self_inductance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">self_inductance_matrix</span></code></a>(mesh[, Nchunks, …])</p></td>
-<td><p>Calculate a self inductance matrix for hat basis functions (stream functions) in the triangular mesh described by</p></td>
+<td><p>Calculate a self inductance matrix for hat basis functions (stream functions) in a mesh.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.mutual_inductance_matrix.html#bfieldtools.mesh_impedance.mutual_inductance_matrix" title="bfieldtools.mesh_impedance.mutual_inductance_matrix"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mutual_inductance_matrix</span></code></a>(mesh1, mesh2[, …])</p></td>
-<td><p>Calculate a mutual inductance matrix for hat basis functions (stream functions) between two surface meshes</p></td>
+<td><p>Calculate a mutual inductance matrix for hat basis functions (stream functions) between two surface meshes.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_impedance.mesh2line_mutual_inductance.html#bfieldtools.mesh_impedance.mesh2line_mutual_inductance" title="bfieldtools.mesh_impedance.mesh2line_mutual_inductance"><code class="xref py py-obj docutils literal notranslate"><span class="pre">mesh2line_mutual_inductance</span></code></a>(mesh, line_vertices)</p></td>
-<td><p>Mutual inductance of a closed line segment loop (last segment connecting to first) and a triangle mesh</p></td>
+<td><p>Mutual inductance of a closed line segment loop (last segment connecting to first) and a triangle mesh.</p></td>
 </tr>
 </tbody>
 </table>
@@ -282,16 +282,16 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 </colgroup>
 <tbody>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_magnetics.magnetic_field_coupling.html#bfieldtools.mesh_magnetics.magnetic_field_coupling" title="bfieldtools.mesh_magnetics.magnetic_field_coupling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magnetic_field_coupling</span></code></a>(mesh, r[, Nchunks, …])</p></td>
-<td><p>Given ‘mesh’, computes the “C matrix” which gives the magnetic field at target points ‘r’ due to currents (stream function) on a surface mesh.</p></td>
+<td><p>Computes the coupling matrix which gives the magnetic field at target points due to currents (stream function) on a surface mesh.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_magnetics.magnetic_field_coupling_analytic.html#bfieldtools.mesh_magnetics.magnetic_field_coupling_analytic" title="bfieldtools.mesh_magnetics.magnetic_field_coupling_analytic"><code class="xref py py-obj docutils literal notranslate"><span class="pre">magnetic_field_coupling_analytic</span></code></a>(mesh, r[, …])</p></td>
-<td><p>Given a mesh, computes the “C matrix” which gives the magnetic field at some target points due to currents (stream function) on a surface mesh using analytic formulas.</p></td>
+<td><p>Computes the coupling matrix which gives the magnetic field at target points due to currents (stream function) on a surface mesh using analytical formulas.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_magnetics.scalar_potential_coupling.html#bfieldtools.mesh_magnetics.scalar_potential_coupling" title="bfieldtools.mesh_magnetics.scalar_potential_coupling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scalar_potential_coupling</span></code></a>(mesh, r[, …])</p></td>
-<td><p>Coupling matrix corresponding to a mapping from a stream function to scalar potential using analytic integrals</p></td>
+<td><p>Coupling matrix from a stream function on a mesh to scalar potential using analytic integrals.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.mesh_magnetics.vector_potential_coupling.html#bfieldtools.mesh_magnetics.vector_potential_coupling" title="bfieldtools.mesh_magnetics.vector_potential_coupling"><code class="xref py py-obj docutils literal notranslate"><span class="pre">vector_potential_coupling</span></code></a>(mesh, r[, …])</p></td>
-<td><p>Compute vector potential coupling matrices from linear stream functions using analytic integral</p></td>
+<td><p>Compute vector potential coupling matrices from a linear stream function on a mesh using analytic integrals.</p></td>
 </tr>
 </tbody>
 </table>
@@ -339,10 +339,10 @@ using either a numerical solver or regularized least squares</p>
 <td><p>Optimization of coil stream function according to a specified objective using least-squares.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.cvxpy_solve_qp.html#bfieldtools.coil_optimize.cvxpy_solve_qp" title="bfieldtools.coil_optimize.cvxpy_solve_qp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cvxpy_solve_qp</span></code></a>(P, G, h[, solver, tolerance])</p></td>
-<td><p>Bare-bones quadratic programming solver function for CVXPY, minimizes</p></td>
+<td><p>Bare-bones quadratic programming solver function for CVXPY.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="generated/bfieldtools.coil_optimize.cvxopt_solve_qp.html#bfieldtools.coil_optimize.cvxopt_solve_qp" title="bfieldtools.coil_optimize.cvxopt_solve_qp"><code class="xref py py-obj docutils literal notranslate"><span class="pre">cvxopt_solve_qp</span></code></a>(P, q[, G, h, A, b, tolerance])</p></td>
-<td><p>Use cvxopt (without CVXPY wrapper) to minimize</p></td>
+<td><p>Use cvxopt (without CVXPY wrapper) for quadratic programming.</p></td>
 </tr>
 </tbody>
 </table>
@@ -576,7 +576,7 @@ Mainly wrappers and convenience helpers around mayavi and matplotlib functions</
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-08.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-11.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

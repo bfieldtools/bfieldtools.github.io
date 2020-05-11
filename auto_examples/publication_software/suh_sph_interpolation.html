@@ -201,19 +201,6 @@
     <span class="n">field</span> <span class="o">=</span> <span class="n">L</span><span class="p">[:,</span> <span class="mi">56</span><span class="p">]</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>    Read a total of 4 projection items:
-        PCA-v1 (1 x 102) active
-        PCA-v2 (1 x 102) active
-        PCA-v3 (1 x 102) active
-        Average EEG reference (1 x 60) active
-    Found the data of interest:
-        t =    -199.80 ...     499.49 ms (Left Auditory)
-        0 CTF compensation matrices available
-        nave = 55 - aspect type = 100
-Projections have already been applied. Setting proj attribute to True.
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span> <span class="o">-</span> <span class="mf">0.02</span>
 </pre></div>
 </div>
@@ -266,10 +253,6 @@ Projections have already been applied. Setting proj attribute to True.
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>SPH-reconstruction relative error: 0.011665640868582917
-</pre></div>
-</div>
 <dl>
 <dt>#%% Fit the surface current for the auditory evoked response using pinv</dt><dd><p>c = MeshConductor(mesh_obj=mesh, basis_name=”suh”, N_suh=35)
 M = c.mass
@@ -308,18 +291,6 @@ b_filt = B_sensors &#64; s</p>
 <span class="n">surf</span><span class="o">.</span><span class="n">module_manager</span><span class="o">.</span><span class="n">scalar_lut_manager</span><span class="o">.</span><span class="n">number_of_colors</span> <span class="o">=</span> <span class="mi">16</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_suh_sph_interpolation_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_suh_sph_interpolation_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-Closed mesh or Neumann BC, leaving out the constant component
-Computing the mass matrix...
-Computing magnetic field coupling matrix, 2562 vertices by 102 target points... took 0.19 seconds.
-Computing the laplacian matrix...
-SUH-reconstruction relative error: 0.011259097908098575
-</pre></div>
-</div>
 <p>evoked1 = evoked.copy()
 evoked1.data[:, :] = np.tile(field.T, (evoked.times.shape[0], 1)).T
 evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
@@ -333,21 +304,43 @@ evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
 <span class="c1"># evoked1.plot_topomap(times=0.080, ch_type=&quot;mag&quot;)</span>
 </pre></div>
 </div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">alpha</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,))</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,))</span>
+
+
+<span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">lmax</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">m_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">l</span><span class="p">,</span> <span class="n">l</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int_</span><span class="p">)</span>
+    <span class="n">M</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">m_l</span><span class="p">)</span>
+    <span class="n">L</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">l</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">m_l</span><span class="p">)))</span>
+
+<span class="n">xticknames</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">alpha</span><span class="p">)):</span>
+    <span class="n">xticknames</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">M</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="n">m_l</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">m_l</span><span class="p">))):</span>
+        <span class="n">xticknames</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">+=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">L</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+
+<span class="n">randomDists</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;Normal(1,1)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot; Lognormal(1,1)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Exp(1)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Gumbel(6,4)&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Triangular(2,9,11)&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+<span class="n">xtickNames</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">xticklabels</span><span class="o">=</span><span class="n">xticknames</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">xtickNames</span><span class="p">,</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">45</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
 
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">a</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
-</pre></div>
-</div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_002.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_003.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f73347ad650&gt;]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">U_sph</span> <span class="o">=</span> <span class="n">potential</span><span class="p">(</span>
@@ -355,10 +348,6 @@ evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
 <span class="p">)</span>
 
 <span class="n">U_suh</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">p</span><span class="p">)</span> <span class="o">@</span> <span class="n">a</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2562 vertices by 102 target points... took 0.32 seconds.
 </pre></div>
 </div>
 <p>evoked1 = evoked.copy()
@@ -397,12 +386,6 @@ evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2562 vertices by 1592 target points... took 4.66 seconds.
-Computing scalar potential coupling matrix, 2562 vertices by 838 target points... took 2.63 seconds.
-Computing scalar potential coupling matrix, 2562 vertices by 880 target points... took 2.73 seconds.
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.viz</span> <span class="kn">import</span> <span class="n">plot_data_on_vertices</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.viz</span> <span class="kn">import</span> <span class="n">plot_mesh</span>
 
@@ -416,19 +399,8 @@ Computing scalar potential coupling matrix, 2562 vertices by 880 target points..
 <span class="n">plot_mesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_004.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_004.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_005.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_005.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_suh_sph_interpolation_006.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_suh_sph_interpolation_006.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7f7334241bf0&gt;
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  29.130 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-software-suh-sph-interpolation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3278e3aee7e5af974ebcfe21db4f8418/suh_sph_interpolation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">suh_sph_interpolation.py</span></code></a></p>
@@ -455,7 +427,7 @@ Computing scalar potential coupling matrix, 2562 vertices by 880 target points..
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-08.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-11.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

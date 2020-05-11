@@ -148,8 +148,8 @@
 <dl class="class">
 <dt id="bfieldtools.mesh_conductor.MeshConductor">
 <em class="property">class </em><code class="sig-prename descclassname">bfieldtools.mesh_conductor.</code><code class="sig-name descname">MeshConductor</code><span class="sig-paren">(</span><em class="sig-param">verts=None</em>, <em class="sig-param">tris=None</em>, <em class="sig-param">mesh_file=None</em>, <em class="sig-param">mesh_obj=None</em>, <em class="sig-param">process=False</em>, <em class="sig-param">fix_normals=True</em>, <em class="sig-param">resistivity=1.6799999999999998e-08</em>, <em class="sig-param">thickness=0.0001</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.MeshConductor" title="Permalink to this definition">¶</a></dt>
-<dd><p>Class that is used for surface mesh field calculations, e.g. coil design.
-Computation functions are typically external functions that are called
+<dd><p>Class that is used for surface mesh field calculations.</p>
+<p>Computation functions are typically external functions that are called
 using lazy properties.</p>
 <p>The mesh surface can consist of a single contiguous surface or several separate
 surfaces within a single mesh object. The MeshConductor object can handle data defined
@@ -164,8 +164,7 @@ on the mesh being represented in several different bases:</p>
 <p>The bases can include built-in boundary conditions for the data: inner and
 suh bases assume dirichlet boundary condition (equal value within each boundary),
 while vertex basis does not set a boundary condition.</p>
-<p>Initialize MeshConductor object.
-First priority is to use given Trimesh object (mesh_obj).
+<p>First priority is to use given Trimesh object (mesh_obj).
 Second priority is to load mesh from file (mesh_file).
 Third priority is to use given verts and tris arrays (verts, tris).</p>
 <dl class="field-list simple">
@@ -318,7 +317,7 @@ viz.plot_mesh</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-08.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-11.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
