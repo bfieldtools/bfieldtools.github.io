@@ -11,9 +11,10 @@ import trimesh
 import matplotlib.pyplot as plt
 
 from bfieldtools.sphtools import basis_fields as sphfield
-from bfieldtools.sphtools import basis_potentials, potential
+from bfieldtools.sphtools import basis_potentials, potential, field
 import mne
 
+from bfieldtools.viz import plot_data_on_vertices
 
 #%%
 SAVE_DIR = "./MNE interpolation/"
@@ -62,7 +63,7 @@ R = np.min(np.linalg.norm(p, axis=1)) - 0.02
 
 #%%
 
-lmax = 9  # maximum degree
+lmax = 7  # maximum degree
 Bca, Bcb = sphfield(p, lmax, normalization="energy", R=R)
 
 # sph-components at sensors
@@ -82,7 +83,7 @@ Bcb_sensors = np.einsum("ijk,ij->ik", Bcb, n)
 # evoked1.plot_topomap(times=0.080, ch_type="mag", colorbar=False)
 
 #%% calculate inner sph-coeffients with pinv
-PINV = False
+PINV = True
 if PINV:
     alpha = np.linalg.pinv(Bca_sensors, rcond=1e-15) @ field
 else:
@@ -178,14 +179,59 @@ plt.figure()
 plt.plot(a ** 2)
 
 
-#%% Compute potential
-U_sph = potential(
-    p, alpha, np.zeros(alpha.shape), lmax=lmax, normalization="energy", R=R
+#%% Compute potential on the helmet mesh
+from bfieldtools.utils import load_example_mesh
+from bfieldtools.flatten_mesh import flatten_mesh, mesh2plane
+
+helmet = load_example_mesh("meg_helmet", process=False)
+# Bring the surface roughly to the correct place
+helmet.vertices[:, 2] -= 0.045
+# The helmet is slightly tilted, correct for this
+# (probably the right coordinate transformation could be found from MNE)
+rotmat = np.eye(3)
+tt = 0.015 * np.pi
+rotmat[:2, :2] = np.array([[np.cos(tt), np.sin(tt)], [-np.sin(tt), np.cos(tt)]])
+helmet.vertices = helmet.vertices @ rotmat
+tt = -0.02 * np.pi
+rotmat[1:, 1:] = np.array([[np.cos(tt), np.sin(tt)], [-np.sin(tt), np.cos(tt)]])
+helmet.vertices = helmet.vertices @ rotmat
+helmet.vertices[:, 1] += 0.005
+
+# plot_mesh(helmet)
+# mlab.points3d(*p.T, scale_factor=0.01)
+
+
+B_sph_helmet = field(
+    helmet.vertices,
+    alpha,
+    np.zeros(alpha.shape),
+    lmax=lmax,
+    normalization="energy",
+    R=R,
 )
+B_sph_helmet = np.einsum("ij,ij->i", B_sph_helmet, helmet.vertex_normals)
+B_suh_helmet = c.B_coupling(helmet.vertices) @ s
+B_suh_helmet = np.einsum("ij,ij->i", B_suh_helmet, helmet.vertex_normals)
 
-U_suh = c.U_coupling(p) @ a
+#%%
+u, v, helmet2d = flatten_mesh(helmet, 0.9)
+puv = mesh2plane(p, helmet, u, v)
+f = plot_data_on_vertices(helmet2d, B_sph_helmet, ncolors=15)
+mlab.points3d(puv[:, 0], puv[:, 1], 0 * puv[:, 0], scale_factor=0.1, color=(0, 0, 0))
+f.scene.z_plus_view()
 
-#%% MNE interpolates using SPHERICAL HEAD MODEL
+f = plot_data_on_vertices(helmet2d, B_suh_helmet, ncolors=15)
+mlab.points3d(puv[:, 0], puv[:, 1], 0 * puv[:, 0], scale_factor=0.1, color=(0, 0, 0))
+f.scene.z_plus_view()
+
+#%% MNE interpolates using splines or something
+#%% Compute potential
+# U_sph = potential(
+# p, alpha, np.zeros(alpha.shape), lmax=lmax, normalization="energy", R=R
+# )
+#
+# U_suh = c.U_coupling(p) @ s
+
 # evoked1 = evoked.copy()
 # evoked1.data[:, :] = np.tile(U_sph.T, (evoked.times.shape[0], 1)).T
 # evoked1.plot_topomap(times=0.080, ch_type="mag")

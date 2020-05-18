@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Spherical harmonics-generating coil design &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -19,7 +17,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Head gradient coil" href="head_gradient_coil_design.html" />
-    <link rel="prev" title="Flatten mesh using conformal mapping" href="../flatten_mesh.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../linear_medium_bem.html" />
     <link rel="stylesheet" href="../../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/font-source-code-pro.css" type="text/css" />
@@ -81,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Example gallery</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#physics-publication-examples">Physics publication examples</a></li>
@@ -124,7 +123,7 @@
 </ul>
 
   <li>
-    <a href="../flatten_mesh.html" title="Previous Chapter: Flatten mesh using conformal mapping"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Flatten mesh ...</span>
+    <a href="../linear_medium_bem.html" title="Previous Chapter: <no title>"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; <no title></span>
     </a>
   </li>
   <li>
@@ -164,16 +163,16 @@ optimization problem that can be solved very quickly.</p>
 <span class="n">planemesh</span> <span class="o">=</span> <span class="n">load_example_mesh</span><span class="p">(</span><span class="s2">&quot;10x10_plane_hires&quot;</span><span class="p">)</span>
 
 <span class="c1"># Specify coil plane geometry</span>
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">center_offset</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">standoff</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">center_offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+<span class="n">standoff</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
 <span class="c1"># Create coil plane pairs</span>
-<span class="n">coil_plus</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span></a><span class="p">(</span>
-    <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">center_offset</span></a> <span class="o">+</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">standoff</span></a><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">coil_plus</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span>
+    <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+</span> <span class="n">center_offset</span> <span class="o">+</span> <span class="n">standoff</span><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
-<span class="n">coil_minus</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span></a><span class="p">(</span>
-    <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">center_offset</span></a> <span class="o">-</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">standoff</span></a><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span>
+<span class="n">coil_minus</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span><span class="p">(</span>
+    <span class="n">planemesh</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+</span> <span class="n">center_offset</span> <span class="o">-</span> <span class="n">standoff</span><span class="p">,</span> <span class="n">planemesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">process</span><span class="o">=</span><span class="kc">False</span>
 <span class="p">)</span>
 
 <span class="n">joined_planes</span> <span class="o">=</span> <span class="n">combine_meshes</span><span class="p">((</span><span class="n">coil_plus</span><span class="p">,</span> <span class="n">coil_minus</span><span class="p">))</span>
@@ -183,7 +182,7 @@ optimization problem that can be solved very quickly.</p>
 <span class="n">joined_planes</span><span class="o">.</span><span class="n">vertices</span> <span class="o">=</span> <span class="p">(</span>
     <span class="n">joined_planes</span><span class="o">.</span><span class="n">vertices</span>
     <span class="o">-</span> <span class="mf">0.5</span>
-    <span class="o">*</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">joined_planes</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
+    <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">joined_planes</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)[:,</span> <span class="kc">None</span><span class="p">]</span>
     <span class="o">*</span> <span class="n">joined_planes</span><span class="o">.</span><span class="n">vertex_normals</span>
 <span class="p">)</span>
 
@@ -200,17 +199,17 @@ Computing the mass matrix...
 </pre></div>
 </div>
 <p>Set up target spherical harmonics components</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_alms</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">((</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coil</span><span class="o">.</span><span class="n">opts</span></a><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coil</span><span class="o">.</span><span class="n">opts</span></a><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),))</span>
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_blms</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">((</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coil</span><span class="o">.</span><span class="n">opts</span></a><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">coil</span><span class="o">.</span><span class="n">opts</span></a><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),))</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_alms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),))</span>
+<span class="n">target_blms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),))</span>
 
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_blms</span></a><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="n">target_blms</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
 </div>
 <p>Create bfield specifications used when optimizing the coil geometry</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_spec</span></a> <span class="o">=</span> <span class="p">{</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_spec</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="n">coil</span><span class="o">.</span><span class="n">sph_couplings</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
     <span class="s2">&quot;abs_error&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span>
-    <span class="s2">&quot;target&quot;</span><span class="p">:</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_blms</span></a><span class="p">,</span>
+    <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target_blms</span><span class="p">,</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -228,7 +227,7 @@ l = 5 computed
 
 <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">prob</span> <span class="o">=</span> <span class="n">optimize_streamfunctions</span><span class="p">(</span>
     <span class="n">coil</span><span class="p">,</span>
-    <span class="p">[</span><a href="https://docs.python.org/3/library/stdtypes.html#dict" title="builtins.dict" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_spec</span></a><span class="p">],</span>
+    <span class="p">[</span><span class="n">target_spec</span><span class="p">],</span>
     <span class="n">objective</span><span class="o">=</span><span class="s2">&quot;minimum_ohmic_power&quot;</span><span class="p">,</span>
     <span class="n">solver</span><span class="o">=</span><span class="s2">&quot;MOSEK&quot;</span><span class="p">,</span>
     <span class="n">solver_opts</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;mosek_params&quot;</span><span class="p">:</span> <span class="p">{</span><span class="n">mosek</span><span class="o">.</span><span class="n">iparam</span><span class="o">.</span><span class="n">num_threads</span><span class="p">:</span> <span class="mi">8</span><span class="p">}},</span>
@@ -331,8 +330,8 @@ Interior-point solution summary
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

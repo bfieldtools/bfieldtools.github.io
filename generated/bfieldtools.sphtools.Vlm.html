@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.sphtools.Vlm &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -18,7 +16,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bfieldtools.sphtools.potential" href="bfieldtools.sphtools.potential.html" />
+    <link rel="next" title="bfieldtools.sphtools.basis_potentials" href="bfieldtools.sphtools.basis_potentials.html" />
     <link rel="prev" title="bfieldtools.sphtools.Wlm" href="bfieldtools.sphtools.Wlm.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
@@ -81,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
@@ -128,7 +127,7 @@
     </a>
   </li>
   <li>
-    <a href="bfieldtools.sphtools.potential.html" title="Next Chapter: bfieldtools.sphtools.potential"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.s... &raquo;</span>
+    <a href="bfieldtools.sphtools.basis_potentials.html" title="Next Chapter: bfieldtools.sphtools.basis_potentials"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.s... &raquo;</span>
     </a>
   </li>
 <form action="../search.html" method="get">
@@ -144,11 +143,11 @@
       
   <div class="section" id="bfieldtools-sphtools-vlm">
 <h1>bfieldtools.sphtools.Vlm<a class="headerlink" href="#bfieldtools-sphtools-vlm" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="bfieldtools.sphtools.Vlm">
-<code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">Vlm</code><span class="sig-paren">(</span><em class="sig-param">l</em>, <em class="sig-param">m</em>, <em class="sig-param">theta</em>, <em class="sig-param">phi</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.Vlm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">Vlm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l</span></em>, <em class="sig-param"><span class="n">m</span></em>, <em class="sig-param"><span class="n">theta</span></em>, <em class="sig-param"><span class="n">phi</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.Vlm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Vector basis function (Vlm) for r**(-l) component of the magnetic field.
-Normalization &lt;Vlm,Phikn&gt; = delta_lk,mn.</p>
+Normalization &lt;Vlm,Vkn&gt; = delta_lk,mn.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -188,8 +187,8 @@ Normalization &lt;Vlm,Phikn&gt; = delta_lk,mn.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

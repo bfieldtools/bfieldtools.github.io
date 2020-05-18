@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Compare SUH and SPH basis functions for the magnetic field &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -18,8 +16,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Plot different field patterns the basic integrals" href="plot_basic_integrals.html" />
-    <link rel="prev" title="Coil with minimal eddy currents" href="../coil_design/minimal_eddy_current_cylindrical_coil_design.html" />
+    <link rel="next" title="&lt;no title&gt;" href="representation_comparison_potential.html" />
+    <link rel="prev" title="Plot different field patterns the basic integrals" href="plot_basic_integrals.html" />
     <link rel="stylesheet" href="../../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/font-source-code-pro.css" type="text/css" />
@@ -81,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../index.html#physics-publication-examples">Physics publication examples</a></li>
@@ -124,11 +123,11 @@
 </ul>
 
   <li>
-    <a href="../coil_design/minimal_eddy_current_cylindrical_coil_design.html" title="Previous Chapter: Coil with minimal eddy currents"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Coil with min...</span>
+    <a href="plot_basic_integrals.html" title="Previous Chapter: Plot different field patterns the basic integrals"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Plot differen...</span>
     </a>
   </li>
   <li>
-    <a href="plot_basic_integrals.html" title="Next Chapter: Plot different field patterns the basic integrals"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Plot differen... &raquo;</span>
+    <a href="representation_comparison_potential.html" title="Next Chapter: <no title>"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet"><no title> &raquo;</span>
     </a>
   </li>
 <form action="../../search.html" method="get">
@@ -144,7 +143,7 @@
       
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-representation-comparison-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-representation-comparison-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="compare-suh-and-sph-basis-functions-for-the-magnetic-field">
 <span id="sphx-glr-auto-examples-publication-physics-representation-comparison-py"></span><h1>Compare SUH and SPH basis functions for the magnetic field<a class="headerlink" href="#compare-suh-and-sph-basis-functions-for-the-magnetic-field" title="Permalink to this headline">¶</a></h1>
@@ -174,33 +173,25 @@
 <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span> <span class="o">+=</span> <span class="mf">0.005</span> <span class="o">*</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertex_normals</span>
 <span class="n">mesh_field</span> <span class="o">=</span> <span class="n">trimesh</span><span class="o">.</span><span class="n">smoothing</span><span class="o">.</span><span class="n">filter_laplacian</span><span class="p">(</span><span class="n">mesh_field</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Ca</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Cb</span></a> <span class="o">=</span> <span class="n">basis_fields</span><span class="p">(</span><span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">Ca</span><span class="p">,</span> <span class="n">Cb</span> <span class="o">=</span> <span class="n">basis_fields</span><span class="p">(</span><span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="n">bsuh</span> <span class="o">=</span> <span class="n">SuhBasis</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Csuh</span></a> <span class="o">=</span> <span class="n">magnetic_field_coupling_analytic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bsuh</span><span class="o">.</span><span class="n">basis</span></a>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-Closed mesh or Neumann BC, leaving out the constant component
-Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 target points... took 7.89 seconds.
-</pre></div>
-</div>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_basis_fields</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">comps</span></a><span class="p">):</span>
-    <span class="n">d</span> <span class="o">=</span> <span class="mf">0.2</span>
+<span class="n">Csuh</span> <span class="o">=</span> <span class="n">magnetic_field_coupling_analytic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <span class="n">bsuh</span><span class="o">.</span><span class="n">basis</span>
+
+<span class="c1">#%%</span>
+<span class="k">def</span> <span class="nf">plot_basis_fields</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">comps</span><span class="p">):</span>
+    <span class="n">d</span> <span class="o">=</span> <span class="mf">0.17</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">comps</span></a><span class="p">:</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">comps</span><span class="p">:</span>
         <span class="n">p</span> <span class="o">=</span> <span class="mf">1.05</span> <span class="o">*</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">p2</span> <span class="o">=</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="c1">#        p[:,1] -= i*d</span>
         <span class="c1">#        p2[:,1] -= i*d</span>
         <span class="n">p</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">d</span>
         <span class="n">p2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">i</span> <span class="o">*</span> <span class="n">d</span>
-        <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.linalg.norm.html#numpy.linalg.norm" title="numpy.linalg.norm" class="sphx-glr-backref-module-numpy-linalg sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span></a><span class="p">(</span><span class="n">C</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">n</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
-        <span class="n">vectors</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.quiver3d" title="mayavi.mlab.quiver3d" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span></a><span class="p">(</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">C</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">n</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+        <span class="n">vectors</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span>
             <span class="o">*</span><span class="n">p</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">C</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;arrow&quot;</span><span class="p">,</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;Greys&quot;</span><span class="p">,</span> <span class="n">vmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">vmax</span><span class="o">=</span><span class="n">m</span>
         <span class="p">)</span>
         <span class="n">vectors</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">mask_input_points</span> <span class="o">=</span> <span class="kc">True</span>
@@ -209,14 +200,14 @@ Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 tar
         <span class="n">vectors</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">glyph_position</span> <span class="o">=</span> <span class="s2">&quot;center&quot;</span>
         <span class="n">vectors</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">shaft_radius</span> <span class="o">=</span> <span class="mf">0.02</span>
         <span class="n">vectors</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">glyph_source</span><span class="o">.</span><span class="n">tip_radius</span> <span class="o">=</span> <span class="mf">0.06</span>
-        <span class="n">vectors</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">0.025</span>
+        <span class="n">vectors</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">glyph</span><span class="o">.</span><span class="n">scale_factor</span> <span class="o">=</span> <span class="mf">0.03</span>
         <span class="c1">#        m = np.max(abs((C[:,:,n].T*mesh_field.vertex_normals.T).sum(axis=0)))</span>
         <span class="c1">#        s =mlab.triangular_mesh(*p.T, mesh_field.faces,</span>
         <span class="c1">#                             scalars=(C[:,:,n].T*mesh_field.vertex_normals.T).sum(axis=0),</span>
         <span class="c1">#                             colormap=&#39;seismic&#39;, vmin=-m, vmax=m, opacity=0.7)</span>
         <span class="c1">#        s.actor.property.backface_culling = True</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">((</span><span class="n">C</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertex_normals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)))</span>
-        <span class="n">s</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.triangular_mesh" title="mayavi.mlab.triangular_mesh" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span></a><span class="p">(</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span>
             <span class="o">*</span><span class="n">p2</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
             <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span>
             <span class="n">scalars</span><span class="o">=</span><span class="p">(</span><span class="n">C</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">T</span> <span class="o">*</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertex_normals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
@@ -229,9 +220,9 @@ Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 tar
         <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
 
 
-<a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">comps</span></a> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
-<span class="n">scene</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="mayavi.mlab.figure" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">350</span><span class="p">))</span>
-<span class="n">plot_basis_fields</span><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Ca</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">comps</span></a><span class="p">)</span>
+<span class="n">comps</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span><span class="p">]</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">350</span><span class="p">))</span>
+<span class="n">plot_basis_fields</span><span class="p">(</span><span class="n">Ca</span><span class="p">,</span> <span class="n">comps</span><span class="p">)</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">parallel_projection</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_plus_view</span><span class="p">()</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -240,77 +231,74 @@ Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 tar
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">light_manager</span><span class="o">.</span><span class="n">lights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">intensity</span> <span class="o">=</span> <span class="mf">0.2</span>
 
 
-<span class="n">scene</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="mayavi.mlab.figure" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">350</span><span class="p">))</span>
-<span class="n">plot_basis_fields</span><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Csuh</span></a><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">comps</span></a><span class="p">)</span>
+<span class="n">scene</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">1200</span><span class="p">,</span> <span class="mi">350</span><span class="p">))</span>
+<span class="n">plot_basis_fields</span><span class="p">(</span><span class="n">Csuh</span><span class="p">,</span> <span class="n">comps</span><span class="p">)</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">parallel_projection</span> <span class="o">=</span> <span class="kc">True</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_plus_view</span><span class="p">()</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="k">while</span> <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">light_manager</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">_gui</span><span class="o">.</span><span class="n">process_events</span><span class="p">()</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">light_manager</span><span class="o">.</span><span class="n">lights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">intensity</span> <span class="o">=</span> <span class="mf">0.2</span>
+
+
+<span class="c1">#%% test representation</span>
+<span class="c1"># from bfieldtools.mesh_magnetics import scalar_potential_coupling</span>
+<span class="c1"># scaling_factor = 0.02</span>
+<span class="c1">##Load simple plane mesh that is centered on the origin</span>
+<span class="c1"># file_obj=pkg_resources.resource_filename(&#39;bfieldtools&#39;, &#39;example_meshes/10x10_plane_hires.obj&#39;)</span>
+<span class="c1"># plane = trimesh.load(file_obj=file_obj, process=False)</span>
+<span class="c1"># plane.apply_scale(scaling_factor)</span>
+<span class="c1">## Rotate to x-plane</span>
+<span class="c1"># t = np.eye(4)</span>
+<span class="c1"># t[1:3,1:3] = np.array([[0,1],[-1,0]])</span>
+<span class="c1"># plane.apply_transform(t)</span>
+<span class="c1"># plane = plane.subdivide()</span>
+<span class="c1">#</span>
+<span class="c1"># u = scalar_potential_coupling(mesh, plane.vertices, multiply_coeff=False)</span>
+<span class="c1"># mask = 1 + np.sum(u, axis=1)/(4*np.pi)</span>
+<span class="c1"># mask[mask &lt; 1e-6]  = 0</span>
+<span class="c1">#</span>
+<span class="c1">#</span>
+<span class="c1"># Ca, Cb = basis_fields(plane.vertices, 6)</span>
+<span class="c1"># bsuh = SuhBasis(mesh, 48)</span>
+<span class="c1"># CB = magnetic_field_coupling_analytic(mesh, plane.vertices)</span>
+<span class="c1"># Csuh = CB @ bsuh.basis</span>
+<span class="c1">#</span>
+<span class="c1"># A,B = compute_sphcoeffs_mesh(mesh, 6)</span>
+<span class="c1"># b1 = np.einsum(&#39;ij,lik-&gt;lkj&#39;, A , Ca) # Mapping from verts to alpha to field</span>
+<span class="c1"># b2 = np.einsum(&#39;ij,klj-&gt;lki&#39;, bsuh.mass @ bsuh.basis  , Csuh) # Mapping from verts to suh to field</span>
+<span class="c1">#</span>
+<span class="c1"># ind=1932</span>
+<span class="c1"># scalars = np.zeros(mesh.vertices.shape[0])</span>
+<span class="c1"># scalars[ind] = 1</span>
+<span class="c1"># mlab.triangular_mesh(*mesh.vertices.T, mesh.faces, scalars=scalars, colormap=&#39;Blues&#39;)</span>
+<span class="c1"># surf= mlab.triangular_mesh(*plane.vertices.T, plane.faces, colormap=&#39;viridis&#39;,</span>
+<span class="c1">#                     scalars = mask*np.linalg.norm(CB[:,:,ind], axis=1))</span>
+<span class="c1"># surf.actor.mapper.interpolate_scalars_before_mapping = True</span>
+<span class="c1"># surf.module_manager.scalar_lut_manager.number_of_colors = 16</span>
+<span class="c1">#</span>
+<span class="c1"># mlab.figure()</span>
+<span class="c1"># mlab.triangular_mesh(*mesh.vertices.T, mesh.faces, scalars=scalars, colormap=&#39;Blues&#39;)</span>
+<span class="c1"># surf = mlab.triangular_mesh(*plane.vertices.T, plane.faces, colormap=&#39;viridis&#39;,</span>
+<span class="c1">#                     scalars = mask*np.linalg.norm(b1[:,:,ind], axis=0))</span>
+<span class="c1"># surf.actor.mapper.interpolate_scalars_before_mapping = True</span>
+<span class="c1"># surf.module_manager.scalar_lut_manager.number_of_colors = 16</span>
+<span class="c1">#</span>
+<span class="c1"># mlab.figure()</span>
+<span class="c1"># mlab.triangular_mesh(*mesh.vertices.T, mesh.faces, scalars=scalars, colormap=&#39;Blues&#39;)</span>
+<span class="c1"># surf = mlab.triangular_mesh(*plane.vertices.T, plane.faces, colormap=&#39;viridis&#39;,</span>
+<span class="c1">#                     scalars = mask*np.linalg.norm(b2[:,:,ind], axis=0))</span>
+<span class="c1"># surf.actor.mapper.interpolate_scalars_before_mapping = True</span>
+<span class="c1"># surf.module_manager.scalar_lut_manager.number_of_colors = 16</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_representation_comparison_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_representation_comparison_001.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_representation_comparison_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_representation_comparison_002.png" />
-</li>
-</ul>
-<dl>
-<dt>from bfieldtools.mesh_magnetics import scalar_potential_coupling</dt><dd><p>scaling_factor = 0.02</p>
-</dd>
-<dt>#Load simple plane mesh that is centered on the origin</dt><dd><p>file_obj=pkg_resources.resource_filename(‘bfieldtools’, ‘example_meshes/10x10_plane_hires.obj’)
-plane = trimesh.load(file_obj=file_obj, process=False)
-plane.apply_scale(scaling_factor)</p>
-</dd>
-<dt># Rotate to x-plane</dt><dd><p>t = np.eye(4)
-t[1:3,1:3] = np.array([[0,1],[-1,0]])
-plane.apply_transform(t)
-plane = plane.subdivide()</p>
-<p>u = scalar_potential_coupling(mesh, plane.vertices, multiply_coeff=False)
-mask = 1 + np.sum(u, axis=1)/(4*np.pi)
-mask[mask &lt; 1e-6]  = 0</p>
-<p>Ca, Cb = basis_fields(plane.vertices, 6)
-bsuh = SuhBasis(mesh, 48)
-CB = magnetic_field_coupling_analytic(mesh, plane.vertices)
-Csuh = CB &#64; bsuh.basis</p>
-<p>A,B = compute_sphcoeffs_mesh(mesh, 6)
-b1 = np.einsum(‘ij,lik-&gt;lkj’, A , Ca) # Mapping from verts to alpha to field
-b2 = np.einsum(‘ij,klj-&gt;lki’, bsuh.mass &#64; bsuh.basis  , Csuh) # Mapping from verts to suh to field</p>
-<p>ind=1932
-scalars = np.zeros(mesh.vertices.shape[0])
-scalars[ind] = 1
-mlab.triangular_mesh(<a href="#id1"><span class="problematic" id="id2">*</span></a>mesh.vertices.T, mesh.faces, scalars=scalars, colormap=’Blues’)
-surf= mlab.triangular_mesh(<a href="#id3"><span class="problematic" id="id4">*</span></a>plane.vertices.T, plane.faces, colormap=’viridis’,</p>
-<blockquote>
-<div><p>scalars = mask*np.linalg.norm(CB[:,:,ind], axis=1))</p>
-</div></blockquote>
-<p>surf.actor.mapper.interpolate_scalars_before_mapping = True
-surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
-<p>mlab.figure()
-mlab.triangular_mesh(<a href="#id5"><span class="problematic" id="id6">*</span></a>mesh.vertices.T, mesh.faces, scalars=scalars, colormap=’Blues’)
-surf = mlab.triangular_mesh(<a href="#id7"><span class="problematic" id="id8">*</span></a>plane.vertices.T, plane.faces, colormap=’viridis’,</p>
-<blockquote>
-<div><p>scalars = mask*np.linalg.norm(b1[:,:,ind], axis=0))</p>
-</div></blockquote>
-<p>surf.actor.mapper.interpolate_scalars_before_mapping = True
-surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
-<p>mlab.figure()
-mlab.triangular_mesh(<a href="#id9"><span class="problematic" id="id10">*</span></a>mesh.vertices.T, mesh.faces, scalars=scalars, colormap=’Blues’)
-surf = mlab.triangular_mesh(<a href="#id11"><span class="problematic" id="id12">*</span></a>plane.vertices.T, plane.faces, colormap=’viridis’,</p>
-<blockquote>
-<div><p>scalars = mask*np.linalg.norm(b2[:,:,ind], axis=0))</p>
-</div></blockquote>
-<p>surf.actor.mapper.interpolate_scalars_before_mapping = True
-surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
-</dd>
-</dl>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  26.053 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-representation-comparison-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fcfc4a1593a133dc6921af0960e87f1e/representation_comparison.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">representation_comparison.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/912550321d79aca3cc03904b51f7ceaf/representation_comparison.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">representation_comparison.ipynb</span></code></a></p>
 </div>
 </div>
@@ -332,8 +320,8 @@ surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

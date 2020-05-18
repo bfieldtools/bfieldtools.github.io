@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.sphtools.SphBasis &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -18,8 +16,6 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bfieldtools.sphtools.cartesian2spherical" href="bfieldtools.sphtools.cartesian2spherical.html" />
-    <link rel="prev" title="bfieldtools.line_conductor.LineConductor" href="bfieldtools.line_conductor.LineConductor.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -72,7 +68,7 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#installing-bfieldtools">Installing bfieldtools</a></li>
@@ -81,13 +77,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#validation">Validation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
 </ul>
 </ul>
 </li>
@@ -123,14 +120,6 @@
 <li><a class="reference internal" href="#">bfieldtools.sphtools.SphBasis</a></li>
 </ul>
 
-  <li>
-    <a href="bfieldtools.line_conductor.LineConductor.html" title="Previous Chapter: bfieldtools.line_conductor.LineConductor"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; bfieldtools.l...</span>
-    </a>
-  </li>
-  <li>
-    <a href="bfieldtools.sphtools.cartesian2spherical.html" title="Next Chapter: bfieldtools.sphtools.cartesian2spherical"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.s... &raquo;</span>
-    </a>
-  </li>
 <form action="../search.html" method="get">
  <div class="form-group">
   <input type="text" name="q" class="form-control" placeholder="Search" />
@@ -144,9 +133,9 @@
       
   <div class="section" id="bfieldtools-sphtools-sphbasis">
 <h1>bfieldtools.sphtools.SphBasis<a class="headerlink" href="#bfieldtools-sphtools-sphbasis" title="Permalink to this headline">¶</a></h1>
-<dl class="class">
+<dl class="py class">
 <dt id="bfieldtools.sphtools.SphBasis">
-<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">SphBasis</code><span class="sig-paren">(</span><em class="sig-param">Np</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">SphBasis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an object that describes unit sphere. Can be used to compute
 inner products and function sph spectra on the sphere.</p>
 <p>TODO: mu0 might be missing!!!</p>
@@ -164,16 +153,16 @@ inner products and function sph spectra on the sphere.</p>
 </dl>
 </dd>
 </dl>
-<dl class="method">
+<dl class="py method">
 <dt id="bfieldtools.sphtools.SphBasis.initqp">
-<code class="sig-name descname">initqp</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.initqp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">initqp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.initqp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialises quadrature points on the sphere.</p>
 <p>Default points are McLaren(10) so that we avoid singularities.</p>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bfieldtools.sphtools.SphBasis.innerproduct">
-<code class="sig-name descname">innerproduct</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fun1</em>, <em class="sig-param">fun2</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.innerproduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">innerproduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fun1</span></em>, <em class="sig-param"><span class="n">fun2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.innerproduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inner product of vector functions fun1 and fun2.
 Defined as integration over a surface of unit sphere &lt;C,D&gt; = int C dot D dOmega.
 Quadrature rule defined in qp is used.</p>
@@ -195,9 +184,9 @@ Quadrature rule defined in qp is used.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bfieldtools.sphtools.SphBasis.avsphspectra">
-<code class="sig-name descname">avsphspectra</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fun</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.avsphspectra" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">avsphspectra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.avsphspectra" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the l,m-spectra (over r**l-terms) of vector function defined in quadrature points
 using the inner product.</p>
 <dl class="field-list simple">
@@ -218,9 +207,9 @@ using the inner product.</p>
 </dl>
 </dd></dl>
 
-<dl class="method">
+<dl class="py method">
 <dt id="bfieldtools.sphtools.SphBasis.bvsphspectra">
-<code class="sig-name descname">bvsphspectra</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fun</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.bvsphspectra" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bvsphspectra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.bvsphspectra" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the l,m-spectra (over r**(-l)-terms) of vector function defined in quadrature points
 using the inner product.</p>
 <dl class="field-list simple">
@@ -260,8 +249,8 @@ using the inner product.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

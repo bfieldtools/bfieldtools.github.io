@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.sphtools.derxlm &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -18,8 +16,6 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="bfieldtools.sphtools.sinxlm" href="bfieldtools.sphtools.sinxlm.html" />
-    <link rel="prev" title="bfieldtools.sphtools.ylm" href="bfieldtools.sphtools.ylm.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -72,7 +68,7 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Contents:</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">Dependencies</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#documentation">Documentation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#installing-bfieldtools">Installing bfieldtools</a></li>
@@ -81,13 +77,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#license">License</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Install</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../literature.html">Literature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#coil-design">Coil design</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#validation">Validation</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
 </ul>
 </ul>
 </li>
@@ -123,14 +120,6 @@
 <li><a class="reference internal" href="#">bfieldtools.sphtools.derxlm</a></li>
 </ul>
 
-  <li>
-    <a href="bfieldtools.sphtools.ylm.html" title="Previous Chapter: bfieldtools.sphtools.ylm"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; bfieldtools.s...</span>
-    </a>
-  </li>
-  <li>
-    <a href="bfieldtools.sphtools.sinxlm.html" title="Next Chapter: bfieldtools.sphtools.sinxlm"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">bfieldtools.s... &raquo;</span>
-    </a>
-  </li>
 <form action="../search.html" method="get">
  <div class="form-group">
   <input type="text" name="q" class="form-control" placeholder="Search" />
@@ -144,9 +133,9 @@
       
   <div class="section" id="bfieldtools-sphtools-derxlm">
 <h1>bfieldtools.sphtools.derxlm<a class="headerlink" href="#bfieldtools-sphtools-derxlm" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="bfieldtools.sphtools.derxlm">
-<code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">derxlm</code><span class="sig-paren">(</span><em class="sig-param">l</em>, <em class="sig-param">m</em>, <em class="sig-param">theta</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.derxlm" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">derxlm</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">l</span></em>, <em class="sig-param"><span class="n">m</span></em>, <em class="sig-param"><span class="n">theta</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.derxlm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Derivative of Xlm with respect to theta.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -185,8 +174,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-07.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>
