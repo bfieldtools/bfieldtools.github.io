@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Example gallery &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -16,7 +18,7 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="test_triangles_self_coupling.html" />
+    <link rel="next" title="Gradient computation example" href="gradient_example.html" />
     <link rel="prev" title="Literature" href="../literature.html" />
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
@@ -142,7 +144,7 @@
     </a>
   </li>
   <li>
-    <a href="test_triangles_self_coupling.html" title="Next Chapter: <no title>"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet"><no title> &raquo;</span>
+    <a href="gradient_example.html" title="Next Chapter: Gradient computation example"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Gradient comp... &raquo;</span>
     </a>
   </li>
 <form action="../search.html" method="get">
@@ -159,31 +161,12 @@
   <div class="section" id="example-gallery">
 <span id="sphx-glr-auto-examples"></span><h1>Example gallery<a class="headerlink" href="#example-gallery" title="Permalink to this headline">¶</a></h1>
 <p>Below are a number of examples meant to familiarize you with the functionality of bfieldtools.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id1">
-<img alt="../_images/sphx_glr_test_triangles_self_coupling_thumb.png" src="../_images/sphx_glr_test_triangles_self_coupling_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_test_triangles_self_coupling.py</span></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id2">
-<img alt="../_images/sphx_glr_suh_degeneracy_thumb.png" src="../_images/sphx_glr_suh_degeneracy_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_suh_degeneracy.py</span></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id3">
-<img alt="../_images/sphx_glr_suh_testing_thumb.png" src="../_images/sphx_glr_suh_testing_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_suh_testing.py</span></span><a class="headerlink" href="#id3" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Minimal example visualizing the gradient of a scalar function on a mesh"><div class="figure align-default" id="id4">
+<div class="sphx-glr-thumbcontainer" tooltip="Minimal example visualizing the gradient of a scalar function on a mesh"><div class="figure align-default" id="id1">
 <img alt="../_images/sphx_glr_gradient_example_thumb.png" src="../_images/sphx_glr_gradient_example_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="gradient_example.html#sphx-glr-auto-examples-gradient-example-py"><span class="std std-ref">Gradient computation example</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="gradient_example.html#sphx-glr-auto-examples-gradient-example-py"><span class="std std-ref">Gradient computation example</span></a></span><a class="headerlink" href="#id1" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<<<<<<< HEAD
 <div class="sphx-glr-thumbcontainer" tooltip="Map 3D mesh to a 2D (complex) plane with angle-preserving (conformal) mapping"><div class="figure align-default" id="id2">
 <img alt="../_images/sphx_glr_flatten_mesh_thumb.png" src="../_images/sphx_glr_flatten_mesh_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="flatten_mesh.html#sphx-glr-auto-examples-flatten-mesh-py"><span class="std std-ref">Flatten mesh using conformal mapping</span></a></span><a class="headerlink" href="#id2" title="Permalink to this image">¶</a></p>
@@ -199,137 +182,83 @@
 <div class="sphx-glr-thumbcontainer" tooltip="In this example, we demonstrate how to compute the mutual inductance between two sets of polyli..."><div class="figure align-default" id="id4">
 <img alt="../_images/sphx_glr_line_conductor_inductance_thumb.png" src="../_images/sphx_glr_line_conductor_inductance_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="line_conductor_inductance.html#sphx-glr-auto-examples-line-conductor-inductance-py"><span class="std std-ref">Mutual inductance of wire loops</span></a></span><a class="headerlink" href="#id4" title="Permalink to this image">¶</a></p>
-=======
-<div class="sphx-glr-thumbcontainer" tooltip="Minimal example showing how to subdivide a mesh and interpolate a scalar function defined on th..."><div class="figure align-default" id="id5">
-<img alt="../_images/sphx_glr_interpolate_example_thumb.png" src="../_images/sphx_glr_interpolate_example_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="interpolate_example.html#sphx-glr-auto-examples-interpolate-example-py"><span class="std std-ref">Interpolate stream function</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id6">
-<img alt="../_images/sphx_glr_test_mesh_magnetics_thumb.png" src="../_images/sphx_glr_test_mesh_magnetics_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_test_mesh_magnetics.py</span></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: makinea1 "><div class="figure align-default" id="id7">
-<img alt="../_images/sphx_glr_test_scalar_potential_thumb.png" src="../_images/sphx_glr_test_scalar_potential_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_test_scalar_potential.py</span></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Map 3D mesh to a 2D (complex) plane with angle-preserving (conformal) mapping"><div class="figure align-default" id="id8">
-<img alt="../_images/sphx_glr_flatten_mesh_thumb.png" src="../_images/sphx_glr_flatten_mesh_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="flatten_mesh.html#sphx-glr-auto-examples-flatten-mesh-py"><span class="std std-ref">Flatten mesh using conformal mapping</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id9">
-<img alt="../_images/sphx_glr_test_sphcoeff_coupling_thumb.png" src="../_images/sphx_glr_test_sphcoeff_coupling_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_test_sphcoeff_coupling.py</span></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="In this example, we demonstrate how to compute the mutual inductance between two sets of polyli..."><div class="figure align-default" id="id10">
-<img alt="../_images/sphx_glr_line_conductor_inductance_thumb.png" src="../_images/sphx_glr_line_conductor_inductance_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="line_conductor_inductance.html#sphx-glr-auto-examples-line-conductor-inductance-py"><span class="std std-ref">Mutual inductance of wire loops</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example on how to compute the magnetic field from current line segments forming a Helmholtz coi..."><div class="figure align-default" id="id11">
+<div class="sphx-glr-thumbcontainer" tooltip="Example on how to compute the magnetic field from current line segments forming a Helmholtz coi..."><div class="figure align-default" id="id5">
 <img alt="../_images/sphx_glr_helmholtz_coil_thumb.png" src="../_images/sphx_glr_helmholtz_coil_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="helmholtz_coil.html#sphx-glr-auto-examples-helmholtz-coil-py"><span class="std std-ref">Field of a Helmholtz coils pair</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="helmholtz_coil.html#sphx-glr-auto-examples-helmholtz-coil-py"><span class="std std-ref">Field of a Helmholtz coils pair</span></a></span><a class="headerlink" href="#id5" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example of spherical harmonics tools and visualization"><div class="figure align-default" id="id12">
-<img alt="../_images/sphx_glr_spherical_harmonics_example_thumb.png" src="../_images/sphx_glr_spherical_harmonics_example_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="spherical_harmonics_example.html#sphx-glr-auto-examples-spherical-harmonics-example-py"><span class="std std-ref">Example of spherical harmonics tools and visualization</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
->>>>>>> tmp
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id13">
-<img alt="../_images/sphx_glr_magnetic_lead_field_viz_thumb.png" src="../_images/sphx_glr_magnetic_lead_field_viz_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_magnetic_lead_field_viz.py</span></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<<<<<<< HEAD
 <div class="sphx-glr-thumbcontainer" tooltip="Example of spherical harmonics tools and visualization"><div class="figure align-default" id="id6">
 <img alt="../_images/sphx_glr_spherical_harmonics_example_thumb.png" src="../_images/sphx_glr_spherical_harmonics_example_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="spherical_harmonics_example.html#sphx-glr-auto-examples-spherical-harmonics-example-py"><span class="std std-ref">Example of spherical harmonics tools and visualization</span></a></span><a class="headerlink" href="#id6" title="Permalink to this image">¶</a></p>
-=======
-<div class="sphx-glr-thumbcontainer" tooltip="@author: makinea1 "><div class="figure align-default" id="id14">
-<img alt="../_images/sphx_glr_linear_medium_bem_thumb.png" src="../_images/sphx_glr_linear_medium_bem_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_linear_medium_bem.py</span></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
->>>>>>> tmp
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div style='clear:both'></div></div>
+<div class="sphx-glr-clear"></div></div>
 <div class="section" id="coil-design">
 <span id="sphx-glr-auto-examples-coil-design"></span><h1>Coil design<a class="headerlink" href="#coil-design" title="Permalink to this headline">¶</a></h1>
 <p>Examples related to coil design.</p>
-<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing a field profile defined by spherical harmonics...."><div class="figure align-default" id="id15">
+<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing a field profile defined by spherical harmonics...."><div class="figure align-default" id="id7">
 <img alt="../_images/sphx_glr_spherical_harmonics_coil_design_thumb.png" src="../_images/sphx_glr_spherical_harmonics_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/spherical_harmonics_coil_design.html#sphx-glr-auto-examples-coil-design-spherical-harmonics-coil-design-py"><span class="std std-ref">Spherical harmonics-generating coil design</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/spherical_harmonics_coil_design.html#sphx-glr-auto-examples-coil-design-spherical-harmonics-coil-design-py"><span class="std std-ref">Spherical harmonics-generating coil design</span></a></span><a class="headerlink" href="#id7" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example showing a gradient coil designed on the surface of a MEG system helmet "><div class="figure align-default" id="id16">
+<div class="sphx-glr-thumbcontainer" tooltip="Example showing a gradient coil designed on the surface of a MEG system helmet"><div class="figure align-default" id="id8">
 <img alt="../_images/sphx_glr_head_gradient_coil_design_thumb.png" src="../_images/sphx_glr_head_gradient_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/head_gradient_coil_design.html#sphx-glr-auto-examples-coil-design-head-gradient-coil-design-py"><span class="std std-ref">Head gradient coil</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/head_gradient_coil_design.html#sphx-glr-auto-examples-coil-design-head-gradient-coil-design-py"><span class="std std-ref">Head gradient coil</span></a></span><a class="headerlink" href="#id8" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing a high-order spherical harmonic field in a spec..."><div class="figure align-default" id="id17">
+<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing a high-order spherical harmonic field in a spec..."><div class="figure align-default" id="id9">
 <img alt="../_images/sphx_glr_high_order_spherical_harmonics_coil_thumb.png" src="../_images/sphx_glr_high_order_spherical_harmonics_coil_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/high_order_spherical_harmonics_coil.html#sphx-glr-auto-examples-coil-design-high-order-spherical-harmonics-coil-py"><span class="std std-ref">High-order spherical harmonic biplanar coil design</span></a></span><a class="headerlink" href="#id17" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/high_order_spherical_harmonics_coil.html#sphx-glr-auto-examples-coil-design-high-order-spherical-harmonics-coil-py"><span class="std std-ref">High-order spherical harmonic biplanar coil design</span></a></span><a class="headerlink" href="#id9" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing homogeneous field in a target region between th..."><div class="figure align-default" id="id18">
+<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing homogeneous field in a target region between th..."><div class="figure align-default" id="id10">
 <img alt="../_images/sphx_glr_coil_with_holes_thumb.png" src="../_images/sphx_glr_coil_with_holes_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/coil_with_holes.html#sphx-glr-auto-examples-coil-design-coil-with-holes-py"><span class="std std-ref">Coil with interior holes</span></a></span><a class="headerlink" href="#id18" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/coil_with_holes.html#sphx-glr-auto-examples-coil-design-coil-with-holes-py"><span class="std std-ref">Coil with interior holes</span></a></span><a class="headerlink" href="#id10" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Compact example of a biplanar coil producing homogeneous field in a number of target regions ar..."><div class="figure align-default" id="id19">
+<div class="sphx-glr-thumbcontainer" tooltip="Compact example of a biplanar coil producing homogeneous field in a number of target regions ar..."><div class="figure align-default" id="id11">
 <img alt="../_images/sphx_glr_mamba_coil_design_thumb.png" src="../_images/sphx_glr_mamba_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/mamba_coil_design.html#sphx-glr-auto-examples-coil-design-mamba-coil-design-py"><span class="std std-ref">MAMBA coil</span></a></span><a class="headerlink" href="#id19" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/mamba_coil_design.html#sphx-glr-auto-examples-coil-design-mamba-coil-design-py"><span class="std std-ref">MAMBA coil</span></a></span><a class="headerlink" href="#id11" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing homogeneous field in a target region between th..."><div class="figure align-default" id="id20">
+<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing homogeneous field in a target region between th..."><div class="figure align-default" id="id12">
 <img alt="../_images/sphx_glr_biplanar_coil_design_thumb.png" src="../_images/sphx_glr_biplanar_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/biplanar_coil_design.html#sphx-glr-auto-examples-coil-design-biplanar-coil-design-py"><span class="std std-ref">Biplanar coil design</span></a></span><a class="headerlink" href="#id20" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/biplanar_coil_design.html#sphx-glr-auto-examples-coil-design-biplanar-coil-design-py"><span class="std std-ref">Biplanar coil design</span></a></span><a class="headerlink" href="#id12" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing homogeneous field in a target region between th..."><div class="figure align-default" id="id21">
+<div class="sphx-glr-thumbcontainer" tooltip="Example showing a basic biplanar coil producing homogeneous field in a target region between th..."><div class="figure align-default" id="id13">
 <img alt="../_images/sphx_glr_self-shielded_biplanar_coil_design_thumb.png" src="../_images/sphx_glr_self-shielded_biplanar_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/self-shielded_biplanar_coil_design.html#sphx-glr-auto-examples-coil-design-self-shielded-biplanar-coil-design-py"><span class="std std-ref">Analytical self-shielded biplanar coil design</span></a></span><a class="headerlink" href="#id21" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/self-shielded_biplanar_coil_design.html#sphx-glr-auto-examples-coil-design-self-shielded-biplanar-coil-design-py"><span class="std std-ref">Analytical self-shielded biplanar coil design</span></a></span><a class="headerlink" href="#id13" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Magnetically shielded  coil"><div class="figure align-default" id="id22">
+<div class="sphx-glr-thumbcontainer" tooltip="Magnetically shielded  coil"><div class="figure align-default" id="id14">
 <img alt="../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_thumb.png" src="../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/magnetically_shielded_biplanar_coil_design.html#sphx-glr-auto-examples-coil-design-magnetically-shielded-biplanar-coil-design-py"><span class="std std-ref">Magnetically shielded  coil</span></a></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/magnetically_shielded_biplanar_coil_design.html#sphx-glr-auto-examples-coil-design-magnetically-shielded-biplanar-coil-design-py"><span class="std std-ref">Magnetically shielded  coil</span></a></span><a class="headerlink" href="#id14" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Coil with minimal eddy currents"><div class="figure align-default" id="id23">
+<div class="sphx-glr-thumbcontainer" tooltip="Coil with minimal eddy currents"><div class="figure align-default" id="id15">
 <img alt="../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_thumb.png" src="../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/minimal_eddy_current_cylindrical_coil_design.html#sphx-glr-auto-examples-coil-design-minimal-eddy-current-cylindrical-coil-design-py"><span class="std std-ref">Coil with minimal eddy currents</span></a></span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
+<p class="caption"><span class="caption-text"><a class="reference internal" href="coil_design/minimal_eddy_current_cylindrical_coil_design.html#sphx-glr-auto-examples-coil-design-minimal-eddy-current-cylindrical-coil-design-py"><span class="std std-ref">Coil with minimal eddy currents</span></a></span><a class="headerlink" href="#id15" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div style='clear:both'></div></div>
+<div class="sphx-glr-clear"></div></div>
 <div class="section" id="physics-publication-examples">
 <span id="sphx-glr-auto-examples-publication-physics"></span><h1>Physics publication examples<a class="headerlink" href="#physics-publication-examples" title="Permalink to this headline">¶</a></h1>
 <p>Example scripts to reproduce the results of the bfieldtools physics paper.</p>
-<<<<<<< HEAD
 <div class="sphx-glr-thumbcontainer" tooltip="Visualize SUH components on 3 surfaces"><div class="figure align-default" id="id16">
 <img alt="../_images/sphx_glr_visualize_suh_components_thumb.png" src="../_images/sphx_glr_visualize_suh_components_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/visualize_suh_components.html#sphx-glr-auto-examples-publication-physics-visualize-suh-components-py"><span class="std std-ref">Visualize SUH components on 3 surfaces</span></a></span><a class="headerlink" href="#id16" title="Permalink to this image">¶</a></p>
@@ -369,61 +298,13 @@
 <div class="sphx-glr-thumbcontainer" tooltip="Example of designing biplanar"><div class="figure align-default" id="id22">
 <img alt="../_images/sphx_glr_shielding_biplanar_example_thumb.png" src="../_images/sphx_glr_shielding_biplanar_example_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/shielding_biplanar_example.html#sphx-glr-auto-examples-publication-physics-shielding-biplanar-example-py"><span class="std std-ref">Example of designing biplanar</span></a></span><a class="headerlink" href="#id22" title="Permalink to this image">¶</a></p>
-=======
-<div class="sphx-glr-thumbcontainer" tooltip="Visualize SUH components on 3 surfaces"><div class="figure align-default" id="id24">
-<img alt="../_images/sphx_glr_visualize_suh_components_thumb.png" src="../_images/sphx_glr_visualize_suh_components_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/visualize_suh_components.html#sphx-glr-auto-examples-publication-physics-visualize-suh-components-py"><span class="std std-ref">Visualize SUH components on 3 surfaces</span></a></span><a class="headerlink" href="#id24" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id25">
-<img alt="../_images/sphx_glr_plot_distances_thumb.png" src="../_images/sphx_glr_plot_distances_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_publication_physics_plot_distances.py</span></span><a class="headerlink" href="#id25" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Plot different field patterns the basic integrals"><div class="figure align-default" id="id26">
-<img alt="../_images/sphx_glr_plot_basic_integrals_thumb.png" src="../_images/sphx_glr_plot_basic_integrals_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/plot_basic_integrals.html#sphx-glr-auto-examples-publication-physics-plot-basic-integrals-py"><span class="std std-ref">Plot different field patterns the basic integrals</span></a></span><a class="headerlink" href="#id26" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Compare SUH and SPH basis functions for the magnetic field"><div class="figure align-default" id="id27">
-<img alt="../_images/sphx_glr_representation_comparison_thumb.png" src="../_images/sphx_glr_representation_comparison_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/representation_comparison.html#sphx-glr-auto-examples-publication-physics-representation-comparison-py"><span class="std std-ref">Compare SUH and SPH basis functions for the magnetic field</span></a></span><a class="headerlink" href="#id27" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: Antti "><div class="figure align-default" id="id28">
-<img alt="../_images/sphx_glr_representation_comparison_potential_thumb.png" src="../_images/sphx_glr_representation_comparison_potential_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_publication_physics_representation_comparison_potential.py</span></span><a class="headerlink" href="#id28" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Design a field of a closed enclosed in a volume"><div class="figure align-default" id="id29">
-<img alt="../_images/sphx_glr_shielding_closed_surface_example_direct_invert_thumb.png" src="../_images/sphx_glr_shielding_closed_surface_example_direct_invert_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/shielding_closed_surface_example_direct_invert.html#sphx-glr-auto-examples-publication-physics-shielding-closed-surface-example-direct-invert-py"><span class="std std-ref">Design a field of a closed enclosed in a volume</span></a></span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example of a cylindrical perfect mu"><div class="figure align-default" id="id30">
-<img alt="../_images/sphx_glr_mumetal_shield_example_thumb.png" src="../_images/sphx_glr_mumetal_shield_example_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/mumetal_shield_example.html#sphx-glr-auto-examples-publication-physics-mumetal-shield-example-py"><span class="std std-ref">Example of a cylindrical perfect mu-metal shield</span></a></span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Example of designing biplanar"><div class="figure align-default" id="id31">
-<img alt="../_images/sphx_glr_shielding_biplanar_example_thumb.png" src="../_images/sphx_glr_shielding_biplanar_example_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_physics/shielding_biplanar_example.html#sphx-glr-auto-examples-publication-physics-shielding-biplanar-example-py"><span class="std std-ref">Example of designing biplanar</span></a></span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
->>>>>>> tmp
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div style='clear:both'></div></div>
+<div class="sphx-glr-clear"></div></div>
 <div class="section" id="software-publication-examples">
 <span id="sphx-glr-auto-examples-publication-software"></span><h1>Software publication examples<a class="headerlink" href="#software-publication-examples" title="Permalink to this headline">¶</a></h1>
 <p>Example scripts to reproduce the results of the bfieldtools software paper.</p>
-<<<<<<< HEAD
 <div class="sphx-glr-thumbcontainer" tooltip="First 15 surface harmonics of a triangle mesh. The index (and spatial frequency) increases from..."><div class="figure align-default" id="id23">
 <img alt="../_images/sphx_glr_plot_suhmodes_thumb.png" src="../_images/sphx_glr_plot_suhmodes_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/plot_suhmodes.html#sphx-glr-auto-examples-publication-software-plot-suhmodes-py"><span class="std std-ref">Figure 2: Surface harmonics modes</span></a></span><a class="headerlink" href="#id23" title="Permalink to this image">¶</a></p>
@@ -463,71 +344,23 @@
 <div class="sphx-glr-thumbcontainer" tooltip="Coil with minimal eddy currents"><div class="figure align-default" id="id29">
 <img alt="../_images/sphx_glr_pub_minimal_eddy_current_cylindrical_coil_design_thumb.png" src="../_images/sphx_glr_pub_minimal_eddy_current_cylindrical_coil_design_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/pub_minimal_eddy_current_cylindrical_coil_design.html#sphx-glr-auto-examples-publication-software-pub-minimal-eddy-current-cylindrical-coil-design-py"><span class="std std-ref">Coil with minimal eddy currents</span></a></span><a class="headerlink" href="#id29" title="Permalink to this image">¶</a></p>
-=======
-<div class="sphx-glr-thumbcontainer" tooltip="First 15 surface harmonics of a triangle mesh. The index (and spatial frequency) increases from..."><div class="figure align-default" id="id32">
-<img alt="../_images/sphx_glr_plot_suhmodes_thumb.png" src="../_images/sphx_glr_plot_suhmodes_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/plot_suhmodes.html#sphx-glr-auto-examples-publication-software-plot-suhmodes-py"><span class="std std-ref">Figure 2: Surface harmonics modes</span></a></span><a class="headerlink" href="#id32" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="First example in the paper, showing a basic biplanar coil producing homogeneous field in a targ..."><div class="figure align-default" id="id33">
-<img alt="../_images/sphx_glr_pub_biplanar_coil_design_thumb.png" src="../_images/sphx_glr_pub_biplanar_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/pub_biplanar_coil_design.html#sphx-glr-auto-examples-publication-software-pub-biplanar-coil-design-py"><span class="std std-ref">Biplanar coil design</span></a></span><a class="headerlink" href="#id33" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Figure 1"><div class="figure align-default" id="id34">
-<img alt="../_images/sphx_glr_streamfunction_gradient_example_thumb.png" src="../_images/sphx_glr_streamfunction_gradient_example_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/streamfunction_gradient_example.html#sphx-glr-auto-examples-publication-software-streamfunction-gradient-example-py"><span class="std std-ref">Figure 1: Stream function example</span></a></span><a class="headerlink" href="#id34" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Magnetically shielded  coil"><div class="figure align-default" id="id35">
-<img alt="../_images/sphx_glr_pub_magnetically_shielded_biplanar_coil_design_thumb.png" src="../_images/sphx_glr_pub_magnetically_shielded_biplanar_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/pub_magnetically_shielded_biplanar_coil_design.html#sphx-glr-auto-examples-publication-software-pub-magnetically-shielded-biplanar-coil-design-py"><span class="std std-ref">Magnetically shielded  coil</span></a></span><a class="headerlink" href="#id35" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="SUH"><div class="figure align-default" id="id36">
-<img alt="../_images/sphx_glr_suh_sph_interpolation_thumb.png" src="../_images/sphx_glr_suh_sph_interpolation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/suh_sph_interpolation.html#sphx-glr-auto-examples-publication-software-suh-sph-interpolation-py"><span class="std std-ref">SUH-SPH interpolation comparison</span></a></span><a class="headerlink" href="#id36" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Field interpolation example"><div class="figure align-default" id="id37">
-<img alt="../_images/sphx_glr_mne_interpolation_thumb.png" src="../_images/sphx_glr_mne_interpolation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/mne_interpolation.html#sphx-glr-auto-examples-publication-software-mne-interpolation-py"><span class="std std-ref">Field interpolation example</span></a></span><a class="headerlink" href="#id37" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Coil with minimal eddy currents"><div class="figure align-default" id="id38">
-<img alt="../_images/sphx_glr_pub_minimal_eddy_current_cylindrical_coil_design_thumb.png" src="../_images/sphx_glr_pub_minimal_eddy_current_cylindrical_coil_design_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="publication_software/pub_minimal_eddy_current_cylindrical_coil_design.html#sphx-glr-auto-examples-publication-software-pub-minimal-eddy-current-cylindrical-coil-design-py"><span class="std std-ref">Coil with minimal eddy currents</span></a></span><a class="headerlink" href="#id38" title="Permalink to this image">¶</a></p>
->>>>>>> tmp
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div style='clear:both'></div></div>
+<div class="sphx-glr-clear"></div></div>
 <div class="section" id="thermal-noise-computation">
 <span id="sphx-glr-auto-examples-thermal-noise"></span><h1>Thermal noise computation<a class="headerlink" href="#thermal-noise-computation" title="Permalink to this headline">¶</a></h1>
 <p>Examples related to the computation of thermal noise generated by thin conductive geometries.</p>
-<<<<<<< HEAD
 <div class="sphx-glr-thumbcontainer" tooltip="Different examples: - unit_disc: DC Bnoise of a unit disc at z-axis and comparison to analytica..."><div class="figure align-default" id="id30">
 <img alt="../_images/sphx_glr_thermal_noise_simulation_thumb.png" src="../_images/sphx_glr_thermal_noise_simulation_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="thermal_noise/thermal_noise_simulation.html#sphx-glr-auto-examples-thermal-noise-thermal-noise-simulation-py"><span class="std std-ref">Examples of thermal noise computation</span></a></span><a class="headerlink" href="#id30" title="Permalink to this image">¶</a></p>
-=======
-<div class="sphx-glr-thumbcontainer" tooltip="Different examples: - unit_disc: DC Bnoise of a unit disc at z-axis and comparison to analytica..."><div class="figure align-default" id="id39">
-<img alt="../_images/sphx_glr_thermal_noise_simulation_thumb.png" src="../_images/sphx_glr_thermal_noise_simulation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="thermal_noise/thermal_noise_simulation.html#sphx-glr-auto-examples-thermal-noise-thermal-noise-simulation-py"><span class="std std-ref">Examples of thermal noise computation</span></a></span><a class="headerlink" href="#id39" title="Permalink to this image">¶</a></p>
->>>>>>> tmp
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div style='clear:both'></div></div>
+<div class="sphx-glr-clear"></div></div>
 <div class="section" id="validation">
 <span id="sphx-glr-auto-examples-validation"></span><h1>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h1>
 <p>Example scripts validating the core functionality of <cite>bfieldtools</cite></p>
-<<<<<<< HEAD
 <div class="sphx-glr-thumbcontainer" tooltip="Computation time for shiftinvert eigenvalue decomp"><div class="figure align-default" id="id31">
 <img alt="../_images/sphx_glr_validate_suh_shift_invert_thumb.png" src="../_images/sphx_glr_validate_suh_shift_invert_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_suh_shift_invert.html#sphx-glr-auto-examples-validation-validate-suh-shift-invert-py"><span class="std std-ref">Computation time for shiftinvert eigenvalue decomp</span></a></span><a class="headerlink" href="#id31" title="Permalink to this image">¶</a></p>
@@ -615,104 +448,15 @@
 <div class="sphx-glr-thumbcontainer" tooltip="Integrals testing"><div class="figure align-default" id="id45">
 <img alt="../_images/sphx_glr_test_integrals_thumb.png" src="../_images/sphx_glr_test_integrals_thumb.png" />
 <p class="caption"><span class="caption-text"><a class="reference internal" href="validation/test_integrals.html#sphx-glr-auto-examples-validation-test-integrals-py"><span class="std std-ref">Integrals testing</span></a></span><a class="headerlink" href="#id45" title="Permalink to this image">¶</a></p>
-=======
-<div class="sphx-glr-thumbcontainer" tooltip="Computation time for shiftinvert eigenvalue decomp"><div class="figure align-default" id="id40">
-<img alt="../_images/sphx_glr_validate_suh_shift_invert_thumb.png" src="../_images/sphx_glr_validate_suh_shift_invert_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_suh_shift_invert.html#sphx-glr-auto-examples-validation-validate-suh-shift-invert-py"><span class="std std-ref">Computation time for shiftinvert eigenvalue decomp</span></a></span><a class="headerlink" href="#id40" title="Permalink to this image">¶</a></p>
 </div>
 </div><div class="toctree-wrapper compound">
 </div>
-<div class="sphx-glr-thumbcontainer" tooltip="Use different number of quadrature points and two different implementations "><div class="figure align-default" id="id41">
-<img alt="../_images/sphx_glr_inductance_comparison_thumb.png" src="../_images/sphx_glr_inductance_comparison_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/inductance_comparison.html#sphx-glr-auto-examples-validation-inductance-comparison-py"><span class="std std-ref">Test diagonal of inductance matrix</span></a></span><a class="headerlink" href="#id41" title="Permalink to this image">¶</a></p>
+<div class="sphx-glr-clear"></div><div class="sphx-glr-footer class sphx-glr-footer-gallery docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/99335543f6ec5ac38ff73c43ce9c57e2/auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">auto_examples_python.zip</span></code></a></p>
 </div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Spherical harmonics B"><div class="figure align-default" id="id42">
-<img alt="../_images/sphx_glr_spherical_harmonics_bfield_validation_thumb.png" src="../_images/sphx_glr_spherical_harmonics_bfield_validation_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/spherical_harmonics_bfield_validation.html#sphx-glr-auto-examples-validation-spherical-harmonics-bfield-validation-py"><span class="std std-ref">Spherical harmonics B-field computation validation</span></a></span><a class="headerlink" href="#id42" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="@author: makinea1 "><div class="figure align-default" id="id43">
-<img alt="../_images/sphx_glr_validate_bfield_disc_thumb.png" src="../_images/sphx_glr_validate_bfield_disc_thumb.png" />
-<p class="caption"><span class="caption-text"><span class="xref std std-ref">sphx_glr_auto_examples_validation_validate_bfield_disc.py</span></span><a class="headerlink" href="#id43" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Test and validation of gamma_0"><div class="figure align-default" id="id44">
-<img alt="../_images/sphx_glr_validate_line_charge_potential_thumb.png" src="../_images/sphx_glr_validate_line_charge_potential_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_line_charge_potential.html#sphx-glr-auto-examples-validation-validate-line-charge-potential-py"><span class="std std-ref">Line charge</span></a></span><a class="headerlink" href="#id44" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Study the eigenvalue spectrum of the discretize laplace-beltrami operator on a spherical mesh. ..."><div class="figure align-default" id="id45">
-<img alt="../_images/sphx_glr_validate_laplacian_matrix_thumb.png" src="../_images/sphx_glr_validate_laplacian_matrix_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_laplacian_matrix.html#sphx-glr-auto-examples-validation-validate-laplacian-matrix-py"><span class="std std-ref">Validation of Laplacian using spherical harmonics</span></a></span><a class="headerlink" href="#id45" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Test and validation of potential of uniformaly distributed charge density"><div class="figure align-default" id="id46">
-<img alt="../_images/sphx_glr_validate_uniform_triangle_thumb.png" src="../_images/sphx_glr_validate_uniform_triangle_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_uniform_triangle.html#sphx-glr-auto-examples-validation-validate-uniform-triangle-py"><span class="std std-ref">Uniform triangle</span></a></span><a class="headerlink" href="#id46" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Compare the exact solution for the potential of dipolar density with magnitude of a linear shap..."><div class="figure align-default" id="id47">
-<img alt="../_images/sphx_glr_dipole_approx_error_thumb.png" src="../_images/sphx_glr_dipole_approx_error_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/dipole_approx_error.html#sphx-glr-auto-examples-validation-dipole-approx-error-py"><span class="std std-ref">Triangle dipole density approximation error</span></a></span><a class="headerlink" href="#id47" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Test and validation of potential of linearly distributed dipolar density"><div class="figure align-default" id="id48">
-<img alt="../_images/sphx_glr_validate_linear_dipole_thumb.png" src="../_images/sphx_glr_validate_linear_dipole_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_linear_dipole.html#sphx-glr-auto-examples-validation-validate-linear-dipole-py"><span class="std std-ref">Linear dipole</span></a></span><a class="headerlink" href="#id48" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Analytic B"><div class="figure align-default" id="id49">
-<img alt="../_images/sphx_glr_validate_bfield_analytic_thumb.png" src="../_images/sphx_glr_validate_bfield_analytic_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_bfield_analytic.html#sphx-glr-auto-examples-validation-validate-bfield-analytic-py"><span class="std std-ref">Analytic B-field computation</span></a></span><a class="headerlink" href="#id49" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Inductance computation time and memory benchmark"><div class="figure align-default" id="id50">
-<img alt="../_images/sphx_glr_computation_time_thumb.png" src="../_images/sphx_glr_computation_time_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/computation_time.html#sphx-glr-auto-examples-validation-computation-time-py"><span class="std std-ref">Inductance computation time and memory benchmark</span></a></span><a class="headerlink" href="#id50" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="One"><div class="figure align-default" id="id51">
-<img alt="../_images/sphx_glr_one_element_thumb.png" src="../_images/sphx_glr_one_element_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/one_element.html#sphx-glr-auto-examples-validation-one-element-py"><span class="std std-ref">One-element validation</span></a></span><a class="headerlink" href="#id51" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Study the eigenvalue spectrum of the discretize self-inductance operator on a spherical mesh. C..."><div class="figure align-default" id="id52">
-<img alt="../_images/sphx_glr_validate_self_inductance_thumb.png" src="../_images/sphx_glr_validate_self_inductance_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_self_inductance.html#sphx-glr-auto-examples-validation-validate-self-inductance-py"><span class="std std-ref">Validation of self inductance using spherical harmonics</span></a></span><a class="headerlink" href="#id52" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Validate calculation bfield calculation from line segments"><div class="figure align-default" id="id53">
-<img alt="../_images/sphx_glr_validate_magnetic_field_line_segments_thumb.png" src="../_images/sphx_glr_validate_magnetic_field_line_segments_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/validate_magnetic_field_line_segments.html#sphx-glr-auto-examples-validation-validate-magnetic-field-line-segments-py"><span class="std std-ref">Validate calculation bfield calculation from line segments</span></a></span><a class="headerlink" href="#id53" title="Permalink to this image">¶</a></p>
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div class="sphx-glr-thumbcontainer" tooltip="Integrals testing"><div class="figure align-default" id="id54">
-<img alt="../_images/sphx_glr_test_integrals_thumb.png" src="../_images/sphx_glr_test_integrals_thumb.png" />
-<p class="caption"><span class="caption-text"><a class="reference internal" href="validation/test_integrals.html#sphx-glr-auto-examples-validation-test-integrals-py"><span class="std std-ref">Integrals testing</span></a></span><a class="headerlink" href="#id54" title="Permalink to this image">¶</a></p>
->>>>>>> tmp
-</div>
-</div><div class="toctree-wrapper compound">
-</div>
-<div style='clear:both'></div><div class="sphx-glr-footer class sphx-glr-footer-gallery docutils container">
-<div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/61dcb3ae111c4dd08240b7657ac1c727/auto_examples_python.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">auto_examples_python.zip</span></code></a></p>
-</div>
-<div class="sphx-glr-download docutils container">
-<p><a class="reference download internal" download="" href="../_downloads/c57b3b6e46142cefd72cd86d8dee312f/auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">auto_examples_jupyter.zip</span></code></a></p>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/a3943e6fc65c13894d9838d4bcc8cef4/auto_examples_jupyter.zip"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">all</span> <span class="pre">examples</span> <span class="pre">in</span> <span class="pre">Jupyter</span> <span class="pre">notebooks:</span> <span class="pre">auto_examples_jupyter.zip</span></code></a></p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
@@ -734,11 +478,7 @@
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
-=======
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
->>>>>>> tmp
     </p>
   </div>
 </footer>

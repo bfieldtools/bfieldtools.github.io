@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.sphtools.SphBasis &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -133,9 +135,9 @@
       
   <div class="section" id="bfieldtools-sphtools-sphbasis">
 <h1>bfieldtools.sphtools.SphBasis<a class="headerlink" href="#bfieldtools-sphtools-sphbasis" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<dl class="class">
 <dt id="bfieldtools.sphtools.SphBasis">
-<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">SphBasis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">Np</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">SphBasis</code><span class="sig-paren">(</span><em class="sig-param">Np</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Constructs an object that describes unit sphere. Can be used to compute
 inner products and function sph spectra on the sphere.</p>
 <p>TODO: mu0 might be missing!!!</p>
@@ -153,16 +155,16 @@ inner products and function sph spectra on the sphere.</p>
 </dl>
 </dd>
 </dl>
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.sphtools.SphBasis.initqp">
-<code class="sig-name descname">initqp</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.initqp" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">initqp</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.initqp" title="Permalink to this definition">¶</a></dt>
 <dd><p>Initialises quadrature points on the sphere.</p>
 <p>Default points are McLaren(10) so that we avoid singularities.</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.sphtools.SphBasis.innerproduct">
-<code class="sig-name descname">innerproduct</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fun1</span></em>, <em class="sig-param"><span class="n">fun2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.innerproduct" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">innerproduct</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fun1</em>, <em class="sig-param">fun2</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.innerproduct" title="Permalink to this definition">¶</a></dt>
 <dd><p>Inner product of vector functions fun1 and fun2.
 Defined as integration over a surface of unit sphere &lt;C,D&gt; = int C dot D dOmega.
 Quadrature rule defined in qp is used.</p>
@@ -184,9 +186,9 @@ Quadrature rule defined in qp is used.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.sphtools.SphBasis.avsphspectra">
-<code class="sig-name descname">avsphspectra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.avsphspectra" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">avsphspectra</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fun</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.avsphspectra" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the l,m-spectra (over r**l-terms) of vector function defined in quadrature points
 using the inner product.</p>
 <dl class="field-list simple">
@@ -207,9 +209,9 @@ using the inner product.</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.sphtools.SphBasis.bvsphspectra">
-<code class="sig-name descname">bvsphspectra</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">fun</span></em>, <em class="sig-param"><span class="n">lmax</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.bvsphspectra" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">bvsphspectra</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">fun</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.SphBasis.bvsphspectra" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate the l,m-spectra (over r**(-l)-terms) of vector function defined in quadrature points
 using the inner product.</p>
 <dl class="field-list simple">
@@ -250,11 +252,7 @@ using the inner product.</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
-=======
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
->>>>>>> tmp
     </p>
   </div>
 </footer>

@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Compare SUH and SPH basis functions for the magnetic field &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -16,13 +18,8 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-<<<<<<< HEAD
     <link rel="next" title="Compare SUH and SPH basis functions for the magnetic scalar potential" href="representation_comparison_potential.html" />
     <link rel="prev" title="Visualize SUH components on 3 surfaces" href="visualize_suh_components.html" />
-=======
-    <link rel="next" title="&lt;no title&gt;" href="representation_comparison_potential.html" />
-    <link rel="prev" title="Plot different field patterns the basic integrals" href="plot_basic_integrals.html" />
->>>>>>> tmp
     <link rel="stylesheet" href="../../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/font-source-code-pro.css" type="text/css" />
@@ -128,19 +125,11 @@
 </ul>
 
   <li>
-<<<<<<< HEAD
     <a href="visualize_suh_components.html" title="Previous Chapter: Visualize SUH components on 3 surfaces"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Visualize SUH...</span>
     </a>
   </li>
   <li>
     <a href="representation_comparison_potential.html" title="Next Chapter: Compare SUH and SPH basis functions for the magnetic scalar potential"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Compare SUH a... &raquo;</span>
-=======
-    <a href="plot_basic_integrals.html" title="Previous Chapter: Plot different field patterns the basic integrals"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Plot differen...</span>
-    </a>
-  </li>
-  <li>
-    <a href="representation_comparison_potential.html" title="Next Chapter: <no title>"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet"><no title> &raquo;</span>
->>>>>>> tmp
     </a>
   </li>
 <form action="../../search.html" method="get">
@@ -156,7 +145,7 @@
       
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-representation-comparison-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-representation-comparison-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="compare-suh-and-sph-basis-functions-for-the-magnetic-field">
 <span id="sphx-glr-auto-examples-publication-physics-representation-comparison-py"></span><h1>Compare SUH and SPH basis functions for the magnetic field<a class="headerlink" href="#compare-suh-and-sph-basis-functions-for-the-magnetic-field" title="Permalink to this headline">¶</a></h1>
@@ -189,7 +178,6 @@
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Ca</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Cb</span></a> <span class="o">=</span> <span class="n">basis_fields</span><span class="p">(</span><span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 
 <span class="n">bsuh</span> <span class="o">=</span> <span class="n">SuhBasis</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-<<<<<<< HEAD
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Csuh</span></a> <span class="o">=</span> <span class="n">magnetic_field_coupling_analytic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">bsuh</span><span class="o">.</span><span class="n">basis</span></a>
 </pre></div>
 </div>
@@ -202,12 +190,6 @@ Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 tar
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">plot_basis_fields</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <a href="https://docs.python.org/3/library/stdtypes.html#list" title="builtins.list" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">comps</span></a><span class="p">):</span>
-=======
-<span class="n">Csuh</span> <span class="o">=</span> <span class="n">magnetic_field_coupling_analytic</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">mesh_field</span><span class="o">.</span><span class="n">vertices</span><span class="p">)</span> <span class="o">@</span> <span class="n">bsuh</span><span class="o">.</span><span class="n">basis</span>
-
-<span class="c1">#%%</span>
-<span class="k">def</span> <span class="nf">plot_basis_fields</span><span class="p">(</span><span class="n">C</span><span class="p">,</span> <span class="n">comps</span><span class="p">):</span>
->>>>>>> tmp
     <span class="n">d</span> <span class="o">=</span> <span class="mf">0.17</span>
     <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
@@ -267,60 +249,8 @@ Computing magnetic field coupling matrix analytically, 2503 vertices by 2503 tar
 <span class="k">while</span> <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">light_manager</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
     <span class="n">_gui</span><span class="o">.</span><span class="n">process_events</span><span class="p">()</span>
 <span class="n">scene</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">light_manager</span><span class="o">.</span><span class="n">lights</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">intensity</span> <span class="o">=</span> <span class="mf">0.2</span>
-
-
-<span class="c1">#%% test representation</span>
-<span class="c1"># from bfieldtools.mesh_magnetics import scalar_potential_coupling</span>
-<span class="c1"># scaling_factor = 0.02</span>
-<span class="c1">##Load simple plane mesh that is centered on the origin</span>
-<span class="c1"># file_obj=pkg_resources.resource_filename(&#39;bfieldtools&#39;, &#39;example_meshes/10x10_plane_hires.obj&#39;)</span>
-<span class="c1"># plane = trimesh.load(file_obj=file_obj, process=False)</span>
-<span class="c1"># plane.apply_scale(scaling_factor)</span>
-<span class="c1">## Rotate to x-plane</span>
-<span class="c1"># t = np.eye(4)</span>
-<span class="c1"># t[1:3,1:3] = np.array([[0,1],[-1,0]])</span>
-<span class="c1"># plane.apply_transform(t)</span>
-<span class="c1"># plane = plane.subdivide()</span>
-<span class="c1">#</span>
-<span class="c1"># u = scalar_potential_coupling(mesh, plane.vertices, multiply_coeff=False)</span>
-<span class="c1"># mask = 1 + np.sum(u, axis=1)/(4*np.pi)</span>
-<span class="c1"># mask[mask &lt; 1e-6]  = 0</span>
-<span class="c1">#</span>
-<span class="c1">#</span>
-<span class="c1"># Ca, Cb = basis_fields(plane.vertices, 6)</span>
-<span class="c1"># bsuh = SuhBasis(mesh, 48)</span>
-<span class="c1"># CB = magnetic_field_coupling_analytic(mesh, plane.vertices)</span>
-<span class="c1"># Csuh = CB @ bsuh.basis</span>
-<span class="c1">#</span>
-<span class="c1"># A,B = compute_sphcoeffs_mesh(mesh, 6)</span>
-<span class="c1"># b1 = np.einsum(&#39;ij,lik-&gt;lkj&#39;, A , Ca) # Mapping from verts to alpha to field</span>
-<span class="c1"># b2 = np.einsum(&#39;ij,klj-&gt;lki&#39;, bsuh.mass @ bsuh.basis  , Csuh) # Mapping from verts to suh to field</span>
-<span class="c1">#</span>
-<span class="c1"># ind=1932</span>
-<span class="c1"># scalars = np.zeros(mesh.vertices.shape[0])</span>
-<span class="c1"># scalars[ind] = 1</span>
-<span class="c1"># mlab.triangular_mesh(*mesh.vertices.T, mesh.faces, scalars=scalars, colormap=&#39;Blues&#39;)</span>
-<span class="c1"># surf= mlab.triangular_mesh(*plane.vertices.T, plane.faces, colormap=&#39;viridis&#39;,</span>
-<span class="c1">#                     scalars = mask*np.linalg.norm(CB[:,:,ind], axis=1))</span>
-<span class="c1"># surf.actor.mapper.interpolate_scalars_before_mapping = True</span>
-<span class="c1"># surf.module_manager.scalar_lut_manager.number_of_colors = 16</span>
-<span class="c1">#</span>
-<span class="c1"># mlab.figure()</span>
-<span class="c1"># mlab.triangular_mesh(*mesh.vertices.T, mesh.faces, scalars=scalars, colormap=&#39;Blues&#39;)</span>
-<span class="c1"># surf = mlab.triangular_mesh(*plane.vertices.T, plane.faces, colormap=&#39;viridis&#39;,</span>
-<span class="c1">#                     scalars = mask*np.linalg.norm(b1[:,:,ind], axis=0))</span>
-<span class="c1"># surf.actor.mapper.interpolate_scalars_before_mapping = True</span>
-<span class="c1"># surf.module_manager.scalar_lut_manager.number_of_colors = 16</span>
-<span class="c1">#</span>
-<span class="c1"># mlab.figure()</span>
-<span class="c1"># mlab.triangular_mesh(*mesh.vertices.T, mesh.faces, scalars=scalars, colormap=&#39;Blues&#39;)</span>
-<span class="c1"># surf = mlab.triangular_mesh(*plane.vertices.T, plane.faces, colormap=&#39;viridis&#39;,</span>
-<span class="c1">#                     scalars = mask*np.linalg.norm(b2[:,:,ind], axis=0))</span>
-<span class="c1"># surf.actor.mapper.interpolate_scalars_before_mapping = True</span>
-<span class="c1"># surf.module_manager.scalar_lut_manager.number_of_colors = 16</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
 <ul class="sphx-glr-horizontal">
 <li><img alt="../../_images/sphx_glr_representation_comparison_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_representation_comparison_001.png" />
 </li>
@@ -378,15 +308,11 @@ surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
 </dl>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  27.222 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  792 MB</p>
-=======
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
->>>>>>> tmp
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-representation-comparison-py">
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fcfc4a1593a133dc6921af0960e87f1e/representation_comparison.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">representation_comparison.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/912550321d79aca3cc03904b51f7ceaf/representation_comparison.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">representation_comparison.ipynb</span></code></a></p>
 </div>
 </div>
@@ -409,11 +335,7 @@ surf.module_manager.scalar_lut_manager.number_of_colors = 16</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
-=======
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
->>>>>>> tmp
     </p>
   </div>
 </footer>

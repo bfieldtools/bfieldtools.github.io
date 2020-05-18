@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.line_conductor.LineConductor &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -143,9 +145,9 @@
       
   <div class="section" id="bfieldtools-line-conductor-lineconductor">
 <h1>bfieldtools.line_conductor.LineConductor<a class="headerlink" href="#bfieldtools-line-conductor-lineconductor" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<dl class="class">
 <dt id="bfieldtools.line_conductor.LineConductor">
-<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.line_conductor.</code><code class="sig-name descname">LineConductor</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">loops</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">mesh</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">scalars</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.line_conductor.</code><code class="sig-name descname">LineConductor</code><span class="sig-paren">(</span><em class="sig-param">loops=None</em>, <em class="sig-param">mesh=None</em>, <em class="sig-param">scalars=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class that inherits Trimesh.path.Path3D for handling discretized current loops.
 Functions inside assume that vertices are unique for each entity.</p>
 <p>Init with inheritance. First priority is given to passed loops parameter,
@@ -166,9 +168,9 @@ and contours</p>
 </dl>
 </dd>
 </dl>
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.simplify">
-<code class="sig-name descname">simplify</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">min_edge</span><span class="o">=</span><span class="default_value">0.001</span></em>, <em class="sig-param"><span class="n">angle_threshold</span><span class="o">=</span><span class="default_value">0.02</span></em>, <em class="sig-param"><span class="n">smooth</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.simplify" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">simplify</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">min_edge=0.001</em>, <em class="sig-param">angle_threshold=0.02</em>, <em class="sig-param">smooth=True</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.simplify" title="Permalink to this definition">¶</a></dt>
 <dd><p>Simplifies contour paths.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -191,9 +193,9 @@ and contours</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.plot_loops">
-<code class="sig-name descname">plot_loops</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.plot_loops" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot_loops</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.plot_loops" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plots loops in 3D using mayavi, see viz.plot_3d_current_loops for more details</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -204,9 +206,9 @@ and contours</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.magnetic_field">
-<code class="sig-name descname">magnetic_field</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">separate_loops</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.magnetic_field" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">magnetic_field</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.magnetic_field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute magnetic field in some point due to a unit current in the loops</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -224,9 +226,9 @@ and contours</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.vector_potential">
-<code class="sig-name descname">vector_potential</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.vector_potential" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">vector_potential</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.vector_potential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute magnetic vector potential in some point due to a unit current in the loops</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -244,9 +246,9 @@ and contours</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.scalar_potential">
-<code class="sig-name descname">scalar_potential</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.scalar_potential" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">scalar_potential</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.scalar_potential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute magnetic scalar potential in some point due to a unit current in the loops</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -264,9 +266,9 @@ and contours</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.line_mutual_inductance">
-<code class="sig-name descname">line_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">path</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.line_mutual_inductance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">line_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">path</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.line_mutual_inductance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate mutual inductance between self and another line current (path)</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -287,9 +289,9 @@ where N_loops_path = len(path.entities)</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance">
-<code class="sig-name descname">mesh_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mesh</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">mesh_mutual_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">mesh</em>, <em class="sig-param">separate_loops=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.line_conductor.LineConductor.mesh_mutual_inductance" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes the mutual inductance between the polyline loops and a mesh_conductor
 mesh.</p>
 <dl class="field-list simple">
@@ -332,11 +334,7 @@ mesh.</p>
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
-=======
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
->>>>>>> tmp
     </p>
   </div>
 </footer>

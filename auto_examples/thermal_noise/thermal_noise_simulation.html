@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Examples of thermal noise computation &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -148,7 +150,7 @@
       
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-thermal-noise-thermal-noise-simulation-py"><span class="std std-ref">here</span></a> to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-thermal-noise-thermal-noise-simulation-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="examples-of-thermal-noise-computation">
 <span id="sphx-glr-auto-examples-thermal-noise-thermal-noise-simulation-py"></span><h1>Examples of thermal noise computation<a class="headerlink" href="#examples-of-thermal-noise-computation" title="Permalink to this headline">¶</a></h1>
@@ -257,7 +259,6 @@
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
 <ul class="sphx-glr-horizontal">
 <li><img alt="../../_images/sphx_glr_thermal_noise_simulation_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_thermal_noise_simulation_001.png" />
 </li>
@@ -325,8 +326,6 @@ Computing the resistance matrix...
 Computing the mass matrix...
 </pre></div>
 </div>
-=======
->>>>>>> tmp
 <div class="section" id="dc-magnetic-noise-in-the-center-of-sphere-with-different-radii">
 <h2>DC magnetic noise in the center of sphere with different radii<a class="headerlink" href="#dc-magnetic-noise-in-the-center-of-sphere-with-different-radii" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Np</span></a> <span class="o">=</span> <span class="mi">10</span>
@@ -342,15 +341,9 @@ Computing the mass matrix...
 
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">B_coupling</span></a> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fp</span></a><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<<<<<<< HEAD
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vl</span></a> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">T</span></a><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">T</span></a><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">res</span></a><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">d</span></a><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;DC&quot;</span><span class="p">)</span>
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Btemp</span></a> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">B_coupling</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vl</span></a><span class="p">)</span>
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">B</span></a><span class="p">[</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">i</span></a><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Btemp</span></a>
-=======
-    <span class="n">vl</span> <span class="o">=</span> <span class="n">compute_current_modes</span><span class="p">(</span><span class="n">obj</span><span class="o">=</span><span class="n">mesh</span><span class="p">,</span> <span class="n">T</span><span class="o">=</span><span class="n">T</span><span class="p">,</span> <span class="n">resistivity</span><span class="o">=</span><span class="n">res</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="n">d</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;DC&quot;</span><span class="p">)</span>
-    <span class="n">Btemp</span> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">)</span>
-    <span class="n">B</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">Btemp</span>
->>>>>>> tmp
 
 <span class="c1"># Analytic formula</span>
 <span class="n">Ban</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mu0</span></a> <span class="o">*</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.sqrt.html#numpy.sqrt" title="numpy.sqrt" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-data"><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span></a><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sigma</span></a> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">d</span></a> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kB</span></a> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">T</span></a> <span class="o">/</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">np</span><span class="o">.</span><span class="n">pi</span></a> <span class="o">*</span> <span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">radius</span></a><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">))</span>
@@ -374,7 +367,6 @@ Computing the mass matrix...
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
 <img alt="../../_images/sphx_glr_thermal_noise_simulation_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_004.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix analytically, 2562 vertices by 1 target points... took 0.02 seconds.
@@ -439,8 +431,6 @@ Computing the mass matrix...
 Closed mesh or Neumann BC, leaving out the constant component
 </pre></div>
 </div>
-=======
->>>>>>> tmp
 </div>
 <div class="section" id="closed-cylinder-dc-noise">
 <h2>Closed cylinder, DC noise<a class="headerlink" href="#closed-cylinder-dc-noise" title="Permalink to this headline">¶</a></h2>
@@ -461,13 +451,8 @@ Closed mesh or Neumann BC, leaving out the constant component
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="o">-</span><span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Np</span></a><span class="p">)</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fp</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.array.html#numpy.array" title="numpy.array" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">array</span></a><span class="p">((</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span><span class="o">.</span><span class="n">shape</span></a><span class="p">),</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span><span class="o">.</span><span class="n">shape</span></a><span class="p">)))</span><span class="o">.</span><a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">T</span></a>
 
-<<<<<<< HEAD
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">B_coupling</span></a> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">fp</span></a><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">B</span></a> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">B_coupling</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">vl</span></a><span class="p">)</span>
-=======
-<span class="n">B_coupling</span> <span class="o">=</span> <span class="n">magnetic_field_coupling</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">analytic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">B</span> <span class="o">=</span> <span class="n">noise_var</span><span class="p">(</span><span class="n">B_coupling</span><span class="p">,</span> <span class="n">vl</span><span class="p">)</span>
->>>>>>> tmp
 
 <span class="c1"># Analytic formula valid only at the center of cylinder</span>
 <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">a</span></a> <span class="o">=</span> <span class="mf">0.5</span>
@@ -503,7 +488,6 @@ Closed mesh or Neumann BC, leaving out the constant component
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
 <img alt="../../_images/sphx_glr_thermal_noise_simulation_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_005.png" />
 <img alt="../../_images/sphx_glr_thermal_noise_simulation_006.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_006.png" />
 <p class="sphx-glr-script-out">Out:</p>
@@ -523,8 +507,6 @@ Closed mesh or Neumann BC, leaving out the constant component
 Computing magnetic field coupling matrix analytically, 3842 vertices by 30 target points... took 0.12 seconds.
 </pre></div>
 </div>
-=======
->>>>>>> tmp
 </div>
 <div class="section" id="unit-disc-ac-noise">
 <h2>Unit disc, AC noise<a class="headerlink" href="#unit-disc-ac-noise" title="Permalink to this headline">¶</a></h2>
@@ -569,7 +551,6 @@ Computing magnetic field coupling matrix analytically, 3842 vertices by 30 targe
 <a href="https://matplotlib.org/api/_as_gen/matplotlib.pyplot.tight_layout.html#matplotlib.pyplot.tight_layout" title="matplotlib.pyplot.tight_layout" class="sphx-glr-backref-module-matplotlib-pyplot sphx-glr-backref-type-py-function"><span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span></a><span class="p">()</span>
 </pre></div>
 </div>
-<<<<<<< HEAD
 <img alt="../../_images/sphx_glr_thermal_noise_simulation_007.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_thermal_noise_simulation_007.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>No component count given, computing all components.
@@ -587,15 +568,11 @@ No handles with labels found to put in legend.
 </div>
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  15.455 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  1811 MB</p>
-=======
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
->>>>>>> tmp
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-thermal-noise-thermal-noise-simulation-py">
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5decad35d6e04fb461e492e19f04cf11/thermal_noise_simulation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">thermal_noise_simulation.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download docutils container">
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1582c83f6b404feda9a99082fee733a8/thermal_noise_simulation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">thermal_noise_simulation.ipynb</span></code></a></p>
 </div>
 </div>
@@ -619,11 +596,7 @@ No handles with labels found to put in legend.
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
-=======
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
->>>>>>> tmp
     </p>
   </div>
 </footer>

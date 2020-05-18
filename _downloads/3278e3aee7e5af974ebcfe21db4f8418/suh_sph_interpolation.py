@@ -11,18 +11,11 @@ import trimesh
 import matplotlib.pyplot as plt
 
 from bfieldtools.sphtools import basis_fields as sphfield
-<<<<<<< HEAD
 from bfieldtools.sphtools import field as sph_field_eval
 from bfieldtools.sphtools import basis_potentials, potential
 import mne
 
 from bfieldtools.viz import plot_data_on_vertices, plot_mesh
-=======
-from bfieldtools.sphtools import basis_potentials, potential, field
-import mne
-
-from bfieldtools.viz import plot_data_on_vertices
->>>>>>> tmp
 
 #%%
 SAVE_DIR = "./MNE interpolation/"
@@ -31,7 +24,7 @@ SAVE_DIR = "./MNE interpolation/"
 EVOKED = True
 
 with np.load(SAVE_DIR + "mne_data.npz", allow_pickle=True) as data:
-    mesh = data["mesh"]
+    # mesh = data["mesh"]
     p = data["p"]
     n = data["n"]
     mesh = trimesh.Trimesh(vertices=data["vertices"], faces=data["faces"])
@@ -179,7 +172,6 @@ surf.module_manager.scalar_lut_manager.number_of_colors = 16
 # evoked1.plot_topomap(times=0.080, ch_type="mag")
 
 #%% Plot spectra
-<<<<<<< HEAD
 fig, ax = plt.subplots(1, 1)
 ax.plot(alpha ** 2)
 
@@ -240,15 +232,10 @@ B_sph_helmet = sph_field_eval(
 B_sph_helmet = np.einsum("ij,ij->i", B_sph_helmet, helmet.vertex_normals)
 B_suh_helmet = c.B_coupling(helmet.vertices) @ s
 B_suh_helmet = np.einsum("ij,ij->i", B_suh_helmet, helmet.vertex_normals)
-=======
-plt.figure()
-plt.plot(alpha ** 2)
->>>>>>> tmp
 
 #%% Compute flattened mesh
 
 
-<<<<<<< HEAD
 u, v, helmet2d = flatten_mesh(helmet, 0.9)
 puv = mesh2plane(p, helmet, u, v)
 
@@ -270,43 +257,8 @@ mlab.savefig(SAVE_DIR + "rbf_helmet_B.png", figure=f, magnification=4)
 
 suh_field = (
     np.einsum("ijk,ij->ik", c.B_coupling(helmet.vertices), helmet.vertex_normals) @ s
-=======
-#%% Compute potential on the helmet mesh
-from bfieldtools.utils import load_example_mesh
-from bfieldtools.flatten_mesh import flatten_mesh, mesh2plane
-
-helmet = load_example_mesh("meg_helmet", process=False)
-# Bring the surface roughly to the correct place
-helmet.vertices[:, 2] -= 0.045
-# The helmet is slightly tilted, correct for this
-# (probably the right coordinate transformation could be found from MNE)
-rotmat = np.eye(3)
-tt = 0.015 * np.pi
-rotmat[:2, :2] = np.array([[np.cos(tt), np.sin(tt)], [-np.sin(tt), np.cos(tt)]])
-helmet.vertices = helmet.vertices @ rotmat
-tt = -0.02 * np.pi
-rotmat[1:, 1:] = np.array([[np.cos(tt), np.sin(tt)], [-np.sin(tt), np.cos(tt)]])
-helmet.vertices = helmet.vertices @ rotmat
-helmet.vertices[:, 1] += 0.005
-
-# plot_mesh(helmet)
-# mlab.points3d(*p.T, scale_factor=0.01)
-
-
-B_sph_helmet = field(
-    helmet.vertices,
-    alpha,
-    np.zeros(alpha.shape),
-    lmax=lmax,
-    normalization="energy",
-    R=R,
->>>>>>> tmp
 )
-B_sph_helmet = np.einsum("ij,ij->i", B_sph_helmet, helmet.vertex_normals)
-B_suh_helmet = c.B_coupling(helmet.vertices) @ s
-B_suh_helmet = np.einsum("ij,ij->i", B_suh_helmet, helmet.vertex_normals)
 
-<<<<<<< HEAD
 
 f = plot_data_on_vertices(helmet2d, suh_field, ncolors=15, vmin=vmin, vmax=vmax)
 mlab.points3d(puv[:, 0], puv[:, 1], 0 * puv[:, 0], scale_factor=0.1, color=(0, 0, 0))
@@ -333,27 +285,6 @@ mlab.savefig(SAVE_DIR + "sph_helmet_B.png", figure=f, magnification=4)
 #
 # U_suh = c.U_coupling(p) @ s
 
-=======
-#%%
-u, v, helmet2d = flatten_mesh(helmet, 0.9)
-puv = mesh2plane(p, helmet, u, v)
-f = plot_data_on_vertices(helmet2d, B_sph_helmet, ncolors=15)
-mlab.points3d(puv[:, 0], puv[:, 1], 0 * puv[:, 0], scale_factor=0.1, color=(0, 0, 0))
-f.scene.z_plus_view()
-
-f = plot_data_on_vertices(helmet2d, B_suh_helmet, ncolors=15)
-mlab.points3d(puv[:, 0], puv[:, 1], 0 * puv[:, 0], scale_factor=0.1, color=(0, 0, 0))
-f.scene.z_plus_view()
-
-#%% MNE interpolates using splines or something
-#%% Compute potential
-# U_sph = potential(
-# p, alpha, np.zeros(alpha.shape), lmax=lmax, normalization="energy", R=R
-# )
-#
-# U_suh = c.U_coupling(p) @ s
-
->>>>>>> tmp
 # evoked1 = evoked.copy()
 # evoked1.data[:, :] = np.tile(U_sph.T, (evoked.times.shape[0], 1)).T
 # evoked1.plot_topomap(times=0.080, ch_type="mag")
