@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Interpolate stream function &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -18,8 +16,13 @@
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+<<<<<<< HEAD
     <link rel="next" title="Mutual inductance of wire loops" href="line_conductor_inductance.html" />
     <link rel="prev" title="Flatten mesh using conformal mapping" href="flatten_mesh.html" />
+=======
+    <link rel="next" title="&lt;no title&gt;" href="test_mesh_magnetics.html" />
+    <link rel="prev" title="Gradient computation example" href="gradient_example.html" />
+>>>>>>> tmp
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -129,7 +132,7 @@
     </a>
   </li>
   <li>
-    <a href="line_conductor_inductance.html" title="Next Chapter: Mutual inductance of wire loops"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Mutual induct... &raquo;</span>
+    <a href="test_mesh_magnetics.html" title="Next Chapter: <no title>"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet"><no title> &raquo;</span>
     </a>
   </li>
 <form action="../search.html" method="get">
@@ -156,7 +159,11 @@ defined on that mesh to match.</p>
 <span class="kn">import</span> <span class="nn">trimesh</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<<<<<<< HEAD
 <span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <a href="https://scipy.github.io/devdocs/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="scipy.linalg.eigh" class="sphx-glr-backref-module-scipy-linalg sphx-glr-backref-type-py-function"><span class="n">eigh</span></a>
+=======
+<span class="kn">from</span> <span class="nn">scipy.linalg</span> <span class="kn">import</span> <a href="https://scipy.github.io/devdocs/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="View documentation for scipy.linalg.eigh"><span class="n">eigh</span></a>
+>>>>>>> tmp
 
 <span class="kn">from</span> <span class="nn">bfieldtools.mesh_calculus</span> <span class="kn">import</span> <span class="n">laplacian_matrix</span><span class="p">,</span> <span class="n">mass_matrix</span>
 <span class="kn">from</span> <span class="nn">bfieldtools</span> <span class="kn">import</span> <span class="n">utils</span>
@@ -175,12 +182,21 @@ In this case, the scalar function is an eigenvector of a generalized eigenvalue 
 <a href="https://scipy.github.io/devdocs/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">L</span></a> <span class="o">=</span> <span class="n">laplacian_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
 <a href="https://scipy.github.io/devdocs/generated/scipy.sparse.csr_matrix.html#scipy.sparse.csr_matrix" title="scipy.sparse.csr_matrix" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">M</span></a> <span class="o">=</span> <span class="n">mass_matrix</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
 
+<<<<<<< HEAD
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">u</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">v</span></a> <span class="o">=</span> <a href="https://scipy.github.io/devdocs/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="scipy.linalg.eigh" class="sphx-glr-backref-module-scipy-linalg sphx-glr-backref-type-py-function"><span class="n">eigh</span></a><span class="p">(</span>
     <span class="o">-</span><a href="https://scipy.github.io/devdocs/generated/scipy.sparse.csr_matrix.todense.html#scipy.sparse.csr_matrix.todense" title="scipy.sparse.csr_matrix.todense" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-method"><span class="n">L</span><span class="o">.</span><span class="n">todense</span></a><span class="p">()[</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">inner_verts</span></a><span class="p">][:,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">inner_verts</span></a><span class="p">],</span> <a href="https://scipy.github.io/devdocs/generated/scipy.sparse.csr_matrix.todense.html#scipy.sparse.csr_matrix.todense" title="scipy.sparse.csr_matrix.todense" class="sphx-glr-backref-module-scipy-sparse sphx-glr-backref-type-py-method"><span class="n">M</span><span class="o">.</span><span class="n">todense</span></a><span class="p">()[</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">inner_verts</span></a><span class="p">][:,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">inner_verts</span></a><span class="p">]</span>
 <span class="p">)</span>
 
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalars</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalars</span></a><span class="p">[</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">inner_verts</span></a><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">v</span></a><span class="p">[:,</span> <span class="mi">12</span><span class="p">]</span>
+=======
+<span class="n">u</span><span class="p">,</span> <span class="n">v</span> <span class="o">=</span> <a href="https://scipy.github.io/devdocs/generated/scipy.linalg.eigh.html#scipy.linalg.eigh" title="View documentation for scipy.linalg.eigh"><span class="n">eigh</span></a><span class="p">(</span>
+    <span class="o">-</span><span class="n">L</span><span class="o">.</span><span class="n">todense</span><span class="p">()[</span><span class="n">inner_verts</span><span class="p">][:,</span> <span class="n">inner_verts</span><span class="p">],</span> <span class="n">M</span><span class="o">.</span><span class="n">todense</span><span class="p">()[</span><span class="n">inner_verts</span><span class="p">][:,</span> <span class="n">inner_verts</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">scalars</span> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="View documentation for numpy.zeros"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">scalars</span><span class="p">[</span><span class="n">inner_verts</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="p">[:,</span> <span class="mi">12</span><span class="p">]</span>
+>>>>>>> tmp
 
 
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">original_scalars</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalars</span></a><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -188,9 +204,15 @@ In this case, the scalar function is an eigenvector of a generalized eigenvalue 
 </pre></div>
 </div>
 <p>Plot original scalars and mesh</p>
+<<<<<<< HEAD
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="mayavi.mlab.figure" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
 
 <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.triangular_mesh" title="mayavi.mlab.triangular_mesh" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span></a><span class="p">(</span>
+=======
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="View documentation for mayavi.mlab.figure"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+
+<a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.triangular_mesh" title="View documentation for mayavi.mlab.triangular_mesh"><span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span></a><span class="p">(</span>
+>>>>>>> tmp
     <span class="o">*</span><span class="n">original_mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
     <span class="n">original_mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span>
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalars</span></a><span class="o">=</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">original_scalars</span></a><span class="p">,</span>
@@ -216,10 +238,17 @@ In this case, the scalar function is an eigenvector of a generalized eigenvalue 
 </pre></div>
 </div>
 <p>Plot subdivided mesh and interpolated scalars</p>
+<<<<<<< HEAD
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="mayavi.mlab.figure" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
 
 <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.triangular_mesh" title="mayavi.mlab.triangular_mesh" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span></a><span class="p">(</span>
     <span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalars</span></a><span class="o">=</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">scalars</span></a><span class="p">,</span> <span class="n">representation</span><span class="o">=</span><span class="s2">&quot;wireframe&quot;</span>
+=======
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">scene</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="View documentation for mayavi.mlab.figure"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
+
+<a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.triangular_mesh" title="View documentation for mayavi.mlab.triangular_mesh"><span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span></a><span class="p">(</span>
+    <span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">scalars</span><span class="o">=</span><span class="n">scalars</span><span class="p">,</span> <span class="n">representation</span><span class="o">=</span><span class="s2">&quot;wireframe&quot;</span>
+>>>>>>> tmp
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -256,7 +285,11 @@ In this case, the scalar function is an eigenvector of a generalized eigenvalue 
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+=======
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+>>>>>>> tmp
     </p>
   </div>
 </footer>

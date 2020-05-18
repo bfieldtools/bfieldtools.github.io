@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Spherical harmonics B-field computation validation &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery-binder.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/gallery-dataframe.css" />
     <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
@@ -18,7 +16,11 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
+<<<<<<< HEAD
     <link rel="next" title="B-field on the symmetry axis of a disc" href="validate_bfield_disc.html" />
+=======
+    <link rel="next" title="&lt;no title&gt;" href="validate_bfield_disc.html" />
+>>>>>>> tmp
     <link rel="prev" title="Test diagonal of inductance matrix" href="inductance_comparison.html" />
     <link rel="stylesheet" href="../../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../../_static/font-awesome.css" type="text/css" />
@@ -129,7 +131,11 @@
     </a>
   </li>
   <li>
+<<<<<<< HEAD
     <a href="validate_bfield_disc.html" title="Next Chapter: B-field on the symmetry axis of a disc"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">B-field on th... &raquo;</span>
+=======
+    <a href="validate_bfield_disc.html" title="Next Chapter: <no title>"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet"><no title> &raquo;</span>
+>>>>>>> tmp
     </a>
   </li>
 <form action="../../search.html" method="get">
@@ -145,10 +151,11 @@
       
   <div class="sphx-glr-download-link-note admonition note">
 <p class="admonition-title">Note</p>
-<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-validation-spherical-harmonics-bfield-validation-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-validation-spherical-harmonics-bfield-validation-py"><span class="std std-ref">here</span></a> to download the full example code</p>
 </div>
 <div class="sphx-glr-example-title section" id="spherical-harmonics-b-field-computation-validation">
 <span id="sphx-glr-auto-examples-validation-spherical-harmonics-bfield-validation-py"></span><h1>Spherical harmonics B-field computation validation<a class="headerlink" href="#spherical-harmonics-b-field-computation-validation" title="Permalink to this headline">¶</a></h1>
+<<<<<<< HEAD
 <img alt="../../_images/sphx_glr_spherical_harmonics_bfield_validation_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_spherical_harmonics_bfield_validation_001.png" />
 <p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>l = 1 computed
@@ -167,6 +174,8 @@ Relative RMS error 0.5606404914507133
 <div class="line-block">
 <div class="line"><br /></div>
 </div>
+=======
+>>>>>>> tmp
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">trimesh</span>
 <span class="kn">from</span> <span class="nn">mayavi</span> <span class="kn">import</span> <span class="n">mlab</span>
@@ -174,7 +183,7 @@ Relative RMS error 0.5606404914507133
 <span class="kn">from</span> <span class="nn">bfieldtools.mesh_magnetics</span> <span class="kn">import</span> <span class="n">magnetic_field_coupling</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <span class="n">MeshConductor</span>
 
-<span class="kn">from</span> <span class="nn">bfieldtools.sphtools</span> <span class="kn">import</span> <span class="n">compute_sphcoeffs_mesh</span>
+<span class="kn">from</span> <span class="nn">bfieldtools.sphtools</span> <span class="kn">import</span> <span class="n">compute_sphcoeffs_mesh_xlm</span>
 <span class="kn">from</span> <span class="nn">bfieldtools</span> <span class="kn">import</span> <span class="n">sphtools</span>
 
 
@@ -194,10 +203,17 @@ Relative RMS error 0.5606404914507133
 <span class="n">test_points</span> <span class="o">=</span> <span class="n">coilmesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span class="n">test_points</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
+<<<<<<< HEAD
 <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lmax</span></a> <span class="o">=</span> <span class="mi">9</span>
 
 
 <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sph_C</span></a> <span class="o">=</span> <span class="n">compute_sphcoeffs_mesh</span><span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">mesh</span><span class="p">,</span> <a href="https://docs.python.org/3/library/functions.html#int" title="builtins.int" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">lmax</span></a><span class="p">)</span>
+=======
+<span class="n">lmax</span> <span class="o">=</span> <span class="mi">9</span>
+
+
+<span class="n">sph_C</span> <span class="o">=</span> <span class="n">compute_sphcoeffs_mesh_xlm</span><span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">mesh</span><span class="p">,</span> <span class="n">lmax</span><span class="p">)</span>
+>>>>>>> tmp
 
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">alms</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sph_C</span></a><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">@</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">weights</span></a>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">blms</span></a> <span class="o">=</span> <a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">sph_C</span></a><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">@</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">weights</span></a>
@@ -230,13 +246,18 @@ Relative RMS error 0.5606404914507133
 <span class="p">)</span>
 </pre></div>
 </div>
+<<<<<<< HEAD
 <p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  31.796 seconds)</p>
 <p><strong>Estimated memory usage:</strong>  71 MB</p>
+=======
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
+>>>>>>> tmp
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-spherical-harmonics-bfield-validation-py">
-<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/c71488814f936ce6494c9e2193df6348/spherical_harmonics_bfield_validation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">spherical_harmonics_bfield_validation.py</span></code></a></p>
 </div>
-<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<div class="sphx-glr-download docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/86406ce085f8e7f6931620bcd1023300/spherical_harmonics_bfield_validation.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">spherical_harmonics_bfield_validation.ipynb</span></code></a></p>
 </div>
 </div>
@@ -259,7 +280,11 @@ Relative RMS error 0.5606404914507133
     </p>
     <p>
         &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+<<<<<<< HEAD
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+=======
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+>>>>>>> tmp
     </p>
   </div>
 </footer>
