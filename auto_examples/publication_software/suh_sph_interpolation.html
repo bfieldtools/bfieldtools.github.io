@@ -180,7 +180,6 @@
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">EVOKED</span></a> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="k">with</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.load.html#numpy.load" title="numpy.load" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">load</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#str" title="builtins.str" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">SAVE_DIR</span></a> <span class="o">+</span> <span class="s2">&quot;mne_data.npz&quot;</span><span class="p">,</span> <span class="n">allow_pickle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="k">as</span> <span class="n">data</span><span class="p">:</span>
-    <span class="c1"># mesh = data[&quot;mesh&quot;]</span>
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">p</span></a> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;p&quot;</span><span class="p">]</span>
     <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">n</span></a> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;n&quot;</span><span class="p">]</span>
     <span class="n">mesh</span> <span class="o">=</span> <a href="https://docs.python.org/3/library/abc.html#abc.ABC" title="abc.ABC" class="sphx-glr-backref-module-abc sphx-glr-backref-type-py-class"><span class="n">trimesh</span><span class="o">.</span><span class="n">Trimesh</span></a><span class="p">(</span><span class="n">vertices</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;vertices&quot;</span><span class="p">],</span> <span class="n">faces</span><span class="o">=</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;faces&quot;</span><span class="p">])</span>
@@ -329,7 +328,7 @@ Computing the laplacian matrix...
 Computing the mass matrix...
 Closed mesh or Neumann BC, leaving out the constant component
 Computing the mass matrix...
-Computing magnetic field coupling matrix, 2562 vertices by 102 target points... took 0.19 seconds.
+Computing magnetic field coupling matrix, 2562 vertices by 102 target points... took 0.18 seconds.
 Computing the laplacian matrix...
 SUH-reconstruction relative error: 0.011259097908098575
 </pre></div>
@@ -381,7 +380,7 @@ evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f25321be390&gt;]
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f9efea3f750&gt;]
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.utils</span> <span class="kn">import</span> <span class="n">load_example_mesh</span>
@@ -419,7 +418,7 @@ evoked1.plot_topomap(times=0.080, ch_type=”mag”)</p>
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2562 vertices by 2044 target points... took 1.43 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2562 vertices by 2044 target points... took 1.42 seconds.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">u</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">v</span></a><span class="p">,</span> <span class="n">helmet2d</span> <span class="o">=</span> <span class="n">flatten_mesh</span><span class="p">(</span><span class="n">helmet</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">)</span>
@@ -620,9 +619,9 @@ p, alpha, np.zeros(alpha.shape), lmax=lmax, normalization=”energy”, R=R
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2562 vertices by 1592 target points... took 4.93 seconds.
-Computing scalar potential coupling matrix, 2562 vertices by 838 target points... took 2.79 seconds.
-Computing scalar potential coupling matrix, 2562 vertices by 880 target points... took 2.91 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2562 vertices by 1592 target points... took 4.73 seconds.
+Computing scalar potential coupling matrix, 2562 vertices by 838 target points... took 2.84 seconds.
+Computing scalar potential coupling matrix, 2562 vertices by 880 target points... took 2.87 seconds.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Mask inside/outside using solid angle</span>
@@ -644,11 +643,11 @@ Computing scalar potential coupling matrix, 2562 vertices by 880 target points..
 </li>
 </ul>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7f25643c13b0&gt;
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7f9f25095f50&gt;
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  52.393 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  1488 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  50.638 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  1473 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-software-suh-sph-interpolation-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3278e3aee7e5af974ebcfe21db4f8418/suh_sph_interpolation.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">suh_sph_interpolation.py</span></code></a></p>
@@ -675,7 +674,7 @@ Computing scalar potential coupling matrix, 2562 vertices by 880 target points..
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-20.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

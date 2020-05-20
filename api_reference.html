@@ -310,7 +310,8 @@ triangle mesh to magnetic field as well as scalar and vector potentials.</p>
 <div class="section" id="line-currents">
 <h3><a class="toc-backref" href="#id5">Line currents</a><a class="headerlink" href="#line-currents" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.line_conductor" title="bfieldtools.line_conductor"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.line_conductor</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.line_conductor"></span><table class="longtable docutils align-default">
+<span class="target" id="module-bfieldtools.line_conductor"></span><p>This module includes a convenience class for working with polyline currents</p>
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -414,7 +415,15 @@ using either a numerical solver or regularized least squares</p>
 <div class="section" id="spherical-harmonics">
 <h3><a class="toc-backref" href="#id9">Spherical harmonics</a><a class="headerlink" href="#spherical-harmonics" title="Permalink to this headline">¶</a></h3>
 <p><a class="reference internal" href="#module-bfieldtools.sphtools" title="bfieldtools.sphtools"><code class="xref py py-mod docutils literal notranslate"><span class="pre">bfieldtools.sphtools</span></code></a>:</p>
-<span class="target" id="module-bfieldtools.sphtools"></span><table class="longtable docutils align-default">
+<span class="target" id="module-bfieldtools.sphtools"></span><p>Functions for constructing real spherical harmonics (Ylms), their gradients
+and related magnetic field ‘basis vectorfunctions’
+(Wlms for r**l components, Vlms for r**(-l) components).</p>
+<p>Uses notations and definitions by Plattner and Simons (2014; <a class="reference external" href="https://arxiv.org/pdf/1306.3201.pdf">https://arxiv.org/pdf/1306.3201.pdf</a>)
+and the same normalization conventions.</p>
+<p>Integration over a surface of unit sphere is
+used as the inner product &lt;C,D&gt; = int C dot D dOmega.</p>
+<p>Also has many of functions for spherical &lt;-&gt; cartesian transformations.</p>
+<table class="longtable docutils align-default">
 <colgroup>
 <col style="width: 10%" />
 <col style="width: 90%" />
@@ -587,7 +596,7 @@ Mainly wrappers and convenience helpers around mayavi and matplotlib functions</
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-20.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
