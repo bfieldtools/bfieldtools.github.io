@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Example of designing biplanar &#8212; bfieldtools  documentation</title>
+    <title>Example of designing a shielded biplanar coil &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
@@ -19,7 +19,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Figure 2: Surface harmonics modes" href="../publication_software/plot_suhmodes.html" />
-    <link rel="prev" title="Example of a cylindrical perfect mu-metal shield" href="mumetal_shield_example.html" />
+    <link rel="prev" title="Field distortion by a perfect mu-metal shield" href="mumetal_shield_example.html" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166989761-1"></script>
@@ -132,11 +132,11 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
-<li><a class="reference internal" href="#">Example of designing biplanar</a></li>
+<li><a class="reference internal" href="#">Example of designing a shielded biplanar coil</a></li>
 </ul>
 
   <li>
-    <a href="mumetal_shield_example.html" title="Previous Chapter: Example of a cylindrical perfect mu-metal shield"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Example of a ...</span>
+    <a href="mumetal_shield_example.html" title="Previous Chapter: Field distortion by a perfect mu-metal shield"><span class="glyphicon glyphicon-chevron-left visible-sm"></span><span class="hidden-sm hidden-tablet">&laquo; Field distort...</span>
     </a>
   </li>
   <li>
@@ -158,8 +158,8 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-shielding-biplanar-example-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="example-of-designing-biplanar">
-<span id="sphx-glr-auto-examples-publication-physics-shielding-biplanar-example-py"></span><h1>Example of designing biplanar<a class="headerlink" href="#example-of-designing-biplanar" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="example-of-designing-a-shielded-biplanar-coil">
+<span id="sphx-glr-auto-examples-publication-physics-shielding-biplanar-example-py"></span><h1>Example of designing a shielded biplanar coil<a class="headerlink" href="#example-of-designing-a-shielded-biplanar-coil" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mayavi</span> <span class="kn">import</span> <span class="n">mlab</span>
@@ -208,8 +208,15 @@
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">A1</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Beta1</span></a> <span class="o">=</span> <span class="n">coil1</span><span class="o">.</span><span class="n">sph_couplings</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">A2</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Beta2</span></a> <span class="o">=</span> <span class="n">coil2</span><span class="o">.</span><span class="n">sph_couplings</span>
 
+<span class="c1"># Use lines below to get coulings with different normalization</span>
+<span class="c1"># from bfieldtools.sphtools import compute_sphcoeffs_mesh</span>
+<span class="c1"># A1, Beta1 = compute_sphcoeffs_mesh(mesh1, 5, normalization=&#39;energy&#39;, R=1)</span>
+<span class="c1"># A2, Beta2 = compute_sphcoeffs_mesh(mesh2, 5, normalization=&#39;energy&#39;, R=1)</span>
 
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">150</span><span class="p">)</span>
+<span class="c1"># Beta1 = Beta1[:, coil1.inner_vertices]</span>
+<span class="c1"># Beta2 = Beta2[:, coil2.inner_vertices]</span>
+
+<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.linspace.html#numpy.linspace" title="numpy.linspace" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">linspace</span></a><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>  <span class="c1"># 150)</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Y</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.meshgrid.html#numpy.meshgrid" title="numpy.meshgrid" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span></a><span class="p">(</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x</span></a><span class="p">,</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y</span></a><span class="p">,</span> <span class="n">indexing</span><span class="o">=</span><span class="s2">&quot;ij&quot;</span><span class="p">)</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">((</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="o">.</span><span class="n">flatten</span><span class="p">()</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
 <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">points</span></a><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">X</span></a><span class="o">.</span><span class="n">flatten</span><span class="p">()</span>
@@ -227,17 +234,17 @@
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (10844 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 60 chunks (12500 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 13.17 seconds.
+Inductance matrix computation took 12.91 seconds.
 Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (10690 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 60 chunks (12289 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 13.06 seconds.
+Inductance matrix computation took 13.15 seconds.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (10531 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 60 chunks (12118 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
 Computing coupling matrices
 l = 1 computed
@@ -249,10 +256,10 @@ l = 1 computed
 l = 2 computed
 l = 3 computed
 l = 4 computed
-Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 15.39 seconds.
-Computing magnetic field coupling matrix, 3184 vertices by 22500 target points... took 15.04 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 90.46 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 22500 target points... took 87.36 seconds.
+Computing magnetic field coupling matrix, 3184 vertices by 2500 target points... took 1.80 seconds.
+Computing magnetic field coupling matrix, 3184 vertices by 2500 target points... took 1.80 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 2500 target points... took 8.65 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 2500 target points... took 8.68 seconds.
 </pre></div>
 </div>
 <p>alpha[15] = 1
@@ -266,8 +273,8 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">beta</span></a> <span class="o">=</span> <a href="https://numpy.org/devdocs/reference/generated/numpy.zeros.html#numpy.zeros" title="numpy.zeros" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-function"><span class="n">np</span><span class="o">.</span><span class="n">zeros</span></a><span class="p">(</span><a href="https://docs.python.org/3/library/stdtypes.html#tuple" title="builtins.tuple" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">Beta1</span><span class="o">.</span><span class="n">shape</span></a><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="c1"># beta[7] = 1 # Gradient</span>
-<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">beta</span></a><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Homogeneous</span>
+<a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">beta</span></a><span class="p">[</span><span class="mi">7</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Gradient</span>
+<span class="c1"># beta[2] = 1  # Homogeneous</span>
 
 <span class="c1"># Minimum residual</span>
 <a href="https://docs.python.org/3/library/functions.html#float" title="builtins.float" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">_lambda</span></a> <span class="o">=</span> <span class="mf">1e3</span>
@@ -462,7 +469,8 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_shielding_biplanar_example_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_shielding_biplanar_example_004.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 4 minutes  46.016 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  31.154 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2077 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-shielding-biplanar-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/324eb273fbafe3175f437c8470d57973/shielding_biplanar_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">shielding_biplanar_example.py</span></code></a></p>
@@ -489,7 +497,7 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-22.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-27.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

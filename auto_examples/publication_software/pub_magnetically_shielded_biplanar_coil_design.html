@@ -257,14 +257,12 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="k">if</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">PLOT</span></a><span class="p">:</span>
     <span class="n">f</span> <span class="o">=</span> <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="mayavi.mlab.figure" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">(</span><span class="kc">None</span><span class="p">,</span> <span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">fgcolor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">))</span>
 
-    <span class="n">coil</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span><span class="n">representation</span><span class="o">=</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.15</span><span class="p">)</span>
-    <span class="n">shield</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span>
-        <span class="n">representation</span><span class="o">=</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="n">cull_front</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">),</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span>
-    <span class="p">)</span>
+    <span class="n">coil</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span><span class="n">representation</span><span class="o">=</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">shield</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span><span class="n">representation</span><span class="o">=</span><span class="s2">&quot;surface&quot;</span><span class="p">,</span> <span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
     <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_helper_functions.html#mayavi.mlab.points3d" title="mayavi.mlab.points3d" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">points3d</span></a><span class="p">(</span><span class="o">*</span><a href="https://numpy.org/devdocs/reference/generated/numpy.ndarray.html#numpy.ndarray" title="numpy.ndarray" class="sphx-glr-backref-module-numpy sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">target_points</span><span class="o">.</span><span class="n">T</span></a><span class="p">)</span>
 
     <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">isometric_view</span><span class="p">()</span>
-    <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.2</span><span class="p">)</span>
+    <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
 
     <span class="k">if</span> <a href="https://docs.python.org/3/library/functions.html#bool" title="builtins.bool" class="sphx-glr-backref-module-builtins sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">SAVE_FIGURES</span></a><span class="p">:</span>
         <a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.savefig" title="mayavi.mlab.savefig" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">savefig</span></a><span class="p">(</span>
@@ -307,13 +305,13 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 3184 vertices by 672 target points... took 0.65 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 3184 vertices by 672 target points... took 0.63 seconds.
 Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 60 chunks (12017 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 60 chunks (12274 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Inductance matrix computation took 13.47 seconds.
+Inductance matrix computation took 13.32 seconds.
 Pre-existing problem not passed, creating...
 Passing parameters to problem...
 Passing problem to solver...
@@ -346,30 +344,30 @@ Optimizer  - Constraints            : 2897
 Optimizer  - Cones                  : 1
 Optimizer  - Scalar variables       : 6930              conic                  : 2898
 Optimizer  - Semi-definite variables: 0                 scalarized             : 0
-Factor     - setup time             : 1.35              dense det. time        : 0.00
+Factor     - setup time             : 0.91              dense det. time        : 0.00
 Factor     - ML order time          : 0.18              GP order time          : 0.00
 Factor     - nonzeros before factor : 4.20e+06          after factor           : 4.20e+06
-Factor     - dense dim.             : 0                 flops                  : 4.93e+10
+Factor     - dense dim.             : 0                 flops                  : 3.31e+10
 ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
-0   1.0e+03  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  117.46
-1   4.5e+02  4.4e-01  1.1e+00  -7.30e-01  5.327108191e+01   5.318161480e+01   4.4e-01  118.22
-2   2.3e+02  2.2e-01  6.0e-01  -4.50e-01  2.594250451e+02   2.599324681e+02   2.2e-01  118.89
-3   3.1e+01  3.1e-02  6.6e-02  -8.59e-02  8.803737426e+02   8.812176503e+02   3.1e-02  119.54
-4   2.7e+00  2.6e-03  1.7e-03  7.54e-01   9.125617181e+02   9.126405893e+02   2.6e-03  120.33
-5   6.0e-01  5.8e-04  1.8e-04  9.79e-01   9.069082291e+02   9.069260669e+02   5.8e-04  121.01
-6   2.7e-01  2.6e-04  5.5e-05  9.95e-01   9.072772186e+02   9.072848896e+02   2.6e-04  121.69
-7   2.7e-02  2.7e-05  1.8e-06  9.98e-01   9.070897206e+02   9.070904889e+02   2.7e-05  122.37
-8   2.8e-03  2.7e-06  5.6e-08  1.00e+00   9.070863768e+02   9.070864475e+02   2.7e-06  123.06
-9   1.1e-04  1.1e-07  1.0e-11  1.00e+00   9.071033596e+02   9.071033638e+02   1.1e-07  123.90
-10  6.1e-07  6.0e-10  1.8e-12  1.00e+00   9.071041244e+02   9.071041243e+02   6.0e-10  124.92
-Optimizer terminated. Time: 125.36
+0   1.0e+03  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  4.65
+1   4.5e+02  4.4e-01  1.1e+00  -7.30e-01  5.327108192e+01   5.318161482e+01   4.4e-01  5.36
+2   2.3e+02  2.2e-01  6.0e-01  -4.50e-01  2.594250452e+02   2.599324682e+02   2.2e-01  5.97
+3   3.1e+01  3.1e-02  6.6e-02  -8.59e-02  8.803737426e+02   8.812176504e+02   3.1e-02  6.55
+4   2.7e+00  2.6e-03  1.7e-03  7.54e-01   9.125617181e+02   9.126405893e+02   2.6e-03  7.35
+5   6.0e-01  5.8e-04  1.8e-04  9.79e-01   9.069082291e+02   9.069260669e+02   5.8e-04  7.93
+6   2.7e-01  2.6e-04  5.5e-05  9.95e-01   9.072772186e+02   9.072848897e+02   2.6e-04  8.54
+7   2.7e-02  2.7e-05  1.8e-06  9.98e-01   9.070897206e+02   9.070904889e+02   2.7e-05  9.18
+8   2.8e-03  2.7e-06  5.6e-08  1.00e+00   9.070863768e+02   9.070864475e+02   2.7e-06  9.81
+9   1.1e-04  1.1e-07  6.1e-10  1.00e+00   9.071033596e+02   9.071033620e+02   1.1e-07  10.44
+10  6.1e-07  6.0e-10  1.5e-11  1.00e+00   9.071041244e+02   9.071041238e+02   6.0e-10  11.16
+Optimizer terminated. Time: 11.52
 
 
 Interior-point solution summary
   Problem status  : PRIMAL_AND_DUAL_FEASIBLE
   Solution status : OPTIMAL
   Primal.  obj: 9.0710412437e+02    nrm: 2e+03    Viol.  con: 4e-09    var: 0e+00    cones: 0e+00
-  Dual.    obj: 9.0710412432e+02    nrm: 6e+03    Viol.  con: 2e-06    var: 1e-09    cones: 0e+00
+  Dual.    obj: 9.0710412376e+02    nrm: 6e+03    Viol.  con: 2e-06    var: 1e-09    cones: 0e+00
 </pre></div>
 </div>
 <p>Plot coil windings and target points</p>
@@ -414,8 +412,8 @@ Interior-point solution summary
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 8.84 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 9.74 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 9.24 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 9.98 seconds.
 </pre></div>
 </div>
 <p>Plot the difference in field when taking the shield into account</p>
@@ -442,7 +440,7 @@ Computing scalar potential coupling matrix, 3184 vertices by 2773 target points.
 </div>
 <img alt="../../_images/sphx_glr_pub_magnetically_shielded_biplanar_coil_design_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_pub_magnetically_shielded_biplanar_coil_design_003.png" />
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2773 vertices by 672 target points... took 0.54 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2773 vertices by 672 target points... took 0.57 seconds.
 This object has no scalar data
 </pre></div>
 </div>
@@ -502,31 +500,31 @@ Optimizer  - Constraints            : 2897
 Optimizer  - Cones                  : 1
 Optimizer  - Scalar variables       : 6930              conic                  : 2898
 Optimizer  - Semi-definite variables: 0                 scalarized             : 0
-Factor     - setup time             : 1.08              dense det. time        : 0.00
+Factor     - setup time             : 0.95              dense det. time        : 0.00
 Factor     - ML order time          : 0.17              GP order time          : 0.00
 Factor     - nonzeros before factor : 4.20e+06          after factor           : 4.20e+06
-Factor     - dense dim.             : 0                 flops                  : 4.93e+10
+Factor     - dense dim.             : 0                 flops                  : 3.31e+10
 ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
-0   1.0e+03  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  112.63
-1   4.6e+02  4.4e-01  1.1e+00  -7.17e-01  6.091568992e+01   6.078912581e+01   4.4e-01  113.33
-2   2.4e+02  2.4e-01  6.3e-01  -4.44e-01  2.794438665e+02   2.798670529e+02   2.4e-01  114.00
-3   3.5e+01  3.4e-02  7.3e-02  -8.97e-02  1.021742465e+03   1.022520645e+03   3.4e-02  114.67
-4   5.8e-01  5.6e-04  1.8e-04  7.38e-01   1.138954809e+03   1.138972680e+03   5.6e-04  115.50
-5   1.6e-01  1.6e-04  2.3e-05  9.98e-01   1.129523039e+03   1.129526323e+03   1.6e-04  116.29
-6   6.7e-02  6.5e-05  6.1e-06  9.99e-01   1.129645660e+03   1.129647063e+03   6.5e-05  116.96
-7   8.8e-03  8.5e-06  2.9e-07  1.00e+00   1.129375305e+03   1.129375491e+03   8.5e-06  117.80
-8   1.1e-03  1.1e-06  1.3e-08  1.00e+00   1.129417794e+03   1.129417819e+03   1.1e-06  118.66
-9   3.5e-05  3.4e-08  7.7e-11  1.00e+00   1.129427523e+03   1.129427524e+03   3.4e-08  119.52
-10  1.1e-05  1.1e-08  2.3e-10  1.00e+00   1.129427736e+03   1.129427739e+03   1.1e-08  120.20
-11  1.3e-06  1.3e-09  5.8e-11  1.00e+00   1.129427831e+03   1.129427832e+03   1.3e-09  120.89
-Optimizer terminated. Time: 121.34
+0   1.0e+03  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  4.68
+1   4.6e+02  4.4e-01  1.1e+00  -7.17e-01  6.091568992e+01   6.078912581e+01   4.4e-01  5.33
+2   2.4e+02  2.4e-01  6.3e-01  -4.44e-01  2.794438665e+02   2.798670529e+02   2.4e-01  5.95
+3   3.5e+01  3.4e-02  7.3e-02  -8.97e-02  1.021742465e+03   1.022520645e+03   3.4e-02  6.58
+4   5.8e-01  5.6e-04  1.8e-04  7.38e-01   1.138954809e+03   1.138972680e+03   5.6e-04  7.31
+5   1.6e-01  1.6e-04  2.3e-05  9.98e-01   1.129523039e+03   1.129526323e+03   1.6e-04  8.02
+6   6.7e-02  6.5e-05  6.1e-06  9.99e-01   1.129645660e+03   1.129647063e+03   6.5e-05  8.67
+7   8.8e-03  8.5e-06  2.9e-07  1.00e+00   1.129375305e+03   1.129375491e+03   8.5e-06  9.51
+8   1.1e-03  1.1e-06  1.3e-08  1.00e+00   1.129417794e+03   1.129417819e+03   1.1e-06  10.23
+9   3.5e-05  3.4e-08  5.4e-11  1.00e+00   1.129427523e+03   1.129427524e+03   3.4e-08  10.97
+10  1.1e-05  1.1e-08  1.6e-10  1.00e+00   1.129427736e+03   1.129427735e+03   1.1e-08  11.73
+11  5.6e-06  1.7e-09  3.1e-10  1.00e+00   1.129427831e+03   1.129427822e+03   1.3e-09  12.37
+Optimizer terminated. Time: 12.71
 
 
 Interior-point solution summary
   Problem status  : PRIMAL_AND_DUAL_FEASIBLE
   Solution status : OPTIMAL
   Primal.  obj: 1.1294278308e+03    nrm: 2e+03    Viol.  con: 8e-09    var: 0e+00    cones: 0e+00
-  Dual.    obj: 1.1294278324e+03    nrm: 1e+04    Viol.  con: 5e-06    var: 1e-08    cones: 0e+00
+  Dual.    obj: 1.1294278224e+03    nrm: 1e+04    Viol.  con: 5e-06    var: 2e-08    cones: 0e+00
 </pre></div>
 </div>
 <p>Plot the newly designed coil windings and field at the target points</p>
@@ -604,7 +602,8 @@ Interior-point solution summary
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_pub_magnetically_shielded_biplanar_coil_design_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_pub_magnetically_shielded_biplanar_coil_design_005.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 5 minutes  46.987 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  34.482 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  3560 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-software-pub-magnetically-shielded-biplanar-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/3a3ab6e417d7376016d28fae51527026/pub_magnetically_shielded_biplanar_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">pub_magnetically_shielded_biplanar_coil_design.py</span></code></a></p>
@@ -631,7 +630,7 @@ Interior-point solution summary
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-22.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-27.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

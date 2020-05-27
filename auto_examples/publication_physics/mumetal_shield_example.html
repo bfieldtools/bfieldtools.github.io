@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Example of a cylindrical perfect mu-metal shield &#8212; bfieldtools  documentation</title>
+    <title>Field distortion by a perfect mu-metal shield &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
@@ -18,7 +18,7 @@
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Example of designing biplanar" href="shielding_biplanar_example.html" />
+    <link rel="next" title="Example of designing a shielded biplanar coil" href="shielding_biplanar_example.html" />
     <link rel="prev" title="Design a field of a closed enclosed in a volume" href="shielding_closed_surface_example_direct_invert.html" />
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -132,7 +132,7 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
-<li><a class="reference internal" href="#">Example of a cylindrical perfect mu-metal shield</a></li>
+<li><a class="reference internal" href="#">Field distortion by a perfect mu-metal shield</a></li>
 </ul>
 
   <li>
@@ -140,7 +140,7 @@
     </a>
   </li>
   <li>
-    <a href="shielding_biplanar_example.html" title="Next Chapter: Example of designing biplanar"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Example of de... &raquo;</span>
+    <a href="shielding_biplanar_example.html" title="Next Chapter: Example of designing a shielded biplanar coil"><span class="glyphicon glyphicon-chevron-right visible-sm"></span><span class="hidden-sm hidden-tablet">Example of de... &raquo;</span>
     </a>
   </li>
 <form action="../../search.html" method="get">
@@ -158,8 +158,8 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-mumetal-shield-example-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="example-of-a-cylindrical-perfect-mu-metal-shield">
-<span id="sphx-glr-auto-examples-publication-physics-mumetal-shield-example-py"></span><h1>Example of a cylindrical perfect mu-metal shield<a class="headerlink" href="#example-of-a-cylindrical-perfect-mu-metal-shield" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="field-distortion-by-a-perfect-mu-metal-shield">
+<span id="sphx-glr-auto-examples-publication-physics-mumetal-shield-example-py"></span><h1>Field distortion by a perfect mu-metal shield<a class="headerlink" href="#field-distortion-by-a-perfect-mu-metal-shield" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">trimesh</span>
 <span class="kn">from</span> <span class="nn">mayavi</span> <span class="kn">import</span> <span class="n">mlab</span>
@@ -283,7 +283,7 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 10.23 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 9.77 seconds.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://docs.enthought.com/mayavi/mayavi/auto/mlab_figure.html#mayavi.mlab.figure" title="mayavi.mlab.figure" class="sphx-glr-backref-module-mayavi-mlab sphx-glr-backref-type-py-function"><span class="n">mlab</span><span class="o">.</span><span class="n">figure</span></a><span class="p">()</span>
@@ -301,7 +301,7 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 9.25 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 8.82 seconds.
 </pre></div>
 </div>
 <p>%% Solve equivalent stream function for the perfect linear mu-metal layer</p>
@@ -367,8 +367,8 @@
 </pre></div>
 </div>
 <p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 6400 target points... took 21.77 seconds.
-Computing scalar potential coupling matrix, 3184 vertices by 6400 target points... took 23.76 seconds.
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 6400 target points... took 20.79 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 6400 target points... took 22.85 seconds.
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.contour</span> <span class="kn">import</span> <span class="n">scalar_contour</span>
@@ -480,7 +480,8 @@ Computing scalar potential coupling matrix, 3184 vertices by 6400 target points.
 (-2.9992466721105764, 21.000753327889424)
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.983 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  11.485 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2103 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-mumetal-shield-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/14e45c113e4577fbf96fee13de4f29ae/mumetal_shield_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mumetal_shield_example.py</span></code></a></p>
@@ -507,7 +508,7 @@ Computing scalar potential coupling matrix, 3184 vertices by 6400 target points.
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-22.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-27.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>

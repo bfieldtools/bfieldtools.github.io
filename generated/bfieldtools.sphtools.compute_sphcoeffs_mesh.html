@@ -158,7 +158,7 @@
 <h1>bfieldtools.sphtools.compute_sphcoeffs_mesh<a class="headerlink" href="#bfieldtools-sphtools-compute-sphcoeffs-mesh" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bfieldtools.sphtools.compute_sphcoeffs_mesh">
-<code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">compute_sphcoeffs_mesh</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">lmax</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.compute_sphcoeffs_mesh" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bfieldtools.sphtools.</code><code class="sig-name descname">compute_sphcoeffs_mesh</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">lmax</em>, <em class="sig-param">normalization='default'</em>, <em class="sig-param">R=1</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.sphtools.compute_sphcoeffs_mesh" title="Permalink to this definition">¶</a></dt>
 <dd><p>Computes multipole moment (spherical harmonics coefficient) transformation
 from the mesh.</p>
 <dl class="field-list simple">
@@ -167,13 +167,16 @@ from the mesh.</p>
 <dt><strong>mesh: mesh object - the surface mesh</strong></dt><dd></dd>
 <dt><strong>lmax: int</strong></dt><dd><p>maximum degree l of the fit</p>
 </dd>
-</dl>
+<dt><strong>normalization: str</strong></dt><dd><p>‘default’ (Ylm**2 integrated over solid angle to 1)
+‘energy’ (field energy of basis fields normalized to 1 in R-ball)</p>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><dl class="simple">
-<dt>alm: (lmax*(lmax+2)xNvertices array</dt><dd><p>transformation from the mesh to alm coefficients (r**l-terms)</p>
+<dt><strong>R: float</strong></dt><dd><p>radius in the energy normalization</p>
 </dd>
-<dt>blm: (lmax*(lmax+2)xNvertices array</dt><dd><p>transformation from the mesh to blm coefficients (r**(-l)-terms)</p>
+<dt><strong>Returns</strong></dt><dd></dd>
+<dt><strong>——-</strong></dt><dd></dd>
+<dt><strong>Calm: (lmax*(lmax+2)xNvertices array</strong></dt><dd><p>transformation from the mesh to alm coefficients (r**l-terms)</p>
+</dd>
+<dt><strong>Cblm: (lmax*(lmax+2)xNvertices array</strong></dt><dd><p>transformation from the mesh to blm coefficients (r**(-l)-terms)</p>
 </dd>
 </dl>
 </dd>
@@ -197,7 +200,7 @@ from the mesh.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-22.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-27.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
