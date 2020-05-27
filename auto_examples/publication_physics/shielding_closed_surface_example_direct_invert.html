@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Design a field of a closed enclosed in a volume &#8212; bfieldtools  documentation</title>
+    <title>Design a field enclosed in a volume &#8212; bfieldtools  documentation</title>
     <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/gallery.css" />
@@ -132,7 +132,7 @@
             <p class="logo"><a href="../../index.html">
               <img class="logo" src="../../_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
-<li><a class="reference internal" href="#">Design a field of a closed enclosed in a volume</a></li>
+<li><a class="reference internal" href="#">Design a field enclosed in a volume</a></li>
 </ul>
 
   <li>
@@ -158,8 +158,8 @@
 <p class="admonition-title">Note</p>
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-examples-publication-physics-shielding-closed-surface-example-direct-invert-py"><span class="std std-ref">here</span></a>     to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="design-a-field-of-a-closed-enclosed-in-a-volume">
-<span id="sphx-glr-auto-examples-publication-physics-shielding-closed-surface-example-direct-invert-py"></span><h1>Design a field of a closed enclosed in a volume<a class="headerlink" href="#design-a-field-of-a-closed-enclosed-in-a-volume" title="Permalink to this headline">¶</a></h1>
+<div class="sphx-glr-example-title section" id="design-a-field-enclosed-in-a-volume">
+<span id="sphx-glr-auto-examples-publication-physics-shielding-closed-surface-example-direct-invert-py"></span><h1>Design a field enclosed in a volume<a class="headerlink" href="#design-a-field-enclosed-in-a-volume" title="Permalink to this headline">¶</a></h1>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">mayavi</span> <span class="kn">import</span> <span class="n">mlab</span>
@@ -251,18 +251,18 @@
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Computing triangle-coupling matrix
-Inductance matrix computation took 11.24 seconds.
+Inductance matrix computation took 15.33 seconds.
 Computing the inductance matrix...
 Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
 Computing triangle-coupling matrix
-Inductance matrix computation took 10.85 seconds.
+Inductance matrix computation took 11.63 seconds.
 Estimating 24888 MiB required for 2665 by 2562 vertices...
-Computing inductance matrix in 80 chunks (7249 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing inductance matrix in 340 chunks (1485 MiB memory free),              when approx_far=True using more chunks is faster...
 Computing triangle-coupling matrix
-Computing magnetic field coupling matrix analytically, 2562 vertices by 10000 target points... took 36.94 seconds.
-Computing magnetic field coupling matrix analytically, 2665 vertices by 10000 target points... took 34.74 seconds.
-Computing scalar potential coupling matrix, 2562 vertices by 10000 target points... took 30.08 seconds.
-Computing scalar potential coupling matrix, 2665 vertices by 10000 target points... took 33.09 seconds.
+Computing magnetic field coupling matrix analytically, 2562 vertices by 10000 target points... took 43.93 seconds.
+Computing magnetic field coupling matrix analytically, 2665 vertices by 10000 target points... took 38.57 seconds.
+Computing scalar potential coupling matrix, 2562 vertices by 10000 target points... took 30.87 seconds.
+Computing scalar potential coupling matrix, 2665 vertices by 10000 target points... took 31.94 seconds.
 </pre></div>
 </div>
 <p>suh = SuhBasis(mesh1, 100)</p>
@@ -414,8 +414,8 @@ b20 = (</p>
 </pre></div>
 </div>
 <img alt="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_shielding_closed_surface_example_direct_invert_005.png" />
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 2 minutes  51.349 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  4324 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 3 minutes  10.142 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  4267 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-shielding-closed-surface-example-direct-invert-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/2f857a6a30686210059347c54325cfcd/shielding_closed_surface_example_direct_invert.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">shielding_closed_surface_example_direct_invert.py</span></code></a></p>
