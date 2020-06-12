@@ -161,27 +161,29 @@
 <dt id="bfieldtools.mesh_calculus.laplacian_matrix">
 <code class="sig-prename descclassname">bfieldtools.mesh_calculus.</code><code class="sig-name descname">laplacian_matrix</code><span class="sig-paren">(</span><em class="sig-param">mesh</em>, <em class="sig-param">material_param=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_calculus.laplacian_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Sparse Laplace-Beltrami operator.</p>
-<p>If inner vertices are not given Laplacian for all the mesh vertices is returned.
-This corresponds to zero-Neumann (natural) boundary condition on the possible
-outer boundary.
-shape==(len(mesh.vertices), len(mesh.vertices))</p>
-<p>If inner_vertices but no holes are given, the outer boundary is assumed grounded
-and Laplacian only for the inner vertices is returned
-shape==(len(inner_vertices), len(inner_vertices))</p>
-<p>If both inner_vertices and holes are given, the outer boundary is assumed grounded
-and constant floating boundary condition for each hole is assumed
-shape==(len(inner_vertices)+len(holes), len(inner_vertices)+len(holes))</p>
+<p>This function returns the so-called cotangent-Laplacian L, which can be 
+used to solve the Laplacian eigenvectors as L &#64; v_i = -k_i^2 M &#64; v_i, 
+where M is the mass matrix of the mesh (see mass_matrix).</p>
+<p>For meshes with boundaries, the matrix corresponds to zero-Neumann
+boundary conditions (the natural boundary condtion).</p>
+<p>When solving something with zero-Dirichlet condition
+only the inner vertices should be free parameters and
+the associated elements of the matrix should be used.</p>
+<p>For more discussion about the boundary conditions related
+to stream functions of divergence-free surface currents,
+see the associated publication about the physics (Makinen 2020).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>mesh: Trimesh Mesh object</strong></dt><dd></dd>
-<dt><strong>material_param: array-like with length N_triangles</strong></dt><dd><p>material parameter for each triangle</p>
+<dt><strong>material_param: array-like with length N_triangles</strong></dt><dd><p>material parameter for each triangle, used for resistance matrix</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt>sparse csr_matrix of variable shape (see description)</dt><dd><p>cotangent-laplacian: w_ij = - 0.5* (cot(alpha) + cot(beta))</p>
+<dt>sparse csr_matrix (N_vertices, N_vertices)</dt><dd><p>non-diagonal elements L_ij = - 0.5* (cot(alpha) + cot(beta))
+diagonal elements L_ii = - sum_{i!=j} L_ij</p>
 </dd>
 </dl>
 </dd>
@@ -205,7 +207,7 @@ shape==(len(inner_vertices)+len(holes), len(inner_vertices)+len(holes))</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-27.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-06-12.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
