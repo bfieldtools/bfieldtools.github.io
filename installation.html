@@ -135,6 +135,7 @@
             </a></p><ul>
 <li><a class="reference internal" href="#">Install</a><ul>
 <li><a class="reference internal" href="#using-pip">Using pip</a></li>
+<li><a class="reference internal" href="#a-note-on-python-environments-and-dependencies">A note on Python environments and dependencies</a></li>
 <li><a class="reference internal" href="#from-source">From source</a></li>
 <li><a class="reference internal" href="#additional-solvers">Additional solvers</a></li>
 </ul>
@@ -170,10 +171,25 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="a-note-on-python-environments-and-dependencies">
+<h2>A note on Python environments and dependencies<a class="headerlink" href="#a-note-on-python-environments-and-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>bfieldtools requires some dependencies to work. The most demanding dependency is mayavi, which is used for 3D plots. Mayavi, which in turn relies on vtk, can be a hassle to install on some platforms. One of the best ways to getn bfieldtools fully working is to use the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> Python distributions. You can then run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install mayavi
+</pre></div>
+</div>
+<p>to install mayavi, after which you can install bfieldtools using pip as seen above. bfieldtools itself is unfortunately not installable through conda since some other dependencies are pip-only.</p>
+</div>
 <div class="section" id="from-source">
 <h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
 <p>To install the <em>development</em> version of bfieldtools, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/bfieldtools/bfieldtools/archive/master.zip
+</pre></div>
+</div>
 <p>After downloading and unzipping the archive, basic setuptools workflow applies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> bfieldtools/
+python setup.py install
+</pre></div>
+</div>
 </div>
 <div class="section" id="additional-solvers">
 <h2>Additional solvers<a class="headerlink" href="#additional-solvers" title="Permalink to this headline">¶</a></h2>
@@ -196,7 +212,7 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-06-12.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
