@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Spherical harmonics-generating coil design &#8212; bfieldtools  documentation</title>
@@ -221,12 +221,6 @@ optimization problem that can be solved very quickly.</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
-Computing the laplacian matrix...
-Computing the mass matrix...
-</pre></div>
-</div>
 <p>Set up target spherical harmonics components</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_alms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),))</span>
 <span class="n">target_blms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">opts</span><span class="p">[</span><span class="s2">&quot;N_sph&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="mi">2</span><span class="p">),))</span>
@@ -242,15 +236,6 @@ Computing the mass matrix...
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing coupling matrices
-l = 1 computed
-l = 2 computed
-l = 3 computed
-l = 4 computed
-l = 5 computed
-</pre></div>
-</div>
 <p>Run QP solver</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mosek</span>
 
@@ -263,76 +248,12 @@ l = 5 computed
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the resistance matrix...
-Pre-existing problem not passed, creating...
-Passing parameters to problem...
-Passing problem to solver...
-
-
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 172
-  Cones                  : 1
-  Scalar variables       : 203
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer started.
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 172
-  Cones                  : 1
-  Scalar variables       : 203
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer  - threads                : 8
-Optimizer  - solved problem         : the primal
-Optimizer  - Constraints            : 21
-Optimizer  - Cones                  : 1
-Optimizer  - Scalar variables       : 122               conic                  : 102
-Optimizer  - Semi-definite variables: 0                 scalarized             : 0
-Factor     - setup time             : 0.00              dense det. time        : 0.00
-Factor     - ML order time          : 0.00              GP order time          : 0.00
-Factor     - nonzeros before factor : 231               after factor           : 231
-Factor     - dense dim.             : 0                 flops                  : 4.57e+04
-ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
-0   2.6e+03  1.0e+00  1.0e+00  0.00e+00   5.000000000e-01   5.000000000e-01   1.0e+00  0.00
-1   3.5e+02  1.3e-01  3.6e-01  -9.99e-01  2.106776004e+00   8.539033584e+00   1.3e-01  0.00
-2   5.9e+01  2.2e-02  1.4e-01  -9.86e-01  1.056154434e+01   5.043072723e+01   2.2e-02  0.01
-3   7.2e+00  2.7e-03  3.9e-02  -8.86e-01  5.862068212e+01   2.665291713e+02   2.7e-03  0.01
-4   9.5e-01  3.6e-04  4.7e-03  -1.93e-01  7.820100570e+01   2.457313707e+02   3.6e-04  0.01
-5   7.1e-02  2.7e-05  8.2e-05  8.62e-01   1.581261876e+01   2.492473364e+01   2.7e-05  0.01
-6   3.1e-03  1.2e-06  6.1e-07  1.12e+00   1.293685796e+01   1.320298909e+01   1.2e-06  0.01
-7   2.7e-04  1.0e-07  1.5e-08  1.10e+00   1.268464223e+01   1.270457442e+01   1.0e-07  0.01
-8   7.9e-07  3.0e-10  2.1e-12  1.01e+00   1.260896786e+01   1.260901454e+01   3.0e-10  0.01
-9   5.5e-10  2.8e-13  8.2e-18  1.00e+00   1.260893219e+01   1.260893222e+01   2.1e-13  0.01
-Optimizer terminated. Time: 0.01
-
-
-Interior-point solution summary
-  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
-  Solution status : OPTIMAL
-  Primal.  obj: 1.2608932191e+01    nrm: 3e+01    Viol.  con: 1e-10    var: 0e+00    cones: 0e+00
-  Dual.    obj: 1.2608932224e+01    nrm: 3e+01    Viol.  con: 2e-05    var: 1e-11    cones: 0e+00
-</pre></div>
-</div>
 <p>Plot coil windings</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
 <span class="n">loops</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">discretize</span><span class="p">(</span><span class="n">N_contours</span><span class="o">=</span><span class="mi">6</span><span class="p">)</span>
 
 <span class="n">loops</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="../../_images/sphx_glr_spherical_harmonics_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_spherical_harmonics_coil_design_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.core.scene.Scene object at 0x7fa450fab8f0&gt;
 </pre></div>
 </div>
 <p>Now, let’s change the spherical harmonics inner expansion radius (i.e. the target region radius)
@@ -347,15 +268,6 @@ and optimize a new coil (with the same target sph component)</p>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing coupling matrices
-l = 1 computed
-l = 2 computed
-l = 3 computed
-l = 4 computed
-l = 5 computed
-</pre></div>
-</div>
 <p>Run QP solver</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mosek</span>
 
@@ -368,62 +280,6 @@ l = 5 computed
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Pre-existing problem not passed, creating...
-Passing parameters to problem...
-Passing problem to solver...
-
-
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 172
-  Cones                  : 1
-  Scalar variables       : 203
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer started.
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 172
-  Cones                  : 1
-  Scalar variables       : 203
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer  - threads                : 8
-Optimizer  - solved problem         : the primal
-Optimizer  - Constraints            : 21
-Optimizer  - Cones                  : 1
-Optimizer  - Scalar variables       : 122               conic                  : 102
-Optimizer  - Semi-definite variables: 0                 scalarized             : 0
-Factor     - setup time             : 0.00              dense det. time        : 0.00
-Factor     - ML order time          : 0.00              GP order time          : 0.00
-Factor     - nonzeros before factor : 231               after factor           : 231
-Factor     - dense dim.             : 0                 flops                  : 4.58e+04
-ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
-0   2.0e+00  1.0e+00  1.0e+00  0.00e+00   5.000000000e-01   5.000000000e-01   1.0e+00  0.00
-1   6.7e-01  3.3e-01  1.8e-01  1.14e+00   3.511690623e-01   3.232903157e-01   3.3e-01  0.01
-2   2.5e-01  1.3e-01  1.9e-02  9.73e-01   1.001501457e+00   9.333696466e-01   1.3e-01  0.01
-3   3.9e-02  2.0e-02  6.8e-04  1.31e+00   1.073643030e+00   1.063449217e+00   2.0e-02  0.01
-4   4.2e-03  2.1e-03  2.2e-05  1.32e+00   1.085794962e+00   1.084873799e+00   2.1e-03  0.01
-5   7.5e-05  3.8e-05  4.8e-08  1.21e+00   1.088222840e+00   1.088208156e+00   3.8e-05  0.01
-6   1.5e-07  7.5e-08  4.3e-12  1.01e+00   1.088267709e+00   1.088267680e+00   7.5e-08  0.01
-7   5.8e-10  1.4e-10  1.2e-15  1.00e+00   1.088267811e+00   1.088267811e+00   2.9e-10  0.01
-Optimizer terminated. Time: 0.01
-
-
-Interior-point solution summary
-  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
-  Solution status : OPTIMAL
-  Primal.  obj: 1.0882678108e+00    nrm: 4e+00    Viol.  con: 2e-10    var: 0e+00    cones: 0e+00
-  Dual.    obj: 1.0882678106e+00    nrm: 9e+00    Viol.  con: 2e-08    var: 6e-11    cones: 0e+00
-</pre></div>
-</div>
 <p>Plot coil windings</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">f2</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">plot_mesh</span><span class="p">(</span><span class="n">opacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
 
@@ -432,13 +288,8 @@ Interior-point solution summary
 <span class="n">loops2</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">(</span><span class="n">figure</span><span class="o">=</span><span class="n">f2</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_spherical_harmonics_coil_design_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_spherical_harmonics_coil_design_002.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.core.scene.Scene object at 0x7fa4369149b0&gt;
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  46.518 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  262 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-spherical-harmonics-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/09db9c7284019aee6aee1da47dee7455/spherical_harmonics_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">spherical_harmonics_coil_design.py</span></code></a></p>
@@ -465,8 +316,8 @@ Interior-point solution summary
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Validation of Laplacian using spherical harmonics &#8212; bfieldtools  documentation</title>
@@ -205,11 +205,6 @@ on a spherical mesh. Compare the spectrum to analytical solution.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative error&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_validate_laplacian_matrix_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_laplacian_matrix_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Relative error&#39;)
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.utils</span> <span class="kn">import</span> <span class="n">MeshProjection</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.sphtools</span> <span class="kn">import</span> <span class="n">ylm</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.sphtools</span> <span class="kn">import</span> <span class="n">cartesian2spherical</span>
@@ -237,22 +232,6 @@ on a spherical mesh. Compare the spectrum to analytical solution.</p>
         <span class="n">vv1_projs</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>l=0
-l=1
-l=2
-l=3
-l=4
-l=5
-l=6
-l=7
-l=8
-l=9
-l=10
-l=11
-l=12
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Plot the norm of a projection of the eigenfunctions into the L-subspaces</span>
 <span class="sd">corresponding to the same degenerate eigenvalue.</span>
@@ -267,12 +246,8 @@ l=12
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Squared norm in L-subspace&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_validate_laplacian_matrix_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_laplacian_matrix_002.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Squared norm in L-subspace&#39;)
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  49.087 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-validate-laplacian-matrix-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/5ade8e5a802ca49d730f27285644032e/validate_laplacian_matrix.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">validate_laplacian_matrix.py</span></code></a></p>
@@ -299,8 +274,8 @@ l=12
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

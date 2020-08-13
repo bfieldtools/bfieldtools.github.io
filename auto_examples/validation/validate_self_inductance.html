@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Validation of self inductance using spherical harmonics &#8212; bfieldtools  documentation</title>
@@ -197,35 +197,6 @@ on a spherical mesh. Compare the spectrum to analytical solution</p>
     <span class="n">vv2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">vv</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing self-inductance matrix using rough quadrature (degree=1).              For higher accuracy, set quad_degree to 4 or more.
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10556 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10557 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10557 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10558 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10556 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10556 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10544 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Estimating 2225 MiB required for 642 by 642 vertices...
-Computing inductance matrix in 20 chunks (10544 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd"> Spherical harmonics are the eigenfunctions of self-inductance operator</span>
 <span class="sd"> The correct eigenvalues derived using Taulu 2005 Eqs. (22, 23, A1, A5, A6)</span>
@@ -253,11 +224,6 @@ Computing triangle-coupling matrix
 <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;solid using self_inductance, dashed using mutual_inductance&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;# eigenvalue&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Relative error&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<img alt="../../_images/sphx_glr_validate_self_inductance_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_self_inductance_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Relative error&#39;)
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.utils</span> <span class="kn">import</span> <span class="n">MeshProjection</span>
@@ -292,22 +258,6 @@ Computing triangle-coupling matrix
         <span class="n">vv2_projs</span><span class="p">[</span><span class="n">ii</span><span class="p">,</span> <span class="n">i0</span><span class="p">:</span><span class="n">i1</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>l=0
-l=1
-l=2
-l=3
-l=4
-l=5
-l=6
-l=7
-l=8
-l=9
-l=10
-l=11
-l=12
-</pre></div>
-</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
 <span class="n">eff_R2</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># np.sum(mesh.area_faces) / (4 * np.pi)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vv1_projs</span><span class="o">.</span><span class="n">T</span> <span class="o">/</span> <span class="n">eff_R2</span><span class="p">,</span> <span class="s2">&quot;-&quot;</span><span class="p">)</span>
@@ -320,12 +270,8 @@ l=12
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Squared norm in L-subspace&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_validate_self_inductance_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_self_inductance_002.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Text(0, 0.5, &#39;Squared norm in L-subspace&#39;)
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  57.983 seconds)</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-validate-self-inductance-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/15c75deba13fb87c12d47c8d6db3d514/validate_self_inductance.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">validate_self_inductance.py</span></code></a></p>
@@ -352,8 +298,8 @@ l=12
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

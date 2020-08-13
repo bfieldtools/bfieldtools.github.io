@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>MAMBA coil &#8212; bfieldtools  documentation</title>
@@ -249,21 +249,12 @@ technique “multiple-acquisition micro B(0) array” (MAMBA) technique, see <a 
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">target_points</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">target_field</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_mamba_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_mamba_coil_design_001.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.vectors.Vectors object at 0x7f0c11cf0590&gt;
-</pre></div>
-</div>
 <p>Compute coupling matrix that is used to compute the generated magnetic field, create field specification</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">target_spec</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;coupling&quot;</span><span class="p">:</span> <span class="n">coil</span><span class="o">.</span><span class="n">B_coupling</span><span class="p">(</span><span class="n">target_points</span><span class="p">),</span>
     <span class="s2">&quot;abs_error&quot;</span><span class="p">:</span> <span class="n">target_abs_error</span><span class="p">,</span>
     <span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="n">target_field</span><span class="p">,</span>
 <span class="p">}</span>
-</pre></div>
-</div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 3184 vertices by 512 target points... took 0.57 seconds.
 </pre></div>
 </div>
 <p>Run QP solver, plot result</p>
@@ -283,82 +274,8 @@ technique “multiple-acquisition micro B(0) array” (MAMBA) technique, see <a 
 <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">discretize</span><span class="p">(</span><span class="n">N_contours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">plot_loops</span><span class="p">()</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_mamba_coil_design_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mamba_coil_design_002.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_mamba_coil_design_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_mamba_coil_design_003.png" />
-</li>
-</ul>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
-Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
-Estimating 34964 MiB required for 3184 by 3184 vertices...
-Computing inductance matrix in 80 chunks (9273 MiB memory free),              when approx_far=True using more chunks is faster...
-Computing triangle-coupling matrix
-Inductance matrix computation took 14.08 seconds.
-Pre-existing problem not passed, creating...
-Passing parameters to problem...
-Passing problem to solver...
-
-
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 5970
-  Cones                  : 1
-  Scalar variables       : 5795
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer started.
-Problem
-  Name                   :
-  Objective sense        : min
-  Type                   : CONIC (conic optimization problem)
-  Constraints            : 5970
-  Cones                  : 1
-  Scalar variables       : 5795
-  Matrix variables       : 0
-  Integer variables      : 0
-
-Optimizer  - threads                : 8
-Optimizer  - solved problem         : the dual
-Optimizer  - Constraints            : 2897
-Optimizer  - Cones                  : 1
-Optimizer  - Scalar variables       : 5970              conic                  : 2898
-Optimizer  - Semi-definite variables: 0                 scalarized             : 0
-Factor     - setup time             : 1.06              dense det. time        : 0.00
-Factor     - ML order time          : 0.20              GP order time          : 0.00
-Factor     - nonzeros before factor : 4.20e+06          after factor           : 4.20e+06
-Factor     - dense dim.             : 0                 flops                  : 2.91e+10
-ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
-0   2.0e+02  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  3.98
-1   7.5e+01  3.8e-01  1.1e+00  -8.29e-01  1.092527523e+01   1.122576890e+01   3.8e-01  4.73
-2   1.4e+01  7.0e-02  2.7e-01  -5.83e-01  1.310063162e+02   1.338387135e+02   7.0e-02  5.42
-3   4.9e-01  2.5e-03  5.1e-03  1.88e-01   2.176256409e+02   2.186500663e+02   2.5e-03  6.06
-4   1.0e-01  5.3e-04  3.6e-04  9.63e-01   1.601982077e+02   1.603056738e+02   5.3e-04  6.77
-5   8.8e-03  4.4e-05  6.0e-06  9.92e-01   1.504225631e+02   1.504261347e+02   4.4e-05  7.43
-6   3.6e-03  1.8e-05  1.6e-06  9.99e-01   1.496646785e+02   1.496661966e+02   1.8e-05  8.15
-7   5.0e-04  2.5e-06  8.5e-08  1.00e+00   1.494005013e+02   1.494007311e+02   2.5e-06  8.89
-8   2.5e-04  1.3e-06  3.0e-08  1.00e+00   1.493866996e+02   1.493868138e+02   1.3e-06  9.52
-9   4.0e-05  2.0e-07  1.9e-09  1.00e+00   1.493759608e+02   1.493759792e+02   2.0e-07  10.14
-10  4.8e-06  2.4e-08  8.1e-11  1.00e+00   1.493742426e+02   1.493742448e+02   2.4e-08  10.92
-11  7.9e-08  8.7e-11  6.6e-13  1.00e+00   1.493740288e+02   1.493740285e+02   6.2e-12  11.69
-Optimizer terminated. Time: 11.95
-
-
-Interior-point solution summary
-  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
-  Solution status : OPTIMAL
-  Primal.  obj: 1.4937402879e+02    nrm: 3e+02    Viol.  con: 2e-10    var: 0e+00    cones: 0e+00
-  Dual.    obj: 1.4937402853e+02    nrm: 7e+01    Viol.  con: 3e-09    var: 1e-09    cones: 0e+00
-
-&lt;mayavi.core.scene.Scene object at 0x7f0c11d5cc50&gt;
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  41.531 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  2569 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-mamba-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/30adb391321210d0afad4f03a636ffb3/mamba_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">mamba_coil_design.py</span></code></a></p>
@@ -385,8 +302,8 @@ Interior-point solution summary
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

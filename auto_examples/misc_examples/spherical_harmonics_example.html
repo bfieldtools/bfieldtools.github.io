@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Example of spherical harmonics tools and visualization &#8212; bfieldtools  documentation</title>
@@ -182,12 +182,6 @@ Plot Ylms up to l = 4</p>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotYlm</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0011.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0011.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0021.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0021.png" />
-</li>
-</ul>
 <p>Plot vector spherical harmonics Vlms / Wlms / Xlms on the sphere</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot Vlm with l=2, m=2</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
@@ -205,14 +199,6 @@ Plot Ylms up to l = 4</p>
 <span class="n">obj</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">z_plus_view</span><span class="p">()</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0031.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0031.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0041.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0041.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0051.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0051.png" />
-</li>
-</ul>
 <p>Plot fields of vector spherical harmonics Vlms / Wlms on a volume</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot BVlm with l=2, m=2</span>
 <span class="n">offset</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>  <span class="c1"># add offset due to divergence in origin</span>
@@ -225,12 +211,6 @@ Plot Ylms up to l = 4</p>
 <span class="n">obj</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">plotBWlm_volume</span><span class="p">(</span><span class="n">sph</span><span class="p">,</span> <span class="n">l</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">lim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">Np</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="n">offset</span><span class="p">)</span>
 </pre></div>
 </div>
-<ul class="sphx-glr-horizontal">
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0061.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0061.png" />
-</li>
-<li><img alt="../../_images/sphx_glr_spherical_harmonics_example_0071.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_spherical_harmonics_example_0071.png" />
-</li>
-</ul>
 <p>Test inner products in quadrature points defined in sph-object</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Ylm1</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">ylm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
 <span class="n">Ylm2</span> <span class="o">=</span> <span class="n">sphtools</span><span class="o">.</span><span class="n">ylm</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">sph</span><span class="o">.</span><span class="n">sqp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">])</span>
@@ -263,20 +243,6 @@ Plot Ylms up to l = 4</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Inner product between X_10 and W_10 is </span><span class="si">%f</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">sph</span><span class="o">.</span><span class="n">innerproduct</span><span class="p">(</span><span class="n">Xlm1</span><span class="p">,</span> <span class="n">Vlm1</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Inner product between Ylm_20 and Ylm_21 is 0.000000
-Inner product between Ylm_20 and Ylm_20 is 1.000000
-Inner product between V_10 and V_20 is 0.000000
-Inner product between V_10 and V_10 is 1.000000
-Inner product between W_10 and W_20 is -0.000000
-Inner product between W_10 and W_10 is 1.000000
-Inner product between X_10 and X_20 is -0.000000
-Inner product between X_10 and X_10 is 1.000000
-Inner product between W_10 and V_10 is 0.000000
-Inner product between X_10 and V_10 is 0.000000
-Inner product between X_10 and W_10 is 0.000000
-</pre></div>
-</div>
 <p>Simple example of the calculation of sph spectrum of magnetic field
 defined on the sphere using the inner product.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># define homogeneous magnetic field along z-axis</span>
@@ -295,13 +261,8 @@ defined on the sphere using the inner product.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">semilogy</span><span class="p">(</span><span class="n">coeffs</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
-<img alt="../../_images/sphx_glr_spherical_harmonics_example_0081.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_spherical_harmonics_example_0081.png" />
-<p class="sphx-glr-script-out">Out:</p>
-<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7fc4c8a62950&gt;]
-</pre></div>
-</div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  6.183 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  9 MB</p>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  0 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-misc-examples-spherical-harmonics-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/45e828571ca1893d1dabde192565d5b7/spherical_harmonics_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">spherical_harmonics_example.py</span></code></a></p>
@@ -328,8 +289,8 @@ defined on the sphere using the inner product.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>
