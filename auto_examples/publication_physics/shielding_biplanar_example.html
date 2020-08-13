@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Example of designing a shielded biplanar coil &#8212; bfieldtools  documentation</title>
@@ -231,6 +231,38 @@
 <span class="n">CU2</span> <span class="o">=</span> <span class="n">coil2</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 60 chunks (12500 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 12.91 seconds.
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 60 chunks (12289 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 13.15 seconds.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 60 chunks (12118 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Computing coupling matrices
+l = 1 computed
+l = 2 computed
+l = 3 computed
+l = 4 computed
+Computing coupling matrices
+l = 1 computed
+l = 2 computed
+l = 3 computed
+l = 4 computed
+Computing magnetic field coupling matrix, 3184 vertices by 2500 target points... took 1.80 seconds.
+Computing magnetic field coupling matrix, 3184 vertices by 2500 target points... took 1.80 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 2500 target points... took 8.65 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 2500 target points... took 8.68 seconds.
+</pre></div>
+</div>
 <p>alpha[15] = 1
 Minimization of magnetic energy with spherical harmonic constraint</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">C</span> <span class="o">=</span> <span class="n">Beta1</span> <span class="o">+</span> <span class="n">Beta2</span> <span class="o">@</span> <span class="n">P</span>
@@ -325,6 +357,11 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">yticks</span><span class="p">([])</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_shielding_biplanar_example_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_shielding_biplanar_example_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>([], &lt;a list of 0 Text major ticklabel objects&gt;)
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">N</span> <span class="o">=</span> <span class="mi">20</span>
 <span class="n">mm</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">s1</span><span class="p">))</span>
 <span class="n">dd</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">mm</span> <span class="o">/</span> <span class="n">N</span>
@@ -404,6 +441,12 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 <span class="n">setscene</span><span class="p">(</span><span class="n">surf</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_shielding_biplanar_example_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_shielding_biplanar_example_002.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_shielding_biplanar_example_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_shielding_biplanar_example_003.png" />
+</li>
+</ul>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">bgcolor</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 <span class="n">surf</span> <span class="o">=</span> <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span><span class="o">*</span><span class="n">mesh1</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">))</span>
 <span class="n">surf</span><span class="o">.</span><span class="n">actor</span><span class="o">.</span><span class="n">property</span><span class="o">.</span><span class="n">edge_visibility</span> <span class="o">=</span> <span class="kc">True</span>
@@ -426,8 +469,9 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
 <span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<img alt="../../_images/sphx_glr_shielding_biplanar_example_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_shielding_biplanar_example_004.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  31.154 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  2077 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-publication-physics-shielding-biplanar-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/324eb273fbafe3175f437c8470d57973/shielding_biplanar_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">shielding_biplanar_example.py</span></code></a></p>
@@ -454,8 +498,8 @@ Minimization of magnetic energy with spherical harmonic constraint</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

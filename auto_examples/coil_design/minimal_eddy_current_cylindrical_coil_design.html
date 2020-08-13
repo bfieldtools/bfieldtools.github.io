@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Coil with minimal eddy currents &#8212; bfieldtools  documentation</title>
@@ -246,6 +246,12 @@ The effects of eddy currents due to inductive interaction with the shield is min
 <span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Calculating surface harmonics expansion...
+Computing the laplacian matrix...
+Computing the mass matrix...
+</pre></div>
+</div>
 <p>Set up target  points and plot geometry</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">center</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
 
@@ -275,6 +281,11 @@ The effects of eddy currents due to inductive interaction with the shield is min
 <span class="n">mlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="o">*</span><span class="n">target_points</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.glyph.Glyph object at 0x7f0c12022e90&gt;
+</pre></div>
+</div>
 <p>Compute eddy-current coupling</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mutual_inductance</span> <span class="o">=</span> <span class="n">coil</span><span class="o">.</span><span class="n">mutual_inductance</span><span class="p">(</span><span class="n">shield</span><span class="p">)</span>
 
@@ -283,6 +294,19 @@ The effects of eddy currents due to inductive interaction with the shield is min
 
 <span class="n">shield</span><span class="o">.</span><span class="n">M_coupling</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="o">-</span><span class="n">shield</span><span class="o">.</span><span class="n">inductance</span><span class="p">,</span> <span class="n">mutual_inductance</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">secondary_C</span> <span class="o">=</span> <span class="n">shield</span><span class="o">.</span><span class="n">B_coupling</span><span class="p">(</span><span class="n">target_points</span><span class="p">)</span> <span class="o">@</span> <span class="o">-</span><span class="n">shield</span><span class="o">.</span><span class="n">M_coupling</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Estimating 69923 MiB required for 4764 by 4764 vertices...
+Computing inductance matrix in 120 chunks (12809 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 69923 MiB required for 4764 by 4764 vertices...
+Computing inductance matrix in 120 chunks (12745 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 30.77 seconds.
+Computing magnetic field coupling matrix, 4764 vertices by 672 target points... took 1.04 seconds.
 </pre></div>
 </div>
 <p>Create bfield specifications used when optimizing the coil geometry</p>
@@ -330,6 +354,11 @@ The effects of eddy currents due to inductive interaction with the shield is min
     <span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 4764 vertices by 672 target points... took 1.06 seconds.
+Computing the resistance matrix...
+</pre></div>
+</div>
 <p>Run QP solver to optimize stream function</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mosek</span>
 
@@ -344,6 +373,82 @@ The effects of eddy currents due to inductive interaction with the shield is min
 <span class="kn">from</span> <span class="nn">bfieldtools.mesh_conductor</span> <span class="kn">import</span> <span class="n">StreamFunction</span>
 
 <span class="n">shield</span><span class="o">.</span><span class="n">induced_s</span> <span class="o">=</span> <span class="n">StreamFunction</span><span class="p">(</span><span class="n">shield</span><span class="o">.</span><span class="n">M_coupling</span> <span class="o">@</span> <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="p">,</span> <span class="n">shield</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 69923 MiB required for 4764 by 4764 vertices...
+Computing inductance matrix in 120 chunks (11946 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 30.97 seconds.
+Pre-existing problem not passed, creating...
+Passing parameters to problem...
+Passing problem to solver...
+
+
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 16530
+  Cones                  : 1
+  Scalar variables       : 803
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer started.
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 16530
+  Cones                  : 1
+  Scalar variables       : 803
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer  - threads                : 8
+Optimizer  - solved problem         : the dual
+Optimizer  - Constraints            : 401
+Optimizer  - Cones                  : 1
+Optimizer  - Scalar variables       : 16530             conic                  : 402
+Optimizer  - Semi-definite variables: 0                 scalarized             : 0
+Factor     - setup time             : 0.29              dense det. time        : 0.00
+Factor     - ML order time          : 0.00              GP order time          : 0.00
+Factor     - nonzeros before factor : 8.06e+04          after factor           : 8.06e+04
+Factor     - dense dim.             : 0                 flops                  : 1.34e+09
+ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
+0   3.2e+01  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  1.57
+1   1.7e+01  5.2e-01  1.2e+00  -6.51e-01  8.755235291e+01   8.717745151e+01   5.2e-01  1.65
+2   1.0e+01  3.2e-01  7.5e-01  -3.65e-01  3.120153253e+02   3.119964808e+02   3.2e-01  1.72
+3   7.2e+00  2.2e-01  5.4e-01  -9.84e-02  6.857677666e+02   6.859575059e+02   2.2e-01  1.81
+4   5.5e+00  1.7e-01  4.3e-01  -2.59e-01  1.163962871e+03   1.164387060e+03   1.7e-01  1.89
+5   1.9e+00  5.8e-02  1.5e-01  -2.36e-01  7.480098289e+03   7.481027404e+03   5.8e-02  1.98
+6   6.8e-01  2.1e-02  4.7e-02  1.04e-01   1.627369627e+04   1.627454019e+04   2.1e-02  2.05
+7   3.5e-01  1.1e-02  1.9e-02  7.70e-01   2.132852436e+04   2.132909581e+04   1.1e-02  2.17
+8   3.2e-01  9.8e-03  1.7e-02  5.09e-01   2.209800849e+04   2.209853837e+04   9.8e-03  2.24
+9   1.5e-01  4.5e-03  5.9e-03  6.46e-01   2.619385304e+04   2.619417789e+04   4.5e-03  2.32
+10  4.2e-02  1.3e-03  1.1e-03  7.82e-01   2.972842030e+04   2.972856479e+04   1.3e-03  2.45
+11  2.2e-02  6.8e-04  4.5e-04  8.03e-01   3.075144691e+04   3.075153483e+04   6.8e-04  2.53
+12  8.2e-04  2.5e-05  3.8e-06  8.85e-01   3.207619891e+04   3.207620363e+04   2.5e-05  2.64
+13  1.4e-04  4.2e-06  2.6e-07  9.95e-01   3.213108619e+04   3.213108702e+04   4.2e-06  2.72
+14  1.5e-05  6.0e-08  3.6e-09  9.99e-01   3.214223525e+04   3.214223521e+04   6.1e-09  2.79
+15  1.6e-05  4.5e-08  2.6e-09  1.00e+00   3.214223933e+04   3.214223930e+04   4.6e-09  3.01
+16  2.1e-05  2.3e-08  1.1e-09  1.00e+00   3.214224547e+04   3.214224545e+04   2.3e-09  3.17
+17  1.8e-05  1.1e-08  5.1e-10  1.00e+00   3.214224855e+04   3.214224856e+04   1.2e-09  3.36
+18  1.8e-05  1.1e-08  5.1e-10  1.00e+00   3.214224855e+04   3.214224856e+04   1.2e-09  3.59
+19  2.7e-05  1.1e-08  9.9e-11  1.00e+00   3.214224874e+04   3.214224874e+04   1.1e-09  3.79
+20  2.7e-05  1.1e-08  9.9e-11  1.00e+00   3.214224874e+04   3.214224874e+04   1.1e-09  4.04
+21  2.7e-05  1.1e-08  9.9e-11  1.00e+00   3.214224874e+04   3.214224874e+04   1.1e-09  4.29
+Optimizer terminated. Time: 4.64
+
+
+Interior-point solution summary
+  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
+  Solution status : OPTIMAL
+  Primal.  obj: 3.2142248741e+04    nrm: 6e+04    Viol.  con: 2e-08    var: 0e+00    cones: 0e+00
+  Dual.    obj: 3.2142248738e+04    nrm: 4e+05    Viol.  con: 2e-07    var: 2e-07    cones: 0e+00
 </pre></div>
 </div>
 <p>Plot coil windings and target points</p>
@@ -379,6 +484,7 @@ The effects of eddy currents due to inductive interaction with the shield is min
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.4</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_002.png" />
 <p>For comparison, let’s see how the coils look when we ignore the conducting shield</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">coil</span><span class="o">.</span><span class="n">unshielded_s</span><span class="p">,</span> <span class="n">coil</span><span class="o">.</span><span class="n">unshielded_prob</span> <span class="o">=</span> <span class="n">optimize_streamfunctions</span><span class="p">(</span>
     <span class="n">coil</span><span class="p">,</span>
@@ -421,6 +527,63 @@ The effects of eddy currents due to inductive interaction with the shield is min
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">parallel_projection</span> <span class="o">=</span> <span class="mi">1</span>
 
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.4</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Pre-existing problem not passed, creating...
+Passing parameters to problem...
+Passing problem to solver...
+
+
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 4434
+  Cones                  : 1
+  Scalar variables       : 803
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer started.
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 4434
+  Cones                  : 1
+  Scalar variables       : 803
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer  - threads                : 8
+Optimizer  - solved problem         : the dual
+Optimizer  - Constraints            : 401
+Optimizer  - Cones                  : 1
+Optimizer  - Scalar variables       : 4434              conic                  : 402
+Optimizer  - Semi-definite variables: 0                 scalarized             : 0
+Factor     - setup time             : 0.06              dense det. time        : 0.00
+Factor     - ML order time          : 0.00              GP order time          : 0.00
+Factor     - nonzeros before factor : 8.06e+04          after factor           : 8.06e+04
+Factor     - dense dim.             : 0                 flops                  : 3.67e+08
+ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
+0   3.2e+01  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  0.38
+1   2.5e+01  7.8e-01  2.4e-01  2.19e+00   3.606895285e+01   3.532195174e+01   7.8e-01  0.41
+2   1.4e+00  4.2e-02  6.7e-03  1.32e+00   4.778977359e+01   4.776570562e+01   4.2e-02  0.43
+3   9.6e-02  3.0e-03  8.7e-05  1.06e+00   4.681593779e+01   4.681405007e+01   3.0e-03  0.46
+4   1.9e-02  5.8e-04  8.8e-06  1.00e+00   4.676836958e+01   4.676801715e+01   5.8e-04  0.49
+5   1.7e-04  5.1e-06  8.1e-09  1.00e+00   4.677179327e+01   4.677179029e+01   5.1e-06  0.52
+6   6.2e-06  1.9e-07  6.1e-11  1.00e+00   4.677191103e+01   4.677191091e+01   1.9e-07  0.54
+7   1.1e-06  4.0e-08  1.2e-13  1.00e+00   4.677191628e+01   4.677191655e+01   1.9e-13  0.59
+Optimizer terminated. Time: 0.61
+
+
+Interior-point solution summary
+  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
+  Solution status : OPTIMAL
+  Primal.  obj: 4.6771916277e+01    nrm: 9e+01    Viol.  con: 4e-14    var: 0e+00    cones: 1e-13
+  Dual.    obj: 4.6771916550e+01    nrm: 4e+01    Viol.  con: 0e+00    var: 1e-08    cones: 0e+00
 </pre></div>
 </div>
 <p>Finally, let’s compare the time-courses</p>
@@ -478,8 +641,13 @@ The effects of eddy currents due to inductive interaction with the shield is min
 <span class="n">ax</span><span class="o">.</span><span class="n">vlines</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> <span class="mf">1e-4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<img alt="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_minimal_eddy_current_cylindrical_coil_design_004.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.collections.LineCollection object at 0x7f0c11e01510&gt;
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 3 minutes  8.916 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  9213 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-minimal-eddy-current-cylindrical-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/ba4f34b1c58d123f35059d236e964e72/minimal_eddy_current_cylindrical_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">minimal_eddy_current_cylindrical_coil_design.py</span></code></a></p>
@@ -506,8 +674,8 @@ The effects of eddy currents due to inductive interaction with the shield is min
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

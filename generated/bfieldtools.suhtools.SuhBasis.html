@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.suhtools.SuhBasis &#8212; bfieldtools  documentation</title>
@@ -157,9 +157,9 @@
       
   <div class="section" id="bfieldtools-suhtools-suhbasis">
 <h1>bfieldtools.suhtools.SuhBasis<a class="headerlink" href="#bfieldtools-suhtools-suhbasis" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<dl class="class">
 <dt id="bfieldtools.suhtools.SuhBasis">
-<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.suhtools.</code><code class="sig-name descname">SuhBasis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">obj</span></em>, <em class="sig-param"><span class="n">Nc</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">boundary_condition</span><span class="o">=</span><span class="default_value">'dirichlet'</span></em>, <em class="sig-param"><span class="n">magnetic</span><span class="o">=</span><span class="default_value">False</span></em>, <em class="sig-param"><span class="n">solver_sparse</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="o">**</span><span class="n">kwargs</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.suhtools.</code><code class="sig-name descname">SuhBasis</code><span class="sig-paren">(</span><em class="sig-param">obj</em>, <em class="sig-param">Nc=None</em>, <em class="sig-param">boundary_condition='dirichlet'</em>, <em class="sig-param">magnetic=False</em>, <em class="sig-param">solver_sparse=True</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for representing magnetic field using surface harmonics</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -184,9 +184,9 @@ If ‘DC’, use resistance and mass matrices. If ‘AC’, use resistance and i
 </dl>
 </dd>
 </dl>
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.suhtools.SuhBasis.calculate_basis">
-<code class="sig-name descname">calculate_basis</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">shiftinvert</span><span class="o">=</span><span class="default_value">True</span></em>, <em class="sig-param"><span class="n">v0</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.calculate_basis" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">calculate_basis</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">shiftinvert=True</em>, <em class="sig-param">v0=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.calculate_basis" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate basis functions as eigenfunctions of matrices
 specified by the ‘magnetic’ parameter</p>
 <dl class="field-list simple">
@@ -202,9 +202,9 @@ if dirichlet b=self.mesh_conductor.basis.shape[1]</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.suhtools.SuhBasis.field">
-<code class="sig-name descname">field</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">coeffs</span></em>, <em class="sig-param"><span class="n">points</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.field" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">field</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">coeffs</em>, <em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.field" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate field at points</p>
 <p>Parameters</p>
 <p>coeffs : (self.Nc,) array of basis function coefficients
@@ -215,9 +215,9 @@ points : (N_points, 3) field evaluation points</p>
 </div></blockquote>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.suhtools.SuhBasis.basis_fields">
-<code class="sig-name descname">basis_fields</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">points</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.basis_fields" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">basis_fields</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.basis_fields" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calculate basis fields at points</p>
 <p>Return:</p>
 <blockquote>
@@ -225,15 +225,15 @@ points : (N_points, 3) field evaluation points</p>
 </div></blockquote>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.suhtools.SuhBasis.fit_coeffs">
-<code class="sig-name descname">fit_coeffs</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">points</span></em>, <em class="sig-param"><span class="n">data</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.fit_coeffs" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">fit_coeffs</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">points</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.fit_coeffs" title="Permalink to this definition">¶</a></dt>
 <dd><p>Fit basis function coefficients to the data</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.suhtools.SuhBasis.plot">
-<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Nfuncs</em>, <em class="sig-param">dist=0.5</em>, <em class="sig-param">Ncols=None</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">figsize=(800</em>, <em class="sig-param">800)</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Nfuncs</em>, <em class="sig-param">dist=0.5</em>, <em class="sig-param">Ncols=None</em>, <em class="sig-param">figure=None</em>, <em class="sig-param">figsize=(800</em>, <em class="sig-param">800)</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.suhtools.SuhBasis.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot basis functions on the mesh</p>
 <dl class="simple">
 <dt>Nfuncs: int or array-like</dt><dd><p>if int, the number functions starting from the first’Blm’,
@@ -273,8 +273,8 @@ If none automatically determined</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

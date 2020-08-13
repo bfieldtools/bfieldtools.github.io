@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Analytic B-field computation &#8212; bfieldtools  documentation</title>
@@ -208,6 +208,13 @@
 <span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_validate_bfield_analytic_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_bfield_analytic_001.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 676 vertices by 676 target points... took 0.12 seconds.
+Computing magnetic field coupling matrix analytically, 676 vertices by 676 target points... took 0.48 seconds.
+Relative RMS error 0.005229286958362645
+</pre></div>
+</div>
 <p>Load simple plane mesh that is centered on the origin</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">file_obj</span> <span class="o">=</span> <span class="n">pkg_resources</span><span class="o">.</span><span class="n">resource_filename</span><span class="p">(</span>
     <span class="s2">&quot;bfieldtools&quot;</span><span class="p">,</span> <span class="s2">&quot;example_meshes/unit_disc.stl&quot;</span>
@@ -244,8 +251,16 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;B [T]&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<img alt="../../_images/sphx_glr_validate_bfield_analytic_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_bfield_analytic_002.png" />
+<img alt="../../_images/sphx_glr_validate_bfield_analytic_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_validate_bfield_analytic_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 4701 vertices by 100 target points... took 0.30 seconds.
+Computing magnetic field coupling matrix analytically, 4701 vertices by 100 target points... took 0.53 seconds.
+
+Text(0, 0.5, &#39;B [T]&#39;)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.162 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-validate-bfield-analytic-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/d5ef60a49efe4bc4cb459f0bd2d7b3b3/validate_bfield_analytic.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">validate_bfield_analytic.py</span></code></a></p>
@@ -272,8 +287,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

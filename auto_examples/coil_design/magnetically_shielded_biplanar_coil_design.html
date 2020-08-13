@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Magnetically shielded coil &#8212; bfieldtools  documentation</title>
@@ -260,6 +260,7 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_001.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_001.png" />
 <p>Let’s design a coil without taking the magnetic shield into account</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># The absolute target field amplitude is not of importance,</span>
 <span class="c1"># and it is scaled to match the C matrix in the optimization function</span>
@@ -289,6 +290,72 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 3184 vertices by 672 target points... took 0.63 seconds.
+Computing the inductance matrix...
+Computing self-inductance matrix using rough quadrature (degree=2).              For higher accuracy, set quad_degree to 4 or more.
+Estimating 34964 MiB required for 3184 by 3184 vertices...
+Computing inductance matrix in 60 chunks (12151 MiB memory free),              when approx_far=True using more chunks is faster...
+Computing triangle-coupling matrix
+Inductance matrix computation took 13.03 seconds.
+Pre-existing problem not passed, creating...
+Passing parameters to problem...
+Passing problem to solver...
+
+
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 6930
+  Cones                  : 1
+  Scalar variables       : 5795
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer started.
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 6930
+  Cones                  : 1
+  Scalar variables       : 5795
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer  - threads                : 8
+Optimizer  - solved problem         : the dual
+Optimizer  - Constraints            : 2897
+Optimizer  - Cones                  : 1
+Optimizer  - Scalar variables       : 6930              conic                  : 2898
+Optimizer  - Semi-definite variables: 0                 scalarized             : 0
+Factor     - setup time             : 0.92              dense det. time        : 0.00
+Factor     - ML order time          : 0.18              GP order time          : 0.00
+Factor     - nonzeros before factor : 4.20e+06          after factor           : 4.20e+06
+Factor     - dense dim.             : 0                 flops                  : 3.31e+10
+ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
+0   1.0e+03  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  4.42
+1   4.5e+02  4.4e-01  1.1e+00  -7.30e-01  5.327102614e+01   5.318155897e+01   4.4e-01  5.04
+2   2.3e+02  2.2e-01  6.0e-01  -4.50e-01  2.594248081e+02   2.599322310e+02   2.2e-01  5.63
+3   3.1e+01  3.1e-02  6.6e-02  -8.59e-02  8.803728379e+02   8.812167455e+02   3.1e-02  6.21
+4   2.7e+00  2.6e-03  1.7e-03  7.54e-01   9.125606569e+02   9.126395285e+02   2.6e-03  6.93
+5   6.0e-01  5.8e-04  1.8e-04  9.79e-01   9.069071853e+02   9.069250230e+02   5.8e-04  7.55
+6   2.7e-01  2.6e-04  5.5e-05  9.95e-01   9.072761546e+02   9.072838260e+02   2.6e-04  8.13
+7   2.8e-02  2.7e-05  1.8e-06  9.98e-01   9.070886715e+02   9.070894398e+02   2.7e-05  8.74
+8   2.8e-03  2.7e-06  5.6e-08  1.00e+00   9.070853236e+02   9.070853942e+02   2.7e-06  9.37
+9   1.1e-04  1.1e-07  1.1e-09  1.00e+00   9.071023136e+02   9.071023144e+02   1.1e-07  9.97
+10  6.1e-07  2.4e-09  2.1e-12  1.00e+00   9.071030780e+02   9.071030781e+02   5.9e-10  10.69
+Optimizer terminated. Time: 11.02
+
+
+Interior-point solution summary
+  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
+  Solution status : OPTIMAL
+  Primal.  obj: 9.0710307796e+02    nrm: 2e+03    Viol.  con: 4e-09    var: 0e+00    cones: 0e+00
+  Dual.    obj: 9.0710307806e+02    nrm: 6e+03    Viol.  con: 2e-06    var: 3e-08    cones: 0e+00
+</pre></div>
+</div>
 <p>Plot coil windings and target points</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loops</span> <span class="o">=</span> <span class="n">scalar_contour</span><span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">mesh</span><span class="p">,</span> <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="o">.</span><span class="n">vert</span><span class="p">,</span> <span class="n">N_contours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
@@ -305,6 +372,7 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_002.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_002.png" />
 <p>Now, let’s compute the effect of the shield on the field produced by the coil</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Points slightly inside the shield</span>
 <span class="n">d</span> <span class="o">=</span> <span class="p">(</span>
@@ -320,6 +388,11 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="n">shield</span><span class="o">.</span><span class="n">s</span> <span class="o">=</span> <span class="n">StreamFunction</span><span class="p">(</span>
     <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">shield</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="n">coil</span><span class="o">.</span><span class="n">U_coupling</span><span class="p">(</span><span class="n">points</span><span class="p">)</span> <span class="o">@</span> <span class="n">coil</span><span class="o">.</span><span class="n">s</span><span class="p">),</span> <span class="n">shield</span>
 <span class="p">)</span>
+</pre></div>
+</div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing scalar potential coupling matrix, 2773 vertices by 2773 target points... took 9.00 seconds.
+Computing scalar potential coupling matrix, 3184 vertices by 2773 target points... took 9.78 seconds.
 </pre></div>
 </div>
 <p>Plot the difference in field when taking the shield into account</p>
@@ -341,6 +414,14 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="p">)</span>
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">isometric_view</span><span class="p">()</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">B_quiver</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;Difference in magnetic field (a.u.)&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_003.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_003.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix, 2773 vertices by 672 target points... took 0.56 seconds.
+This object has no scalar data
+
+&lt;mayavi.core.lut_manager.LUTManager object at 0x7ff939c57e30&gt;
 </pre></div>
 </div>
 <p>Let’s redesign the coil taking the shield into account prospectively</p>
@@ -367,6 +448,66 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="p">)</span>
 </pre></div>
 </div>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Pre-existing problem not passed, creating...
+Passing parameters to problem...
+Passing problem to solver...
+
+
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 6930
+  Cones                  : 1
+  Scalar variables       : 5795
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer started.
+Problem
+  Name                   :
+  Objective sense        : min
+  Type                   : CONIC (conic optimization problem)
+  Constraints            : 6930
+  Cones                  : 1
+  Scalar variables       : 5795
+  Matrix variables       : 0
+  Integer variables      : 0
+
+Optimizer  - threads                : 8
+Optimizer  - solved problem         : the dual
+Optimizer  - Constraints            : 2897
+Optimizer  - Cones                  : 1
+Optimizer  - Scalar variables       : 6930              conic                  : 2898
+Optimizer  - Semi-definite variables: 0                 scalarized             : 0
+Factor     - setup time             : 0.90              dense det. time        : 0.00
+Factor     - ML order time          : 0.17              GP order time          : 0.00
+Factor     - nonzeros before factor : 4.20e+06          after factor           : 4.20e+06
+Factor     - dense dim.             : 0                 flops                  : 3.31e+10
+ITE PFEAS    DFEAS    GFEAS    PRSTATUS   POBJ              DOBJ              MU       TIME
+0   1.0e+03  1.0e+00  2.0e+00  0.00e+00   0.000000000e+00   -1.000000000e+00  1.0e+00  4.37
+1   4.6e+02  4.4e-01  1.1e+00  -7.17e-01  6.091562708e+01   6.078906288e+01   4.4e-01  4.96
+2   2.4e+02  2.4e-01  6.3e-01  -4.44e-01  2.794436170e+02   2.798668032e+02   2.4e-01  5.60
+3   3.5e+01  3.4e-02  7.3e-02  -8.97e-02  1.021741496e+03   1.022519676e+03   3.4e-02  6.22
+4   5.8e-01  5.6e-04  1.8e-04  7.38e-01   1.138954022e+03   1.138971891e+03   5.6e-04  6.96
+5   1.6e-01  1.6e-04  2.3e-05  9.98e-01   1.129521654e+03   1.129524935e+03   1.6e-04  7.65
+6   6.7e-02  6.5e-05  6.1e-06  9.99e-01   1.129644522e+03   1.129645924e+03   6.5e-05  8.26
+7   8.8e-03  8.5e-06  2.9e-07  1.00e+00   1.129374023e+03   1.129374209e+03   8.5e-06  8.97
+8   1.1e-03  1.1e-06  1.3e-08  1.00e+00   1.129416676e+03   1.129416701e+03   1.1e-06  9.60
+9   3.4e-05  3.3e-08  8.2e-11  1.00e+00   1.129426431e+03   1.129426431e+03   3.3e-08  10.33
+10  1.1e-05  1.1e-08  1.0e-10  1.00e+00   1.129426640e+03   1.129426639e+03   1.1e-08  10.93
+11  1.7e-06  1.3e-09  1.2e-10  1.00e+00   1.129426733e+03   1.129426730e+03   1.3e-09  11.56
+Optimizer terminated. Time: 11.89
+
+
+Interior-point solution summary
+  Problem status  : PRIMAL_AND_DUAL_FEASIBLE
+  Solution status : OPTIMAL
+  Primal.  obj: 1.1294267334e+03    nrm: 2e+03    Viol.  con: 8e-09    var: 0e+00    cones: 0e+00
+  Dual.    obj: 1.1294267301e+03    nrm: 1e+04    Viol.  con: 5e-06    var: 1e-08    cones: 0e+00
+</pre></div>
+</div>
 <p>Plot the newly designed coil windings and field at the target points</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">loops</span> <span class="o">=</span> <span class="n">scalar_contour</span><span class="p">(</span><span class="n">coil</span><span class="o">.</span><span class="n">mesh</span><span class="p">,</span> <span class="n">coil</span><span class="o">.</span><span class="n">s2</span><span class="o">.</span><span class="n">vert</span><span class="p">,</span> <span class="n">N_contours</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
@@ -383,6 +524,7 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="n">f</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">camera</span><span class="o">.</span><span class="n">zoom</span><span class="p">(</span><span class="mf">0.95</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_004.png" />
 <p>Plot difference in field</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -431,8 +573,9 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
 <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">rect</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.03</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<img alt="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_magnetically_shielded_biplanar_coil_design_005.png" />
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  30.986 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  3778 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-coil-design-magnetically-shielded-biplanar-coil-design-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/1416ff38779598ab18d34cada7315da1/magnetically_shielded_biplanar_coil_design.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">magnetically_shielded_biplanar_coil_design.py</span></code></a></p>
@@ -459,8 +602,8 @@ The coil is positioned close to the end of the shield to demonstrate the effect<
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>Integrals testing &#8212; bfieldtools  documentation</title>
@@ -228,6 +228,18 @@
 <span class="n">mlab</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_test_integrals_001.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_001.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_test_integrals_002.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_002.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_test_integrals_003.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_003.png" />
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.core.lut_manager.LUTManager object at 0x7f972c57aad0&gt;
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="n">points</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 <span class="kn">from</span> <span class="nn">bfieldtools.legacy.integrals</span> <span class="kn">import</span> <span class="n">omega</span> <span class="k">as</span> <span class="n">omega1</span>
@@ -243,6 +255,12 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">plot3d</span><span class="p">(</span><span class="o">*</span><span class="n">points</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">points</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">colormap</span><span class="o">=</span><span class="s2">&quot;seismic&quot;</span><span class="p">)</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">face_normals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_test_integrals_004.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_test_integrals_004.png" />
+<img alt="../../_images/sphx_glr_test_integrals_005.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_test_integrals_005.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.vectors.Vectors object at 0x7f96f8540590&gt;
 </pre></div>
 </div>
 <p>Plot x_i</p>
@@ -261,6 +279,11 @@
 <span class="n">mlab</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">triangular_mesh</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">,</span> <span class="n">representation</span><span class="o">=</span><span class="s2">&quot;wireframe&quot;</span><span class="p">)</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">face_normals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_test_integrals_006.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_test_integrals_006.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.vectors.Vectors object at 0x7f9696a3b590&gt;
 </pre></div>
 </div>
 <p>Uniform charge density</p>
@@ -286,6 +309,16 @@
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">face_normals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_test_integrals_007.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_007.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_test_integrals_008.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_008.png" />
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.vectors.Vectors object at 0x7f96d313ee30&gt;
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.integrals</span> <span class="kn">import</span> <span class="n">d_distance</span>
 
 <span class="n">RR</span> <span class="o">=</span> <span class="n">mesh2</span><span class="o">.</span><span class="n">vertices</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">mesh</span><span class="o">.</span><span class="n">vertices</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="n">mesh</span><span class="o">.</span><span class="n">faces</span><span class="p">]</span>
@@ -304,6 +337,11 @@
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">triangles_center</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">mesh</span><span class="o">.</span><span class="n">face_normals</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_test_integrals_009.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_test_integrals_009.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.vectors.Vectors object at 0x7f9696703dd0&gt;
+</pre></div>
+</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.legacy.mesh_magnetics</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">magnetic_field_coupling_analytic</span> <span class="k">as</span> <span class="n">magnetic_field_coupling_analytic_old</span><span class="p">,</span>
 <span class="p">)</span>
@@ -317,6 +355,14 @@
 <span class="n">mlab</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="s2">&quot;b field&quot;</span><span class="p">)</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">mesh2</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">b1</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
 <span class="n">mlab</span><span class="o">.</span><span class="n">quiver3d</span><span class="p">(</span><span class="o">*</span><span class="n">mesh2</span><span class="o">.</span><span class="n">vertices</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="o">*</span><span class="n">b2</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_test_integrals_010.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_test_integrals_010.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Computing magnetic field coupling matrix analytically, 7 vertices by 16641 target points... took 0.12 seconds.
+Computing magnetic field coupling matrix analytically, 7 vertices by 16641 target points... took 0.12 seconds.
+
+&lt;mayavi.modules.vectors.Vectors object at 0x7f96c5ee24d0&gt;
 </pre></div>
 </div>
 <p>Gammma</p>
@@ -343,8 +389,17 @@
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_test_integrals_011.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_011.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_test_integrals_012.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_test_integrals_012.png" />
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[&lt;matplotlib.lines.Line2D object at 0x7f9698894c50&gt;, &lt;matplotlib.lines.Line2D object at 0x7f9698894b90&gt;, &lt;matplotlib.lines.Line2D object at 0x7f9698894b10&gt;]
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.880 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-validation-test-integrals-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/046d276d84d67f38f33aed383e3d4bd6/test_integrals.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">test_integrals.py</span></code></a></p>
@@ -372,8 +427,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>
