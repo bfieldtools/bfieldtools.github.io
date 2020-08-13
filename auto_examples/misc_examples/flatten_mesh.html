@@ -182,6 +182,16 @@ section 7.4.</p>
 <span class="n">plot_data_on_vertices</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">ncolors</span><span class="o">=</span><span class="mi">15</span><span class="p">)</span>
 </pre></div>
 </div>
+<ul class="sphx-glr-horizontal">
+<li><img alt="../../_images/sphx_glr_flatten_mesh_0011.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_flatten_mesh_0011.png" />
+</li>
+<li><img alt="../../_images/sphx_glr_flatten_mesh_0021.png" class="sphx-glr-multi-img" src="../../_images/sphx_glr_flatten_mesh_0021.png" />
+</li>
+</ul>
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7fc4faef8290&gt;
+</pre></div>
+</div>
 <p>lls = np.linspace(0.01,1.0, 100)
 mm = []
 for ll in lls:</p>
@@ -193,6 +203,11 @@ print(np.std(d)/np.mean(d))</p>
 </div></blockquote>
 <p>plt.plot(lls, mm)</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plot_data_on_faces</span><span class="p">(</span><span class="n">mesh2d</span><span class="p">,</span> <span class="n">mesh2d</span><span class="o">.</span><span class="n">area_faces</span> <span class="o">/</span> <span class="n">mesh</span><span class="o">.</span><span class="n">area_faces</span><span class="p">)</span>
+</pre></div>
+</div>
+<img alt="../../_images/sphx_glr_flatten_mesh_0031.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_flatten_mesh_0031.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.surface.Surface object at 0x7fc4faf17e90&gt;
 </pre></div>
 </div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">bfieldtools.mesh_calculus</span> <span class="kn">import</span> <span class="n">gradient</span>
@@ -208,6 +223,7 @@ print(np.std(d)/np.mean(d))</p>
 <span class="n">q</span><span class="o">.</span><span class="n">scene</span><span class="o">.</span><span class="n">isometric_view</span><span class="p">()</span>
 </pre></div>
 </div>
+<img alt="../../_images/sphx_glr_flatten_mesh_0041.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_flatten_mesh_0041.png" />
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">3</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span>
 <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">min</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">min</span><span class="p">()))</span>
 <span class="n">mm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">((</span><span class="n">u</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">v</span><span class="o">.</span><span class="n">max</span><span class="p">()))</span>
@@ -224,8 +240,13 @@ print(np.std(d)/np.mean(d))</p>
 <span class="n">mlab</span><span class="o">.</span><span class="n">points3d</span><span class="p">(</span><span class="o">*</span><span class="n">pp</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </pre></div>
 </div>
-<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  0.000 seconds)</p>
-<p><strong>Estimated memory usage:</strong>  0 MB</p>
+<img alt="../../_images/sphx_glr_flatten_mesh_0051.png" class="sphx-glr-single-img" src="../../_images/sphx_glr_flatten_mesh_0051.png" />
+<p class="sphx-glr-script-out">Out:</p>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;mayavi.modules.glyph.Glyph object at 0x7fc4faa16ad0&gt;
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.030 seconds)</p>
+<p><strong>Estimated memory usage:</strong>  80 MB</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-examples-misc-examples-flatten-mesh-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../../_downloads/fd3afd8f018055bae2cc40ff4b6b9c60/flatten_mesh.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">flatten_mesh.py</span></code></a></p>
