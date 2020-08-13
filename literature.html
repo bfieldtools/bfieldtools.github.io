@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Literature &#8212; bfieldtools  documentation</title>
@@ -20,6 +20,17 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Example gallery" href="auto_examples/index.html" />
     <link rel="prev" title="Install" href="installation.html" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166989761-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166989761-1');
+    </script>
+
     <link rel="stylesheet" href="_static/style.css " type="text/css" />
     <link rel="stylesheet" href="_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="_static/font-source-code-pro.css" type="text/css" />
@@ -84,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#coil-design">Coil design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#miscellaneous-examples">Miscellaneous examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
@@ -151,31 +163,39 @@
 <h1>Literature<a class="headerlink" href="#literature" title="Permalink to this headline">¶</a></h1>
 <p>The functionality of bfieldtools is based on a stream-function discretization of surface current onto a triangle mesh.</p>
 <p>For a more theoretical and in-depth overview of the physics and computations used in bfieldtools, please see</p>
-<p>Mäkinen et al., 2020 (write out whole reference, link DOI)</p>
+<ul class="simple" id="bibtex-bibliography-literature-0">
+<li><p>A. J. Mäkinen, R. Zetter, J. Iivanainen, K. C. J. Zevenhoven, L. Parkkonen, and R. J. Ilmoniemi. Magnetic-field modeling with surface currents: physical and computational principles of bfieldtools. <em>ArXiv</em>, 2020. URL: <a class="reference external" href="https://arxiv.org/abs/2005.10060">https://arxiv.org/abs/2005.10060</a>.</p></li>
+</ul>
 <p>For a more software-centred  of bfieldtools and an overview of coil design, please see</p>
-<p>Zetter et al., 2020 (write out whole reference, link DOI)</p>
+<ul class="simple" id="bibtex-bibliography-literature-1">
+<li><p>R. Zetter, A. J. Mäkinen, J. Iivanainen, K. C. J. Zevenhoven, R. J. Ilmoniemi, and L. Parkkonen. Magnetic-field modeling with surface currents: implementation and usage of bfieldtools. <em>ArXiv</em>, 2020. URL: <a class="reference external" href="https://arxiv.org/abs/2005.10056">https://arxiv.org/abs/2005.10056</a>.</p></li>
+</ul>
+<p>For a detailed description of the thermal noise computation method used in bfieldtools, please see</p>
+<ul class="simple" id="bibtex-bibliography-literature-2">
+<li><p>J. Iivanainen, A. J. Mäkinen, R. Zetter, K. C. J. Zevenhoven, R. J. Ilmoniemi, and L. Parkkonen. A general method for computing thermal magnetic noise arising from thin conducting objects. <em>ArXiv</em>, 2020. URL: <a class="reference external" href="https://arxiv.org/abs/2007.08963">https://arxiv.org/abs/2007.08963</a>.</p></li>
+</ul>
 <div class="section" id="selected-papers">
 <h2>Selected papers<a class="headerlink" href="#selected-papers" title="Permalink to this headline">¶</a></h2>
 <p>A selection of useful papers can also be found below:</p>
 <p>General introduction to stream functions</p>
-<ul class="simple" id="bibtex-bibliography-literature-0">
+<ul class="simple" id="bibtex-bibliography-literature-3">
 <li><p>G.N. Peeren. <em>Stream function approach for determining optimal surface currents</em>. PhD thesis, Philips Research, 2003. <a class="reference external" href="https://doi.org/10.6100/IR570424">doi:10.6100/IR570424</a>.</p></li>
 <li><p>G. N. Peeren. Stream function approach for determining optimal surface currents. <em>Journal of Computational Physics</em>, 191(1):305–321, 2003. <a class="reference external" href="https://doi.org/10.1016/S0021-9991(03)00320-6">doi:10.1016/S0021-9991(03)00320-6</a>.</p></li>
 <li><p>K. C. J. Zevenhoven, S. Busch, M. Hatridge, F. Öisjöen, R. J. Ilmoniemi, and J. Clarke. Conductive shield for ultra-low-field magnetic resonance imaging: Theory and measurements of eddy currents. <em>Journal of Applied Physics</em>, 115(10):1–12, 2014. <a class="reference external" href="https://doi.org/10.1063/1.4867220">doi:10.1063/1.4867220</a>.</p></li>
 </ul>
 <p>Coil-design papers using the similar methods as bfieldtools</p>
-<ul class="simple" id="bibtex-bibliography-literature-1">
+<ul class="simple" id="bibtex-bibliography-literature-4">
 <li><p>M. S. Poole. <em>Improved equipment and techniques for dynamic shimming in high field MRI</em>. PhD thesis, University of Nottingham, 2007.</p></li>
 <li><p>S. Pissanetzky. Minimum energy MRI gradient coils of general geometry. <em>Measurement Science and Technology</em>, 3(7):667, 1992. <a class="reference external" href="https://doi.org/10.1088/0957-0233/3/7/007">doi:10.1088/0957-0233/3/7/007</a>.</p></li>
 <li><p>G. Bringout and T. M. Buzug. Coil design for magnetic particle imaging: application for a preclinical scanner. <em>IEEE Transactions on Magnetics</em>, 51(2):1–8, 2014. <a class="reference external" href="https://doi.org/10.1109/TMAG.2014.2344917">doi:10.1109/TMAG.2014.2344917</a>.</p></li>
 </ul>
 <p>On the calculation of Laplace-Beltrami eigenfunctions (Surface Harmonics)</p>
-<ul class="simple" id="bibtex-bibliography-literature-2">
+<ul class="simple" id="bibtex-bibliography-literature-5">
 <li><p>M. Reuter, S. Biasotti, D. Giorgi, G. Patanè, and M. Spagnuolo. Discrete Laplace–Beltrami operators for shape analysis and segmentation. <em>Computers &amp; Graphics</em>, 33(3):381–390, 2009. <a class="reference external" href="https://doi.org/10.1016/j.cag.2009.03.005">doi:10.1016/j.cag.2009.03.005</a>.</p></li>
 <li><p>B. Levy. Laplace-Beltrami eigenfunctions towards an algorithm that “understands” geometry. In <em>IEEE International Conference on Shape Modeling and Applications 2006 (SMI’06)</em>, 13–13. 2006. <a class="reference external" href="https://doi.org/10.1109/SMI.2006.21">doi:10.1109/SMI.2006.21</a>.</p></li>
 </ul>
 <p>Thermal noise</p>
-<ul class="simple" id="bibtex-bibliography-literature-3">
+<ul class="simple" id="bibtex-bibliography-literature-6">
 <li><p>S. Uhlemann, H. Müller, J. Zach, and Max. Haider. Thermal magnetic field noise: electron optics and decoherence. <em>Ultramicroscopy</em>, 151:199 – 210, 2015. <a class="reference external" href="https://doi.org/https://doi.org/10.1016/j.ultramic.2014.11.022">doi:https://doi.org/10.1016/j.ultramic.2014.11.022</a>. Special Issue: 80th Birthday of Harald Rose; PICO 2015 – Third Conference on Frontiers of Aberration Corrected Electron Microscopy.</p></li>
 <li><p>B. J. Roth. Thermal fluctuations of the magnetic field over a thin conducting plate. <em>Journal of Applied Physics</em>, 83(2):635–638, 1998. <a class="reference external" href="https://doi.org/10.1063/1.366753">doi:10.1063/1.366753</a>.</p></li>
 </ul>
@@ -208,8 +228,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

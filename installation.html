@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>Install &#8212; bfieldtools  documentation</title>
@@ -20,6 +20,17 @@
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Literature" href="literature.html" />
     <link rel="prev" title="Dependencies" href="overview.html" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166989761-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166989761-1');
+    </script>
+
     <link rel="stylesheet" href="_static/style.css " type="text/css" />
     <link rel="stylesheet" href="_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="_static/font-source-code-pro.css" type="text/css" />
@@ -84,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#coil-design">Coil design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#miscellaneous-examples">Miscellaneous examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
@@ -122,8 +134,8 @@
               <img class="logo" src="_static/logo_simple.png" alt="Logo"/>
             </a></p><ul>
 <li><a class="reference internal" href="#">Install</a><ul>
-<li><a class="reference internal" href="#using-conda">Using conda</a></li>
 <li><a class="reference internal" href="#using-pip">Using pip</a></li>
+<li><a class="reference internal" href="#a-note-on-python-environments-and-dependencies">A note on Python environments and dependencies</a></li>
 <li><a class="reference internal" href="#from-source">From source</a></li>
 <li><a class="reference internal" href="#additional-solvers">Additional solvers</a></li>
 </ul>
@@ -151,30 +163,31 @@
       
   <div class="section" id="install">
 <h1>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<p>bfieldtools is a pure Python package, and depends on several other Python packages. bfieldtools requires Python version 3.7 or higher.</p>
-<div class="section" id="using-conda">
-<h2>Using conda<a class="headerlink" href="#using-conda" title="Permalink to this headline">¶</a></h2>
-<p>We strongly recommend the <a class="reference external" href="https://www.anaconda.com/">Anaconda</a> distribution of Python, which comes with a variety of scientific packages pre-bundled, and includes the conda command line tool for installing new packages and managing different package sets (“environments”) for different projects. Alternatively, the more bare-bones <a class="reference external" href=":https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> distribution also works.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install -c conda-forge bfieldtools
-</pre></div>
-</div>
-</div>
+<p>bfieldtools is a pure Python package, and depends on several other Python packages. bfieldtools requires Python version 3.6 or higher.</p>
 <div class="section" id="using-pip">
 <h2>Using pip<a class="headerlink" href="#using-pip" title="Permalink to this headline">¶</a></h2>
-<p>bfieldtools can also be installed using the pip package manager.</p>
+<p>bfieldtools can most easily be installed using the pip package manager.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pip install bfieldtools
 </pre></div>
 </div>
 </div>
-<div class="section" id="from-source">
-<h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
-<p>To download the most-recent release of bfieldtools, run</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>curl -s https://api.github.com/repos/bfieldtools/bfieldtools/releases/latest
+<div class="section" id="a-note-on-python-environments-and-dependencies">
+<h2>A note on Python environments and dependencies<a class="headerlink" href="#a-note-on-python-environments-and-dependencies" title="Permalink to this headline">¶</a></h2>
+<p>bfieldtools requires some dependencies to work. The most demanding dependency is mayavi, which is used for 3D plots. Mayavi, which in turn relies on vtk, can be a hassle to install on some platforms. One of the best ways to getn bfieldtools fully working is to use the <a class="reference external" href="https://www.anaconda.com/products/individual">Anaconda</a> or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> Python distributions. You can then run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda install mayavi
 </pre></div>
 </div>
-<p>Alternatively, to download the <em>development</em> version of bfieldtools, run</p>
-<p>After downloading, basic setuptools workflow applies.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python setup.py install
+<p>to install mayavi, after which you can install bfieldtools using pip as seen above. bfieldtools itself is unfortunately not installable through conda since some other dependencies are pip-only.</p>
+</div>
+<div class="section" id="from-source">
+<h2>From source<a class="headerlink" href="#from-source" title="Permalink to this headline">¶</a></h2>
+<p>To install the <em>development</em> version of bfieldtools, run</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>wget https://github.com/bfieldtools/bfieldtools/archive/master.zip
+</pre></div>
+</div>
+<p>After downloading and unzipping the archive, basic setuptools workflow applies.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">cd</span> bfieldtools/
+python setup.py install
 </pre></div>
 </div>
 </div>
@@ -199,8 +212,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

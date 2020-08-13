@@ -110,7 +110,7 @@ shield = MeshConductor(
 # shield.mesh = shield.mesh.subdivide()
 
 
-###############################################################
+#%%
 # Set up target  points and plot geometry
 
 # Here, the target points are on a volumetric grid within a sphere
@@ -144,7 +144,7 @@ if PLOT:
     mlab.points3d(*target_points.T)
 
 
-###############################################################
+#%%
 # Compute C matrices that are used to compute the generated magnetic field
 
 mutual_inductance = coil.mutual_inductance(shield)
@@ -155,7 +155,7 @@ mutual_inductance = coil.mutual_inductance(shield)
 shield.M_coupling = np.linalg.solve(-shield.inductance, mutual_inductance.T)
 secondary_C = shield.B_coupling(target_points) @ -shield.M_coupling
 
-###############################################################
+#%%
 # Create bfield specifications used when optimizing the coil geometry
 
 # The absolute target field amplitude is not of importance,
@@ -217,7 +217,7 @@ for idx, t in enumerate(time):
         }
     )
 
-###############################################################
+#%%
 # Run QP solver
 
 import mosek
@@ -234,7 +234,7 @@ from bfieldtools.mesh_conductor import StreamFunction
 
 shield.induced_s = StreamFunction(shield.M_coupling @ coil.s, shield)
 
-###############################################################
+#%%
 # Plot coil windings and target points
 
 
@@ -286,7 +286,57 @@ if PLOT:
 # mlab.title('Coils which minimize the transient effects of conductive shield')
 
 
-###############################################################
+#%%
+
+
+#%%
+# Plot cross-section of magnetic field and magnetic potential of the discretized loops
+
+
+import matplotlib.pyplot as plt
+
+x = y = np.linspace(-1, 1, 40)
+X, Y = np.meshgrid(x, y, indexing="ij")
+
+
+points = np.zeros((X.flatten().shape[0], 3))
+points[:, 0] = X.flatten()
+points[:, 1] = Y.flatten()
+
+B = coil.B_coupling(points) @ coil.s
+
+
+mlab.quiver3d(*points.T, *B.T)
+
+# U = U.reshape(x.shape[0], y.shape[0])
+# B = B.T[:2].reshape(2, x.shape[0], y.shape[0])
+
+# from bfieldtools.viz import plot_cross_section
+
+# lw = np.sqrt(B[0] ** 2 + B[1] ** 2)
+
+# lw = 2 * lw / np.max(lw)
+
+# plot_cross_section(X, Y, U, log=False, contours=False)
+
+# seed_points = points[:, :2] * 0.3
+
+# plt.streamplot(
+#     x,
+#     y,
+#     B[0],
+#     B[1],
+#     density=2,
+#     linewidth=lw,
+#     color="k",
+#     integration_direction="both",
+#     start_points=seed_points,
+# )
+
+
+# plt.tight_layout()
+
+#%%
 # For comparison, let's see how the coils look when we ignore the conducting shield
 
 
@@ -342,7 +392,25 @@ if PLOT:
         mlab.savefig(SAVE_PATH + "eddy_no.png", figure=f, magnification=4)
         mlab.close()
 
-####################################################################
+
+#%%
+
+import matplotlib.pyplot as plt
+
+x = y = np.linspace(-1, 1, 40)
+X, Y = np.meshgrid(x, y, indexing="ij")
+
+
+points = np.zeros((X.flatten().shape[0], 3))
+points[:, 0] = X.flatten()
+points[:, 1] = Y.flatten()
+
+B = coil.B_coupling(points) @ coil.unshielded_s
+
+
+mlab.quiver3d(*points.T, *B.T)
+
+#%%
 # Finally, let's compare the time-courses
 
 

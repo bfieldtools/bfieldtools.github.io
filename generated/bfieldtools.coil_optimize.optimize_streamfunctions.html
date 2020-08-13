@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.coil_optimize.optimize_streamfunctions &#8212; bfieldtools  documentation</title>
@@ -20,6 +20,17 @@
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="bfieldtools.coil_optimize.optimize_lsq" href="bfieldtools.coil_optimize.optimize_lsq.html" />
     <link rel="prev" title="bfieldtools.line_conductor.LineConductor" href="bfieldtools.line_conductor.LineConductor.html" />
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-166989761-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-166989761-1');
+    </script>
+
     <link rel="stylesheet" href="../_static/style.css " type="text/css" />
     <link rel="stylesheet" href="../_static/font-awesome.css" type="text/css" />
     <link rel="stylesheet" href="../_static/font-source-code-pro.css" type="text/css" />
@@ -84,6 +95,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../literature.html#related-software">Related software</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html">Example gallery</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#coil-design">Coil design</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#miscellaneous-examples">Miscellaneous examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#physics-publication-examples">Physics publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#software-publication-examples">Software publication examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../auto_examples/index.html#thermal-noise-computation">Thermal noise computation</a></li>
@@ -145,9 +157,9 @@
       
   <div class="section" id="bfieldtools-coil-optimize-optimize-streamfunctions">
 <h1>bfieldtools.coil_optimize.optimize_streamfunctions<a class="headerlink" href="#bfieldtools-coil-optimize-optimize-streamfunctions" title="Permalink to this headline">¶</a></h1>
-<dl class="function">
+<dl class="py function">
 <dt id="bfieldtools.coil_optimize.optimize_streamfunctions">
-<code class="sig-prename descclassname">bfieldtools.coil_optimize.</code><code class="sig-name descname">optimize_streamfunctions</code><span class="sig-paren">(</span><em class="sig-param">mesh_conductor</em>, <em class="sig-param">bfield_specification</em>, <em class="sig-param">objective='minimum_inductive_energy'</em>, <em class="sig-param">solver=None</em>, <em class="sig-param">solver_opts={}</em>, <em class="sig-param">problem=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.coil_optimize.optimize_streamfunctions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bfieldtools.coil_optimize.</code><code class="sig-name descname">optimize_streamfunctions</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">mesh_conductor</span></em>, <em class="sig-param"><span class="n">bfield_specification</span></em>, <em class="sig-param"><span class="n">objective</span><span class="o">=</span><span class="default_value">'minimum_inductive_energy'</span></em>, <em class="sig-param"><span class="n">solver</span><span class="o">=</span><span class="default_value">None</span></em>, <em class="sig-param"><span class="n">solver_opts</span><span class="o">=</span><span class="default_value">{}</span></em>, <em class="sig-param"><span class="n">problem</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.coil_optimize.optimize_streamfunctions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quadratic optimization of coil stream function according to a specified objective.</p>
 <p>Utilizes CVXPY and a numerical iterative solver.</p>
 <dl class="field-list simple">
@@ -213,8 +225,8 @@ optimized current density values at each mesh vertex</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-05-18.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
     </p>
   </div>
 </footer>

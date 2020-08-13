@@ -31,7 +31,6 @@ scaling_factor = 1
 # Load simple plane mesh that is centered on the origin
 planemesh = load_example_mesh("10x10_plane_hires")
 
-planemesh.apply_scale(scaling_factor * 1.6)
 
 # Specify coil plane geometry
 center_offset = np.array([0, 0, 0]) * scaling_factor
@@ -59,14 +58,14 @@ coil = MeshConductor(
     N_suh=100,
 )
 
-##############################################################
+#%%
 # Set up target and stray field points
 
 # Here, the target points are on a volumetric grid within a sphere
 
 center = np.array([0, 0, 0]) * scaling_factor
 
-sidelength = 3 * scaling_factor
+sidelength = 2 * scaling_factor
 n = 8
 xx = np.linspace(-sidelength / 2, sidelength / 2, n)
 yy = np.linspace(-sidelength / 2, sidelength / 2, n)
@@ -94,7 +93,7 @@ stray_points = stray_points_mesh.vertices + center
 n_stray_points = len(stray_points)
 
 
-####################################
+#%%
 # Plot geometry
 if PLOT:
     f = mlab.figure(None, bgcolor=(1, 1, 1), fgcolor=(0.5, 0.5, 0.5), size=(800, 800))
@@ -114,7 +113,7 @@ if PLOT:
         mlab.close()
 
 
-##############################################################
+#%%
 # Create bfield specifications used when optimizing the coil geometry
 
 # The absolute target field amplitude is not of importance,
@@ -137,7 +136,7 @@ stray_spec = {
 
 bfield_specification = [target_spec, stray_spec]
 
-##############################################################
+#%%
 # Run QP solver
 import mosek
 
@@ -149,7 +148,7 @@ coil.s, prob = optimize_streamfunctions(
     solver_opts={"mosek_params": {mosek.iparam.num_threads: 8}},
 )
 
-#############################################################
+#%%
 # Plot coil windings and target points
 
 
@@ -177,7 +176,7 @@ if PLOT:
         mlab.close()
 
 
-##############################################################
+#%%
 # Plot continuous stream function
 
 if PLOT:

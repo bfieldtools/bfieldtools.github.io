@@ -24,7 +24,6 @@ SAVE_DIR = "./MNE interpolation/"
 EVOKED = True
 
 with np.load(SAVE_DIR + "mne_data.npz", allow_pickle=True) as data:
-    # mesh = data["mesh"]
     p = data["p"]
     n = data["n"]
     mesh = trimesh.Trimesh(vertices=data["vertices"], faces=data["faces"])
@@ -129,7 +128,7 @@ print(
 
 #%% Suh fit
 
-c = MeshConductor(mesh_obj=mesh, basis_name="suh", N_suh=250)
+c = MeshConductor(mesh_obj=mesh, basis_name="suh", N_suh=150)
 M = c.mass
 
 B_sensors = np.einsum("ijk,ij->ik", c.B_coupling(p), n)
