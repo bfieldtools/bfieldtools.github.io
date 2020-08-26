@@ -159,7 +159,7 @@
 <h1>bfieldtools.coil_optimize.optimize_streamfunctions<a class="headerlink" href="#bfieldtools-coil-optimize-optimize-streamfunctions" title="Permalink to this headline">¶</a></h1>
 <dl class="function">
 <dt id="bfieldtools.coil_optimize.optimize_streamfunctions">
-<code class="sig-prename descclassname">bfieldtools.coil_optimize.</code><code class="sig-name descname">optimize_streamfunctions</code><span class="sig-paren">(</span><em class="sig-param">mesh_conductor</em>, <em class="sig-param">bfield_specification</em>, <em class="sig-param">objective='minimum_inductive_energy'</em>, <em class="sig-param">solver=None</em>, <em class="sig-param">solver_opts={}</em>, <em class="sig-param">problem=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.coil_optimize.optimize_streamfunctions" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">bfieldtools.coil_optimize.</code><code class="sig-name descname">optimize_streamfunctions</code><span class="sig-paren">(</span><em class="sig-param">mesh_conductor</em>, <em class="sig-param">bfield_specification</em>, <em class="sig-param">objective='minimum_inductive_energy'</em>, <em class="sig-param">solver=None</em>, <em class="sig-param">solver_opts={}</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.coil_optimize.optimize_streamfunctions" title="Permalink to this definition">¶</a></dt>
 <dd><p>Quadratic optimization of coil stream function according to a specified objective.</p>
 <p>Utilizes CVXPY and a numerical iterative solver.</p>
 <dl class="field-list simple">
@@ -179,9 +179,6 @@ of the inductance matrix for consistent behavior across meshes.</p>
 <dt><strong>solver: string</strong></dt><dd><p>string specifying which solver CVXPY will use</p>
 </dd>
 <dt><strong>solver_opt: dict</strong></dt><dd><p>dict containing solver options CVXPY will pass to the solver</p>
-</dd>
-<dt><strong>problem: CVXPY problem object</strong></dt><dd><p>If passed, will use already existing problem (<strong>MUST BE SAME DIMENSIONS</strong>) to
-skip DCP processing/reformulation time.</p>
 </dd>
 </dl>
 </dd>
@@ -225,7 +222,7 @@ optimized current density values at each mesh vertex</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-11.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-26.<br/>
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
