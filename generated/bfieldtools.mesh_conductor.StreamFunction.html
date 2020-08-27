@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
     <title>bfieldtools.mesh_conductor.StreamFunction &#8212; bfieldtools  documentation</title>
@@ -157,9 +157,9 @@
       
   <div class="section" id="bfieldtools-mesh-conductor-streamfunction">
 <h1>bfieldtools.mesh_conductor.StreamFunction<a class="headerlink" href="#bfieldtools-mesh-conductor-streamfunction" title="Permalink to this headline">¶</a></h1>
-<dl class="py class">
+<dl class="class">
 <dt id="bfieldtools.mesh_conductor.StreamFunction">
-<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.mesh_conductor.</code><code class="sig-name descname">StreamFunction</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">input_array</span></em>, <em class="sig-param"><span class="n">mesh_conductor</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction" title="Permalink to this definition">¶</a></dt>
+<em class="property">class </em><code class="sig-prename descclassname">bfieldtools.mesh_conductor.</code><code class="sig-name descname">StreamFunction</code><span class="sig-paren">(</span><em class="sig-param">input_array</em>, <em class="sig-param">mesh_conductor=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction" title="Permalink to this definition">¶</a></dt>
 <dd><p>Class for representing stream function(s) on a MeshConductor</p>
 <p>Handles the mapping between different bases, e.g. inner vertices &lt;-&gt;
 all vertices &lt;-&gt; surface harmonics</p>
@@ -176,39 +176,39 @@ by specifying vals with shape (N,M)</p>
 </dl>
 </dd>
 </dl>
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.__getitem__">
-<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">k</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.__getitem__" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">__getitem__</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">k</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.__getitem__" title="Permalink to this definition">¶</a></dt>
 <dd><p>Return self[key].</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.vert">
 <em class="property">property </em><code class="sig-name descname">vert</code><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.vert" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the stream function in vertex basis</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.inner">
 <em class="property">property </em><code class="sig-name descname">inner</code><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.inner" title="Permalink to this definition">¶</a></dt>
 <dd><p>Returns the stream function in inner basis</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.power">
 <em class="property">property </em><code class="sig-name descname">power</code><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.power" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stream-function resistive power</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.magnetic_energy">
 <em class="property">property </em><code class="sig-name descname">magnetic_energy</code><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.magnetic_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Stream-function magnetic energy</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.coil_inductance">
-<code class="sig-name descname">coil_inductance</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">Nloops</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.coil_inductance" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">coil_inductance</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">Nloops</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.coil_inductance" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -223,15 +223,15 @@ by specifying vals with shape (N,M)</p>
 </dl>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.plot">
-<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">background=True</em>, <em class="sig-param">contours=False</em>, <em class="sig-param">\*\*kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.plot" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">plot</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">background=True</em>, <em class="sig-param">contours=False</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.plot" title="Permalink to this definition">¶</a></dt>
 <dd><p>Plot the stream function</p>
 </dd></dl>
 
-<dl class="py method">
+<dl class="method">
 <dt id="bfieldtools.mesh_conductor.StreamFunction.discretize">
-<code class="sig-name descname">discretize</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">self</span></em>, <em class="sig-param"><span class="n">N_contours</span><span class="o">=</span><span class="default_value">10</span></em>, <em class="sig-param"><span class="n">contours</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.discretize" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">discretize</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">N_contours=10</em>, <em class="sig-param">contours=None</em><span class="sig-paren">)</span><a class="headerlink" href="#bfieldtools.mesh_conductor.StreamFunction.discretize" title="Permalink to this definition">¶</a></dt>
 <dd><p>Wrapper method for contour.scalar_contour, turns the piecewise linear
 stream function into isolines/contours in the form of polylines.</p>
 <dl class="field-list simple">
@@ -274,8 +274,8 @@ coordinats of each polygon vertex.</p>
       
     </p>
     <p>
-        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-13.<br/>
-      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 3.0.2.<br/>
+        &copy; Copyright 2019-2020, bfieldtools developers. Last updated on 2020-08-26.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.4.4.<br/>
     </p>
   </div>
 </footer>
